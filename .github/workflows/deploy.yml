@@ -1,0 +1,57 @@
+name: Deploy placeholder site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build placeholder site
+        run: |
+          mkdir -p _site
+          # Copy README as index
+          cp README.md _site/index.html
+          # Add a header with the project name
+          {
+            echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>G 18 Registry</title>'
+            echo '<style>body{font-family:system-ui,sans-serif;max-width:800px;margin:2em auto;padding:0 1em;line-height:1.5}'
+            echo 'h1{color:#004996} code{background:#f3f4f6;padding:0.1em 0.3em;border-radius:3px}'
+            echo 'a{color:#005A9C}</style></head><body>'
+            echo '<h1>G 18 — OIML Term-Usage Registry</h1>'
+            echo '<p>Pre-implementation placeholder. Source data lives in <a href="https://github.com/oimlsmart/vocab/tree/main/datasets/g18/">oimlsmart/vocab datasets/g18/</a>.</p>'
+            echo '<h2>Implementation plan</h2><ul>'
+            for f in TODO/*.md; do
+              [ "$(basename "$f")" = "README.md" ] && continue
+              echo "<li><a href=\"TODO/$(basename $f)\">$(basename $f .md | sed 's/^[0-9]*-//')</a></li>"
+            done
+            echo '</ul><h2>README (raw)</h2><pre>'
+            cat README.md
+            echo '</pre></body></html>'
+          } > _site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
