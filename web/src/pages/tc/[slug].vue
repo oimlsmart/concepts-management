@@ -1,42 +1,28 @@
 <script setup lang="ts">
-import tcData from "../../data/tc.json";
-import termsData from "../../data/terms.json";
-import { useRoute } from "vue-router";
 import { computed } from "vue";
-const tcs: any = tcData;
-const terms: any = termsData;
+import { useRoute } from "vue-router";
+import tcData from "@/data/tc.json";
+import terms from "@/data/terms.json";
+const route = useRoute();
+function slug(name: string) { return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
+const tcName = computed(() => (tcData as string[]).find(t => slug(t) === route.params.slug));
+const tcTerms = computed(() => !tcName.value ? [] : (terms as any[]).filter(t => t.publications.some((p: any) => p.tc_sc === tcName.value)));
+function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "defined_in_viml" ? "VIML" : "—"; }
 </script>
-
 <template>
-  <section v-if="!tcName" class="card"><p>TC/SC not found.</p></section>
+  <div v-if="!tcName" class="card"><p>Not found.</p></div>
   <template v-else>
-    <section class="page-head">
-      <div class="breadcrumb">
-        <a href="/">Registry</a> /
-        <a href="/tc/">TC / SC</a> /
-        <span>{{ tcName }}</span>
-      </div>
+    <div class="page-head">
+      <div class="breadcrumb"><RouterLink to="/">Registry</RouterLink> / <RouterLink to="/tc/">TC</RouterLink> / <span>{{ tcName }}</span></div>
       <h1>{{ tcName }}</h1>
-      <p class="lede">{{ terms.length }} term{{ terms.length === 1 ? "" : "s" }} cited by this TC/SC's publications.</p>
-    </section>
-
+    </div>
     <section class="card">
       <table>
-        <thead>
-          <tr>
-            <th>Term</th>
-            <th>Vocabulary</th>
-            <th>Ed.</th>
-            <th>Instances</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Term</th><th>VIM</th><th>Instances</th></tr></thead>
         <tbody>
-          <tr v-for="t in terms" :key="t.slug">
-            <td><a :href="`/terms/${t.slug}/`">{{ t.name }}</a></td>
-            <td><span :class="['kind', `kind-${t.kind}`]">{{ t.kind === "defined_in_vim" ? "VIM" : t.kind === "defined_in_viml" ? "VIML" : "—" }}</span></td>
-            <td>
-              <span v-for="e in t.editions_present" :key="e" :class="['edition-pill', `edition-${e.toLowerCase()}`]">{{ e }}</span>
-            </td>
+          <tr v-for="t in tcTerms" :key="t.slug">
+            <td><RouterLink :to="`/terms/${t.slug}/`">{{ t.name }}</RouterLink></td>
+            <td><span :class="['kind', `kind-${t.kind}`]">{{ kindLabel(t.kind) }}</span></td>
             <td class="num">{{ t.publications.filter((p: any) => p.tc_sc === tcName).length }}</td>
           </tr>
         </tbody>
