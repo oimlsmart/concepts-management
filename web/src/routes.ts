@@ -1,27 +1,15 @@
 import type { RouteRecordRaw } from "vue-router";
 
-const Index = () => import("./pages/index.vue");
-const TermsIndex = () => import("./pages/terms/index.vue");
-const TermPage = () => import("./pages/terms/[slug].vue");
-const Editions = () => import("./pages/editions.vue");
-const Harmonization = () => import("./pages/harmonization.vue");
-const Conflicts = () => import("./pages/conflicts.vue");
-const Leaderboard = () => import("./pages/leaderboard.vue");
-const PublicationsIndex = () => import("./pages/publications/index.vue");
-const PublicationPage = () => import("./pages/publications/[slug].vue");
-const TcIndex = () => import("./pages/tc/index.vue");
-const TcPage = () => import("./pages/tc/[slug].vue");
-
 export const routes: RouteRecordRaw[] = [
-  { path: "/", component: Index },
-  { path: "/terms/", component: TermsIndex },
-  { path: "/terms/:slug/", component: TermPage, props: true },
-  { path: "/publications/", component: PublicationsIndex },
-  { path: "/publications/:slug/", component: PublicationPage, props: true },
-  { path: "/tc/", component: TcIndex },
-  { path: "/tc/:slug/", component: TcPage, props: true },
-  { path: "/editions/", component: Editions },
-  { path: "/harmonization/", component: Harmonization },
-  { path: "/conflicts/", component: Conflicts },
-  { path: "/leaderboard/", component: Leaderboard },
+  { path: "/", component: () => import("./pages/index.vue") },
+  { path: "/terms/", component: () => import("./pages/terms/index.vue") },
+  { path: "/terms/:slug/", component: () => import("./pages/terms/[slug].vue"), props: true },
+  { path: "/publications/", component: () => import("./pages/publications/index.vue") },
+  { path: "/publications/:slug/", component: () => import("./pages/publications/[slug].vue"), props: true },
+  { path: "/tc/", component: () => import("./pages/tc/index.vue") },
+  { path: "/tc/:slug/", component: () => import("./pages/tc/[slug].vue"), props: true },
+  { path: "/editions/", component: () => import("./pages/editions.vue") },
+  { path: "/harmonization/", component: () => import("./pages/harmonization.vue") },
+  { path: "/conflicts/", component: () => import("./pages/conflicts.vue") },
+  { path: "/leaderboard/", component: () => import("./pages/leaderboard.vue") },
 ];

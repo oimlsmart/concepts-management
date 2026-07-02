@@ -1,100 +1,51 @@
 <script setup lang="ts">
-import termsData from "../data/terms.json";
-import harmonizationData from "../data/harmonization.json";
-import editionStatsData from "../data/edition-stats.json";
-const terms: any = termsData;
-const harmonization: any = harmonizationData;
-const editions: any = editionStatsData;
+import terms from "@/data/terms.json";
+import harmonization from "@/data/harmonization.json";
+import editionStats from "@/data/edition-stats.json";
+
+const totalInstances = terms.reduce((s: number, t: any) => s + t.publications.length, 0);
+const divergentCount = terms.filter((t: any) => new Set(t.publications.map((p: any) => (p.definition || '').trim()).filter(Boolean)).size > 1).length;
 </script>
 
 <template>
   <section class="hero">
     <h1>G 18 — OIML Term-Usage Registry</h1>
     <p class="lede">
-      A <strong>usage registry</strong>, not a vocabulary: where OIML terms
-      appear, in which publication, with which definition, and how each
-      instance compares to the official VIM/VIML definition. Built for
-      <strong>TC 1 / Vocabularies</strong> to validate
-      <a href="https://github.com/oimlsmart/vocab/tree/main/datasets/g18-202X">OIML G 18:202X</a>
-      (the draft edition that supersedes G 18:2010).
+      A <strong>usage registry</strong> for TC 1 / Vocabularies to validate
+      <a href="https://github.com/oimlsmart/vocab/tree/main/datasets/g18-202X">OIML G 18:202X</a>.
     </p>
   </section>
 
-  <section class="stats grid grid-4">
-    <a class="stat-card" href="/terms/">
-      <div class="stat-value">{{ terms.length }}</div>
-      <div class="stat-label">unique terms</div>
-    </a>
-    <a class="stat-card" href="/harmonization/">
-      <div class="stat-value">{{ harmonization.length }}</div>
-      <div class="stat-label">harmonisation candidates</div>
-    </a>
-    <a class="stat-card" href="/editions/">
-      <div class="stat-value">
-        {{ terms.reduce((s, t) => s + t.publications.length, 0) }}
-      </div>
-      <div class="stat-label">term instances across editions</div>
-    </a>
-    <a class="stat-card" href="/leaderboard/">
-      <div class="stat-value">
-        {{ terms.filter(t => new Set(t.publications.map((p: any) => (p.definition || '').trim()).filter(Boolean)).size > 1).length }}
-      </div>
-      <div class="stat-label">terms with divergent definitions</div>
-    </a>
+  <section class="grid grid-4">
+    <RouterLink class="stat-card" to="/terms/"><div class="stat-value">{{ terms.length }}</div><div class="stat-label">unique terms</div></RouterLink>
+    <RouterLink class="stat-card" to="/harmonization/"><div class="stat-value">{{ harmonization.length }}</div><div class="stat-label">harmonisation candidates</div></RouterLink>
+    <RouterLink class="stat-card" to="/editions/"><div class="stat-value">{{ totalInstances }}</div><div class="stat-label">instances</div></RouterLink>
+    <RouterLink class="stat-card" to="/leaderboard/"><div class="stat-value">{{ divergentCount }}</div><div class="stat-label">divergent terms</div></RouterLink>
   </section>
 
   <section class="card">
     <h2>Edition comparison</h2>
-    <p class="lede">
-      The registry consumes both the published 2010 edition and the draft 202X
-      edition. Each term is tagged with the edition(s) it appears in.
-    </p>
-    <table class="editions-table">
-      <thead>
-        <tr>
-          <th>Edition</th>
-          <th>Source concepts</th>
-          <th>Terms</th>
-          <th>Only in this edition</th>
-          <th>Harmonisation candidates</th>
-        </tr>
-      </thead>
+    <table>
+      <thead><tr><th>Edition</th><th>Concepts</th><th>Terms</th><th>Only here</th><th>Harmonise</th></tr></thead>
       <tbody>
-        <tr v-for="s in editions.stats" :key="s.edition">
-          <td>
-            <strong>{{ s.edition }}</strong>
-            <span v-if="s.primary" class="badge match-status-full">primary</span>
-          </td>
-          <td class="num">{{ s.instances }}</td>
-          <td class="num">{{ s.terms }}</td>
-          <td class="num">{{ s.only_in_edition }}</td>
-          <td class="num">{{ s.harmonization_candidates }}</td>
+        <tr v-for="s in editionStats.stats" :key="s.edition">
+          <td><strong>{{ s.edition }}</strong> <span v-if="s.primary" class="match-status match-status-full">primary</span></td>
+          <td class="num">{{ s.instances }}</td><td class="num">{{ s.terms }}</td>
+          <td class="num">{{ s.only_in_edition }}</td><td class="num">{{ s.harmonization_candidates }}</td>
         </tr>
       </tbody>
     </table>
-    <p style="margin-top: 0.7em;"><a href="/editions/">Full edition comparison →</a></p>
-  </section>
-
-  <section class="card">
-    <h2>What this registry is for</h2>
-    <ul>
-      <li><strong>TC 1 editor</strong> — open the <a href="/harmonization/">harmonisation worklist</a> and work through terms cited by multiple Recommendations.</li>
-      <li><strong>TC chair</strong> — see which TC/SC has the most drift from official VIM/VIML.</li>
-      <li><strong>Authoring a new Recommendation</strong> — search for a term; if it's in VIM/VIML, get the official definition; if it's already in G 18 from other Recs, see how others defined it.</li>
-      <li><strong>OIML secretariat</strong> — maintain a consistency dashboard across all Recommendations.</li>
-    </ul>
+    <p style="margin-top:0.7em"><RouterLink to="/editions/">Full comparison →</RouterLink></p>
   </section>
 
   <section class="card">
     <h2>Start browsing</h2>
     <ul>
-      <li><a href="/terms/">All terms (alphabetical)</a> — {{ terms.length }} entries, one page per term with every publication instance.</li>
-      <li><a href="/harmonization/">Harmonisation worklist</a> — the core TC 1 worklist for validating 202X.</li>
-      <li><a href="/editions/">Edition comparison</a> — side-by-side stats for 2010 vs 202X.</li>
-      <li><a href="/tc/">By Technical Committee / Subcommittee</a> — see which TC owns which terms.</li>
-      <li><a href="/publications/">By publication</a> — start from a Recommendation and see all terms it defines.</li>
-      <li><a href="/leaderboard/">Divergence leaderboard</a> — the 20 terms with the most distinct definitions across publications.</li>
-      <li><a href="/conflicts/">Conflicting G 18 IDs</a> — raw ID conflicts and designation collisions across editions.</li>
+      <li><RouterLink to="/terms/">All terms</RouterLink> — {{ terms.length }} entries</li>
+      <li><RouterLink to="/harmonization/">Harmonisation worklist</RouterLink> — TC 1 validation</li>
+      <li><RouterLink to="/editions/">Edition comparison</RouterLink> — 2010 vs 202X</li>
+      <li><RouterLink to="/conflicts/">ID conflicts</RouterLink> — raw conflicts + collisions</li>
+      <li><RouterLink to="/leaderboard/">Divergence leaderboard</RouterLink></li>
     </ul>
   </section>
 </template>

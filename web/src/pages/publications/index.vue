@@ -1,47 +1,39 @@
 <script setup lang="ts">
-import publicationsData from "../../data/publications.json";
-import termsData from "../../data/terms.json";
 import { ref, computed } from "vue";
-const publications: any = publicationsData;
-const terms: any = termsData;
+import publications from "@/data/publications.json";
+import terms from "@/data/terms.json";
+const onlyEdition = ref("");
+const filtered = computed(() => {
+  if (!onlyEdition.value) return publications as any[];
+  const pubIds = new Set<string>();
+  for (const t of terms as any[]) {
+    if (t.editions_present?.includes(onlyEdition.value)) {
+      for (const p of t.publications || []) if (p.publication_id) pubIds.add(p.publication_id);
+    }
+  }
+  return (publications as any[]).filter(p => pubIds.has(p.id));
+});
+function termCount(pubId: string, ed: string) {
+  return (terms as any[]).filter(t => t.publications.some((p: any) => p.publication_id === pubId && (!ed || t.editions_present?.includes(ed)))).length;
+}
 </script>
-
 <template>
-  <section class="page-head">
-    <div class="breadcrumb"><a href="/">Registry</a> / <span>Publications</span></div>
-    <h1>OIML publications referenced</h1>
-    <p class="lede">
-      {{ publications.length }} publications.
-      <span v-if="onlyEdition">Showing only terms cited in <strong>{{ onlyEdition }}</strong>.</span>
-    </p>
-  </section>
-
+  <div class="page-head">
+    <div class="breadcrumb"><RouterLink to="/">Registry</RouterLink> / <span>Publications</span></div>
+    <h1>Publications</h1>
+    <p class="lede">{{ (publications as any[]).length }} publications.</p>
+  </div>
   <section class="card">
-    <form class="filter-form" @submit.prevent>
-      <label>Show terms from edition:
-        <select v-model="onlyEdition">
-          <option value="">All editions</option>
-          <option value="2010">2010 only</option>
-          <option value="202X">202X only</option>
-        </select>
-      </label>
-      <span class="count-line">Showing {{ filtered.length }} publication{{ filtered.length === 1 ? "" : "s" }}{{ onlyEdition ? ` cited in ${onlyEdition}` : "" }}.</span>
+    <form style="margin-bottom:0.5em" @submit.prevent>
+      <select v-model="onlyEdition"><option value="">All editions</option><option value="2010">2010 only</option><option value="202X">202X only</option></select>
+      <span class="muted">{{ filtered.length }} shown</span>
     </form>
     <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Reference</th>
-          <th>Year</th>
-          <th>TC/SC</th>
-          <th>Terms (this edition)</th>
-          <th>PDF</th>
-        </tr>
-      </thead>
+      <thead><tr><th>ID</th><th>Reference</th><th>Year</th><th>TC/SC</th><th>Terms</th><th>PDF</th></tr></thead>
       <tbody>
-        <tr v-for="p in filtered" :key="p.id + (onlyEdition || '')">
+        <tr v-for="p in filtered" :key="p.id">
           <td><code>{{ p.id }}</code></td>
-          <td><a :href="`/publications/${p.id}/`">{{ p.reference || p.id }}</a></td>
+          <td><RouterLink :to="`/publications/${p.id}/`">{{ p.reference || p.id }}</RouterLink></td>
           <td class="num">{{ (p.id || '').match(/(\d{4})/)?.[1] || "—" }}</td>
           <td>{{ p.tc_sc || "—" }}</td>
           <td class="num">{{ termCount(p.id, onlyEdition) }}</td>
