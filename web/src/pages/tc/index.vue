@@ -1,28 +1,21 @@
 <script setup lang="ts">
-import tcData from "../../data/tc.json";
-import termsData from "../../data/terms.json";
-const tcs: any = tcData;
-const terms: any = termsData;
+import tcData from "@/data/tc.json";
+import terms from "@/data/terms.json";
+function termCount(name: string) { return (terms as any[]).filter(t => t.publications.some((p: any) => p.tc_sc === name)).length; }
+function pubCount(name: string) { return new Set((terms as any[]).flatMap(t => t.publications).filter((p: any) => p.tc_sc === name).map((p: any) => p.publication_id)).size; }
+function slug(name: string) { return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
 </script>
-
 <template>
-  <section class="page-head">
-    <div class="breadcrumb"><a href="/">Registry</a> / <span>TC / SC</span></div>
-    <h1>Technical Committees &amp; Subcommittees</h1>
-  </section>
-
+  <div class="page-head">
+    <div class="breadcrumb"><RouterLink to="/">Registry</RouterLink> / <span>TC / SC</span></div>
+    <h1>Technical Committees</h1>
+  </div>
   <section class="card">
     <table>
-      <thead>
-        <tr>
-          <th>TC / SC</th>
-          <th>Publications</th>
-          <th>Terms</th>
-        </tr>
-      </thead>
+      <thead><tr><th>TC / SC</th><th>Publications</th><th>Terms</th></tr></thead>
       <tbody>
-        <tr v-for="t in tcs" :key="t">
-          <td><a :href="`/tc/${slug(t)}/`">{{ t }}</a></td>
+        <tr v-for="t in (tcData as string[])" :key="t">
+          <td><RouterLink :to="`/tc/${slug(t)}/`">{{ t }}</RouterLink></td>
           <td class="num">{{ pubCount(t) }}</td>
           <td class="num">{{ termCount(t) }}</td>
         </tr>

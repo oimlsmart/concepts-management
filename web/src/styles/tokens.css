@@ -1,0 +1,34 @@
+/* OIML design tokens — mirrors oimlsmart.github.io/.vitepress/theme/styles/tokens.css */
+:root {
+  --oiml-brand-50:  #f0f6ff;
+  --oiml-brand-100: #dde9fc;
+  --oiml-brand-200: #bcd3f8;
+  --oiml-brand-300: #89b4ef;
+  --oiml-brand-400: #4d8fe0;
+  --oiml-brand-500: #1a6fc2;
+  --oiml-brand-600: #004996;
+  --oiml-brand-700: #003a78;
+  --oiml-brand-800: #002b5a;
+  --oiml-brand-900: #001e41;
+  --oiml-teal: #024873;
+  --oiml-cream: #faf6ee;
+  --oiml-cream-soft: #f5ede0;
+  --oiml-cream-deep: #e8dec8;
+  --oiml-amber: #d97706;
+  --oiml-amber-soft: #f59e0b;
+  --oiml-amber-deep: #92400e;
+  --paper: var(--oiml-cream);
+  --paper-soft: #fff;
+  --ink: #0a1628;
+  --ink-soft: #3a4a63;
+  --ink-muted: #6b7a92;
+  --rule: #ddd2bd;
+  --rule-soft: #ebe3d2;
+  --accent: var(--oiml-brand-600);
+  --accent-hover: var(--oiml-brand-700);
+  --maxw: 1080px;
+  --green: #047857;
+  --red: #b91c1c;
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
