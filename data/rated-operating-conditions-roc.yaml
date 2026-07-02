@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.5'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.5
-    definition_text:
+    definition_text: conditions of use for which specified metrological characteristics
+      of a measuring instrument are intended to lie within given limits
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -44,7 +45,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.5'
-    definition_text:
+    definition_text: conditions of use for which specified metrological characteristics
+      of a measuring instrument are intended to lie within given limits
     edition_label: VIM 1993
     vocab: vim
     role: legacy

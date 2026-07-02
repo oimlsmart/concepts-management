@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.21'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.21
-    definition_text:
+    definition_text: extreme values of an error permitted by specifications, regulations,
+      etc. for a given measuring instrument
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -236,10 +237,8 @@ data:
       quantity value, permitted by specifications or regulations for a given measurement,
       measuring instrument, or measuring system [VIM 4.26]
     notes: []
-    consistency: partial
-    consistency_reason: Adds 'reference quantity value,' 'measurement,' and 'measuring
-      system' which broaden scope beyond 'measuring instrument' and introduce concepts
-      not in the official definition.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 140:2007
     publication_id: OIML R140:2007
@@ -306,7 +305,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.21'
-    definition_text:
+    definition_text: extreme values of an error permitted by specifications, regulations,
+      etc. for a given measuring instrument
     edition_label: VIM 1993
     vocab: vim
     role: legacy

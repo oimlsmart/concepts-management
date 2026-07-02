@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:1:2000
     id: '4.3'
     url: https://oimlsmart.github.io/vocab/viml-2000/concept/4.3
-    definition_text:
+    definition_text: measuring instrument which conforms to prescribed require-ments,
+      in particular legal metrological requirements
     edition_label: VIML 2000
     vocab: viml
     role: prior
@@ -87,7 +88,8 @@ related:
   ref:
     source: urn:oiml:pub:v:1:2000
     id: '4.3'
-    definition_text:
+    definition_text: measuring instrument which conforms to prescribed require-ments,
+      in particular legal metrological requirements
     edition_label: VIML 2000
     vocab: viml
     role: prior

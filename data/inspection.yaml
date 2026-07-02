@@ -7,7 +7,9 @@ data:
     source: urn:oiml:pub:v:1:2022
     id: A.11
     url: https://oimlsmart.github.io/vocab/viml-2022/concept/A.11
-    definition_text:
+    definition_text: examination of an object of conformity assessment and determination
+      of its conformity with detailed requirements or, on the basis of professional
+      judgement, with general requirements
     edition_label: VIML 2022
     vocab: viml
     role: current
@@ -94,7 +96,9 @@ related:
   ref:
     id: A.11
     source: urn:oiml:pub:v:1:2022
-    definition_text:
+    definition_text: examination of an object of conformity assessment and determination
+      of its conformity with detailed requirements or, on the basis of professional
+      judgement, with general requirements
     edition_label: VIML 2022
     vocab: viml
     role: current

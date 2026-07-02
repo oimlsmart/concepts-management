@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.12'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.12
-    definition_text:
+    definition_text: smallest difference between indications of a displaying device
+      that can be meaningfully distinguished
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -63,7 +64,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.12'
-    definition_text:
+    definition_text: smallest difference between indications of a displaying device
+      that can be meaningfully distinguished
     edition_label: VIM 1993
     vocab: vim
     role: legacy

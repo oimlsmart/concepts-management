@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.7'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.7
-    definition_text:
+    definition_text: conditions of use prescribed for testing the performance of a
+      measuring instrument or for intercomparison of results of measurements
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -44,10 +45,9 @@ data:
       4.11) a measuring instrument or measuring system or for comparison of measurement
       results
     notes: []
-    consistency: ok
-    consistency_reason: Semantically equivalent; only minor wording differences such
-      as 'operating condition' vs 'conditions of use' and 'measuring system' vs 'instrument'
-      which do not change the meaning.
+    consistency: partial
+    consistency_reason: "'Operating condition' singular is less precise than 'conditions
+      of use', and 'measuring system' is added beyond the official 'measuring instrument'."
     related:
     - type: see
       ref:
@@ -510,10 +510,8 @@ data:
       and influence quantities. Note 2: In IEC 60050-300, item 311-06-02, the term
       “reference condition” refers to an operating condition under which the specified
       instrumental measurement uncertainty is the smallest possible.'
-    consistency: ok
-    consistency_reason: 'Both definitions convey the same meaning: prescribed conditions
-      for testing/evaluating measuring instrument performance or for comparing/intercomparing
-      measurement results.'
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -573,10 +571,8 @@ data:
     notes:
     - 'Note:  Reference conditions specify intervals of values of the measurand and
       influence quantities. [Adapted from VIML:2013, 0.09 – part of note omitted]'
-    consistency: ok
-    consistency_reason: 'Semantically equivalent: ''operating condition'' aligns with
-      ''conditions of use'', ''evaluating'' matches ''testing'', and ''measuring system''
-      is a natural extension of ''measuring instrument''.'
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R117-1:2019
     publication_id: OIML R117-1:2019
@@ -621,8 +617,8 @@ data:
     notes:
     - 'Note:  The reference conditions generally include reference values or reference
       ranges for the influence quantities affecting the measuring instrument.'
-    consistency: ok
-    consistency_reason: The definitions are identical in wording and meaning.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R059-1:2016
     publication_id: OIML R059-1:2016
@@ -741,8 +737,8 @@ data:
     notes:
     - 'Note:  The reference conditions generally include reference values or reference
       ranges for the influence quantities affecting the measuring instrument.'
-    consistency: ok
-    consistency_reason: The definitions are identical in wording and meaning.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 143:2009
     publication_id: OIML R143:2009
@@ -755,10 +751,9 @@ data:
       measuring instrument or measuring system or for comparison of measurement results
       [VIM:2007, 4.11]
     notes: []
-    consistency: ok
-    consistency_reason: Semantically equivalent; only minor wording differences such
-      as 'operating condition' vs 'conditions of use' and 'measuring system' vs 'instrument'
-      which do not change the meaning.
+    consistency: partial
+    consistency_reason: "'Operating condition' singular is less precise than 'conditions
+      of use', and 'measuring system' is added beyond the official 'measuring instrument'."
   - edition: 202X
     publication: OIML R 71:2008
     publication_id: OIML R071:2008
@@ -769,9 +764,8 @@ data:
     g18_entry: 02234-R071
     definition: reference conditions applicable for the calibration certificate
     notes: []
-    consistency: partial
-    consistency_reason: Publication narrows scope to calibration certificate context,
-      omitting testing of performance and intercomparison of measurement results.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 85-1:2008
     publication_id: OIML R085-1:2008
@@ -785,9 +779,8 @@ data:
     notes:
     - 'Note:  Reference conditions generally specify intervals of values for any influence
       quantity.'
-    consistency: partial
-    consistency_reason: Drops the purpose of testing instrument performance and restricts
-      to influence factors/values rather than general conditions of use.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 99-1:2008
     publication_id: OIML R099-1:2008
@@ -892,8 +885,8 @@ data:
     - 'Note:  The reference conditions generally include reference values or reference
       ranges for influence quantities affecting the measuring instrument. [VIM:1993,
       5.7]'
-    consistency: ok
-    consistency_reason: The definitions are identical in semantic content and wording.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 136-1:2004
     publication_id: OIML R136-1:2004
@@ -992,7 +985,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.7'
-    definition_text:
+    definition_text: conditions of use prescribed for testing the performance of a
+      measuring instrument or for intercomparison of results of measurements
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -1001,7 +995,9 @@ related:
   ref:
     source: urn:oiml:pub:v:2:2007
     id: '4.11'
-    definition_text:
+    definition_text: operating condition prescribed for evaluating the performance
+      of a *measuring instrument* or *measuring system* or for comparison of *measurement
+      results*
     edition_label: VIM 2007
     vocab: vim
     role: prior

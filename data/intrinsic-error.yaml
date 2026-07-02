@@ -7,7 +7,7 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.24'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.24
-    definition_text:
+    definition_text: error of a measuring instrument, determined under reference conditions
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -56,8 +56,8 @@ data:
     definition: error of a measuring instrument, determined under reference conditions
     notes:
     - "[VIM:1993, 5.24; OIML D 11:2004, 3.7]"
-    consistency: ok
-    consistency_reason: The definitions are identical in wording and meaning.
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 85-1:2008
     publication_id: OIML R085-1:2008
@@ -81,9 +81,8 @@ data:
     g18_entry: '02351'
     definition: error of a measuring instrument determined under reference conditions
     notes: []
-    consistency: ok
-    consistency_reason: The definitions are semantically identical; only a comma is
-      missing.
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 107-1:2007
     publication_id: OIML R107-1:2007
@@ -136,9 +135,8 @@ data:
     g18_entry: '02080'
     definition: error determined under reference conditions
     notes: []
-    consistency: ok
-    consistency_reason: The publication's definition is semantically equivalent; 'error'
-      in a metrological context inherently implies error of a measuring instrument.
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 49-1:2006
     publication_id: OIML R049-1:2006
@@ -403,9 +401,8 @@ data:
     g18_entry: '03717'
     definition: error of a measuring instrument determined under reference conditions
     notes: []
-    consistency: ok
-    consistency_reason: The definitions are semantically identical; only a comma is
-      missing.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -489,9 +486,8 @@ data:
     definition: error (of indication) of a measuring system or its components used
       under reference conditions
     notes: []
-    consistency: partial
-    consistency_reason: Adds 'of indication' and broadens from 'measuring instrument'
-      to 'measuring system or its components', which slightly extends the scope.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R061-1:2017
     publication_id: OIML R061-1:2017
@@ -517,10 +513,8 @@ data:
     definition: error (of the indicated volume) of a measuring system used under reference
       conditions
     notes: []
-    consistency: ok
-    consistency_reason: The core concept—error determined under reference conditions—is
-      preserved, with the added specificity to indicated volume and measuring system
-      being consistent contextual elaboration rather than a semantic change.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R059-1:2016
     publication_id: OIML R059-1:2016
@@ -587,9 +581,8 @@ data:
     g18_entry: '02769'
     definition: error of a gas analyzer, determined under reference conditions
     notes: []
-    consistency: partial
-    consistency_reason: Narrows the general concept of a measuring instrument to a
-      specific gas analyzer.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R046-1:2012
     publication_id: OIML R046-1:2012
@@ -656,10 +649,8 @@ data:
     definition: error (of the indicated volume) of a measuring system used under reference
       conditions
     notes: []
-    consistency: ok
-    consistency_reason: The core concept—error determined under reference conditions—is
-      preserved, with the added specificity to indicated volume and measuring system
-      being consistent contextual elaboration rather than a semantic change.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 143:2009
     publication_id: OIML R143:2009
@@ -683,9 +674,8 @@ data:
     g18_entry: '02328-R085-1'
     definition: error of an ALG determined under reference conditions
     notes: []
-    consistency: ok
-    consistency_reason: ALG is a specific type of measuring instrument, so the publication
-      conveys the same meaning for that context.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 99-1:2008
     publication_id: OIML R099-1:2008
@@ -696,9 +686,9 @@ data:
     g18_entry: '02352'
     definition: error of a measuring instrument determined under reference conditions
     notes: []
-    consistency: ok
-    consistency_reason: The definitions are semantically identical; only a comma is
-      missing.
+    consistency: partial
+    consistency_reason: Publication narrows 'true value' to 'conventional true quantity
+      value,' which is a specific type of true value and not fully equivalent.
   - edition: 202X
     publication: OIML R 107-1:2007
     publication_id: OIML R107-1:2007
@@ -723,9 +713,8 @@ data:
     g18_entry: '02080'
     definition: error determined under reference conditions
     notes: []
-    consistency: ok
-    consistency_reason: The publication's definition is semantically equivalent; 'error'
-      in a metrological context inherently implies error of a measuring instrument.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 51-1:2006
     publication_id: OIML R051-1:2006
@@ -847,7 +836,7 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.24'
-    definition_text:
+    definition_text: error of a measuring instrument, determined under reference conditions
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -856,7 +845,9 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.27'
-    definition_text:
+    definition_text: ability of a measuring instrument to provide closely similar
+      indications for repeated applications of the same measurand under the same conditions
+      of measurement
     edition_label: VIM 1993
     vocab: vim
     role: legacy

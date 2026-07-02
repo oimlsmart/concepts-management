@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '4.5'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/4.5
-    definition_text:
+    definition_text: complete set of measuring instruments and other equipment assembled
+      to carry out specified measurements
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -145,9 +146,8 @@ data:
     definition: system comprising a meter for quantities (volume or mass) of liquids
       and its ancillary devices and additional devices
     notes: []
-    consistency: partial
-    consistency_reason: Narrowed to liquid meters with ancillary devices rather than
-      the general concept of any complete measuring system.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 140:2007
     publication_id: OIML R140:2007
@@ -189,7 +189,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '4.5'
-    definition_text:
+    definition_text: complete set of measuring instruments and other equipment assembled
+      to carry out specified measurements
     edition_label: VIM 1993
     vocab: vim
     role: legacy

@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.20'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.20
-    definition_text:
+    definition_text: indication of a measuring instrument minus a true value of the
+      corresponding input quantity
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -234,9 +235,8 @@ data:
     g18_entry: '03043'
     definition: indicated quantity value minus the reference (true) quantity value
     notes: []
-    consistency: ok
-    consistency_reason: Both define error of indication as the indicated value minus
-      the true/reference value of the corresponding input quantity.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R050-1:2014
     publication_id: OIML R050-1:2014
@@ -278,9 +278,8 @@ data:
     definition: indication of an ALG minus a true value of the corresponding input
       quantity
     notes: []
-    consistency: ok
-    consistency_reason: ALG is simply a specific type of measuring instrument, so
-      the definition is semantically equivalent with a narrower exemplar.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 107-1:2007
     publication_id: OIML R107-1:2007
@@ -359,7 +358,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.20'
-    definition_text:
+    definition_text: indication of a measuring instrument minus a true value of the
+      corresponding input quantity
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -368,7 +368,7 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.24'
-    definition_text:
+    definition_text: error of a measuring instrument, determined under reference conditions
     edition_label: VIM 1993
     vocab: vim
     role: legacy

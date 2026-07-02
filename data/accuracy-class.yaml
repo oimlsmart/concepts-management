@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.19'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.19
-    definition_text:
+    definition_text: class of measuring instruments that meet certain metrological
+      requirements that are intended to keep errors within specified limits
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -210,7 +211,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.19'
-    definition_text:
+    definition_text: class of measuring instruments that meet certain metrological
+      requirements that are intended to keep errors within specified limits
     edition_label: VIM 1993
     vocab: vim
     role: legacy

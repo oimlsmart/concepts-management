@@ -256,17 +256,14 @@ module G18
     end
 
 # Loads the official definition text for a VIM/VIML concept from the
-    # sibling vocab checkout. `vocab_dir` is the path passed to `run` (i.e.
-    # `vocab/datasets/g18`); the VIM/VIML concepts live in sibling dirs at
-    # `vocab/datasets/<dataset>/concepts/<id>.yaml`, so we walk up one level.
-    # Returns nil if the vocab file isn't found or has no English definition.
+    # sibling vocab checkout. `vocab_dir` should be the dataset root
+    # (i.e. `vocab/datasets/`); VIM/VIML concepts live in sibling dirs
+    # at `<vocab_dir>/<dataset>/concepts/<id>.yaml`. Returns nil if the
+    # vocab file isn't found or has no English definition.
     def load_official_definition_text(vocab_dir, urn, concept_id)
       dataset = URN_TO_DATASET[urn]
-      return nil unless dataset && concept_id
-      # vocab_dir is `<vocab>/datasets/g18`; the dataset path is
-      # `<vocab>/datasets/<dataset>/concepts/<id>.yaml`.
-      parent = File.expand_path("..", vocab_dir)
-      path = File.join(parent, dataset, "concepts", "#{concept_id}.yaml")
+      return nil unless dataset && concept_id && vocab_dir
+      path = File.join(vocab_dir, dataset, "concepts", "#{concept_id}.yaml")
       return nil unless File.exist?(path)
       docs = YAML.safe_load_stream(File.read(path), filename: path, aliases: true)
       loc = docs.find { |d| d && d.is_a?(Hash) && d.dig("data", "definition") }
@@ -368,9 +365,9 @@ module G18
       bib = bib_path ? load_bibliography(bib_path) : {}
       aliases = load_term_aliases(aliases_path)
       # vocab_dir (parent of all edition dirs) for VIM/VIML lookups.
-      if vocab_dir.nil? && editions.size == 1
-        vocab_dir = File.expand_path("..", editions.first[:path])
-      end
+      # Walk up from any edition path; all editions share the same parent
+      # (`vocab/datasets/`) so any one works.
+      vocab_dir ||= File.expand_path("..", editions.first[:path])
 
       entries_by_edition = {}
       all_entries = []

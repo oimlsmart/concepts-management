@@ -264,6 +264,64 @@ module G18
         end
       end
 
+      # Raw ID conflicts per edition: identifiers in the source publication
+      # that are reused for two or more DISTINCT concepts (resolved in the
+      # YAML by splitting into <id>a / <id>b). In 2010 we know of 7; in
+      # 202X we expect 0 if the upstream extraction is clean.
+      def raw_id_conflicts
+        out = {}
+        @terms.each do |t|
+          grouped = Hash.new { |h, k| h[k] = Hash.new { |hh, kk| hh[kk] = [] } }
+          t.publications.each do |p|
+            edition = p["edition"] || "—"
+            id = p["g18_entry"]
+            next unless id
+            base_id = id.to_s.sub(/[a-z]\z/, "")
+            next unless base_id != id  # only consider suffixed IDs
+            grouped[edition][base_id] << { designation: t.name, source: p["publication_id"], raw_id: id }
+          end
+          grouped.each do |edition, ids|
+            ids.each do |base, arr|
+              next if arr.size < 2
+              out[edition] ||= []
+              out[edition] << { id: base, concepts: arr.uniq { |c| c[:designation] } }
+            end
+          end
+        end
+        out.transform_values { |arr| arr.sort_by { |x| x[:id] } }
+      end
+
+      # Designation collisions per edition: same designation cited under
+      # multiple distinct G18 IDs (e.g. "intrinsic error" appears as 00656,
+      # 00978, 01029, 01389, 01613). These are the "TC 1 must decide which
+      # ID is canonical" signal.
+      def designation_collisions(limit: nil)
+        out = {}
+        @terms.each do |t|
+          grouped = Hash.new { |h, k| h[k] = Hash.new { |hh, kk| hh[kk] = [] } }
+          t.publications.each do |p|
+            edition = p["edition"] || "—"
+            id = p["g18_entry"]
+            next unless id && t.name
+            grouped[edition][t.name] << { id: id, source: p["publication_id"] }
+          end
+          grouped.each do |edition, names|
+            names.each do |name, arr|
+              unique_ids = arr.map { |x| x[:id] }.uniq
+              next if unique_ids.size < 2
+              out[edition] ||= []
+              out[edition] << { designation: name, ids: unique_ids.sort, count: arr.size }
+            end
+          end
+        end
+        result = {}
+        out.each do |edition, arr|
+          sorted = arr.sort_by { |x| [-x[:ids].size, x[:designation].downcase] }
+          result[edition] = limit ? sorted.first(limit) : sorted
+        end
+        result
+      end
+
       def leaderboard(limit = 20)
         @terms
           .select { |t| t.publications.size > 1 }

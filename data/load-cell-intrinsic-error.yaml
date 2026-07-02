@@ -7,7 +7,7 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.24'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.24
-    definition_text:
+    definition_text: error of a measuring instrument, determined under reference conditions
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -57,7 +57,7 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.24'
-    definition_text:
+    definition_text: error of a measuring instrument, determined under reference conditions
     edition_label: VIM 1993
     vocab: vim
     role: legacy

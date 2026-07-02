@@ -7,7 +7,9 @@ data:
     source: urn:oiml:pub:v:2:2007
     id: '3.11'
     url: https://oimlsmart.github.io/vocab/vim-2007/concept/3.11
-    definition_text:
+    definition_text: set of operations carried out on a *measuring system* so that
+      it provides prescribed *indications* corresponding to given *values* of a *quantity*
+      to be measured
     edition_label: VIM 2007
     vocab: vim
     role: prior
@@ -49,8 +51,8 @@ data:
       prescribed indications corresponding to given values of a quantity to be measured
       [VIM:2007, 3.11]
     notes: []
-    consistency: ok
-    consistency_reason: The definitions are semantically identical word for word.
+    consistency: pending
+    consistency_reason: ''
 status: current
 id: 42b962cc-1a9b-5559-b520-cb2b8bd54f28
 schema_version: '3'
@@ -59,7 +61,9 @@ related:
   ref:
     source: urn:oiml:pub:v:2:2007
     id: '3.11'
-    definition_text:
+    definition_text: set of operations carried out on a *measuring system* so that
+      it provides prescribed *indications* corresponding to given *values* of a *quantity*
+      to be measured
     edition_label: VIM 2007
     vocab: vim
     role: prior

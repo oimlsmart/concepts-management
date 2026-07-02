@@ -111,6 +111,86 @@
   <% end %>
 </section>
 
+<%
+  # Build the list of suggested actions based on term state. The actions are
+  # ordered by priority: outdated references > no VIM/VIML > divergent > pending.
+  actions = []
+  if term.defined? && G18::Site.viml_superseded?(official_urn)
+    latest_label = G18::Site.viml_vocab(official_urn) == :vim ? "VIM 2012" : "VIML 2022"
+    actions << {
+      priority: "high",
+      text: "Verify this term still appears in #{latest_label}. The current authoritative edition may use a different definition.",
+      link: "https://oimlsmart.github.io/vocab/#{G18::Site.viml_vocab(official_urn) == :vim ? 'vim-2012' : 'viml-2022'}/concept/#{official['id']}",
+      label: "View latest #{latest_label} entry",
+    }
+  end
+  if term.undefined?
+    actions << {
+      priority: "high",
+      text: "This term has no authoritative definition in VIM or VIML. Confirm whether it should be added to a future VIM/VIML revision.",
+      link: "https://github.com/oimlsmart/vocab/tree/main/datasets/vim-2012",
+      label: "Open VIM 2012 dataset",
+    }
+  end
+  if term.diverges? && term.distinct_definitions.size > 1
+    actions << {
+      priority: "medium",
+      text: "#{term.distinct_definitions.size} distinct definitions exist across this term's publications. Decide whether they should converge on a single harmonised definition in the 202X edition.",
+      link: "<%= rel_root %>harmonization.html",
+      label: "Open harmonisation worklist",
+    }
+  end
+  if term.consistency_counts["ko"].to_i > 0
+    actions << {
+      priority: "high",
+      text: "#{term.consistency_counts['ko']} publication#{term.consistency_counts['ko'].to_i > 1 ? 's' : ''} substantively diverge from the official baseline. Review and update those Recommendations.",
+      link: nil,
+      label: nil,
+    }
+  end
+  if term.consistency_counts["partial"].to_i > 0
+    actions << {
+      priority: "low",
+      text: "#{term.consistency_counts['partial']} publication#{term.consistency_counts['partial'].to_i > 1 ? 's' : ''} partially diverge from the official baseline (missing nuance or dropping a clause).",
+      link: nil,
+      label: nil,
+    }
+  end
+  if term.consistency_counts.keys.all? { |k| k == "pending" }
+    actions << {
+      priority: "low",
+      text: "Consistency has not been assessed for this term yet. Run <code>scripts/check_consistency.rb</code> locally.",
+      link: nil,
+      label: nil,
+    }
+  end
+  if term.publications.size >= 5
+    actions << {
+      priority: "info",
+      text: "This term appears in #{term.publications.size} OIML publications — high harmonisation value.",
+      link: nil,
+      label: nil,
+    }
+  end
+%>
+
+<% if actions.any? %>
+<section class="card">
+  <h2>Suggested actions for TC 1 / Vocabularies</h2>
+  <ol class="actions-list">
+    <% actions.each do |a| %>
+      <li class="action action-<%= a[:priority] %>">
+        <span class="action-pill action-pill-<%= a[:priority] %>"><%= a[:priority].upcase %></span>
+        <span class="action-text"><%= a[:text].respond_to?(:gsub) ? a[:text].gsub(/<\/?\w+>/, '') : a[:text] %></span>
+        <% if a[:link] && a[:label] %>
+          · <a href="<%= a[:link] %>"><%= h a[:label] %></a>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+</section>
+<% end %>
+
 <section class="card">
   <h2>Consistency</h2>
   <p>
@@ -129,10 +209,21 @@
 <section class="card">
   <div class="card-head">
     <h2>Publication instances</h2>
-    <label class="inline-check">
-      <input type="checkbox" id="only-divergent" onchange="toggleRows()">
-      Show only divergent definitions
-    </label>
+    <div class="pub-controls">
+      <label class="inline-check">
+        <input type="checkbox" id="only-divergent" onchange="toggleRows()">
+        Show only divergent definitions
+      </label>
+      <span class="edition-filter">
+        Show editions:
+        <% (term.editions_present || []).sort.each do |ed| %>
+          <label class="inline-check edition-toggle-label">
+            <input type="checkbox" class="edition-toggle" data-edition="<%= h ed %>" checked onchange="toggleEditions()">
+            <span class="edition-pill edition-<%= h ed.downcase %>"><%= h ed %></span>
+          </label>
+        <% end %>
+      </span>
+    </div>
   </div>
   <table class="pubs-table">
     <thead>
@@ -153,7 +244,7 @@
       <% canonical_def = term.distinct_definitions.first %>
       <% divergent = term.diverges? && defn != canonical_def %>
       <% edition = p["edition"] || "—" %>
-      <tr class="pub-row <%= divergent ? 'row-divergent' : '' %>" data-divergent="<%= divergent ? 1 : 0 %>">
+      <tr class="pub-row <%= divergent ? 'row-divergent' : '' %>" data-divergent="<%= divergent ? 1 : 0 %>" data-edition="<%= h edition %>">
         <td>
           <span class="edition-pill edition-<%= edition.downcase.gsub(/[^a-z0-9]/, '') %>"><%= h edition %></span>
         </td>
@@ -205,4 +296,27 @@ function toggleRows() {
     else r.style.display = '';
   });
 }
+function toggleEditions() {
+  var enabled = new Set();
+  document.querySelectorAll('.edition-toggle').forEach(function(cb) {
+    if (cb.checked) enabled.add(cb.dataset.edition);
+  });
+  document.querySelectorAll('.pub-row').forEach(function(r) {
+    if (enabled.size === 0 || enabled.has(r.dataset.edition)) {
+      r.style.display = '';
+    } else {
+      r.style.display = 'none';
+    }
+  });
+}
+// Tag each row with its edition so toggleEditions can find it.
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.pub-row').forEach(function(r) {
+    var pill = r.querySelector('.edition-pill');
+    if (pill) {
+      var m = pill.textContent.trim();
+      r.dataset.edition = m;
+    }
+  });
+});
 </script>
