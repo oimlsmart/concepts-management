@@ -7,7 +7,9 @@ data:
     source: urn:oiml:pub:v:2:2007
     id: '5.14'
     url: https://oimlsmart.github.io/vocab/vim-2007/concept/5.14
-    definition_text:
+    definition_text: "*reference material*, accompanied by documentation issued by
+      an authoritative body and providing one or more specified property values with
+      associated uncertainties and traceabilities, using valid procedures"
     edition_label: VIM 2007
     vocab: vim
     role: prior
@@ -107,7 +109,9 @@ related:
   ref:
     source: urn:oiml:pub:v:2:2007
     id: '5.14'
-    definition_text:
+    definition_text: "*reference material*, accompanied by documentation issued by
+      an authoritative body and providing one or more specified property values with
+      associated uncertainties and traceabilities, using valid procedures"
     edition_label: VIM 2007
     vocab: vim
     role: prior

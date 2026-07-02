@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '2.7'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/2.7
-    definition_text:
+    definition_text: quantity that is not the measurand but that affects the result
+      of the measurement
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -92,10 +93,8 @@ data:
     definition: quantity that is not the subject of the measurement but which influences
       the values of the measurand or the indication of the instrument
     notes: []
-    consistency: partial
-    consistency_reason: Adds 'influences the values of the measurand or indication'
-      which extends scope beyond the official definition's 'affects the result of
-      measurement.'
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 107-1:2007
     publication_id: OIML R107-1:2007
@@ -123,10 +122,8 @@ data:
     definition: quantity which is not the subject of the measurement but which influences
       the value of the measurand or the indication of the measuring system
     notes: []
-    consistency: partial
-    consistency_reason: Publication adds distinction between influencing the measurand
-      value vs. the indication, and replaces 'measurand' with 'subject of the measurement'
-      which subtly shifts the concept.
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 139:2007
     publication_id: OIML R139:2007
@@ -187,7 +184,9 @@ data:
       of the measurement IM:1993, 2.7]]"
     notes: []
     consistency: ok
-    consistency_reason: Semantically identical; only the reference citation is added.
+    consistency_reason: The publication's definition is semantically identical to
+      the official definition; the bracketed citation artifact '[V...IM:1993, 2.7]]'
+      is not part of the definition text.
   - edition: '2010'
     publication: OIML R 76-1:2006
     publication_id: OIML R076-1:2006
@@ -489,10 +488,8 @@ data:
       the measurement result [VIM 2.52]
     notes:
     - "(For examples and notes, refer to the VIM [2])"
-    consistency: ko
-    consistency_reason: The publication describes a concept affecting the indication-result
-      relation rather than the measurement result itself, and restricts to direct
-      measurement, which is substantively different.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R129-1:2020
     publication_id: OIML R129-1:2020
@@ -505,10 +502,8 @@ data:
       that is actually measured, but affects the relation between the indication and
       the measurement result [VIM 2.52]
     notes: []
-    consistency: ko
-    consistency_reason: The publication's definition describes an influence quantity
-      as not affecting the measurand, directly contradicting the official definition,
-      and adds unrelated concepts about indication-measurement result relations.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R150-1:2020
     publication_id: OIML R150-1:2020
@@ -552,10 +547,8 @@ data:
     definition: quantity which is not the object of the measurement but which influences
       the value of the measurand or the indication of the Tank
     notes: []
-    consistency: partial
-    consistency_reason: Adds 'influences the value of the measurand or the indication
-      of the Tank' and uses domain-specific wording rather than the concise official
-      'affects the result of the measurement'.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R050-1:2014
     publication_id: OIML R050-1:2014
@@ -664,8 +657,8 @@ data:
     definition: quantity that is not the measurand but that affects the result of
       the measurement
     notes: []
-    consistency: ok
-    consistency_reason: The definitions are identical.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 80-1:2009
     publication_id: OIML R080-1:2009
@@ -739,10 +732,8 @@ data:
     definition: quantity that is not the subject of the measurement but which influences
       the values of the measurand or the indication of the instrument
     notes: []
-    consistency: partial
-    consistency_reason: Adds 'influences the values of the measurand or indication'
-      which extends scope beyond the official definition's 'affects the result of
-      measurement.'
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 107-1:2007
     publication_id: OIML R107-1:2007
@@ -770,10 +761,8 @@ data:
     definition: quantity which is not the subject of the measurement but which influences
       the value of the measurand or the indication of the measuring system
     notes: []
-    consistency: partial
-    consistency_reason: Publication adds distinction between influencing the measurand
-      value vs. the indication, and replaces 'measurand' with 'subject of the measurement'
-      which subtly shifts the concept.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 140:2007
     publication_id: OIML R140:2007
@@ -800,7 +789,9 @@ data:
       the measurement [VIM:1993, 2.7]
     notes: []
     consistency: ok
-    consistency_reason: Semantically identical; only the reference citation is added.
+    consistency_reason: The publication's definition is semantically identical to
+      the official definition; the bracketed citation artifact '[V...IM:1993, 2.7]]'
+      is not part of the definition text.
   - edition: 202X
     publication: OIML R 76-1:2006
     publication_id: OIML R076-1:2006
@@ -916,7 +907,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '2.7'
-    definition_text:
+    definition_text: quantity that is not the measurand but that affects the result
+      of the measurement
     edition_label: VIM 1993
     vocab: vim
     role: legacy

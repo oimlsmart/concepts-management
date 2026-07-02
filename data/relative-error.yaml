@@ -7,7 +7,7 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '3.12'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/3.12
-    definition_text:
+    definition_text: error of measurement divided by a true value of the measurand
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -41,9 +41,9 @@ data:
     definition: error of measurement divided by the conventional true quantity value
       of the measurand
     notes: []
-    consistency: ok
-    consistency_reason: The definitions are semantically identical; only a comma is
-      missing.
+    consistency: partial
+    consistency_reason: Publication narrows 'true value' to 'conventional true quantity
+      value,' which is a specific type of true value and not fully equivalent.
   - edition: '2010'
     publication: OIML R 139:2007
     publication_id: OIML R139:2007
@@ -115,9 +115,8 @@ data:
     definition: error of measurement divided by the conventional true quantity value
       of the measurand
     notes: []
-    consistency: partial
-    consistency_reason: Publication narrows 'true value' to 'conventional true quantity
-      value,' which is a specific type of true value and not fully equivalent.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 140:2007
     publication_id: OIML R140:2007
@@ -166,7 +165,7 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '3.12'
-    definition_text:
+    definition_text: error of measurement divided by a true value of the measurand
     edition_label: VIM 1993
     vocab: vim
     role: legacy

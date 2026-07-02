@@ -26,14 +26,20 @@ module G18
         copy_static
         page("index.html", "index")
         page("terms/index.html", "terms_index")
+        page("publications/index.html", "publications_index")
+        # Pre-render edition-filtered variants of the terms index so the
+        # editions.html links resolve to static files (no query strings).
+        dataset.edition_names.each do |ed|
+          page("terms/only-#{ed.downcase.gsub(/[^a-z0-9]/, '')}.html", "terms_index", only_edition: ed)
+        end
         dataset.terms.each { |t| page("terms/#{t.slug}.html", "term", term: t) }
         page("tc/index.html", "tc_index")
         dataset.tcscs.each { |tc| page("tc/#{tc.slug}.html", "tc", tc: tc) }
-        page("publications/index.html", "publications_index")
         dataset.publications.each { |p| page("publications/#{p.slug}.html", "publication", pub: p) }
         page("leaderboard.html", "leaderboard")
         page("editions.html", "editions")
         page("harmonization.html", "harmonization")
+        page("conflicts.html", "conflicts")
         write_raw("stats.json", stats_json)
       end
 

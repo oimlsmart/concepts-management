@@ -7,7 +7,7 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '1.19'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/1.19
-    definition_text:
+    definition_text: value consistent with the definition of a given particular quantity
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -43,7 +43,7 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '1.19'
-    definition_text:
+    definition_text: value consistent with the definition of a given particular quantity
     edition_label: VIM 1993
     vocab: vim
     role: legacy

@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:1:2000
     id: '3.3'
     url: https://oimlsmart.github.io/vocab/viml-2000/concept/3.3
-    definition_text:
+    definition_text: document certifying that the verification of the measuring instrument
+      was carried out with a satisfactory result
     edition_label: VIML 2000
     vocab: viml
     role: prior
@@ -58,7 +59,8 @@ related:
   ref:
     source: urn:oiml:pub:v:1:2000
     id: '3.3'
-    definition_text:
+    definition_text: document certifying that the verification of the measuring instrument
+      was carried out with a satisfactory result
     edition_label: VIML 2000
     vocab: viml
     role: prior
