@@ -1,4 +1,8 @@
 {
+  "\u0000plugin-vue:export-helper": [
+    "/assets/_slug_-BSUdKfEP.js",
+    "/assets/_slug_-DjzYqq-v.css"
+  ],
   "\u0000vite/modulepreload-polyfill.js": [],
   "\u0000vite/preload-helper.js": [],
   "../../../../../../oiml-logo.svg": [],
@@ -25,7 +29,8 @@
   "src/App.vue?vue&type=script&setup=true&lang.ts": [],
   "src/App.vue?vue&type=style&index=0&lang.css": [],
   "src/composables/useVocabularyEdition.ts": [
-    "/assets/_slug_-Cw0xLcMc.js"
+    "/assets/_slug_-BSUdKfEP.js",
+    "/assets/_slug_-DjzYqq-v.css"
   ],
   "src/data/conflicts.json": [
     "/assets/conflicts-BoigZeRJ.js"
@@ -34,7 +39,7 @@
     "/assets/edition-stats-Dpxttify.js"
   ],
   "src/data/harmonization.json": [
-    "/assets/harmonization-VjV9mg6g.js"
+    "/assets/harmonization-DfBND7yU.js"
   ],
   "src/data/publications.json": [
     "/assets/publications-OPtEHBLu.js"
@@ -43,77 +48,84 @@
     "/assets/tc-aO6hS5yf.js"
   ],
   "src/data/term-by-slug.json": [
-    "/assets/_slug_-Cw0xLcMc.js"
+    "/assets/_slug_-BSUdKfEP.js",
+    "/assets/_slug_-DjzYqq-v.css"
   ],
   "src/data/terms.json": [
     "/assets/terms-PvC7V-uv.js"
   ],
   "src/main.ts": [],
   "src/pages/conflicts.vue": [
-    "/assets/conflicts-BnWOtf-r.js"
+    "/assets/conflicts-DXtHDIEv.js"
   ],
   "src/pages/conflicts.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/conflicts-BnWOtf-r.js"
+    "/assets/conflicts-DXtHDIEv.js"
   ],
   "src/pages/editions.vue": [
-    "/assets/editions-CAeSQjK1.js"
+    "/assets/editions-DixjGX27.js"
   ],
   "src/pages/editions.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/editions-CAeSQjK1.js"
+    "/assets/editions-DixjGX27.js"
   ],
   "src/pages/harmonization.vue": [
-    "/assets/harmonization-VjV9mg6g.js"
+    "/assets/harmonization-DfBND7yU.js"
   ],
   "src/pages/harmonization.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/harmonization-VjV9mg6g.js"
+    "/assets/harmonization-DfBND7yU.js"
   ],
   "src/pages/index.vue": [
-    "/assets/pages-C-cb39Ia.js"
+    "/assets/pages-CQ3DfXFv.js"
   ],
   "src/pages/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/pages-C-cb39Ia.js"
+    "/assets/pages-CQ3DfXFv.js"
   ],
   "src/pages/leaderboard.vue": [
-    "/assets/leaderboard-DEG1w8Ex.js"
+    "/assets/leaderboard-DGiCaWGO.js"
   ],
   "src/pages/leaderboard.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/leaderboard-DEG1w8Ex.js"
+    "/assets/leaderboard-DGiCaWGO.js"
   ],
   "src/pages/publications/[slug].vue": [
-    "/assets/_slug_-BJ1l8hru.js"
+    "/assets/_slug_-BoMq6tkH.js"
   ],
   "src/pages/publications/[slug].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_slug_-BJ1l8hru.js"
+    "/assets/_slug_-BoMq6tkH.js"
   ],
   "src/pages/publications/index.vue": [
-    "/assets/publications-B9HALIm7.js"
+    "/assets/publications-yEYIcP31.js"
   ],
   "src/pages/publications/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/publications-B9HALIm7.js"
+    "/assets/publications-yEYIcP31.js"
   ],
   "src/pages/tc/[slug].vue": [
-    "/assets/_slug_-CkElHGiZ.js"
+    "/assets/_slug_-Ck_syIR2.js"
   ],
   "src/pages/tc/[slug].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_slug_-CkElHGiZ.js"
+    "/assets/_slug_-Ck_syIR2.js"
   ],
   "src/pages/tc/index.vue": [
-    "/assets/tc-J0J1Vq7X.js"
+    "/assets/tc-BOI2COx9.js"
   ],
   "src/pages/tc/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/tc-J0J1Vq7X.js"
+    "/assets/tc-BOI2COx9.js"
   ],
   "src/pages/terms/[slug].vue": [
-    "/assets/_slug_-Cw0xLcMc.js"
+    "/assets/_slug_-BSUdKfEP.js",
+    "/assets/_slug_-DjzYqq-v.css"
   ],
   "src/pages/terms/[slug].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_slug_-Cw0xLcMc.js"
+    "/assets/_slug_-BSUdKfEP.js",
+    "/assets/_slug_-DjzYqq-v.css"
+  ],
+  "src/pages/terms/[slug].vue?vue&type=style&index=0&scoped=5dab01dc&lang.css": [
+    "/assets/_slug_-BSUdKfEP.js",
+    "/assets/_slug_-DjzYqq-v.css"
   ],
   "src/pages/terms/index.vue": [
-    "/assets/terms-DKcbx8On.js"
+    "/assets/terms-BV2EoSrq.js"
   ],
   "src/pages/terms/index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/terms-DKcbx8On.js"
+    "/assets/terms-BV2EoSrq.js"
   ],
   "src/routes.ts": []
 }
