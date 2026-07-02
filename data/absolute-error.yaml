@@ -7,7 +7,7 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '3.10'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/3.10
-    definition_text:
+    definition_text: result of a measurement minus a true value of the measurand
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -58,7 +58,7 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '3.10'
-    definition_text:
+    definition_text: result of a measurement minus a true value of the measurand
     edition_label: VIM 1993
     vocab: vim
     role: legacy

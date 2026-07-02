@@ -1,0 +1,21 @@
+{
+  "name": "g18-registry-web",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite-ssg build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.2",
+    "vite-ssg": "^28.3.0",
+    "vue": "^3.5.39"
+  },
+  "dependencies": {
+    "vue-router": "^5.1.0",
+    "yaml": "^2.9.0"
+  }
+}

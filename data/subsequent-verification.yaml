@@ -7,7 +7,9 @@ data:
     source: urn:oiml:pub:v:1:2000
     id: '2.16'
     url: https://oimlsmart.github.io/vocab/viml-2000/concept/2.16
-    definition_text:
+    definition_text: 'any verification of a measuring instrument after a previous
+      verification and including: - mandatory periodic verification, - verification
+      after repair'
     edition_label: VIML 2000
     vocab: viml
     role: prior
@@ -74,9 +76,8 @@ data:
       before expiry of the period of validity of a previous  verification either at
       the request of the user (owner) or when its verification mark is declared to
       be no longer valid.'
-    consistency: partial
-    consistency_reason: Publication omits the enumeration of what subsequent verification
-      includes (mandatory periodic verification and verification after repair).
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML D034:2019
     publication_id: OIML D034:2019
@@ -153,7 +154,9 @@ related:
   ref:
     source: urn:oiml:pub:v:1:2000
     id: '2.16'
-    definition_text:
+    definition_text: 'any verification of a measuring instrument after a previous
+      verification and including: - mandatory periodic verification, - verification
+      after repair'
     edition_label: VIML 2000
     vocab: viml
     role: prior

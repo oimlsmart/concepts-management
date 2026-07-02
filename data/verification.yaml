@@ -7,7 +7,10 @@ data:
     source: urn:oiml:pub:v:1:2000
     id: '2.4'
     url: https://oimlsmart.github.io/vocab/viml-2000/concept/2.4
-    definition_text:
+    definition_text: all the operations for the purpose of examining and demonstrating,
+      e.g. to testify in a court of law, the condition of a measuring instrument and
+      to determine its metrological properties, amongst others by reference to the
+      relevant statutory requirements 2 ACTIVITÉS DE MÉTROLOGIE LÉGALE
     edition_label: VIML 2000
     vocab: viml
     role: prior
@@ -154,7 +157,10 @@ related:
   ref:
     source: urn:oiml:pub:v:1:2000
     id: '2.4'
-    definition_text:
+    definition_text: all the operations for the purpose of examining and demonstrating,
+      e.g. to testify in a court of law, the condition of a measuring instrument and
+      to determine its metrological properties, amongst others by reference to the
+      relevant statutory requirements 2 ACTIVITÉS DE MÉTROLOGIE LÉGALE
     edition_label: VIML 2000
     vocab: viml
     role: prior

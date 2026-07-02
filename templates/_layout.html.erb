@@ -10,8 +10,11 @@
 <header class="site-header">
   <div class="container header-bar">
     <a class="brand" href="<%= rel_root %>index.html">
-      <img src="<%= rel_root %>img/oiml-logo-icon-light.svg" alt="OIML" class="brand-mark-img" />
-      <span class="brand-sub">G 18 Registry</span>
+      <img src="<%= rel_root %>img/oiml-logo.svg" alt="OIML" class="brand-mark-img" />
+      <span class="brand-sub">
+        <span class="brand-sub-title">G 18 Registry</span>
+        <span class="brand-sub-tag">OIML Term-Usage Registry</span>
+      </span>
     </a>
     <nav class="site-nav">
       <a href="<%= rel_root %>terms/index.html">Terms</a>
@@ -19,6 +22,7 @@
       <a href="<%= rel_root %>publications/index.html">Publications</a>
       <a href="<%= rel_root %>editions.html">Editions</a>
       <a href="<%= rel_root %>harmonization.html">Harmonise</a>
+      <a href="<%= rel_root %>conflicts.html">ID Conflicts</a>
       <a href="<%= rel_root %>leaderboard.html">Divergence</a>
     </nav>
   </div>
@@ -27,15 +31,18 @@
 <%= body %>
 </main>
 <footer class="site-footer">
-  <div class="container">
-    <p>
+  <div class="container footer-grid">
+    <div>
+      <strong>G 18 — OIML Term-Usage Registry</strong><br>
       Generated from
       <a href="https://github.com/oimlsmart/vocab/tree/main/datasets/g18-2010">oimlsmart/vocab</a>
       <code>datasets/g18-2010/</code> and
-      <a href="https://github.com/oimlsmart/vocab/tree/main/datasets/g18-202X"><code>datasets/g18-202X/</code></a>
-      by <a href="https://github.com/oimlsmart/g18-registry">g18-registry</a>.
+      <a href="https://github.com/oimlsmart/vocab/tree/main/datasets/g18-202X"><code>datasets/g18-202X/</code></a>.
       VIM/VIML links point to <a href="https://oimlsmart.github.io/vocab/">oimlsmart.github.io/vocab</a>.
-    </p>
+    </div>
+    <div class="footer-attribution">
+      <strong>OIML SMART.</strong> Digital service by <a href="https://www.ribose.com">Ribose</a>.
+    </div>
   </div>
 </footer>
 </body>

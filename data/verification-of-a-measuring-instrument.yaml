@@ -7,7 +7,9 @@ data:
     source: urn:oiml:pub:v:1:2000
     id: '2.13'
     url: https://oimlsmart.github.io/vocab/viml-2000/concept/2.13
-    definition_text:
+    definition_text: procedure (other than type approval) which includes the examination
+      and marking and/or issuing of a verification certificate, that ascertains and
+      confirms that the measuring instrument complies with the statutory requirements
     edition_label: VIML 2000
     vocab: viml
     role: prior
@@ -30,9 +32,8 @@ data:
       confirms that the measuring instrument complies with the statutory requirements
       [VIML, 2.13]
     notes: []
-    consistency: ok
-    consistency_reason: The publication's definition is verbatim identical to the
-      official definition and correctly cites the source [VIML, 2.13].
+    consistency: pending
+    consistency_reason: ''
     related:
     - type: see
       ref:
@@ -237,9 +238,8 @@ data:
       confirms that the measuring instrument complies with the statutory requirements
       [VIML, 2.13]
     notes: []
-    consistency: ok
-    consistency_reason: The publication's definition is verbatim identical to the
-      official definition and correctly cites the source [VIML, 2.13].
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 135:2004
     publication_id: OIML R135:2004
@@ -281,7 +281,9 @@ related:
   ref:
     source: urn:oiml:pub:v:1:2000
     id: '2.13'
-    definition_text:
+    definition_text: procedure (other than type approval) which includes the examination
+      and marking and/or issuing of a verification certificate, that ascertains and
+      confirms that the measuring instrument complies with the statutory requirements
     edition_label: VIML 2000
     vocab: viml
     role: prior

@@ -7,7 +7,10 @@ data:
     source: urn:oiml:pub:v:1:2000
     id: '2.5'
     url: https://oimlsmart.github.io/vocab/viml-2000/concept/2.5
-    definition_text:
+    definition_text: systematic examination and testing of the performance of one
+      or more specimens of an identified type (pattern) of measuring instruments against
+      documented requirements, the results of which are contained in the evaluation
+      report, in order to determine whether the type may be approved
     edition_label: VIML 2000
     vocab: viml
     role: prior
@@ -109,10 +112,8 @@ data:
     - 'Note 1:  “Pattern” is used in legal metrology with the same meaning as “type”.
       Note 2:  for the purposes of the OIML-CS, “evaluation report” should be read
       as “OIML type evaluation report”.'
-    consistency: partial
-    consistency_reason: Publication drops the purpose clause 'to determine whether
-      the type may be approved' and the 'documented requirements' criterion, replacing
-      them with the generic term 'conformity assessment procedure'.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R060-1:2021
     publication_id: OIML R060-1:2021
@@ -212,7 +213,10 @@ related:
   ref:
     source: urn:oiml:pub:v:1:2000
     id: '2.5'
-    definition_text:
+    definition_text: systematic examination and testing of the performance of one
+      or more specimens of an identified type (pattern) of measuring instruments against
+      documented requirements, the results of which are contained in the evaluation
+      report, in order to determine whether the type may be approved
     edition_label: VIML 2000
     vocab: viml
     role: prior

@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.5'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.5
-    definition_text:
+    definition_text: conditions of use for which specified metrological characteristics
+      of a measuring instrument are intended to lie within given limits
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -271,10 +272,8 @@ data:
       for which the metrological characteristics are intended tolie within the specified
       maximum permissible errors
     notes: []
-    consistency: partial
-    consistency_reason: Replaces 'given limits' with 'specified maximum permissible
-      errors' and introduces 'influence quantities,' narrowing and partially redefining
-      the concept.
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 134:2003
     publication_id: OIML R134:2003
@@ -498,10 +497,8 @@ data:
       that a measuring instrument or measuring system perform as designed [VIM 4.9]
     notes:
     - "(For notes, refer to the VIM)"
-    consistency: ko
-    consistency_reason: Publication refers to mandatory conditions for proper operation,
-      while official defines conditions under which metrological characteristics stay
-      within specified limits.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R129-1:2020
     publication_id: OIML R129-1:2020
@@ -547,10 +544,8 @@ data:
       for which the metrological characteristics are intended to be within the maximum
       permissible errors
     notes: []
-    consistency: partial
-    consistency_reason: Publication adds 'range of values of influence quantities'
-      and equates 'given limits' specifically to 'maximum permissible errors', narrowing
-      the concept.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R061-1:2017
     publication_id: OIML R061-1:2017
@@ -579,9 +574,8 @@ data:
       for which the specified metrological characteristics of a measuring instrument
       are intended to lie within given limits
     notes: []
-    consistency: partial
-    consistency_reason: Publication adds 'range of values of influence quantities'
-      which narrows the definition to a subset of conditions of use.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R059-1:2016
     publication_id: OIML R059-1:2016
@@ -702,10 +696,8 @@ data:
       the influence quantities, for which the errors of the gas meter are required
       to be within the limits of the maximum permissible error
     notes: []
-    consistency: partial
-    consistency_reason: Publication narrows the concept to 'maximum permissible error'
-      and restricts to gas meters, but the core meaning of conditions keeping errors
-      within specified limits is preserved.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R106-1:2011
     publication_id: OIML R106-1:2011
@@ -879,9 +871,8 @@ data:
       for which the metrological characteristics are intended to lie within the specified
       maximum permissible errors
     notes: []
-    consistency: partial
-    consistency_reason: Publication adds 'ranges of influence quantities' and replaces
-      'given limits' with 'specified maximum permissible errors', narrowing the concept.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 136-1:2004
     publication_id: OIML R136-1:2004
@@ -894,10 +885,8 @@ data:
       for which the metrological characteristics are intended to lie within the specified
       maximum permissible errors
     notes: []
-    consistency: partial
-    consistency_reason: Replaces 'given limits' with 'specified maximum permissible
-      errors' and introduces 'influence quantities,' narrowing and partially redefining
-      the concept.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 75-1:2002
     publication_id: OIML R075-1:2002
@@ -985,7 +974,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.5'
-    definition_text:
+    definition_text: conditions of use for which specified metrological characteristics
+      of a measuring instrument are intended to lie within given limits
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -994,7 +984,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:2007
     id: '4.9'
-    definition_text:
+    definition_text: operating condition that must be fulfilled during *measurement*
+      in order that a *measuring instrument* or *measuring system* perform as designed
     edition_label: VIM 2007
     vocab: vim
     role: prior

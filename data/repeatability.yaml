@@ -7,7 +7,9 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.27'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.27
-    definition_text:
+    definition_text: ability of a measuring instrument to provide closely similar
+      indications for repeated applications of the same measurand under the same conditions
+      of measurement
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -64,9 +66,8 @@ data:
       other when the same load is deposited several times and in a practically identical
       way on the load receptor under reasonably constant test conditions
     notes: []
-    consistency: partial
-    consistency_reason: Narrows the concept to weighing instruments with load receptor
-      terminology and uses 'reasonably constant' rather than 'same' conditions.
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 65:2006
     publication_id: OIML R065:2006
@@ -185,10 +186,8 @@ data:
     notes:
     - The same conditions would include the same method of measurement, measuring
       instrument, operator, location, and ambient environmental conditions.
-    consistency: partial
-    consistency_reason: Publication uses 'results of successive measurements' and
-      'same sample' rather than 'indications of a measuring instrument' and 'measurand',
-      and omits the concept of repeated applications to the instrument.
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 132:2001
     publication_id: OIML R132:2001
@@ -316,10 +315,8 @@ data:
     notes:
     - 'The same conditions include the following: ethod of measurement, the operator,
       the ring instrument, the location, and the onmental conditions.'
-    consistency: partial
-    consistency_reason: Publication refers to 'results of successive measurements'
-      rather than 'indications of a measuring instrument' and adds the clause 'within
-      a relatively short period of time'.
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 113:1994
     publication_id: OIML R113:1994
@@ -461,9 +458,8 @@ data:
       other when the same load is deposited several times and in a practically identical
       way on the load receptor under reasonably constant test conditions
     notes: []
-    consistency: partial
-    consistency_reason: Narrows the concept to weighing instruments with load receptor
-      terminology and uses 'reasonably constant' rather than 'same' conditions.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 65:2006
     publication_id: OIML R065:2006
@@ -578,10 +574,8 @@ data:
     notes:
     - The same conditions would include the same method of measurement, measuring
       instrument, operator, location, and ambient environmental  conditions.
-    consistency: partial
-    consistency_reason: Publication uses 'results of successive measurements' and
-      'same sample' rather than 'indications of a measuring instrument' and 'measurand',
-      and omits the concept of repeated applications to the instrument.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 132:2001
     publication_id: OIML R132:2001
@@ -697,10 +691,8 @@ data:
     - 'Note: The same conditions include the following: the method of measurement,
       the operator, the measuring instrument, the location, and the environmental
       conditions.'
-    consistency: partial
-    consistency_reason: Publication refers to 'results of successive measurements'
-      rather than 'indications of a measuring instrument' and adds the clause 'within
-      a relatively short period of time'.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 113:1994
     publication_id: OIML R113:1994
@@ -744,7 +736,9 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.27'
-    definition_text:
+    definition_text: ability of a measuring instrument to provide closely similar
+      indications for repeated applications of the same measurand under the same conditions
+      of measurement
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -753,7 +747,9 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '3.6'
-    definition_text:
+    definition_text: closeness of the agreement between the results of successive
+      measurements of the same measurand carried out under the same conditions of
+      measurement
     edition_label: VIM 1993
     vocab: vim
     role: legacy

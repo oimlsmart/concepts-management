@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.20'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.20
-    definition_text:
+    definition_text: indication of a measuring instrument minus a true value of the
+      corresponding input quantity
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -107,11 +108,8 @@ data:
     notes:
     - 'Note: This reference value is sometimes referred to as a (conventional) true
       quantity value. [VIML:2013, 0.04]'
-    consistency: partial
-    consistency_reason: Publication replaces 'true value' with 'reference quantity
-      value' and omits 'measuring instrument' and 'corresponding input quantity',
-      which aligns more with 'error of indication' than the strict 'error of a measuring
-      instrument' definition.
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML D011:2013
     publication_id: OIML D011:2013
@@ -133,7 +131,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.20'
-    definition_text:
+    definition_text: indication of a measuring instrument minus a true value of the
+      corresponding input quantity
     edition_label: VIM 1993
     vocab: vim
     role: legacy

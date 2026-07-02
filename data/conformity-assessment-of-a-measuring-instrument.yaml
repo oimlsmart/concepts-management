@@ -7,7 +7,10 @@ data:
     source: urn:oiml:pub:v:1:2000
     id: '2.11'
     url: https://oimlsmart.github.io/vocab/viml-2000/concept/2.11
-    definition_text:
+    definition_text: testing and evaluation of measuring instruments to ascertain
+      whether or not a single instrument, an instrument lot or a production series
+      of instruments comply with all statutory requirements applicable to this instrument
+      type
     edition_label: VIML 2000
     vocab: viml
     role: prior
@@ -90,7 +93,10 @@ related:
   ref:
     source: urn:oiml:pub:v:1:2000
     id: '2.11'
-    definition_text:
+    definition_text: testing and evaluation of measuring instruments to ascertain
+      whether or not a single instrument, an instrument lot or a production series
+      of instruments comply with all statutory requirements applicable to this instrument
+      type
     edition_label: VIML 2000
     vocab: viml
     role: prior

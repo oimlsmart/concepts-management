@@ -7,7 +7,8 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '2.8'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/2.8
-    definition_text:
+    definition_text: quantity that represents the measurand and which is functionally
+      related to it
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -84,7 +85,8 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '2.8'
-    definition_text:
+    definition_text: quantity that represents the measurand and which is functionally
+      related to it
     edition_label: VIM 1993
     vocab: vim
     role: legacy

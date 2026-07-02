@@ -7,7 +7,9 @@ data:
     source: urn:oiml:pub:v:2:1993
     id: '5.6'
     url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.6
-    definition_text:
+    definition_text: extreme conditions that a measuring instrument is required to
+      withstand without damage, and without degradation of specified metrological
+      characteristics when it is subsequently operated under its rated operating conditions
     edition_label: VIM 1993
     vocab: vim
     role: legacy
@@ -47,7 +49,9 @@ related:
   ref:
     source: urn:oiml:pub:v:2:1993
     id: '5.6'
-    definition_text:
+    definition_text: extreme conditions that a measuring instrument is required to
+      withstand without damage, and without degradation of specified metrological
+      characteristics when it is subsequently operated under its rated operating conditions
     edition_label: VIM 1993
     vocab: vim
     role: legacy
