@@ -55,8 +55,8 @@ data:
     related:
     - type: see
       ref:
-        id: A.12
         source: urn:oiml:pub:v:1:2022
+        id: A.12
   - edition: 202X
     publication: OIML D 27:2001
     publication_id: OIML D027:2001
@@ -88,8 +88,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: A.12
     source: urn:oiml:pub:v:1:2022
+    id: A.12
     definition_text: process for obtaining relevant information about an object of
       conformity assessment and evaluating it objectively to determine the extent
       to which {{A.6,specified requirements}} are fulfilled

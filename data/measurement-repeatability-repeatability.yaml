@@ -36,16 +36,16 @@ data:
     related:
     - type: see
       ref:
-        id: '2.21'
         source: urn:oiml:pub:v:2:2012
+        id: '2.21'
 status: current
 id: 6cf8aab3-597f-56ff-ad8d-1f71789ec400
 schema_version: '3'
 related:
 - type: see
   ref:
-    id: '2.21'
     source: urn:oiml:pub:v:2:2012
+    id: '2.21'
     definition_text: "{{2.15,measurement precision}} under a set of {{2.20,repeatability
       conditions of measurement}}"
     edition_label: VIM 2012

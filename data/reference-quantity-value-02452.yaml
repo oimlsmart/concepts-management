@@ -46,8 +46,8 @@ data:
     related:
     - type: see
       ref:
-        id: '5.18'
         source: urn:oiml:pub:v:2:2012
+        id: '5.18'
   - edition: 202X
     publication: OIML D010:2022
     publication_id: OIML D010:2022
@@ -109,8 +109,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '5.18'
     source: urn:oiml:pub:v:2:2012
+    id: '5.18'
     definition_text: "{{1.19,quantity value}} used as a basis for comparison with
       values of {{1.1,quantities}} of the same {{1.2,kind}}"
     edition_label: VIM 2012

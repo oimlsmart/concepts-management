@@ -16,9 +16,24 @@ data:
   official_concept:
   editions_present:
   - '2010'
+  - 202X
   primary_edition: 202X
   publications:
   - edition: '2010'
+    publication: OIML R 141:2008
+    publication_id: OIML R141:2008
+    tc_sc: TC11/SC3
+    year: 2008
+    clause: '2.10'
+    link: https://www.oiml.org/en/files/pdf_R/r141-e08.pdf
+    g18_entry: '02114'
+    definition: temperature increment equal to the root-mean-square value of the noise
+      in a thermogram, when observing a homogeneous background set with a specified
+      temperature and a specified thermogram rate
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
     publication: OIML R 141:2008
     publication_id: OIML R141:2008
     tc_sc: TC11/SC3

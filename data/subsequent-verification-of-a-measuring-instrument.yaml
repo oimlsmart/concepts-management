@@ -32,8 +32,7 @@ data:
     link: https://www.oiml.org/en/files/pdf_D/d027-e01.pdf
     g18_entry: '00168'
     definition: 'any verification of a measuring instrument after a previous verification
-      and including: • mandatory periodic verification; • verification after repair.
-      [VIML, 2.16]'
+      and including: • mandatory periodic verification; • verification after repair.'
     notes:
     - Subsequent verification of a measuring instrument may be carried out before
       expiry of the period of validity of a previous verification either at the request

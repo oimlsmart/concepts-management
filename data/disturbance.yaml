@@ -413,8 +413,8 @@ data:
     related:
     - type: see
       ref:
-        id: '5.19'
         source: urn:oiml:pub:v:1:2022
+        id: '5.19'
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -862,8 +862,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '5.19'
     source: urn:oiml:pub:v:1:2022
+    id: '5.19'
     definition_text: "{{0.07,influence quantity}} having a value within the limits
       specified in the relevant Recommendation, but outside the specified {{0.08,rated
       operating conditions}} of a {{0.10,measuring instrument}}"

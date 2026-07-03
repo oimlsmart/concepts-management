@@ -18,7 +18,7 @@ module G18
         groups = Hash.new { |h, k| h[k] = [] }
         variants_seen = Hash.new { |h, k| h[k] = Set.new }
         entries.each do |e|
-          raw = Loaders.preferred_designation(e[:loc])
+          raw = Loaders.preferred_designation(e[:concept])
           next unless raw && !raw.empty?
           cleaned = Normalize.normalize_designation(raw)
           tracking[:annotations_stripped][raw] = cleaned if cleaned != raw
@@ -35,22 +35,21 @@ module G18
       end
 
       def build_publication_entry(entry, bib)
-        meta  = entry[:meta]
-        loc   = entry[:loc]
-        src_id = Loaders.source_ref(meta)
+        concept = entry[:concept]
+        src_id = Loaders.source_ref(concept)
         bib_e  = bib[src_id]
-        edges  = Loaders.see_edges(meta)
+        edges  = Loaders.see_edges(concept)
         pub = {
           "edition"            => entry[:edition],
           "publication"        => (bib_e && bib_e["reference"]) || src_id,
           "publication_id"     => src_id,
           "tc_sc"              => (bib_e && bib_e["tc_sc"]) || "",
           "year"               => (bib_e && Loaders.parse_year(bib_e["id"])) || Loaders.parse_year(src_id),
-          "clause"             => Loaders.clause_ref(meta),
+          "clause"             => Loaders.clause_ref(concept, raw: entry[:raw]),
           "link"               => (bib_e && bib_e["link"]),
-          "g18_entry"          => meta.dig("data", "identifier"),
-          "definition"         => Loaders.definition_text(loc),
-          "notes"              => Loaders.notes_text(loc),
+          "g18_entry"          => Loaders.identifier(concept),
+          "definition"         => Loaders.definition_text(concept),
+          "notes"              => Loaders.notes_text(concept),
           "consistency"        => "pending",
           "consistency_reason" => "",
         }
@@ -64,8 +63,8 @@ module G18
 
       def merged_edges(instances)
         instances
-          .sort_by { |e| e[:meta].dig("data", "identifier").to_s }
-          .flat_map { |e| Loaders.see_edges(e[:meta]) }
+          .sort_by { |e| Loaders.identifier(e[:concept]).to_s }
+          .flat_map { |e| Loaders.see_edges(e[:concept]) }
           .uniq { |edge| [edge.dig("ref", "source"), edge.dig("ref", "id")] }
       end
 
@@ -88,7 +87,7 @@ module G18
         seen = {}
         out = []
         instances.each do |e|
-          Loaders.all_designations(e[:loc]).each do |d|
+          Loaders.all_designations(e[:concept]).each do |d|
             key = [d["type"], d["status"], d["text"]]
             next if seen[key]
             seen[key] = true
@@ -112,7 +111,7 @@ module G18
         # Sort: primary edition first, then by edition name, then by identifier.
         sorted = instances.sort_by do |e|
           edition_rank = e[:edition] == primary_edition ? 0 : 1
-          [edition_rank, e[:edition].to_s, e[:meta].dig("data", "identifier").to_s]
+          [edition_rank, e[:edition].to_s, Loaders.identifier(e[:concept]).to_s]
         end
         first = sorted.first
         edges = merged_edges(sorted)
@@ -124,7 +123,7 @@ module G18
         # Display name: prefer the alias canonical (preserves exact casing
         # from the aliases file); otherwise use the first instance's cleaned
         # designation.
-        display_name = aliases[term_key] || Normalize.normalize_designation(Loaders.preferred_designation(first[:loc]) || term_key)
+        display_name = aliases[term_key] || Normalize.normalize_designation(Loaders.preferred_designation(first[:concept]) || term_key)
 
         # Enrich the official concept with VIM/VIML metadata + authoritative
         # definition text so term pages render the baseline without a fetch.
@@ -149,7 +148,7 @@ module G18
 
         {
           "data" => {
-            "identifier"       => first[:meta].dig("data", "identifier"),
+            "identifier"       => Loaders.identifier(first[:concept]),
             "term"             => display_name,
             "designations"     => merged_designations,
             "kind"             => kind,

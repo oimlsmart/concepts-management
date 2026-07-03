@@ -1,0 +1,37 @@
+---
+data:
+  identifier: '03539'
+  term: stationary evidential breath alcohol analyzer
+  designations:
+  - type: expression
+    status: preferred
+    text: stationary evidential breath alcohol analyzer
+  - type: abbreviation
+    status: preferred
+    text: stationry EBA
+  kind: undefined
+  official_concept:
+  editions_present:
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: 202X
+    publication: OIML R126-1:2021
+    publication_id: OIML R126-1:2021
+    tc_sc: ''
+    year: 2021
+    clause: 3.2.2
+    link:
+    g18_entry: '03539'
+    definition: evidential breath alcohol analyzer intended only for use in a fixed
+      location within buildings or places providing stable environmental operating
+      conditions
+    notes:
+    - 'Note: In scope of this Recommendation, stationary EBAs are designated as use-case
+      1.'
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 9689d71a-8141-50e1-8f28-73088b3d442f
+schema_version: '3'
+related: []

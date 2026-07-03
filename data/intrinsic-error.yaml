@@ -402,8 +402,8 @@ data:
     related:
     - type: see
       ref:
-        id: '0.06'
         source: urn:oiml:pub:v:1:2022
+        id: '0.06'
   - edition: 202X
     publication: OIML R142-1:2025
     publication_id: OIML R142-1:2025
@@ -592,9 +592,9 @@ data:
     year: 2012
     clause: 2.2.20
     link:
-    g18_entry: '03171'
-    definition: error of a measuring instrument determined under reference conditions
-      [VIML:2013, 0.06]
+    g18_entry: 02320-R046-1
+    definition: error of a measuring instrument, determined under reference conditions
+      [OIML V1:2013, 0.06]
     notes: []
     consistency: pending
     consistency_reason: ''
@@ -605,9 +605,9 @@ data:
     year: 2012
     clause: 2.2.20
     link:
-    g18_entry: 02320-R046-1
-    definition: error of a measuring instrument, determined under reference conditions
-      [OIML V1:2013, 0.06]
+    g18_entry: '03171'
+    definition: error of a measuring instrument determined under reference conditions
+      [VIML:2013, 0.06]
     notes: []
     consistency: pending
     consistency_reason: ''
@@ -778,6 +778,19 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: 202X
+    publication: OIML R 75-1:2002
+    publication_id: OIML R075-1:2002
+    tc_sc: ''
+    year: 2002
+    clause: 4.9.2
+    link: https://www.oiml.org/en/files/pdf_R/r075-1-e02.pdf
+    g18_entry: '00860'
+    definition: error of a measuring instrument, determined under reference conditions
+      [VIM:1993, 5.24].
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
     publication: OIML R 81:1998
     publication_id: OIML R081:1998
     tc_sc: TC8/SC6
@@ -841,8 +854,8 @@ related:
     year: 1993
 - type: see
   ref:
-    id: '0.06'
     source: urn:oiml:pub:v:1:2022
+    id: '0.06'
     definition_text: "{{0.04,error of indication}}, determined under {{0.09,reference
       conditions}}"
     edition_label: VIML 2022

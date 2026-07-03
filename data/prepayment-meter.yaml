@@ -23,9 +23,10 @@ data:
     definition: electricity meter intended to allow electrical energy to be delivered
       up to a predetermined amount
     notes:
-    - 'Note 1:  Such a meter measures energy continuously and stores and displays
-      the measured energy. Note 2:  National authorities may specify requirements
-      in relation to prepayment meters.'
+    - 'Note 1: Such a meter measures energy continuously and stores and displays the
+      measured energy.'
+    - 'Note 2: National authorities may specify requirements in relation to prepayment
+      meters.'
     consistency: pending
     consistency_reason: ''
 status: current

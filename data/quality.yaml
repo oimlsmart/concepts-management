@@ -40,9 +40,10 @@ data:
     definition: degree to which a set of inherent characteristics fulfils requirements
       [ISO 9000:2000, 3.1.1]
     notes:
-    - 'Note 1: The term “quality” can be used with adjectives such as poor, good or
-      excellent. Note 2: “Inherent” as opposed to “assigned” means existing in something,
-      especially as a permanent  characteristic.'
+    - 'Note 1: The term "quality" can be used with adjectives such as poor, good or
+      excellent.'
+    - 'Note 2: "Inherent" as opposed to "assigned" means existing in something, especially
+      as a permanent characteristic.'
     consistency: pending
     consistency_reason: ''
 status: current

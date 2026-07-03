@@ -1,0 +1,32 @@
+---
+data:
+  identifier: 02337-R046-1
+  term: negative energy flow
+  designations:
+  - type: expression
+    status: preferred
+    text: negative energy flow
+  kind: undefined
+  official_concept:
+  editions_present:
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: 202X
+    publication: OIML R046-1:2012
+    publication_id: OIML R046-1:2012
+    tc_sc: ''
+    year: 2012
+    clause: 2.2.38
+    link:
+    g18_entry: 02337-R046-1
+    definition: direction of energy flow opposite to positive
+    notes:
+    - 'Note: For positive-direction only, the opposite direction is termed reverse
+      energy flow (see 2.2.39).'
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 29767934-1bf5-52a0-82b3-40bacb4717f4
+schema_version: '3'
+related: []

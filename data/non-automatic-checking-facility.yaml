@@ -1,6 +1,6 @@
 ---
 data:
-  identifier: '03330'
+  identifier: '03329'
   term: non-automatic checking facility
   designations:
   - type: expression
@@ -97,6 +97,19 @@ data:
     link: https://www.oiml.org/en/files/pdf_R/r105-e93.pdf
     g18_entry: '01250'
     definition: a checking facility that requires intervention of an operator
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R139-1:2022
+    publication_id: OIML R139-1:2022
+    tc_sc: ''
+    year: 2022
+    clause: 3.2.16
+    link:
+    g18_entry: '03329'
+    definition: checking facility, requiring the intervention of an operator [OIML
+      D 11:2013, 3.19.2]
     notes: []
     consistency: pending
     consistency_reason: ''

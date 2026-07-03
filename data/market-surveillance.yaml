@@ -61,13 +61,14 @@ data:
       service”: one or more conformity assessment procedures may be or have to be
       carried out when measuring instruments are put into service; “put into service”:
       to describe the situation when a manufacturer manufactures a measuring instrument
-      to be used (it is not necessary to place it on the market). Note 2: Market surveillance
-      is exerted by enforcement authorities for the purpose of detecting whether products
-      placed on the national market (i.e. sold or offered for sale) fail to comply
-      with the regulations that apply to them. Note 3: This must be distinguished
-      from “field surveillance” which consists in a surveillance by enforcement authorities,
-      that instruments in use in marketplaces (in the field) do comply with the requirements
-      that apply to them (required characteristics, integrity, accuracy, proper use).'
+      to be used (it is not necessary to place it on the market).'
+    - 'Note 2: Market surveillance is exerted by enforcement authorities for the purpose
+      of detecting whether products placed on the national market (i.e. sold or offered
+      for sale) fail to comply with the regulations that apply to them.'
+    - 'Note 3: This must be distinguished from “field surveillance” which consists
+      in a surveillance by enforcement authorities, that instruments in use in marketplaces
+      (in the field) do comply with the requirements that apply to them (required
+      characteristics, integrity, accuracy, proper use).'
     consistency: pending
     consistency_reason: ''
   - edition: 202X

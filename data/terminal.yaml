@@ -41,8 +41,8 @@ data:
     related:
     - type: see
       ref:
-        id: '5.10'
         source: urn:oiml:pub:v:1:2022
+        id: '5.10'
   - edition: 202X
     publication: OIML R150-1:2020
     publication_id: OIML R150-1:2020
@@ -96,8 +96,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '5.10'
     source: urn:oiml:pub:v:1:2022
+    id: '5.10'
     definition_text: digital device that has one or more keys (or mouse, touch-screen,
       etc.) to operate the instrument, and a display to provide the measurement results
       transmitted via the digital interface or an analog data processing device

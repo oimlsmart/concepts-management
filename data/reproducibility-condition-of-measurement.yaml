@@ -1,6 +1,6 @@
 ---
 data:
-  identifier: '03459'
+  identifier: '02795'
   term: reproducibility condition of measurement
   designations:
   - type: expression
@@ -37,16 +37,16 @@ data:
       different locations, operators, measuring systems, and replicate measurements
       on the same or similar objects
     notes:
-    - 'Note 1: Different measuring systems may use different measurement procedures.
-      Note 2: A specification should give the conditions changed and unchanged, to
+    - 'Note 1: Different measuring systems may use different measurement procedures.'
+    - 'Note 2: A specification should give the conditions changed and unchanged, to
       the extent practical.'
     consistency: pending
     consistency_reason: ''
     related:
     - type: see
       ref:
-        id: '2.24'
         source: urn:oiml:pub:v:2:2012
+        id: '2.24'
   - edition: 202X
     publication: OIML R126-1:2021
     publication_id: OIML R126-1:2021
@@ -73,9 +73,27 @@ data:
       different locations, operators, measuring systems, and replicate measurements
       on the same or similar objects
     notes:
-    - 'Note 1: Different measuring systems may use different measurement procedures.
-      Note 2: A specification should give the conditions changed and unchanged, to
+    - 'Note 1: Different measuring systems may use different measurement procedures.'
+    - 'Note 2: A specification should give the conditions changed and unchanged, to
       the extent practical.'
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R146-1:2016
+    publication_id: OIML R146-1:2016
+    tc_sc: ''
+    year: 2016
+    clause: 2.1 Tab. 1.14
+    link:
+    g18_entry: '02795'
+    definition: condition of measurement, out of a set of conditions that includes
+      different locations, operators, measuring systems, and replicate measurements
+      on the same or similar objects
+    notes:
+    - NOTE 1 The different measuring systems may use different measurement procedures.
+    - NOTE 2 A specification should give the conditions changed and unchanged, to
+      the extent practical. For the tests in this Recommendation, the conditions changed
+      and unchanged are summarized in R 146-2, Annex A, A.3.4.
     consistency: pending
     consistency_reason: ''
 status: current
@@ -84,8 +102,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '2.24'
     source: urn:oiml:pub:v:2:2012
+    id: '2.24'
     definition_text: condition of {{2.1,measurement}}, out of a set of conditions
       that includes different locations, operators, {{3.2,measuring systems}}, and
       replicate measurements on the same or similar objects

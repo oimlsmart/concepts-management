@@ -24,7 +24,8 @@ data:
       at which automatic speed measurements are carried out
     notes:
     - 'Note 1: The trigger line is typically perpendicular to the direction of the
-      road. Note 2: The trigger line is not necessarily in the same position for every
+      road.'
+    - 'Note 2: The trigger line is not necessarily in the same position for every
       measurement.'
     consistency: pending
     consistency_reason: ''

@@ -282,8 +282,8 @@ data:
     related:
     - type: see
       ref:
-        id: '5.11'
         source: urn:oiml:pub:v:1:2022
+        id: '5.11'
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -572,8 +572,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '5.11'
     source: urn:oiml:pub:v:1:2022
+    id: '5.11'
     definition_text: "{{0.06,intrinsic error}} of a {{0.10,measuring instrument}}
       as determined prior to {{5.21,performance tests}} and {{5.15,durability}} evaluations"
     edition_label: VIML 2022

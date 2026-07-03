@@ -133,8 +133,8 @@ data:
     related:
     - type: see
       ref:
-        id: '2.05'
         source: urn:oiml:pub:v:1:2022
+        id: '2.05'
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -345,8 +345,8 @@ related:
     year: 2000
 - type: see
   ref:
-    id: '2.05'
     source: urn:oiml:pub:v:1:2022
+    id: '2.05'
     definition_text: decision of legal relevance, based on the review of the {{2.04,type
       evaluation}} report, that the type of a {{0.10,measuring instrument}} complies
       with the relevant statutory requirements and results in the issuance of the

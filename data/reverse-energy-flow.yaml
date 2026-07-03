@@ -1,0 +1,30 @@
+---
+data:
+  identifier: '02338-R046-1'
+  term: reverse energy flow
+  designations:
+  - type: expression
+    status: preferred
+    text: reverse energy flow
+  kind: undefined
+  official_concept:
+  editions_present:
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: 202X
+    publication: OIML R046-1:2012
+    publication_id: OIML R046-1:2012
+    tc_sc: ''
+    year: 2012
+    clause: 2.2.39
+    link:
+    g18_entry: '02338-R046-1'
+    definition: direction of flow in the opposite direction to positive
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 45ae998e-0318-568a-9ad4-7a99a9c6fd49
+schema_version: '3'
+related: []

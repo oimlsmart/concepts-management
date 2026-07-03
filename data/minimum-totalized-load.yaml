@@ -44,6 +44,19 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: 202X
+    publication: OIML R050-1:2014
+    publication_id: OIML R050-1:2014
+    tc_sc: ''
+    year: 2014
+    clause: 2.3.7
+    link:
+    g18_entry: '03317'
+    definition: totalized quantity, in units of mass, below which a totalization may
+      be subject to excessive relative errors
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
     publication: OIML R 107-1:2007
     publication_id: OIML R107-1:2007
     tc_sc: ''

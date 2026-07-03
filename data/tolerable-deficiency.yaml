@@ -22,10 +22,11 @@ data:
     g18_entry: '02510'
     definition: permitted deficiency in the quantity of product in a prepackage
     notes:
-    - 'Note 1: The symbol “T” is used to designate tolerable deficiency. Note 2: Tolerable
-      deficiency is sometimes referred to as the tolerable negative error, limits
-      of error or tolerances. Note 3: By convention T is a positive number but, in
-      use it represents a negative value of quantity, or negative error.'
+    - 'Note 1: The symbol "T" is used to designate tolerable deficiency.'
+    - 'Note 2: Tolerable deficiency is sometimes referred to as the tolerable negative
+      error, limits of error or tolerances.'
+    - 'Note 3: By convention T is a positive number but, in use it represents a negative
+      value of quantity, or negative error.'
     consistency: pending
     consistency_reason: ''
 status: current

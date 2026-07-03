@@ -48,8 +48,8 @@ data:
     related:
     - type: see
       ref:
-        id: '2.20'
         source: urn:oiml:pub:v:2:2012
+        id: '2.20'
   - edition: 202X
     publication: OIML R126-1:2021
     publication_id: OIML R126-1:2021
@@ -90,8 +90,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '2.20'
     source: urn:oiml:pub:v:2:2012
+    id: '2.20'
     definition_text: condition of {{2.1,measurement}}, out of a set of conditions
       that includes the same {{2.6,measurement procedure}}, same operators, same {{3.2,measuring
       system}}, same operating conditions and same location, and replicate measurements

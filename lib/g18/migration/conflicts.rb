@@ -20,11 +20,11 @@ module G18
         entries_by_edition.each do |edition, entries|
           by_id = Hash.new { |h, k| h[k] = [] }
           entries.each do |e|
-            id = e[:meta]&.dig("data", "identifier")
+            id = Loaders.identifier(e[:concept])
             next unless id
-            designation = Loaders.preferred_designation(e[:loc])
+            designation = Loaders.preferred_designation(e[:concept])
             next unless designation
-            source = Loaders.source_ref(e[:meta])
+            source = Loaders.source_ref(e[:concept])
             tuple = { designation: designation, source: source }
             by_id[id] << tuple unless by_id[id].any? { |x| x[:designation] == designation && x[:source] == source }
           end

@@ -1,6 +1,6 @@
 ---
 data:
-  identifier: '03268'
+  identifier: 02253-D011
   term: measurement uncertainty
   designations:
   - type: expression
@@ -29,22 +29,24 @@ data:
     definition: non-negative parameter characterizing the dispersion of the quantity
       values being attributed to a measurand, based on the information used
     notes:
-    - 'Note 1:Measurement uncertainty includes components arising from systematic
+    - 'Note 1: Measurement uncertainty includes components arising from systematic
       effects, such as components associated with corrections and the assigneted quantity
       values of measurement standards, as well as the definitional uncertainty components
-      are incorporated. Note 2: The parameter may be, for example, a standard deviation
-      called standard measurement uncertainty (or a specified multiple of it), or
-      the half-width of an interval, having a stated coverage probability. Note 3:
-      Measurement uncertainty comproses, in general, many components. Some of these
-      may be evaluated by Type A evaluation of measurement uncertainty from the statistical
-      distribution of the quantity values form series of measurements and can be characterized
-      by standard deviations. The other components, which may be evaluated by Type
-      B evaluation of measurement uncertainty, can also be characterized by standard
-      deviations, evaluated form probability density function based on experience
-      or other information. Note 4: In general, for given set of information, it is
-      understood that the measurement uncertainty is associated with a stated quantity
-      value attributed to the measurand. A modification of this value results in a
-      modification of the associated uncertatinty.'
+      are incorporated.'
+    - 'Note 2: The parameter may be, for example, a standard deviation called standard
+      measurement uncertainty (or a specified multiple of it), or the half-width of
+      an interval, having a stated coverage probability.'
+    - 'Note 3: Measurement uncertainty comproses, in general, many components. Some
+      of these may be evaluated by Type A evaluation of measurement uncertainty from
+      the statistical distribution of the quantity values form series of measurements
+      and can be characterized by standard deviations. The other components, which
+      may be evaluated by Type B evaluation of measurement uncertainty, can also be
+      characterized by standard deviations, evaluated form probability density function
+      based on experience or other information.'
+    - 'Note 4: In general, for given set of information, it is understood that the
+      measurement uncertainty is associated with a stated quantity value attributed
+      to the measurand. A modification of this value results in a modification of
+      the associated uncertatinty.'
     consistency: pending
     consistency_reason: ''
   - edition: 202X
@@ -74,6 +76,20 @@ data:
       understood that the measurement uncertainty is associated with a stated quantity
       value attributed to the measurand. A modification of this value results in a
       modification of the associated uncertatinty.'
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML D011:2013
+    publication_id: OIML D011:2013
+    tc_sc: ''
+    year: 2013
+    clause: '3.28'
+    link:
+    g18_entry: 02253-D011
+    definition: non-negative parameter characterizing the dispersion of the quantity
+      values being attributed to a measurand, based on the information used
+    notes:
+    - Note:See VIM 2.26 for notes on this definition.
     consistency: pending
     consistency_reason: ''
 status: current

@@ -57,9 +57,9 @@ data:
     g18_entry: '02988'
     definition: output device visualizing actual information in volatile digital format
     notes:
-    - 'Note 1: A digital display may be a primary display or secondary display. Note
-      2: The terms “primary display” and “secondary display” should not be confused
-      with the terms “primary indication” and “secondary indication” (see 2.4.1.1.
+    - 'Note 1: A digital display may be a primary display or secondary display.'
+    - 'Note 2: The terms "primary display" and "secondary display" should not be confused
+      with the terms "primary indication" and "secondary indication" (see 2.4.1.1.
       and 2.4.1.2).'
     consistency: pending
     consistency_reason: ''

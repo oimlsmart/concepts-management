@@ -56,9 +56,9 @@ data:
     definition: specific device that is part of a self-service arrangement and which
       allows one or more measuring systems to perform in this self-service arrangement
     notes:
-    - 'Note 1:  The self-service device includes all the elements and constituents
-      that are mandatory so that a measuring system performs in a self-service arrangement.
-      Note 2:  The arrangement is made of a self-service device and connected measuring
+    - 'Note 1: The self-service device includes all the elements and constituents
+      that are mandatory so that a measuring system performs in a self-service arrangement.'
+    - 'Note 2: The arrangement is made of a self-service device and connected measuring
       systems.'
     consistency: pending
     consistency_reason: ''

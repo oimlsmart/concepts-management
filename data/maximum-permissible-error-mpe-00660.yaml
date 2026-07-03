@@ -56,9 +56,10 @@ data:
       quantity value, permitted by specifications or regulations for a given measurement,
       measuring instrument, or measuring system (VIM, 4.26)
     notes:
-    - 'Note 1: Usually, the term “maximum permissible errors” or “limits of error”
-      is used where there are two extreme values. Note 2: The term “tolerance” should
-      not be used to designate ‘maximum permissible error’.'
+    - 'Note 1: Usually, the term "maximum permissible errors" or "limits of error"
+      is used where there are two extreme values.'
+    - 'Note 2: The term "tolerance" should not be used to designate "maximum permissible
+      error".'
     consistency: pending
     consistency_reason: ''
   - edition: 202X

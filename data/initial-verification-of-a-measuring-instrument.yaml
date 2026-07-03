@@ -31,7 +31,7 @@ data:
     link: https://www.oiml.org/en/files/pdf_D/d027-e01.pdf
     g18_entry: '00167'
     definition: verification of a measuring instrument which has not been verified
-      previously [VIML, 2.15]
+      previously
     notes: []
     consistency: pending
     consistency_reason: ''

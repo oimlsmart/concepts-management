@@ -230,8 +230,8 @@ data:
     related:
     - type: see
       ref:
-        id: '5.07'
         source: urn:oiml:pub:v:1:2022
+        id: '5.07'
   - edition: 202X
     publication: OIML R142-1:2025
     publication_id: OIML R142-1:2025
@@ -536,8 +536,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '5.07'
     source: urn:oiml:pub:v:1:2022
+    id: '5.07'
     definition_text: facility that is incorporated in a {{0.10,measuring instrument}}
       and which enables {{5.14,significant faults}} to be detected and acted upon
     edition_label: VIML 2022

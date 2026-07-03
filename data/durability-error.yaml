@@ -103,8 +103,8 @@ data:
     related:
     - type: see
       ref:
-        id: '5.16'
         source: urn:oiml:pub:v:1:2022
+        id: '5.16'
   - edition: 202X
     publication: OIML R139-1:2022
     publication_id: OIML R139-1:2022
@@ -203,8 +203,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '5.16'
     source: urn:oiml:pub:v:1:2022
+    id: '5.16'
     definition_text: difference between the {{0.06,intrinsic error}} after a period
       of use and the {{5.11,initial intrinsic error}} of a measuring instrument
     edition_label: VIML 2022
