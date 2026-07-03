@@ -2,6 +2,10 @@
 data:
   identifier: '03742'
   term: azimuth angle of speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: azimuth angle of speed meter
   kind: undefined
   official_concept:
   editions_present:

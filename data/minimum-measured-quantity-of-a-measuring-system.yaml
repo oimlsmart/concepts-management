@@ -2,6 +2,10 @@
 data:
   identifier: '01022'
   term: minimum measured quantity of a measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum measured quantity of a measuring system
   kind: undefined
   official_concept:
   editions_present:

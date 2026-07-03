@@ -2,6 +2,10 @@
 data:
   identifier: '02924'
   term: certification body
+  designations:
+  - type: expression
+    status: preferred
+    text: certification body
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03743'
   term: beam width
+  designations:
+  - type: expression
+    status: preferred
+    text: beam width
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00593'
   term: type specific parameter
+  designations:
+  - type: expression
+    status: preferred
+    text: type specific parameter
   kind: undefined
   official_concept:
   editions_present:

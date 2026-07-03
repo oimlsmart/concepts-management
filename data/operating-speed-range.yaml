@@ -2,6 +2,10 @@
 data:
   identifier: '03412'
   term: operating speed range
+  designations:
+  - type: expression
+    status: preferred
+    text: operating speed range
   kind: undefined
   official_concept:
   editions_present:

@@ -2,27 +2,16 @@
 data:
   identifier: '03574'
   term: totalization scale interval (d)
+  designations:
+  - type: expression
+    status: preferred
+    text: totalization scale interval (d)
   kind: undefined
   official_concept:
   editions_present:
-  - '2010'
   - 202X
   primary_edition: 202X
   publications:
-  - edition: '2010'
-    publication: OIML R 50-1:1997
-    publication_id: OIML R050-1:1997
-    tc_sc: TC9/SC2
-    year: 1997
-    clause: T.4.1.1
-    link: https://www.oiml.org/en/files/pdf_R/r050-1-e97.pdf
-    g18_entry: '00514'
-    definition: the value, expressed in units of mass, of the difference between two
-      consecutive indicated values, for general and partial totalization devices,
-      with the instrument in its normal weighing mode
-    notes: []
-    consistency: pending
-    consistency_reason: ''
   - edition: 202X
     publication: OIML R050-1:2014
     publication_id: OIML R050-1:2014

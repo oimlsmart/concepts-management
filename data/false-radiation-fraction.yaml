@@ -2,6 +2,10 @@
 data:
   identifier: '01862'
   term: false radiation fraction
+  designations:
+  - type: expression
+    status: preferred
+    text: false radiation fraction
   kind: undefined
   official_concept:
   editions_present:

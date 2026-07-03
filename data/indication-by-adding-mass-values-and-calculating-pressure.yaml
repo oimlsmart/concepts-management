@@ -2,6 +2,10 @@
 data:
   identifier: '01428'
   term: indication by adding mass values and calculating pressure
+  designations:
+  - type: expression
+    status: preferred
+    text: indication by adding mass values and calculating pressure
   kind: undefined
   official_concept:
   editions_present:

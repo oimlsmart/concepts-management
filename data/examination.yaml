@@ -2,6 +2,10 @@
 data:
   identifier: '00086'
   term: examination
+  designations:
+  - type: expression
+    status: preferred
+    text: examination
   kind: undefined
   official_concept:
   editions_present:

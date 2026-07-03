@@ -2,6 +2,13 @@
 data:
   identifier: '01373'
   term: automatic checking facility
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic checking facility
+  - type: expression
+    status: preferred
+    text: Automatic checking facility
   kind: undefined
   official_concept:
   editions_present:

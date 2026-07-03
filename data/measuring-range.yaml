@@ -2,6 +2,10 @@
 data:
   identifier: '01417'
   term: measuring range
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring range
   kind: undefined
   official_concept:
   editions_present:

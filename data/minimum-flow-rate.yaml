@@ -1,11 +1,22 @@
 ---
 data:
-  identifier: '01221'
+  identifier: '02411'
   term: minimum flow rate
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum flow rate
+  - type: symbol
+    status: preferred
+    text: stem:[Q_{"min"}]
+  - type: symbol
+    status: preferred
+    text: stem:[Q_{1}]
   kind: undefined
   official_concept:
   editions_present:
   - '2010'
+  - 202X
   primary_edition: 202X
   publications:
   - edition: '2010'
@@ -18,6 +29,46 @@ data:
     g18_entry: '01221'
     definition: the lowest flow rate at which the measuring system is required to
       meet the applicable maximum permissible errors
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R049-1:2024
+    publication_id: OIML R049-1:2024
+    tc_sc: ''
+    year: 2024
+    clause: 3.3.5
+    link:
+    g18_entry: '02411'
+    definition: lowest flow rate (3.3.1) at which the meter is to operate within the
+      maximum permissible error(s) (3.2.5)
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R050-1:2017
+    publication_id: OIML R050-1:2017
+    tc_sc: ''
+    year: 2017
+    clause: 2.3.6.2
+    link:
+    g18_entry: '03306'
+    definition: flowrate above which the weighing results comply with the requirements
+      of this Recommendation
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R137:2012
+    publication_id: OIML R137:2012
+    tc_sc: ''
+    year: 2012
+    clause: 3.3.3
+    link:
+    g18_entry: '02681'
+    definition: lowest flow rate at which a gas meter is required to operate within
+      the limits of its maximum permissible error, whilst operated within its rated
+      operating conditions
     notes: []
     consistency: pending
     consistency_reason: ''

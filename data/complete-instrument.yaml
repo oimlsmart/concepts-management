@@ -2,6 +2,10 @@
 data:
   identifier: '00843'
   term: complete instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: complete instrument
   kind: undefined
   official_concept:
   editions_present:

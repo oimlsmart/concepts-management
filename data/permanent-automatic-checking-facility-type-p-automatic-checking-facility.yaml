@@ -2,6 +2,10 @@
 data:
   identifier: '02439'
   term: permanent automatic checking facility type P automatic checking facility
+  designations:
+  - type: expression
+    status: preferred
+    text: permanent automatic checking facility type P automatic checking facility
   kind: undefined
   official_concept:
   editions_present:

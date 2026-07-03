@@ -2,6 +2,10 @@
 data:
   identifier: 02247-R080-1
   term: expansion volume
+  designations:
+  - type: expression
+    status: preferred
+    text: expansion volume
   kind: undefined
   official_concept:
   editions_present:

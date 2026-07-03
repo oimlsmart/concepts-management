@@ -2,6 +2,10 @@
 data:
   identifier: '03040'
   term: energy resolution
+  designations:
+  - type: expression
+    status: preferred
+    text: energy resolution
   kind: undefined
   official_concept:
   editions_present:

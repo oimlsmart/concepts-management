@@ -2,6 +2,10 @@
 data:
   identifier: '02134'
   term: zero-setting means (of a gas analyzer)
+  designations:
+  - type: expression
+    status: preferred
+    text: zero-setting means (of a gas analyzer)
   kind: undefined
   official_concept:
   editions_present:

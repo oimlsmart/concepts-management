@@ -2,6 +2,10 @@
 data:
   identifier: '01848'
   term: law of Bouguer-Lambert and Beer (A = lg(1/τ) = εbc)
+  designations:
+  - type: expression
+    status: preferred
+    text: law of Bouguer-Lambert and Beer (A = lg(1/τ) = εbc)
   kind: undefined
   official_concept:
   editions_present:

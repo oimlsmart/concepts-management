@@ -2,6 +2,10 @@
 data:
   identifier: '03562'
   term: Test Laboratory
+  designations:
+  - type: expression
+    status: preferred
+    text: Test Laboratory
   kind: undefined
   official_concept:
   editions_present:

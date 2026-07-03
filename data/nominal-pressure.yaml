@@ -2,6 +2,10 @@
 data:
   identifier: '00674'
   term: nominal pressure
+  designations:
+  - type: expression
+    status: preferred
+    text: nominal pressure
   kind: undefined
   official_concept:
   editions_present:

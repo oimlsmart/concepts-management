@@ -2,8 +2,21 @@
 data:
   identifier: '01653'
   term: checking facility
-  kind: undefined
+  designations:
+  - type: expression
+    status: preferred
+    text: checking facility
+  kind: defined_in_viml
   official_concept:
+    source: urn:oiml:pub:v:1:2022
+    id: '5.07'
+    url: https://oimlsmart.github.io/vocab/viml-2022/concept/5.07
+    definition_text: facility that is incorporated in a {{0.10,measuring instrument}}
+      and which enables {{5.14,significant faults}} to be detected and acted upon
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022
   editions_present:
   - '2010'
   - 202X
@@ -201,6 +214,24 @@ data:
       is fully received by the receiving equipment.
     consistency: pending
     consistency_reason: ''
+  - edition: 202X
+    publication: OIML R091-1:2025
+    publication_id: OIML R091-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: 3.1.8
+    link:
+    g18_entry: '03745'
+    definition: facility that is incorporated in a measuring instrument and which
+      enables significant faults to be detected and acted upon
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '5.07'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML R142-1:2025
     publication_id: OIML R142-1:2025
@@ -502,4 +533,14 @@ data:
 status: current
 id: 93619d68-effb-5821-9908-1af53ac3f542
 schema_version: '3'
-related: []
+related:
+- type: see
+  ref:
+    id: '5.07'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: facility that is incorporated in a {{0.10,measuring instrument}}
+      and which enables {{5.14,significant faults}} to be detected and acted upon
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

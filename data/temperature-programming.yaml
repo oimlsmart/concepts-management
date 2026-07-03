@@ -2,6 +2,10 @@
 data:
   identifier: '02521'
   term: temperature programming
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature programming
   kind: undefined
   official_concept:
   editions_present:

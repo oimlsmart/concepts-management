@@ -2,6 +2,10 @@
 data:
   identifier: '01779'
   term: auxiliary scale
+  designations:
+  - type: expression
+    status: preferred
+    text: auxiliary scale
   kind: undefined
   official_concept:
   editions_present:

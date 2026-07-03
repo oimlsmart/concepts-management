@@ -2,6 +2,10 @@
 data:
   identifier: '02062'
   term: secured communication
+  designations:
+  - type: expression
+    status: preferred
+    text: secured communication
   kind: undefined
   official_concept:
   editions_present:

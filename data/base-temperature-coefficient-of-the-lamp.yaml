@@ -2,6 +2,10 @@
 data:
   identifier: '00409'
   term: base temperature coefficient of the lamp
+  designations:
+  - type: expression
+    status: preferred
+    text: base temperature coefficient of the lamp
   kind: undefined
   official_concept:
   editions_present:

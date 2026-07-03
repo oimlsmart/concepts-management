@@ -2,6 +2,10 @@
 data:
   identifier: '03704'
   term: software-controlled water meter
+  designations:
+  - type: expression
+    status: preferred
+    text: software-controlled water meter
   kind: undefined
   official_concept:
   editions_present:

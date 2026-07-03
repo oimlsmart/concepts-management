@@ -2,6 +2,10 @@
 data:
   identifier: '00391'
   term: capacity (of a pipette)
+  designations:
+  - type: expression
+    status: preferred
+    text: capacity (of a pipette)
   kind: undefined
   official_concept:
   editions_present:

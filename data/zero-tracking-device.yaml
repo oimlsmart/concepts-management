@@ -2,6 +2,10 @@
 data:
   identifier: '00616'
   term: zero tracking device
+  designations:
+  - type: expression
+    status: preferred
+    text: zero tracking device
   kind: undefined
   official_concept:
   editions_present:

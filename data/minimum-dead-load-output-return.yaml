@@ -1,0 +1,34 @@
+---
+data:
+  identifier: '00720'
+  term: minimum dead load output return
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum dead load output return
+  - type: symbol
+    status: preferred
+    text: stem:[DR]
+  kind: undefined
+  official_concept:
+  editions_present:
+  - '2010'
+  primary_edition: 202X
+  publications:
+  - edition: '2010'
+    publication: OIML R 60:2000
+    publication_id: OIML R060:2000
+    tc_sc: TC9
+    year: 2000
+    clause: 2.3.9
+    link: https://www.oiml.org/en/files/pdf_R/r060-e00.pdf
+    g18_entry: '00720'
+    definition: difference in load cell output at minimum dead load, measured before
+      and after load application
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: cf41be22-4428-5de6-b060-2967c5bc5392
+schema_version: '3'
+related: []

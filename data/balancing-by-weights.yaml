@@ -2,6 +2,10 @@
 data:
   identifier: '00963'
   term: balancing by weights
+  designations:
+  - type: expression
+    status: preferred
+    text: balancing by weights
   kind: undefined
   official_concept:
   editions_present:

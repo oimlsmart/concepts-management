@@ -2,6 +2,10 @@
 data:
   identifier: '01153'
   term: error of a line measure
+  designations:
+  - type: expression
+    status: preferred
+    text: error of a line measure
   kind: undefined
   official_concept:
   editions_present:

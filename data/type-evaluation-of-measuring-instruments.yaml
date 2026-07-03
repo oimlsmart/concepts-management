@@ -2,6 +2,10 @@
 data:
   identifier: '02207'
   term: type evaluation of measuring instruments
+  designations:
+  - type: expression
+    status: preferred
+    text: type evaluation of measuring instruments
   kind: undefined
   official_concept:
   editions_present:

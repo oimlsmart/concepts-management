@@ -2,6 +2,10 @@
 data:
   identifier: '00264'
   term: complete verification
+  designations:
+  - type: expression
+    status: preferred
+    text: complete verification
   kind: undefined
   official_concept:
   editions_present:

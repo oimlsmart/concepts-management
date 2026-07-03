@@ -2,6 +2,10 @@
 data:
   identifier: '01212'
   term: master meter
+  designations:
+  - type: expression
+    status: preferred
+    text: master meter
   kind: undefined
   official_concept:
   editions_present:

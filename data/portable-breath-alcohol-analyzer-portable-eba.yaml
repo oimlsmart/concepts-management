@@ -2,6 +2,10 @@
 data:
   identifier: '03372'
   term: portable breath alcohol analyzer (portable EBA)
+  designations:
+  - type: expression
+    status: preferred
+    text: portable breath alcohol analyzer (portable EBA)
   kind: undefined
   official_concept:
   editions_present:

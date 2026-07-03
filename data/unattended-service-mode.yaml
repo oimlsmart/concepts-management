@@ -2,6 +2,10 @@
 data:
   identifier: '03606'
   term: unattended service mode
+  designations:
+  - type: expression
+    status: preferred
+    text: unattended service mode
   kind: undefined
   official_concept:
   editions_present:

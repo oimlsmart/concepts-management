@@ -2,6 +2,10 @@
 data:
   identifier: '03451'
   term: relative minimum load cell varificaion interval (Y)
+  designations:
+  - type: expression
+    status: preferred
+    text: relative minimum load cell varificaion interval (Y)
   kind: undefined
   official_concept:
   editions_present:

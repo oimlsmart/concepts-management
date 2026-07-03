@@ -2,6 +2,10 @@
 data:
   identifier: '00956'
   term: family
+  designations:
+  - type: expression
+    status: preferred
+    text: family
   kind: undefined
   official_concept:
   editions_present:

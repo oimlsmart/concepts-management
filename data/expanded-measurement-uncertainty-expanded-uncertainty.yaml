@@ -2,6 +2,10 @@
 data:
   identifier: '03055'
   term: expanded measurement uncertainty expanded uncertainty
+  designations:
+  - type: expression
+    status: preferred
+    text: expanded measurement uncertainty expanded uncertainty
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 02317-R085-1
   term: dip
+  designations:
+  - type: expression
+    status: preferred
+    text: dip
   kind: undefined
   official_concept:
   editions_present:

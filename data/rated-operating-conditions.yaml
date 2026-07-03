@@ -2,6 +2,16 @@
 data:
   identifier: '00377'
   term: rated operating conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: rated operating condition
+  - type: expression
+    status: preferred
+    text: rated operating conditions
+  - type: abbreviation
+    status: preferred
+    text: ROC
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993
@@ -153,6 +163,25 @@ data:
     - "(adapted from VIM:2007, 4.9)"
     consistency: pending
     consistency_reason: ''
+  - edition: '2010'
+    publication: OIML R 49-1:2006
+    publication_id: OIML R049-1:2006
+    tc_sc: TC8/SC5
+    year: 2006
+    clause: 2.4.4
+    link: https://www.oiml.org/en/files/pdf_R/r049-1-e06.pdf
+    g18_entry: '00452'
+    definition: conditions of use giving the range of values of the influence factors,
+      for which the errors (of indication) of the water meter are required to be within
+      the maximum permissible errors
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        source: urn:oiml:pub:v:2:1993
+        id: '5.5'
   - edition: '2010'
     publication: OIML R 51-1:2006
     publication_id: OIML R051-1:2006
@@ -427,6 +456,26 @@ data:
       ref:
         source: urn:oiml:pub:v:2:1993
         id: '5.5'
+  - edition: 202X
+    publication: OIML R142-1:2025
+    publication_id: OIML R142-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: '3.14'
+    link:
+    g18_entry: '03726'
+    definition: operating conditions that must be fulfilled during measurement in
+      order that a measuring instrument or measuring system perform as designed
+    notes:
+    - 'Note: Rated operating conditions generally specify intervals of values for
+      a quantity being measured and for any influence quantity.'
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '4.9'
+        source: urn:oiml:pub:v:2:2012
   - edition: 202X
     publication: OIML R139-1:2022
     publication_id: OIML R139-1:2022
@@ -901,3 +950,14 @@ related:
     vocab: vim
     role: prior
     year: 2007
+- type: see
+  ref:
+    id: '4.9'
+    source: urn:oiml:pub:v:2:2012
+    definition_text: operating condition that must be fulfilled during {{2.1,measurement}}
+      in order that a {{3.1,measuring instrument}} or {{3.2,measuring system}} perform
+      as designed
+    edition_label: VIM 2012
+    vocab: vim
+    role: current
+    year: 2012

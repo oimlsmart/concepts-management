@@ -2,6 +2,10 @@
 data:
   identifier: '01860'
   term: spectral width at half maximum value
+  designations:
+  - type: expression
+    status: preferred
+    text: spectral width at half maximum value
   kind: undefined
   official_concept:
   editions_present:

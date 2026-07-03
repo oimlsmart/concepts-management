@@ -2,6 +2,10 @@
 data:
   identifier: '00080'
   term: category of instruments
+  designations:
+  - type: expression
+    status: preferred
+    text: category of instruments
   kind: undefined
   official_concept:
   editions_present:

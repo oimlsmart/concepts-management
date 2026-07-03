@@ -1,0 +1,34 @@
+---
+data:
+  identifier: 02304-R046-1
+  term: maximum current
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum current
+  - type: symbol
+    status: preferred
+    text: stem:[I_{"max"}]
+  kind: undefined
+  official_concept:
+  editions_present:
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: 202X
+    publication: OIML R046-1:2012
+    publication_id: OIML R046-1:2012
+    tc_sc: ''
+    year: 2012
+    clause: 2.2.5
+    link:
+    g18_entry: 02304-R046-1
+    definition: highest value of current at which the meter is specified by the manufacturer
+      to meet the accuracy requirements
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 2102a734-7fe7-50ac-9839-a0c5e174cd32
+schema_version: '3'
+related: []

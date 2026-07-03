@@ -2,6 +2,10 @@
 data:
   identifier: '02356'
   term: expanded (measurement) uncertainty
+  designations:
+  - type: expression
+    status: preferred
+    text: expanded (measurement) uncertainty
   kind: undefined
   official_concept:
   editions_present:

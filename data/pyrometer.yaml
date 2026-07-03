@@ -2,6 +2,10 @@
 data:
   identifier: '02830'
   term: pyrometer
+  designations:
+  - type: expression
+    status: preferred
+    text: pyrometer
   kind: undefined
   official_concept:
   editions_present:

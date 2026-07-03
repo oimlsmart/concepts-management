@@ -2,6 +2,10 @@
 data:
   identifier: '00682'
   term: conventional linear characteristic
+  designations:
+  - type: expression
+    status: preferred
+    text: conventional linear characteristic
   kind: undefined
   official_concept:
   editions_present:

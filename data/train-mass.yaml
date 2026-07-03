@@ -2,6 +2,10 @@
 data:
   identifier: '02577'
   term: train mass
+  designations:
+  - type: expression
+    status: preferred
+    text: train mass
   kind: undefined
   official_concept:
   editions_present:

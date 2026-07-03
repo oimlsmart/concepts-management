@@ -2,6 +2,10 @@
 data:
   identifier: '00592'
   term: legally relevant parameter
+  designations:
+  - type: expression
+    status: preferred
+    text: legally relevant parameter
   kind: undefined
   official_concept:
   editions_present:

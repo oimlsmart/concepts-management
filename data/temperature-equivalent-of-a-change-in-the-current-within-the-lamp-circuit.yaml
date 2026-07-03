@@ -2,6 +2,10 @@
 data:
   identifier: '00410'
   term: temperature equivalent of a change in the current within the lamp circuit
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature equivalent of a change in the current within the lamp circuit
   kind: undefined
   official_concept:
   editions_present:

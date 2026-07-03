@@ -2,6 +2,10 @@
 data:
   identifier: '03094'
   term: hash function
+  designations:
+  - type: expression
+    status: preferred
+    text: hash function
   kind: undefined
   official_concept:
   editions_present:

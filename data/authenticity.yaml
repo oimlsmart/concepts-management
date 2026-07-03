@@ -2,6 +2,10 @@
 data:
   identifier: '02878'
   term: authenticity
+  designations:
+  - type: expression
+    status: preferred
+    text: authenticity
   kind: undefined
   official_concept:
   editions_present:

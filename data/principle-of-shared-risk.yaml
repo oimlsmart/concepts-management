@@ -2,6 +2,10 @@
 data:
   identifier: '02279-D016'
   term: principle of shared risk
+  designations:
+  - type: expression
+    status: preferred
+    text: principle of shared risk
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00513'
   term: displacement simulating device
+  designations:
+  - type: expression
+    status: preferred
+    text: displacement simulating device
   kind: undefined
   official_concept:
   editions_present:

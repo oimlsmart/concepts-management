@@ -2,6 +2,10 @@
 data:
   identifier: '01070'
   term: resolution of a mass spectrometer
+  designations:
+  - type: expression
+    status: preferred
+    text: resolution of a mass spectrometer
   kind: undefined
   official_concept:
   editions_present:

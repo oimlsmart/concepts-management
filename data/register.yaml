@@ -2,6 +2,10 @@
 data:
   identifier: '02292-R046-1'
   term: register
+  designations:
+  - type: expression
+    status: preferred
+    text: register
   kind: undefined
   official_concept:
   editions_present:

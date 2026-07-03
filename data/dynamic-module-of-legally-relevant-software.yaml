@@ -2,6 +2,10 @@
 data:
   identifier: '03692'
   term: dynamic module of legally relevant software
+  designations:
+  - type: expression
+    status: preferred
+    text: dynamic module of legally relevant software
   kind: undefined
   official_concept:
   editions_present:

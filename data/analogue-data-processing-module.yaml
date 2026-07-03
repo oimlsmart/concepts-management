@@ -2,6 +2,10 @@
 data:
   identifier: '02546'
   term: analogue data processing module
+  designations:
+  - type: expression
+    status: preferred
+    text: analogue data processing module
   kind: undefined
   official_concept:
   editions_present:

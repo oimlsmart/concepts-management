@@ -2,6 +2,10 @@
 data:
   identifier: '03215'
   term: marking
+  designations:
+  - type: expression
+    status: preferred
+    text: marking
   kind: undefined
   official_concept:
   editions_present:

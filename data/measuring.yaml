@@ -2,6 +2,10 @@
 data:
   identifier: '01880'
   term: measuring
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring
   kind: undefined
   official_concept:
   editions_present:

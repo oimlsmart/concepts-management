@@ -2,6 +2,10 @@
 data:
   identifier: '02667'
   term: measurement precision
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement precision
   kind: undefined
   official_concept:
   editions_present:

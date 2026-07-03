@@ -2,6 +2,10 @@
 data:
   identifier: '02091'
   term: adjustment interval for a calorific value determining device
+  designations:
+  - type: expression
+    status: preferred
+    text: adjustment interval for a calorific value determining device
   kind: undefined
   official_concept:
   editions_present:

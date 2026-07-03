@@ -2,6 +2,10 @@
 data:
   identifier: '01516'
   term: radio frequency (r.f.) coil
+  designations:
+  - type: expression
+    status: preferred
+    text: radio frequency (r.f.) coil
   kind: undefined
   official_concept:
   editions_present:

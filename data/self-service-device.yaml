@@ -2,6 +2,10 @@
 data:
   identifier: '03481'
   term: self-service device
+  designations:
+  - type: expression
+    status: preferred
+    text: self-service device
   kind: undefined
   official_concept:
   editions_present:

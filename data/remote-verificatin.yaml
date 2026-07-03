@@ -2,6 +2,10 @@
 data:
   identifier: '03697'
   term: remote verificatin
+  designations:
+  - type: expression
+    status: preferred
+    text: remote verificatin
   kind: undefined
   official_concept:
   editions_present:

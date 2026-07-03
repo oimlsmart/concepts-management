@@ -2,6 +2,10 @@
 data:
   identifier: '01696'
   term: basic handle position H
+  designations:
+  - type: expression
+    status: preferred
+    text: basic handle position H
   kind: undefined
   official_concept:
   editions_present:

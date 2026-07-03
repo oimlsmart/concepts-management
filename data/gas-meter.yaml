@@ -2,6 +2,10 @@
 data:
   identifier: '02646'
   term: gas meter
+  designations:
+  - type: expression
+    status: preferred
+    text: gas meter
   kind: undefined
   official_concept:
   editions_present:

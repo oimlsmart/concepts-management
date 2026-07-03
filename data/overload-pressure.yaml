@@ -2,6 +2,10 @@
 data:
   identifier: '00675'
   term: overload pressure
+  designations:
+  - type: expression
+    status: preferred
+    text: overload pressure
   kind: undefined
   official_concept:
   editions_present:

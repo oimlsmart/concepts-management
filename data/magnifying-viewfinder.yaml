@@ -2,6 +2,10 @@
 data:
   identifier: '03770'
   term: magnifying viewfinder
+  designations:
+  - type: expression
+    status: preferred
+    text: magnifying viewfinder
   kind: undefined
   official_concept:
   editions_present:

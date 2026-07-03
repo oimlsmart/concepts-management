@@ -2,6 +2,10 @@
 data:
   identifier: '00892'
   term: construction of an instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: construction of an instrument
   kind: undefined
   official_concept:
   editions_present:

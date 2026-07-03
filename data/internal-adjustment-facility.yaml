@@ -2,6 +2,10 @@
 data:
   identifier: 02345-R099-1
   term: internal adjustment facility
+  designations:
+  - type: expression
+    status: preferred
+    text: internal adjustment facility
   kind: undefined
   official_concept:
   editions_present:

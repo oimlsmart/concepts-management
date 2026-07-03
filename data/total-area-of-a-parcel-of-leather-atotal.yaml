@@ -2,6 +2,10 @@
 data:
   identifier: '01902'
   term: total area of a parcel of leather (Atotal)
+  designations:
+  - type: expression
+    status: preferred
+    text: total area of a parcel of leather (Atotal)
   kind: undefined
   official_concept:
   editions_present:

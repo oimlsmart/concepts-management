@@ -2,6 +2,10 @@
 data:
   identifier: '02248-D011'
   term: power converter (power supply device)
+  designations:
+  - type: expression
+    status: preferred
+    text: power converter (power supply device)
   kind: undefined
   official_concept:
   editions_present:

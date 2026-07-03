@@ -2,6 +2,10 @@
 data:
   identifier: '02824'
   term: temperature drift, Td
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature drift, Td
   kind: undefined
   official_concept:
   editions_present:

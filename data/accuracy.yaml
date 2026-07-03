@@ -2,6 +2,13 @@
 data:
   identifier: '00146'
   term: accuracy
+  designations:
+  - type: expression
+    status: preferred
+    text: accuracy
+  - type: expression
+    status: admitted
+    text: measurement accuracy
   kind: undefined
   official_concept:
   editions_present:
@@ -33,6 +40,27 @@ data:
     definition: the closeness of the agreement between the result of a measurement
       and the conventional true value of the measurand
     notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R142-1:2025
+    publication_id: OIML R142-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: '3.6'
+    link:
+    g18_entry: '03705'
+    definition: closeness of agreement between a measured quantity value and a true
+      quantity value of the measurand
+    notes:
+    - 'Note 1: The concept of "measurement accuracy" is not a quantity and is not
+      given a numerical quantity value. A measurement is said to be more accurate
+      when it offers a smaller measurement error.'
+    - 'Note 2: The term "measurement accuracy" should not be used for measurement
+      trueness and the term "measurement precision" should not be used for "measurement
+      accuracy", which, however, is related to both concepts.'
+    - 'Note 3: "Measurement accuracy" is sometimes understood as closeness of agreement
+      between measured quantity values that are being attributed to the measurand.'
     consistency: pending
     consistency_reason: ''
   - edition: 202X

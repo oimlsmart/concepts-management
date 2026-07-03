@@ -2,6 +2,10 @@
 data:
   identifier: '02583'
   term: static reference bogie load
+  designations:
+  - type: expression
+    status: preferred
+    text: static reference bogie load
   kind: undefined
   official_concept:
   editions_present:

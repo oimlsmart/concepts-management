@@ -2,6 +2,10 @@
 data:
   identifier: '02947'
   term: control device
+  designations:
+  - type: expression
+    status: preferred
+    text: control device
   kind: undefined
   official_concept:
   editions_present:

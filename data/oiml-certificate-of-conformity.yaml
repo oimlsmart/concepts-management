@@ -2,6 +2,10 @@
 data:
   identifier: '00089'
   term: OIML Certificate of Conformity
+  designations:
+  - type: expression
+    status: preferred
+    text: OIML Certificate of Conformity
   kind: undefined
   official_concept:
   editions_present:

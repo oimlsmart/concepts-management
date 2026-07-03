@@ -2,6 +2,10 @@
 data:
   identifier: '02428'
   term: temperature stability
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature stability
   kind: undefined
   official_concept:
   editions_present:

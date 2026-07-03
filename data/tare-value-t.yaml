@@ -2,6 +2,10 @@
 data:
   identifier: '00630'
   term: tare value, T
+  designations:
+  - type: expression
+    status: preferred
+    text: tare value, T
   kind: undefined
   official_concept:
   editions_present:

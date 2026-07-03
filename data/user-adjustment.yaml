@@ -2,6 +2,10 @@
 data:
   identifier: '02130'
   term: user adjustment
+  designations:
+  - type: expression
+    status: preferred
+    text: user adjustment
   kind: undefined
   official_concept:
   editions_present:

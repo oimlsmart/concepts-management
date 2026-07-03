@@ -2,6 +2,10 @@
 data:
   identifier: '02489'
   term: principal display panel
+  designations:
+  - type: expression
+    status: preferred
+    text: principal display panel
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02958'
   term: conveyor
+  designations:
+  - type: expression
+    status: preferred
+    text: conveyor
   kind: undefined
   official_concept:
   editions_present:

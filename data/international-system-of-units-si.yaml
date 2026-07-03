@@ -2,6 +2,10 @@
 data:
   identifier: '03155'
   term: International System of Units SI
+  designations:
+  - type: expression
+    status: preferred
+    text: International System of Units SI
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01432'
   term: error of the pressure measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: error of the pressure measurement
   kind: undefined
   official_concept:
   editions_present:

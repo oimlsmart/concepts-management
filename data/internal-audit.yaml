@@ -2,6 +2,10 @@
 data:
   identifier: '00114'
   term: internal audit
+  designations:
+  - type: expression
+    status: preferred
+    text: internal audit
   kind: undefined
   official_concept:
   editions_present:

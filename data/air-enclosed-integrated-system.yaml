@@ -2,6 +2,10 @@
 data:
   identifier: '01340'
   term: air-enclosed integrated system
+  designations:
+  - type: expression
+    status: preferred
+    text: air-enclosed integrated system
   kind: undefined
   official_concept:
   editions_present:

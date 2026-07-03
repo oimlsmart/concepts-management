@@ -2,6 +2,10 @@
 data:
   identifier: '02108'
   term: standard large aperture radiator
+  designations:
+  - type: expression
+    status: preferred
+    text: standard large aperture radiator
   kind: undefined
   official_concept:
   editions_present:

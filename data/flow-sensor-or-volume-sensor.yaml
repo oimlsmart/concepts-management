@@ -2,6 +2,10 @@
 data:
   identifier: '00413'
   term: flow sensor or volume sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: flow sensor or volume sensor
   kind: undefined
   official_concept:
   editions_present:

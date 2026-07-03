@@ -2,6 +2,10 @@
 data:
   identifier: '01699'
   term: absorbed braking power
+  designations:
+  - type: expression
+    status: preferred
+    text: absorbed braking power
   kind: undefined
   official_concept:
   editions_present:

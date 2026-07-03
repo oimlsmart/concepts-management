@@ -2,6 +2,10 @@
 data:
   identifier: '03377'
   term: pre-selection device
+  designations:
+  - type: expression
+    status: preferred
+    text: pre-selection device
   kind: undefined
   official_concept:
   editions_present:

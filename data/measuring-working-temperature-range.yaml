@@ -2,6 +2,10 @@
 data:
   identifier: '01781'
   term: measuring (working) temperature range
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring (working) temperature range
   kind: undefined
   official_concept:
   editions_present:

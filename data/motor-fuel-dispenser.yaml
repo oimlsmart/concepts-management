@@ -2,6 +2,10 @@
 data:
   identifier: '01214'
   term: motor fuel dispenser
+  designations:
+  - type: expression
+    status: preferred
+    text: motor fuel dispenser
   kind: undefined
   official_concept:
   editions_present:

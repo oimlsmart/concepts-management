@@ -2,6 +2,10 @@
 data:
   identifier: 02312-R085-1
   term: dip plate
+  designations:
+  - type: expression
+    status: preferred
+    text: dip plate
   kind: undefined
   official_concept:
   editions_present:

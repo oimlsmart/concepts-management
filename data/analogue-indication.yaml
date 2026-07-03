@@ -2,6 +2,10 @@
 data:
   identifier: '01893'
   term: analogue indication
+  designations:
+  - type: expression
+    status: preferred
+    text: analogue indication
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02282-R080-1'
   term: liquid indicator
+  designations:
+  - type: expression
+    status: preferred
+    text: liquid indicator
   kind: undefined
   official_concept:
   editions_present:

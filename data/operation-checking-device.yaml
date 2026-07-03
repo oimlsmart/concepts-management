@@ -2,6 +2,10 @@
 data:
   identifier: '00510'
   term: operation checking device
+  designations:
+  - type: expression
+    status: preferred
+    text: operation checking device
   kind: undefined
   official_concept:
   editions_present:

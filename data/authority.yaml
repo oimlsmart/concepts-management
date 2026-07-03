@@ -2,6 +2,10 @@
 data:
   identifier: '00197'
   term: authority
+  designations:
+  - type: expression
+    status: preferred
+    text: authority
   kind: undefined
   official_concept:
   editions_present:

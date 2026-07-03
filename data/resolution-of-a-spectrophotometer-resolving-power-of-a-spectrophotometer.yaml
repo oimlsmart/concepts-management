@@ -2,6 +2,10 @@
 data:
   identifier: '01865'
   term: resolution of a spectrophotometer; resolving power of a spectrophotometer
+  designations:
+  - type: expression
+    status: preferred
+    text: resolution of a spectrophotometer; resolving power of a spectrophotometer
   kind: undefined
   official_concept:
   editions_present:

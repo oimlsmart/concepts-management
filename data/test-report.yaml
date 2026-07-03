@@ -2,6 +2,13 @@
 data:
   identifier: '00090'
   term: test report
+  designations:
+  - type: expression
+    status: preferred
+    text: test report
+  - type: expression
+    status: preferred
+    text: Test Report
   kind: undefined
   official_concept:
   editions_present:

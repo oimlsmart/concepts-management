@@ -2,6 +2,10 @@
 data:
   identifier: '00156'
   term: primary standard
+  designations:
+  - type: expression
+    status: preferred
+    text: primary standard
   kind: undefined
   official_concept:
   editions_present:

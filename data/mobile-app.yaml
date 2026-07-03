@@ -2,6 +2,10 @@
 data:
   identifier: '03694'
   term: mobile app
+  designations:
+  - type: expression
+    status: preferred
+    text: mobile app
   kind: undefined
   official_concept:
   editions_present:

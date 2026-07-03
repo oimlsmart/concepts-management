@@ -2,6 +2,10 @@
 data:
   identifier: '02168'
   term: acceptable solution
+  designations:
+  - type: expression
+    status: preferred
+    text: acceptable solution
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03391'
   term: process
+  designations:
+  - type: expression
+    status: preferred
+    text: process
   kind: undefined
   official_concept:
   editions_present:

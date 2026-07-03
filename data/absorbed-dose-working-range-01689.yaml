@@ -2,6 +2,10 @@
 data:
   identifier: '01689'
   term: absorbed-dose working range
+  designations:
+  - type: expression
+    status: preferred
+    text: absorbed-dose working range
   kind: undefined
   official_concept:
   editions_present:

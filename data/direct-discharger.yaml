@@ -2,6 +2,10 @@
 data:
   identifier: 02274-R080-1
   term: direct discharger
+  designations:
+  - type: expression
+    status: preferred
+    text: direct discharger
   kind: undefined
   official_concept:
   editions_present:

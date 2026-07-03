@@ -2,6 +2,10 @@
 data:
   identifier: 02244-R080-1
   term: electronic part
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic part
   kind: undefined
   official_concept:
   editions_present:

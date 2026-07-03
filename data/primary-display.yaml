@@ -2,6 +2,10 @@
 data:
   identifier: '03386'
   term: primary display
+  designations:
+  - type: expression
+    status: preferred
+    text: primary display
   kind: undefined
   official_concept:
   editions_present:

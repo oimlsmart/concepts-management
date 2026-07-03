@@ -2,6 +2,10 @@
 data:
   identifier: '00880'
   term: non-self-indicating instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: non-self-indicating instrument
   kind: undefined
   official_concept:
   editions_present:

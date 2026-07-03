@@ -2,6 +2,10 @@
 data:
   identifier: '00196'
   term: free trade area
+  designations:
+  - type: expression
+    status: preferred
+    text: free trade area
   kind: undefined
   official_concept:
   editions_present:

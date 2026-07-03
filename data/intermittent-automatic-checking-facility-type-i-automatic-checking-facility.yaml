@@ -2,6 +2,10 @@
 data:
   identifier: '02440'
   term: intermittent automatic checking facility type I automatic checking facility
+  designations:
+  - type: expression
+    status: preferred
+    text: intermittent automatic checking facility type I automatic checking facility
   kind: undefined
   official_concept:
   editions_present:

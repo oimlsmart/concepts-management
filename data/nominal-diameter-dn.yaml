@@ -2,6 +2,10 @@
 data:
   identifier: '02420'
   term: nominal diameter DN
+  designations:
+  - type: expression
+    status: preferred
+    text: nominal diameter DN
   kind: undefined
   official_concept:
   editions_present:

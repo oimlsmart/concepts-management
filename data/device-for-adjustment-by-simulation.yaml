@@ -2,6 +2,10 @@
 data:
   identifier: '01671'
   term: device for adjustment by simulation
+  designations:
+  - type: expression
+    status: preferred
+    text: device for adjustment by simulation
   kind: undefined
   official_concept:
   editions_present:

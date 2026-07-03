@@ -2,6 +2,10 @@
 data:
   identifier: '02682'
   term: transitional flow rate, Qt
+  designations:
+  - type: expression
+    status: preferred
+    text: transitional flow rate, Qt
   kind: undefined
   official_concept:
   editions_present:

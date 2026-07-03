@@ -2,6 +2,10 @@
 data:
   identifier: '03741'
   term: average speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: average speed meter
   kind: undefined
   official_concept:
   editions_present:

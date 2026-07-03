@@ -2,6 +2,10 @@
 data:
   identifier: '00318'
   term: deflation value
+  designations:
+  - type: expression
+    status: preferred
+    text: deflation value
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 02271-R080-1
   term: full hose (wet hose)
+  designations:
+  - type: expression
+    status: preferred
+    text: full hose (wet hose)
   kind: undefined
   official_concept:
   editions_present:

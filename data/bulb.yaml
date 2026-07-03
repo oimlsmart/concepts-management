@@ -2,6 +2,10 @@
 data:
   identifier: '01775'
   term: bulb
+  designations:
+  - type: expression
+    status: preferred
+    text: bulb
   kind: undefined
   official_concept:
   editions_present:

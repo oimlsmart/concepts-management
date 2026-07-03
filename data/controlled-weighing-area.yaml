@@ -2,6 +2,10 @@
 data:
   identifier: '02537'
   term: controlled weighing area
+  designations:
+  - type: expression
+    status: preferred
+    text: controlled weighing area
   kind: undefined
   official_concept:
   editions_present:

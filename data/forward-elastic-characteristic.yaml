@@ -2,6 +2,10 @@
 data:
   identifier: '00680'
   term: forward elastic characteristic
+  designations:
+  - type: expression
+    status: preferred
+    text: forward elastic characteristic
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01043'
   term: primary indication
+  designations:
+  - type: expression
+    status: preferred
+    text: primary indication
   kind: undefined
   official_concept:
   editions_present:

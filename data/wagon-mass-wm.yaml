@@ -2,6 +2,10 @@
 data:
   identifier: '02574'
   term: wagon mass, WM
+  designations:
+  - type: expression
+    status: preferred
+    text: wagon mass, WM
   kind: undefined
   official_concept:
   editions_present:

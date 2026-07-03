@@ -2,6 +2,10 @@
 data:
   identifier: '02384'
   term: combination meter
+  designations:
+  - type: expression
+    status: preferred
+    text: combination meter
   kind: undefined
   official_concept:
   editions_present:

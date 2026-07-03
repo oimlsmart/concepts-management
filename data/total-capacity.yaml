@@ -2,6 +2,10 @@
 data:
   identifier: '01138'
   term: total capacity
+  designations:
+  - type: expression
+    status: preferred
+    text: total capacity
   kind: undefined
   official_concept:
   editions_present:

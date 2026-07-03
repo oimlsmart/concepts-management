@@ -2,6 +2,10 @@
 data:
   identifier: '01672'
   term: adjustment-checking operation
+  designations:
+  - type: expression
+    status: preferred
+    text: adjustment-checking operation
   kind: undefined
   official_concept:
   editions_present:

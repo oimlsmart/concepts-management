@@ -2,6 +2,10 @@
 data:
   identifier: '01913'
   term: reproducibility error
+  designations:
+  - type: expression
+    status: preferred
+    text: reproducibility error
   kind: undefined
   official_concept:
   editions_present:

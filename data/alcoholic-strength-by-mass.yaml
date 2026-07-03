@@ -2,6 +2,10 @@
 data:
   identifier: '02849'
   term: alcoholic strength by mass
+  designations:
+  - type: expression
+    status: preferred
+    text: alcoholic strength by mass
   kind: undefined
   official_concept:
   editions_present:

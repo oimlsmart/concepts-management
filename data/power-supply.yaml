@@ -2,6 +2,10 @@
 data:
   identifier: '01227'
   term: power supply
+  designations:
+  - type: expression
+    status: preferred
+    text: power supply
   kind: undefined
   official_concept:
   editions_present:

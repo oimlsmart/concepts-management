@@ -86,7 +86,7 @@ function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "d
   </div>
 
   <section class="card">
-    <form style="display:flex;gap:1em;flex-wrap:wrap;align-items:center;margin-bottom:0.5em" @submit.prevent>
+    <form class="filter-form" @submit.prevent>
       <input v-model="search" type="search" placeholder="Search term…" style="padding:0.3em 0.5em;min-width:14em;border:1px solid var(--rule);border-radius:3px" />
       <button v-for="p in [
         { val: '', label: `All (${counts.all})` },

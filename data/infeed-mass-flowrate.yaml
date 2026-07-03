@@ -2,6 +2,10 @@
 data:
   identifier: '03114'
   term: infeed mass flowrate
+  designations:
+  - type: expression
+    status: preferred
+    text: infeed mass flowrate
   kind: undefined
   official_concept:
   editions_present:

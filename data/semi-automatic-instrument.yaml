@@ -2,6 +2,10 @@
 data:
   identifier: '03482'
   term: semi-automatic instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: semi-automatic instrument
   kind: undefined
   official_concept:
   editions_present:

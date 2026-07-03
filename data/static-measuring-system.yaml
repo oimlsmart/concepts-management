@@ -2,6 +2,10 @@
 data:
   identifier: 02241-R080-1
   term: static measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: static measuring system
   kind: undefined
   official_concept:
   editions_present:

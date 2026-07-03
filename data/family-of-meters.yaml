@@ -2,6 +2,10 @@
 data:
   identifier: '01936'
   term: family of meters
+  designations:
+  - type: expression
+    status: preferred
+    text: family of meters
   kind: undefined
   official_concept:
   editions_present:

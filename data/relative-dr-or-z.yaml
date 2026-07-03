@@ -2,6 +2,10 @@
 data:
   identifier: '00724'
   term: relative DR or Z
+  designations:
+  - type: expression
+    status: preferred
+    text: relative DR or Z
   kind: undefined
   official_concept:
   editions_present:

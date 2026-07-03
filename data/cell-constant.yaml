@@ -2,6 +2,10 @@
 data:
   identifier: '00700'
   term: cell constant
+  designations:
+  - type: expression
+    status: preferred
+    text: cell constant
   kind: undefined
   official_concept:
   editions_present:

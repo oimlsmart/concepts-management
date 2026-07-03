@@ -2,6 +2,10 @@
 data:
   identifier: '02851'
   term: alveolar air
+  designations:
+  - type: expression
+    status: preferred
+    text: alveolar air
   kind: undefined
   official_concept:
   editions_present:

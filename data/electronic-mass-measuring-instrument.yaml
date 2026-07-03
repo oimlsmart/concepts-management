@@ -2,6 +2,10 @@
 data:
   identifier: '01634'
   term: electronic mass measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic mass measuring instrument
   kind: undefined
   official_concept:
   editions_present:

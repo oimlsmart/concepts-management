@@ -2,6 +2,10 @@
 data:
   identifier: '02671'
   term: reproducibility of error
+  designations:
+  - type: expression
+    status: preferred
+    text: reproducibility of error
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03789'
   term: test interface
+  designations:
+  - type: expression
+    status: preferred
+    text: test interface
   kind: undefined
   official_concept:
   editions_present:

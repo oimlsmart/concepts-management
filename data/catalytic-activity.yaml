@@ -2,6 +2,10 @@
 data:
   identifier: '01863'
   term: catalytic activity
+  designations:
+  - type: expression
+    status: preferred
+    text: catalytic activity
   kind: undefined
   official_concept:
   editions_present:

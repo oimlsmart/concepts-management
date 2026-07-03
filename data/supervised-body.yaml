@@ -2,6 +2,10 @@
 data:
   identifier: '00198'
   term: supervised body
+  designations:
+  - type: expression
+    status: preferred
+    text: supervised body
   kind: undefined
   official_concept:
   editions_present:

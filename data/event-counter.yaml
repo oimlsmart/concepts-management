@@ -2,6 +2,10 @@
 data:
   identifier: '03052'
   term: event counter
+  designations:
+  - type: expression
+    status: preferred
+    text: event counter
   kind: undefined
   official_concept:
   editions_present:

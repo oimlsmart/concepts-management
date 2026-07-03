@@ -2,6 +2,10 @@
 data:
   identifier: '00865'
   term: transitory fault
+  designations:
+  - type: expression
+    status: preferred
+    text: transitory fault
   kind: undefined
   official_concept:
   editions_present:

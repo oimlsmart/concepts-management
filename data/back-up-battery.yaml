@@ -2,6 +2,10 @@
 data:
   identifier: 02251-D011
   term: back-up battery
+  designations:
+  - type: expression
+    status: preferred
+    text: back-up battery
   kind: undefined
   official_concept:
   editions_present:

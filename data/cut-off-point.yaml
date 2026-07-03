@@ -2,6 +2,10 @@
 data:
   identifier: '02970'
   term: cut-off point
+  designations:
+  - type: expression
+    status: preferred
+    text: cut-off point
   kind: undefined
   official_concept:
   editions_present:

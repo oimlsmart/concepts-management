@@ -2,6 +2,10 @@
 data:
   identifier: '01697'
   term: foot crank length L
+  designations:
+  - type: expression
+    status: preferred
+    text: foot crank length L
   kind: undefined
   official_concept:
   editions_present:

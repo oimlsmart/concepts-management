@@ -2,6 +2,10 @@
 data:
   identifier: '01144'
   term: innage height
+  designations:
+  - type: expression
+    status: preferred
+    text: innage height
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03101'
   term: inclusive of conveyor
+  designations:
+  - type: expression
+    status: preferred
+    text: inclusive of conveyor
   kind: undefined
   official_concept:
   editions_present:

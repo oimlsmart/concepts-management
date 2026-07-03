@@ -2,6 +2,10 @@
 data:
   identifier: '02862'
   term: apportioning factor (pLC)
+  designations:
+  - type: expression
+    status: preferred
+    text: apportioning factor (pLC)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00338'
   term: taximeter
+  designations:
+  - type: expression
+    status: preferred
+    text: taximeter
   kind: undefined
   official_concept:
   editions_present:

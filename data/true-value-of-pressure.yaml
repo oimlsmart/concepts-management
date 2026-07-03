@@ -2,6 +2,10 @@
 data:
   identifier: '01429'
   term: true value of pressure
+  designations:
+  - type: expression
+    status: preferred
+    text: true value of pressure
   kind: undefined
   official_concept:
   editions_present:

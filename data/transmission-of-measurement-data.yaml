@@ -2,6 +2,10 @@
 data:
   identifier: '03581'
   term: transmission of measurement data
+  designations:
+  - type: expression
+    status: preferred
+    text: transmission of measurement data
   kind: undefined
   official_concept:
   editions_present:

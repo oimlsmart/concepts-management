@@ -2,6 +2,10 @@
 data:
   identifier: '03674'
   term: multi-load AGFI
+  designations:
+  - type: expression
+    status: preferred
+    text: multi-load AGFI
   kind: undefined
   official_concept:
   editions_present:

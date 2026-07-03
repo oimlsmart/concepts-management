@@ -2,6 +2,10 @@
 data:
   identifier: '00578'
   term: load receptor
+  designations:
+  - type: expression
+    status: preferred
+    text: load receptor
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,13 @@
 data:
   identifier: 02317-R046-1
   term: maximum permissible error mpe
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum permissible error mpe
+  - type: expression
+    status: preferred
+    text: maximum permissible error MPE
   kind: undefined
   official_concept:
   editions_present:

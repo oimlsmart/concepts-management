@@ -2,6 +2,10 @@
 data:
   identifier: '03750'
   term: Doppler-radar based speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: Doppler-radar based speed meter
   kind: undefined
   official_concept:
   editions_present:

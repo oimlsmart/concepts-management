@@ -1,7 +1,11 @@
 ---
 data:
   identifier: '01451'
-  term: magnetic constant (magnetic permeability of vacuum ()
+  term: magnetic constant (magnetic permeability of vacuum
+  designations:
+  - type: expression
+    status: preferred
+    text: magnetic constant (magnetic permeability of vacuum
   kind: undefined
   official_concept:
   editions_present:
@@ -24,6 +28,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: '0996a1ce-d543-5ba1-9092-481175d6f581'
+id: 887ae9cc-16f9-571d-a727-9dedea4e3e80
 schema_version: '3'
 related: []

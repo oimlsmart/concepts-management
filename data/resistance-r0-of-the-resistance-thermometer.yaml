@@ -2,6 +2,10 @@
 data:
   identifier: '03462'
   term: Resistance R0 of the resistance thermometer
+  designations:
+  - type: expression
+    status: preferred
+    text: Resistance R0 of the resistance thermometer
   kind: undefined
   official_concept:
   editions_present:

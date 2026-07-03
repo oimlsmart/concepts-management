@@ -2,6 +2,10 @@
 data:
   identifier: '01856'
   term: certified reference material or absorbance
+  designations:
+  - type: expression
+    status: preferred
+    text: certified reference material or absorbance
   kind: undefined
   official_concept:
   editions_present:

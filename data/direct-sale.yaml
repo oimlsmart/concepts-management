@@ -2,6 +2,10 @@
 data:
   identifier: '01215'
   term: direct sale
+  designations:
+  - type: expression
+    status: preferred
+    text: direct sale
   kind: undefined
   official_concept:
   editions_present:

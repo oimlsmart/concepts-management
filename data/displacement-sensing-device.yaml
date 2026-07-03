@@ -2,6 +2,10 @@
 data:
   identifier: '00497'
   term: displacement sensing device
+  designations:
+  - type: expression
+    status: preferred
+    text: displacement sensing device
   kind: undefined
   official_concept:
   editions_present:

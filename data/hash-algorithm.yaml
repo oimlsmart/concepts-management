@@ -2,6 +2,10 @@
 data:
   identifier: '03762'
   term: hash algorithm
+  designations:
+  - type: expression
+    status: preferred
+    text: hash algorithm
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 02272-R080-1
   term: collector (manifold)
+  designations:
+  - type: expression
+    status: preferred
+    text: collector (manifold)
   kind: undefined
   official_concept:
   editions_present:

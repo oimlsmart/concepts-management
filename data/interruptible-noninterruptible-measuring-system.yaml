@@ -2,6 +2,10 @@
 data:
   identifier: '01238'
   term: interruptible / noninterruptible measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: interruptible / noninterruptible measuring system
   kind: undefined
   official_concept:
   editions_present:

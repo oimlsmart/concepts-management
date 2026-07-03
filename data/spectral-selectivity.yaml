@@ -2,6 +2,10 @@
 data:
   identifier: '02834'
   term: spectral selectivity
+  designations:
+  - type: expression
+    status: preferred
+    text: spectral selectivity
   kind: undefined
   official_concept:
   editions_present:

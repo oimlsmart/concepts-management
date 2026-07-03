@@ -2,6 +2,10 @@
 data:
   identifier: '00600'
   term: electronic component
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic component
   kind: undefined
   official_concept:
   editions_present:

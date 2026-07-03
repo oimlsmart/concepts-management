@@ -2,6 +2,10 @@
 data:
   identifier: '00869'
   term: meter model
+  designations:
+  - type: expression
+    status: preferred
+    text: meter model
   kind: undefined
   official_concept:
   editions_present:

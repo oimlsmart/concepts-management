@@ -2,6 +2,10 @@
 data:
   identifier: '00690'
   term: speedometer
+  designations:
+  - type: expression
+    status: preferred
+    text: speedometer
   kind: undefined
   official_concept:
   editions_present:

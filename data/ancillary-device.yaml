@@ -2,6 +2,13 @@
 data:
   identifier: '00372'
   term: ancillary device
+  designations:
+  - type: expression
+    status: preferred
+    text: ancillary device
+  - type: expression
+    status: preferred
+    text: Ancillary device
   kind: undefined
   official_concept:
   editions_present:

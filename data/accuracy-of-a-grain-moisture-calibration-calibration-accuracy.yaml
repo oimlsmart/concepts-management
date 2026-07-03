@@ -2,6 +2,10 @@
 data:
   identifier: '02466'
   term: accuracy of a grain moisture calibration calibration accuracy
+  designations:
+  - type: expression
+    status: preferred
+    text: accuracy of a grain moisture calibration calibration accuracy
   kind: undefined
   official_concept:
   editions_present:

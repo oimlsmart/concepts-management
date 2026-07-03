@@ -2,6 +2,10 @@
 data:
   identifier: '00692'
   term: chronotachograph
+  designations:
+  - type: expression
+    status: preferred
+    text: chronotachograph
   kind: undefined
   official_concept:
   editions_present:

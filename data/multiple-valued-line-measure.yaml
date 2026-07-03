@@ -2,6 +2,10 @@
 data:
   identifier: '01156'
   term: multiple valued line measure
+  designations:
+  - type: expression
+    status: preferred
+    text: multiple valued line measure
   kind: undefined
   official_concept:
   editions_present:

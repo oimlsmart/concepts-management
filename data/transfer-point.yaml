@@ -2,6 +2,10 @@
 data:
   identifier: '01027'
   term: transfer point
+  designations:
+  - type: expression
+    status: preferred
+    text: transfer point
   kind: undefined
   official_concept:
   editions_present:

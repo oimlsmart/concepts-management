@@ -2,6 +2,10 @@
 data:
   identifier: '03568'
   term: tolerance
+  designations:
+  - type: expression
+    status: preferred
+    text: tolerance
   kind: undefined
   official_concept:
   editions_present:

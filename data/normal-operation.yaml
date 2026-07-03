@@ -2,6 +2,10 @@
 data:
   identifier: '01667'
   term: normal operation
+  designations:
+  - type: expression
+    status: preferred
+    text: normal operation
   kind: undefined
   official_concept:
   editions_present:

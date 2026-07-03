@@ -2,6 +2,10 @@
 data:
   identifier: '02449'
   term: measurement reproducibility reproducibility
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement reproducibility reproducibility
   kind: undefined
   official_concept:
   editions_present:

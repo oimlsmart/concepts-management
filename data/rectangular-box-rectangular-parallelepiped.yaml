@@ -2,6 +2,10 @@
 data:
   identifier: '03426'
   term: rectangular box (rectangular parallelepiped)
+  designations:
+  - type: expression
+    status: preferred
+    text: rectangular box (rectangular parallelepiped)
   kind: undefined
   official_concept:
   editions_present:

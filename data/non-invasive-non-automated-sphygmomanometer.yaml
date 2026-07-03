@@ -2,6 +2,10 @@
 data:
   identifier: '03339'
   term: non-invasive non-automated sphygmomanometer
+  designations:
+  - type: expression
+    status: preferred
+    text: non-invasive non-automated sphygmomanometer
   kind: undefined
   official_concept:
   editions_present:

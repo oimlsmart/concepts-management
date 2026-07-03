@@ -2,6 +2,10 @@
 data:
   identifier: '01790'
   term: apron
+  designations:
+  - type: expression
+    status: preferred
+    text: apron
   kind: undefined
   official_concept:
   editions_present:

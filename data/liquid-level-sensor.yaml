@@ -2,6 +2,10 @@
 data:
   identifier: 02302-R085-1
   term: liquid level sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: liquid level sensor
   kind: undefined
   official_concept:
   editions_present:

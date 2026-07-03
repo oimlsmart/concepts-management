@@ -2,6 +2,10 @@
 data:
   identifier: '03255'
   term: measurement metadata
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement metadata
   kind: undefined
   official_concept:
   editions_present:

@@ -3,6 +3,11 @@ data:
   identifier: '01118'
   term: packing material (also called individual package, tare, packaging or packaging
     material)
+  designations:
+  - type: expression
+    status: preferred
+    text: packing material (also called individual package, tare, packaging or packaging
+      material)
   kind: undefined
   official_concept:
   editions_present:

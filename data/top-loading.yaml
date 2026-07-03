@@ -2,6 +2,10 @@
 data:
   identifier: 02275-R080-1
   term: top loading
+  designations:
+  - type: expression
+    status: preferred
+    text: top loading
   kind: undefined
   official_concept:
   editions_present:

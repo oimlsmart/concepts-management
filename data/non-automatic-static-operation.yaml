@@ -2,6 +2,10 @@
 data:
   identifier: '00643'
   term: non-automatic (static) operation
+  designations:
+  - type: expression
+    status: preferred
+    text: non-automatic (static) operation
   kind: undefined
   official_concept:
   editions_present:

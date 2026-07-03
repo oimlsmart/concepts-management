@@ -2,6 +2,10 @@
 data:
   identifier: '01402'
   term: material test
+  designations:
+  - type: expression
+    status: preferred
+    text: material test
   kind: undefined
   official_concept:
   editions_present:

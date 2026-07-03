@@ -2,6 +2,10 @@
 data:
   identifier: '00165'
   term: type (pattern) evaluation
+  designations:
+  - type: expression
+    status: preferred
+    text: type (pattern) evaluation
   kind: defined_in_viml
   official_concept:
     source: urn:oiml:pub:v:1:2000
@@ -78,6 +82,11 @@ data:
       in the entries below, only ‘type’is used.'
     consistency: pending
     consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '2.04'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML D031:2023
     publication_id: OIML D031:2023
@@ -206,3 +215,14 @@ related:
     vocab: viml
     role: prior
     year: 2000
+- type: see
+  ref:
+    id: '2.04'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: "{{A.1,conformity assessment}} procedure on one or more specimens
+      of an identified type (pattern) of {{0.10,measuring instruments}} which results
+      in an evaluation report and / or an evaluation certificate"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

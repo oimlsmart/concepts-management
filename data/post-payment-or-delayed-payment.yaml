@@ -2,6 +2,10 @@
 data:
   identifier: '03373'
   term: post-payment or delayed payment
+  designations:
+  - type: expression
+    status: preferred
+    text: post-payment or delayed payment
   kind: undefined
   official_concept:
   editions_present:

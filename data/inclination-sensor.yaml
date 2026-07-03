@@ -2,6 +2,10 @@
 data:
   identifier: 02265-R080-1
   term: inclination sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: inclination sensor
   kind: undefined
   official_concept:
   editions_present:

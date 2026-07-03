@@ -2,6 +2,10 @@
 data:
   identifier: '01125'
   term: analogue focimeter
+  designations:
+  - type: expression
+    status: preferred
+    text: analogue focimeter
   kind: undefined
   official_concept:
   editions_present:

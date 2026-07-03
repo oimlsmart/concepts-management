@@ -2,6 +2,10 @@
 data:
   identifier: '03112'
   term: indication of a measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: indication of a measuring instrument
   kind: undefined
   official_concept:
   editions_present:

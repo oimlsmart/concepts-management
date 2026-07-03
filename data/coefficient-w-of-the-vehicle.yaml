@@ -2,6 +2,10 @@
 data:
   identifier: '00694'
   term: coefficient w of the vehicle
+  designations:
+  - type: expression
+    status: preferred
+    text: coefficient w of the vehicle
   kind: undefined
   official_concept:
   editions_present:

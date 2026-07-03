@@ -2,6 +2,10 @@
 data:
   identifier: '02580'
   term: axle load
+  designations:
+  - type: expression
+    status: preferred
+    text: axle load
   kind: undefined
   official_concept:
   editions_present:

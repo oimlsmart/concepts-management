@@ -2,6 +2,10 @@
 data:
   identifier: '02075'
   term: maximum flowrate of the measuring system Qmax
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum flowrate of the measuring system Qmax
   kind: undefined
   official_concept:
   editions_present:

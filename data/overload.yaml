@@ -2,6 +2,10 @@
 data:
   identifier: '01365'
   term: overload
+  designations:
+  - type: expression
+    status: preferred
+    text: overload
   kind: undefined
   official_concept:
   editions_present:

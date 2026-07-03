@@ -2,6 +2,10 @@
 data:
   identifier: '03102'
   term: indicated quantity
+  designations:
+  - type: expression
+    status: preferred
+    text: indicated quantity
   kind: undefined
   official_concept:
   editions_present:

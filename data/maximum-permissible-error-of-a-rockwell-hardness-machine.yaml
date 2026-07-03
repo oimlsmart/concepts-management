@@ -2,6 +2,10 @@
 data:
   identifier: '00390'
   term: maximum permissible error (of a Rockwell hardness machine)
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum permissible error (of a Rockwell hardness machine)
   kind: undefined
   official_concept:
   editions_present:

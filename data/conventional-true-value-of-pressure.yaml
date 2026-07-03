@@ -2,6 +2,10 @@
 data:
   identifier: '01430'
   term: conventional true value of pressure
+  designations:
+  - type: expression
+    status: preferred
+    text: conventional true value of pressure
   kind: undefined
   official_concept:
   editions_present:

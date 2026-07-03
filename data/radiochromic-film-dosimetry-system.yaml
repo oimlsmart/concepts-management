@@ -2,6 +2,10 @@
 data:
   identifier: '01675'
   term: radiochromic film dosimetry system
+  designations:
+  - type: expression
+    status: preferred
+    text: radiochromic film dosimetry system
   kind: undefined
   official_concept:
   editions_present:

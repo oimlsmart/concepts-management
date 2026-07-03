@@ -2,6 +2,10 @@
 data:
   identifier: '03441'
   term: product reference quantity
+  designations:
+  - type: expression
+    status: preferred
+    text: product reference quantity
   kind: undefined
   official_concept:
   editions_present:

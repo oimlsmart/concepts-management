@@ -2,6 +2,10 @@
 data:
   identifier: '00118'
   term: legal metrology officer
+  designations:
+  - type: expression
+    status: preferred
+    text: legal metrology officer
   kind: undefined
   official_concept:
   editions_present:

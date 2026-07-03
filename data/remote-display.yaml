@@ -2,6 +2,10 @@
 data:
   identifier: '01347'
   term: remote display
+  designations:
+  - type: expression
+    status: preferred
+    text: remote display
   kind: undefined
   official_concept:
   editions_present:

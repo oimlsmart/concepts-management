@@ -2,6 +2,10 @@
 data:
   identifier: '02156'
   term: evaluator
+  designations:
+  - type: expression
+    status: preferred
+    text: evaluator
   kind: undefined
   official_concept:
   editions_present:

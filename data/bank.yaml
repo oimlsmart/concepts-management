@@ -2,6 +2,10 @@
 data:
   identifier: '02902'
   term: bank
+  designations:
+  - type: expression
+    status: preferred
+    text: bank
   kind: undefined
   official_concept:
   editions_present:

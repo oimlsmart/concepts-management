@@ -2,6 +2,10 @@
 data:
   identifier: '03540'
   term: stability of a measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: stability of a measuring instrument
   kind: undefined
   official_concept:
   editions_present:

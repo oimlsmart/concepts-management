@@ -2,6 +2,10 @@
 data:
   identifier: '02285-R046-1'
   term: transformer operated meter
+  designations:
+  - type: expression
+    status: preferred
+    text: transformer operated meter
   kind: undefined
   official_concept:
   editions_present:

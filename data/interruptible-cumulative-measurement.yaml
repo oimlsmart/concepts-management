@@ -2,6 +2,10 @@
 data:
   identifier: '03159'
   term: interruptible cumulative measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: interruptible cumulative measurement
   kind: undefined
   official_concept:
   editions_present:

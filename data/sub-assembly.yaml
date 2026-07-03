@@ -2,6 +2,10 @@
 data:
   identifier: '02299-R046-1'
   term: sub-assembly
+  designations:
+  - type: expression
+    status: preferred
+    text: sub-assembly
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01151'
   term: line measure of length
+  designations:
+  - type: expression
+    status: preferred
+    text: line measure of length
   kind: undefined
   official_concept:
   editions_present:

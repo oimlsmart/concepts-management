@@ -2,26 +2,16 @@
 data:
   identifier: '03302'
   term: minimum dead load (Emin)
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum dead load (Emin)
   kind: undefined
   official_concept:
   editions_present:
-  - '2010'
   - 202X
   primary_edition: 202X
   publications:
-  - edition: '2010'
-    publication: OIML R 60:2000
-    publication_id: OIML R060:2000
-    tc_sc: TC9
-    year: 2000
-    clause: 2.3.8
-    link: https://www.oiml.org/en/files/pdf_R/r060-e00.pdf
-    g18_entry: '00719'
-    definition: smallest value of a quantity (mass) which may be applied to a load
-      cell without exceeding the mpe (see 2.4.9)
-    notes: []
-    consistency: pending
-    consistency_reason: ''
   - edition: 202X
     publication: OIML R060-1:2021
     publication_id: OIML R060-1:2021

@@ -2,42 +2,16 @@
 data:
   identifier: '02152'
   term: reference material (RM)
+  designations:
+  - type: expression
+    status: preferred
+    text: reference material (RM)
   kind: undefined
   official_concept:
   editions_present:
-  - '2010'
   - 202X
   primary_edition: 202X
   publications:
-  - edition: '2010'
-    publication: OIML D 18:2008
-    publication_id: OIML D018:2008
-    tc_sc: TC3/SC3
-    year: 2008
-    clause: '2.1'
-    link: https://www.oiml.org/en/files/pdf_D/d018-e08.pdf
-    g18_entry: '02152'
-    definition: material, sufficiently homogeneous and stable with reference to specified
-      properties, which has been established to be fit for its intended use in measurement
-      or in examination of nominal properties
-    notes:
-    - "(VIM:2007, 5.13)"
-    consistency: pending
-    consistency_reason: ''
-  - edition: '2010'
-    publication: OIML R 142:2008
-    publication_id: OIML R142:2008
-    tc_sc: TC17/SC2
-    year: 2008
-    clause: 2.4(annex 6)
-    link: https://www.oiml.org/en/files/pdf_R/r142-e08.pdf
-    g18_entry: '02121'
-    definition: material, sufficiently homogeneous and stable regarding one or more
-      properties, used in calibration, in assignment of a value to another material
-      or in quality assurance
-    notes: []
-    consistency: pending
-    consistency_reason: ''
   - edition: 202X
     publication: OIML R146-1:2016
     publication_id: OIML R146-1:2016

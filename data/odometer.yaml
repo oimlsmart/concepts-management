@@ -2,6 +2,10 @@
 data:
   identifier: '00691'
   term: odometer
+  designations:
+  - type: expression
+    status: preferred
+    text: odometer
   kind: undefined
   official_concept:
   editions_present:

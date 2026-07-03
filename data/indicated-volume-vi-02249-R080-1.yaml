@@ -2,6 +2,10 @@
 data:
   identifier: '02249-R080-1'
   term: indicated volume, Vi
+  designations:
+  - type: expression
+    status: preferred
+    text: indicated volume, Vi
   kind: undefined
   official_concept:
   editions_present:

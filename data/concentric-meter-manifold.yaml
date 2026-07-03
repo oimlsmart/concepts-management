@@ -2,6 +2,10 @@
 data:
   identifier: '02387'
   term: concentric meter manifold
+  designations:
+  - type: expression
+    status: preferred
+    text: concentric meter manifold
   kind: undefined
   official_concept:
   editions_present:

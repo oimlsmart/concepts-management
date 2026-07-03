@@ -2,6 +2,10 @@
 data:
   identifier: '01652'
   term: performance
+  designations:
+  - type: expression
+    status: preferred
+    text: performance
   kind: undefined
   official_concept:
   editions_present:

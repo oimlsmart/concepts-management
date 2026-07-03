@@ -2,6 +2,10 @@
 data:
   identifier: '00178'
   term: metrological supervision
+  designations:
+  - type: expression
+    status: preferred
+    text: metrological supervision
   kind: defined_in_viml
   official_concept:
     source: urn:oiml:pub:v:1:2000

@@ -2,6 +2,10 @@
 data:
   identifier: '01031'
   term: uncertainty in the determination of an error
+  designations:
+  - type: expression
+    status: preferred
+    text: uncertainty in the determination of an error
   kind: undefined
   official_concept:
   editions_present:

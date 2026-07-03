@@ -2,6 +2,10 @@
 data:
   identifier: '02823'
   term: temperature instability, Tki
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature instability, Tki
   kind: undefined
   official_concept:
   editions_present:

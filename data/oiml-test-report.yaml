@@ -2,6 +2,10 @@
 data:
   identifier: '03346'
   term: OIML test report
+  designations:
+  - type: expression
+    status: preferred
+    text: OIML test report
   kind: undefined
   official_concept:
   editions_present:

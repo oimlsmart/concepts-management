@@ -2,6 +2,10 @@
 data:
   identifier: '03378'
   term: preset value
+  designations:
+  - type: expression
+    status: preferred
+    text: preset value
   kind: undefined
   official_concept:
   editions_present:

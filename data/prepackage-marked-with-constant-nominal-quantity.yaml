@@ -2,6 +2,10 @@
 data:
   identifier: '02487'
   term: prepackage marked with constant nominal quantity
+  designations:
+  - type: expression
+    status: preferred
+    text: prepackage marked with constant nominal quantity
   kind: undefined
   official_concept:
   editions_present:

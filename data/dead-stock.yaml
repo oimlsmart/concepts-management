@@ -2,6 +2,10 @@
 data:
   identifier: '01150'
   term: dead stock
+  designations:
+  - type: expression
+    status: preferred
+    text: dead stock
   kind: undefined
   official_concept:
   editions_present:

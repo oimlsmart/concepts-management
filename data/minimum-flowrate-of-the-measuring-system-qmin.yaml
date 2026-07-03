@@ -2,6 +2,10 @@
 data:
   identifier: '00442'
   term: minimum flowrate of the measuring system Qmin
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum flowrate of the measuring system Qmin
   kind: undefined
   official_concept:
   editions_present:

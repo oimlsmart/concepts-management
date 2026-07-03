@@ -2,6 +2,10 @@
 data:
   identifier: '03475'
   term: secondary display
+  designations:
+  - type: expression
+    status: preferred
+    text: secondary display
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03176'
   term: laboratory
+  designations:
+  - type: expression
+    status: preferred
+    text: laboratory
   kind: undefined
   official_concept:
   editions_present:

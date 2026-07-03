@@ -2,6 +2,10 @@
 data:
   identifier: '00970'
   term: preset tare value
+  designations:
+  - type: expression
+    status: preferred
+    text: preset tare value
   kind: undefined
   official_concept:
   editions_present:

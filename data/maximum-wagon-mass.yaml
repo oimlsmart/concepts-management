@@ -2,6 +2,10 @@
 data:
   identifier: '02575'
   term: maximum wagon mass
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum wagon mass
   kind: undefined
   official_concept:
   editions_present:

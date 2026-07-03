@@ -2,6 +2,10 @@
 data:
   identifier: '00133'
   term: laboratory accreditation
+  designations:
+  - type: expression
+    status: preferred
+    text: laboratory accreditation
   kind: undefined
   official_concept:
   editions_present:

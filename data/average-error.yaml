@@ -2,6 +2,10 @@
 data:
   identifier: '02492'
   term: average error
+  designations:
+  - type: expression
+    status: preferred
+    text: average error
   kind: undefined
   official_concept:
   editions_present:

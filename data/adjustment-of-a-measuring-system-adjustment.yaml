@@ -2,6 +2,10 @@
 data:
   identifier: '02845'
   term: adjustment of a measuring system adjustment
+  designations:
+  - type: expression
+    status: preferred
+    text: adjustment of a measuring system adjustment
   kind: undefined
   official_concept:
   editions_present:

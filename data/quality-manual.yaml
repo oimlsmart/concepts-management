@@ -2,6 +2,10 @@
 data:
   identifier: '00174'
   term: quality manual
+  designations:
+  - type: expression
+    status: preferred
+    text: quality manual
   kind: undefined
   official_concept:
   editions_present:

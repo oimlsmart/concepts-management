@@ -2,6 +2,10 @@
 data:
   identifier: '01776'
   term: contraction chamber
+  designations:
+  - type: expression
+    status: preferred
+    text: contraction chamber
   kind: undefined
   official_concept:
   editions_present:

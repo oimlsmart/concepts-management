@@ -2,6 +2,10 @@
 data:
   identifier: '02295-R046-1'
   term: meter constant
+  designations:
+  - type: expression
+    status: preferred
+    text: meter constant
   kind: undefined
   official_concept:
   editions_present:

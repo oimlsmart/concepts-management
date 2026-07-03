@@ -2,6 +2,10 @@
 data:
   identifier: '02571'
   term: coupled wagon weighing
+  designations:
+  - type: expression
+    status: preferred
+    text: coupled wagon weighing
   kind: undefined
   official_concept:
   editions_present:

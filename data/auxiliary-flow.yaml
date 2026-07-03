@@ -2,6 +2,10 @@
 data:
   identifier: '01519'
   term: auxiliary flow
+  designations:
+  - type: expression
+    status: preferred
+    text: auxiliary flow
   kind: undefined
   official_concept:
   editions_present:

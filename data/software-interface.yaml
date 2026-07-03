@@ -2,6 +2,10 @@
 data:
   identifier: '03521'
   term: software interface
+  designations:
+  - type: expression
+    status: preferred
+    text: software interface
   kind: undefined
   official_concept:
   editions_present:

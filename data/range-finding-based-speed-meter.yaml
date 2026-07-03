@@ -2,6 +2,10 @@
 data:
   identifier: '03778'
   term: range-finding based speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: range-finding based speed meter
   kind: undefined
   official_concept:
   editions_present:

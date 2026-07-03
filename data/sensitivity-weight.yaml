@@ -2,6 +2,10 @@
 data:
   identifier: '01460'
   term: sensitivity weight
+  designations:
+  - type: expression
+    status: preferred
+    text: sensitivity weight
   kind: undefined
   official_concept:
   editions_present:

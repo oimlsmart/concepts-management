@@ -2,6 +2,10 @@
 data:
   identifier: '01410'
   term: process refractometer
+  designations:
+  - type: expression
+    status: preferred
+    text: process refractometer
   kind: undefined
   official_concept:
   editions_present:

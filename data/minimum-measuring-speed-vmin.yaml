@@ -2,6 +2,10 @@
 data:
   identifier: '03318'
   term: minimum measuring speed (Vmin)
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum measuring speed (Vmin)
   kind: undefined
   official_concept:
   editions_present:

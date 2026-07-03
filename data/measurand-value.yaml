@@ -2,6 +2,10 @@
 data:
   identifier: '03246'
   term: measurand value
+  designations:
+  - type: expression
+    status: preferred
+    text: measurand value
   kind: undefined
   official_concept:
   editions_present:

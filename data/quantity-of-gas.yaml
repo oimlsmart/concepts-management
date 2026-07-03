@@ -2,6 +2,10 @@
 data:
   identifier: '02657'
   term: quantity of gas
+  designations:
+  - type: expression
+    status: preferred
+    text: quantity of gas
   kind: undefined
   official_concept:
   editions_present:

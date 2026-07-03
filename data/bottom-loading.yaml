@@ -2,6 +2,10 @@
 data:
   identifier: 02276-R080-1
   term: bottom loading
+  designations:
+  - type: expression
+    status: preferred
+    text: bottom loading
   kind: undefined
   official_concept:
   editions_present:

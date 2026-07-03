@@ -2,6 +2,10 @@
 data:
   identifier: '00844'
   term: combined instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: combined instrument
   kind: undefined
   official_concept:
   editions_present:

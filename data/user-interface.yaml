@@ -2,6 +2,10 @@
 data:
   identifier: '00349'
   term: user interface
+  designations:
+  - type: expression
+    status: preferred
+    text: user interface
   kind: undefined
   official_concept:
   editions_present:

@@ -1,8 +1,13 @@
 ---
 data:
   identifier: '03328'
-  term: nominal values of resistance R0 and relative resistance  of the resistance
+  term: nominal values of resistance R0 and relative resistance of the resistance
     thermometer
+  designations:
+  - type: expression
+    status: preferred
+    text: nominal values of resistance R0 and relative resistance of the resistance
+      thermometer
   kind: undefined
   official_concept:
   editions_present:
@@ -22,6 +27,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 228fe43d-a8b9-5cab-af57-7f078ae1e5b6
+id: ac84bcd7-cb67-55a0-907f-106906cf0951
 schema_version: '3'
 related: []

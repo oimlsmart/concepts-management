@@ -2,6 +2,10 @@
 data:
   identifier: '02059'
   term: representative calorific value
+  designations:
+  - type: expression
+    status: preferred
+    text: representative calorific value
   kind: undefined
   official_concept:
   editions_present:

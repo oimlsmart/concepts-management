@@ -2,6 +2,10 @@
 data:
   identifier: '02042'
   term: measuring transducer
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring transducer
   kind: undefined
   official_concept:
   editions_present:

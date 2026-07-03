@@ -2,6 +2,10 @@
 data:
   identifier: '00140'
   term: measurement process
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement process
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993

@@ -2,6 +2,10 @@
 data:
   identifier: '02565'
   term: full-draught weighing
+  designations:
+  - type: expression
+    status: preferred
+    text: full-draught weighing
   kind: undefined
   official_concept:
   editions_present:

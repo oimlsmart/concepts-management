@@ -2,6 +2,10 @@
 data:
   identifier: '02828'
   term: permanent jointed contact sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: permanent jointed contact sensor
   kind: undefined
   official_concept:
   editions_present:

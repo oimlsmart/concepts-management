@@ -2,6 +2,10 @@
 data:
   identifier: '03106'
   term: indicating device (of a weighing instrument)
+  designations:
+  - type: expression
+    status: preferred
+    text: indicating device (of a weighing instrument)
   kind: undefined
   official_concept:
   editions_present:

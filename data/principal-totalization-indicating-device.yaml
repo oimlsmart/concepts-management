@@ -2,6 +2,10 @@
 data:
   identifier: '01381'
   term: principal totalization indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: principal totalization indicating device
   kind: undefined
   official_concept:
   editions_present:

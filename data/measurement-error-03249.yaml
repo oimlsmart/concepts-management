@@ -2,6 +2,10 @@
 data:
   identifier: '03249'
   term: measurement error
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement error
   kind: undefined
   official_concept:
   editions_present:

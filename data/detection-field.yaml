@@ -2,6 +2,10 @@
 data:
   identifier: '03747'
   term: detection field
+  designations:
+  - type: expression
+    status: preferred
+    text: detection field
   kind: undefined
   official_concept:
   editions_present:

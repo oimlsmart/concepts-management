@@ -2,6 +2,10 @@
 data:
   identifier: '03601'
   term: strain gauge
+  designations:
+  - type: expression
+    status: preferred
+    text: strain gauge
   kind: undefined
   official_concept:
   editions_present:

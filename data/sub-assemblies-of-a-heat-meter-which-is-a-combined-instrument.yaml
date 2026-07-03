@@ -2,6 +2,10 @@
 data:
   identifier: '00846'
   term: sub-assemblies of a heat meter, which is a combined instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: sub-assemblies of a heat meter, which is a combined instrument
   kind: undefined
   official_concept:
   editions_present:

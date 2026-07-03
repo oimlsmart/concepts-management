@@ -2,6 +2,10 @@
 data:
   identifier: '00383'
   term: primary national Rockwell standardizing machine
+  designations:
+  - type: expression
+    status: preferred
+    text: primary national Rockwell standardizing machine
   kind: undefined
   official_concept:
   editions_present:

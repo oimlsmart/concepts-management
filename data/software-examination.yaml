@@ -2,6 +2,10 @@
 data:
   identifier: '03516'
   term: software examination
+  designations:
+  - type: expression
+    status: preferred
+    text: software examination
   kind: undefined
   official_concept:
   editions_present:

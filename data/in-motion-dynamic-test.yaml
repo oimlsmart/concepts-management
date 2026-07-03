@@ -2,6 +2,10 @@
 data:
   identifier: '02639'
   term: in-motion (dynamic) test
+  designations:
+  - type: expression
+    status: preferred
+    text: in-motion (dynamic) test
   kind: undefined
   official_concept:
   editions_present:

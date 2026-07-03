@@ -2,6 +2,10 @@
 data:
   identifier: '00398'
   term: capacity (contained in a standard graduated flask)
+  designations:
+  - type: expression
+    status: preferred
+    text: capacity (contained in a standard graduated flask)
   kind: undefined
   official_concept:
   editions_present:

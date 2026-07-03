@@ -2,6 +2,10 @@
 data:
   identifier: '01665'
   term: deep lung air
+  designations:
+  - type: expression
+    status: preferred
+    text: deep lung air
   kind: undefined
   official_concept:
   editions_present:

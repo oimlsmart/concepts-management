@@ -2,6 +2,10 @@
 data:
   identifier: '03406'
   term: minimum totalised quantity, Σmin
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum totalised quantity, Σmin
   kind: undefined
   official_concept:
   editions_present:

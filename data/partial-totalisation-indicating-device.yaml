@@ -2,6 +2,10 @@
 data:
   identifier: '03352'
   term: partial totalisation indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: partial totalisation indicating device
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03549'
   term: service
+  designations:
+  - type: expression
+    status: preferred
+    text: service
   kind: undefined
   official_concept:
   editions_present:

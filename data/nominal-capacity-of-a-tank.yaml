@@ -2,6 +2,10 @@
 data:
   identifier: '01137'
   term: nominal capacity of a tank
+  designations:
+  - type: expression
+    status: preferred
+    text: nominal capacity of a tank
   kind: undefined
   official_concept:
   editions_present:

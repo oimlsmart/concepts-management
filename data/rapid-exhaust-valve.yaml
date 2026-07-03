@@ -2,6 +2,10 @@
 data:
   identifier: '00319'
   term: rapid exhaust valve
+  designations:
+  - type: expression
+    status: preferred
+    text: rapid exhaust valve
   kind: undefined
   official_concept:
   editions_present:

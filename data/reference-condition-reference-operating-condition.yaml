@@ -2,6 +2,10 @@
 data:
   identifier: '02789'
   term: reference condition {reference operating condition}
+  designations:
+  - type: expression
+    status: preferred
+    text: reference condition {reference operating condition}
   kind: undefined
   official_concept:
   editions_present:

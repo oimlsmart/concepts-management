@@ -2,6 +2,10 @@
 data:
   identifier: '01141'
   term: dipping datum point
+  designations:
+  - type: expression
+    status: preferred
+    text: dipping datum point
   kind: undefined
   official_concept:
   editions_present:

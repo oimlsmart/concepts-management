@@ -2,6 +2,10 @@
 data:
   identifier: '00203'
   term: authorized private body
+  designations:
+  - type: expression
+    status: preferred
+    text: authorized private body
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00588'
   term: digital data processing device
+  designations:
+  - type: expression
+    status: preferred
+    text: digital data processing device
   kind: undefined
   official_concept:
   editions_present:

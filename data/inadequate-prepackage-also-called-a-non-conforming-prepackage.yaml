@@ -2,6 +2,10 @@
 data:
   identifier: '01111'
   term: inadequate prepackage (also called a non-conforming prepackage)
+  designations:
+  - type: expression
+    status: preferred
+    text: inadequate prepackage (also called a non-conforming prepackage)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01424'
   term: free rotation time of the piston
+  designations:
+  - type: expression
+    status: preferred
+    text: free rotation time of the piston
   kind: undefined
   official_concept:
   editions_present:

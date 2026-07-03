@@ -2,6 +2,10 @@
 data:
   identifier: 02273-R080-1
   term: built-in manifold
+  designations:
+  - type: expression
+    status: preferred
+    text: built-in manifold
   kind: undefined
   official_concept:
   editions_present:

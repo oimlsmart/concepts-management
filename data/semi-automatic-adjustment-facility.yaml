@@ -2,6 +2,10 @@
 data:
   identifier: 02340-R099-1
   term: semi-automatic adjustment facility
+  designations:
+  - type: expression
+    status: preferred
+    text: semi-automatic adjustment facility
   kind: undefined
   official_concept:
   editions_present:

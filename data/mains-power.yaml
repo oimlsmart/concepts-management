@@ -2,6 +2,10 @@
 data:
   identifier: '02373'
   term: mains power
+  designations:
+  - type: expression
+    status: preferred
+    text: mains power
   kind: undefined
   official_concept:
   editions_present:

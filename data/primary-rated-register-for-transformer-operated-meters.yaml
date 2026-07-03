@@ -2,6 +2,10 @@
 data:
   identifier: '02293-R046-1'
   term: primary rated register (for transformer operated meters)
+  designations:
+  - type: expression
+    status: preferred
+    text: primary rated register (for transformer operated meters)
   kind: undefined
   official_concept:
   editions_present:

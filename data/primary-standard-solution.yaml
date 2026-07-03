@@ -2,6 +2,10 @@
 data:
   identifier: '00697'
   term: primary standard solution
+  designations:
+  - type: expression
+    status: preferred
+    text: primary standard solution
   kind: undefined
   official_concept:
   editions_present:

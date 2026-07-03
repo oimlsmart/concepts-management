@@ -2,6 +2,10 @@
 data:
   identifier: '02621'
   term: normal operating conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: normal operating conditions
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03213'
   term: manometr
+  designations:
+  - type: expression
+    status: preferred
+    text: manometr
   kind: undefined
   official_concept:
   editions_present:

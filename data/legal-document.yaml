@@ -2,6 +2,10 @@
 data:
   identifier: '02201'
   term: legal document
+  designations:
+  - type: expression
+    status: preferred
+    text: legal document
   kind: undefined
   official_concept:
   editions_present:

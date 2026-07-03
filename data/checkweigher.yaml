@@ -2,6 +2,10 @@
 data:
   identifier: '00562'
   term: checkweigher
+  designations:
+  - type: expression
+    status: preferred
+    text: checkweigher
   kind: undefined
   official_concept:
   editions_present:

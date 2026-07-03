@@ -2,6 +2,10 @@
 data:
   identifier: '00170'
   term: quality
+  designations:
+  - type: expression
+    status: preferred
+    text: quality
   kind: undefined
   official_concept:
   editions_present:

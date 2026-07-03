@@ -2,6 +2,10 @@
 data:
   identifier: '00318'
   term: deflation valve
+  designations:
+  - type: expression
+    status: preferred
+    text: deflation valve
   kind: undefined
   official_concept:
   editions_present:

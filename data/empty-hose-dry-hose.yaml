@@ -2,6 +2,10 @@
 data:
   identifier: 02270-R080-1
   term: empty hose (dry hose)
+  designations:
+  - type: expression
+    status: preferred
+    text: empty hose (dry hose)
   kind: undefined
   official_concept:
   editions_present:

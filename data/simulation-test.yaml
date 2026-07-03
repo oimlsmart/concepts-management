@@ -2,6 +2,10 @@
 data:
   identifier: '00670'
   term: simulation test
+  designations:
+  - type: expression
+    status: preferred
+    text: simulation test
   kind: undefined
   official_concept:
   editions_present:

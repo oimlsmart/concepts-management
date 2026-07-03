@@ -2,6 +2,10 @@
 data:
   identifier: '00587'
   term: analog data processing device
+  designations:
+  - type: expression
+    status: preferred
+    text: analog data processing device
   kind: undefined
   official_concept:
   editions_present:

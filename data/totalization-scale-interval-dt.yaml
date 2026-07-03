@@ -2,6 +2,10 @@
 data:
   identifier: '01358'
   term: totalization scale interval, dt
+  designations:
+  - type: expression
+    status: preferred
+    text: totalization scale interval, dt
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03079'
   term: final feed time
+  designations:
+  - type: expression
+    status: preferred
+    text: final feed time
   kind: undefined
   official_concept:
   editions_present:

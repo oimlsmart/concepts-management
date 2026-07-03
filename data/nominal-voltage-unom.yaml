@@ -2,6 +2,10 @@
 data:
   identifier: 02306-R046-1
   term: nominal voltage (Unom)
+  designations:
+  - type: expression
+    status: preferred
+    text: nominal voltage (Unom)
   kind: undefined
   official_concept:
   editions_present:

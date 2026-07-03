@@ -2,6 +2,10 @@
 data:
   identifier: '02677'
   term: resolution (of a displaying device)
+  designations:
+  - type: expression
+    status: preferred
+    text: resolution (of a displaying device)
   kind: undefined
   official_concept:
   editions_present:

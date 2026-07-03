@@ -2,6 +2,10 @@
 data:
   identifier: '03753'
   term: ego speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: ego speed meter
   kind: undefined
   official_concept:
   editions_present:

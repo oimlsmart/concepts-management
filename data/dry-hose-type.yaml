@@ -2,6 +2,10 @@
 data:
   identifier: '01218'
   term: dry hose type
+  designations:
+  - type: expression
+    status: preferred
+    text: dry hose type
   kind: undefined
   official_concept:
   editions_present:

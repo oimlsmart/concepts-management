@@ -2,6 +2,10 @@
 data:
   identifier: '03755'
   term: enforcement mode
+  designations:
+  - type: expression
+    status: preferred
+    text: enforcement mode
   kind: undefined
   official_concept:
   editions_present:

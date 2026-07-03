@@ -2,6 +2,10 @@
 data:
   identifier: '02870'
   term: attended service mode
+  designations:
+  - type: expression
+    status: preferred
+    text: attended service mode
   kind: undefined
   official_concept:
   editions_present:

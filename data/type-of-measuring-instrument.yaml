@@ -2,6 +2,10 @@
 data:
   identifier: '00094'
   term: type of measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: type of measuring instrument
   kind: undefined
   official_concept:
   editions_present:

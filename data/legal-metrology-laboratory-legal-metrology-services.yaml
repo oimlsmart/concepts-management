@@ -2,6 +2,10 @@
 data:
   identifier: '03183'
   term: legal metrology laboratory (legal metrology services)
+  designations:
+  - type: expression
+    status: preferred
+    text: legal metrology laboratory (legal metrology services)
   kind: undefined
   official_concept:
   editions_present:

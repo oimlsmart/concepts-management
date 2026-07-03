@@ -2,6 +2,10 @@
 data:
   identifier: 02250-R080-1
   term: error of indicated volume
+  designations:
+  - type: expression
+    status: preferred
+    text: error of indicated volume
   kind: undefined
   official_concept:
   editions_present:

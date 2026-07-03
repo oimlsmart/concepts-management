@@ -2,26 +2,16 @@
 data:
   identifier: '03304'
   term: minimum dimension (Min)
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum dimension (Min)
   kind: undefined
   official_concept:
   editions_present:
-  - '2010'
   - 202X
   primary_edition: 202X
   publications:
-  - edition: '2010'
-    publication: OIML R 129:2000
-    publication_id: OIML R129:2000
-    tc_sc: TC7/SC5
-    year: 2000
-    clause: '2.16'
-    link: https://www.oiml.org/en/files/pdf_R/r129-e00.pdf
-    g18_entry: '01715'
-    definition: value of the dimension for each axis below which the measuring result
-      may be subject to an excessive relative error
-    notes: []
-    consistency: pending
-    consistency_reason: ''
   - edition: 202X
     publication: OIML R129-1:2020
     publication_id: OIML R129-1:2020

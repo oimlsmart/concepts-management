@@ -1,7 +1,11 @@
 ---
 data:
   identifier: '03453'
-  term: relative resistance   of the resistance thermometer at the temperature t
+  term: relative resistance of the resistance thermometer at the temperature t
+  designations:
+  - type: expression
+    status: preferred
+    text: relative resistance of the resistance thermometer at the temperature t
   kind: undefined
   official_concept:
   editions_present:
@@ -22,6 +26,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 9f5a3a01-bfc0-5362-8952-9a9cc94b10eb
+id: 2d9355de-6bc6-59ca-b486-42d4adbefbab
 schema_version: '3'
 related: []

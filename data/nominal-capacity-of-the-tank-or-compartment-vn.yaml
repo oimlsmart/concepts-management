@@ -2,6 +2,10 @@
 data:
   identifier: 02245-R080-1
   term: nominal capacity (of the tank or compartment), Vn
+  designations:
+  - type: expression
+    status: preferred
+    text: nominal capacity (of the tank or compartment), Vn
   kind: undefined
   official_concept:
   editions_present:

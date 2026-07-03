@@ -2,6 +2,10 @@
 data:
   identifier: '00875'
   term: non-automatic weighing instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: non-automatic weighing instrument
   kind: undefined
   official_concept:
   editions_present:

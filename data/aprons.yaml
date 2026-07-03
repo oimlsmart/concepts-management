@@ -2,6 +2,10 @@
 data:
   identifier: '01263'
   term: aprons
+  designations:
+  - type: expression
+    status: preferred
+    text: aprons
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01985'
   term: ullage (or headspace)
+  designations:
+  - type: expression
+    status: preferred
+    text: ullage (or headspace)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03400'
   term: mass flow rate, Qm
+  designations:
+  - type: expression
+    status: preferred
+    text: mass flow rate, Qm
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00088'
   term: OIML certificate system for measuring instruments
+  designations:
+  - type: expression
+    status: preferred
+    text: OIML certificate system for measuring instruments
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02385'
   term: equipment under test EUT
+  designations:
+  - type: expression
+    status: preferred
+    text: equipment under test EUT
   kind: undefined
   official_concept:
   editions_present:

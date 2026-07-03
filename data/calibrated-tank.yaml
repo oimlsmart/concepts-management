@@ -2,6 +2,10 @@
 data:
   identifier: '01617'
   term: calibrated tank
+  designations:
+  - type: expression
+    status: preferred
+    text: calibrated tank
   kind: undefined
   official_concept:
   editions_present:

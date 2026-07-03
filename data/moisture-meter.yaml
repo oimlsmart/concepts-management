@@ -2,6 +2,10 @@
 data:
   identifier: '02477'
   term: moisture meter
+  designations:
+  - type: expression
+    status: preferred
+    text: moisture meter
   kind: undefined
   official_concept:
   editions_present:

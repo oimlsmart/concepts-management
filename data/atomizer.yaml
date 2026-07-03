@@ -2,6 +2,10 @@
 data:
   identifier: '02512'
   term: atomizer
+  designations:
+  - type: expression
+    status: preferred
+    text: atomizer
   kind: undefined
   official_concept:
   editions_present:

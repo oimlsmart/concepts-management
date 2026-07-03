@@ -2,6 +2,10 @@
 data:
   identifier: '02697'
   term: electronic gas meter
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic gas meter
   kind: undefined
   official_concept:
   editions_present:

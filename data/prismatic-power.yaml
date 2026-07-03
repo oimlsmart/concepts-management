@@ -2,6 +2,10 @@
 data:
   identifier: '01133'
   term: prismatic power
+  designations:
+  - type: expression
+    status: preferred
+    text: prismatic power
   kind: undefined
   official_concept:
   editions_present:

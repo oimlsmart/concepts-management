@@ -2,6 +2,10 @@
 data:
   identifier: '00172'
   term: quality management system
+  designations:
+  - type: expression
+    status: preferred
+    text: quality management system
   kind: undefined
   official_concept:
   editions_present:

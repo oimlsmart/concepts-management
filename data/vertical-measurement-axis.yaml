@@ -2,6 +2,10 @@
 data:
   identifier: '01140'
   term: vertical measurement axis
+  designations:
+  - type: expression
+    status: preferred
+    text: vertical measurement axis
   kind: undefined
   official_concept:
   editions_present:

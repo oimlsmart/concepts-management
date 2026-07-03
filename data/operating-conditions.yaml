@@ -2,6 +2,10 @@
 data:
   identifier: '02672'
   term: operating conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: operating conditions
   kind: undefined
   official_concept:
   editions_present:

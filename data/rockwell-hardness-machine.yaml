@@ -2,6 +2,10 @@
 data:
   identifier: '00382'
   term: Rockwell hardness machine
+  designations:
+  - type: expression
+    status: preferred
+    text: Rockwell hardness machine
   kind: undefined
   official_concept:
   editions_present:

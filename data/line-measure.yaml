@@ -2,6 +2,10 @@
 data:
   identifier: '00368'
   term: line measure
+  designations:
+  - type: expression
+    status: preferred
+    text: line measure
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03387'
   term: printing device
+  designations:
+  - type: expression
+    status: preferred
+    text: printing device
   kind: undefined
   official_concept:
   editions_present:

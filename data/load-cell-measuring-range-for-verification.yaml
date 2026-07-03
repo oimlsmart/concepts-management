@@ -2,6 +2,10 @@
 data:
   identifier: '03202'
   term: load cell measuring range (for verification)
+  designations:
+  - type: expression
+    status: preferred
+    text: load cell measuring range (for verification)
   kind: undefined
   official_concept:
   editions_present:

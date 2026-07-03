@@ -2,6 +2,10 @@
 data:
   identifier: '00310'
   term: mean arterial blood pressure (value)
+  designations:
+  - type: expression
+    status: preferred
+    text: mean arterial blood pressure (value)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01439'
   term: operating level of the piston
+  designations:
+  - type: expression
+    status: preferred
+    text: operating level of the piston
   kind: undefined
   official_concept:
   editions_present:

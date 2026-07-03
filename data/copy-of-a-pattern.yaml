@@ -2,6 +2,10 @@
 data:
   identifier: '00127'
   term: copy of a pattern
+  designations:
+  - type: expression
+    status: preferred
+    text: copy of a pattern
   kind: undefined
   official_concept:
   editions_present:

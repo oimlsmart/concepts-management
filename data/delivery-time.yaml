@@ -2,6 +2,10 @@
 data:
   identifier: '00394'
   term: delivery time
+  designations:
+  - type: expression
+    status: preferred
+    text: delivery time
   kind: undefined
   official_concept:
   editions_present:

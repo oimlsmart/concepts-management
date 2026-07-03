@@ -2,6 +2,10 @@
 data:
   identifier: '02513'
   term: blank reference solution
+  designations:
+  - type: expression
+    status: preferred
+    text: blank reference solution
   kind: undefined
   official_concept:
   editions_present:

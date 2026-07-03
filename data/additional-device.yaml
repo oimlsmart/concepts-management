@@ -2,6 +2,13 @@
 data:
   identifier: '01625'
   term: additional device
+  designations:
+  - type: expression
+    status: preferred
+    text: additional device
+  - type: expression
+    status: preferred
+    text: Additional device
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01427'
   term: indication by adding pressure values
+  designations:
+  - type: expression
+    status: preferred
+    text: indication by adding pressure values
   kind: undefined
   official_concept:
   editions_present:

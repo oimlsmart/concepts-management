@@ -2,6 +2,10 @@
 data:
   identifier: '02969'
   term: cumulative weighing instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: cumulative weighing instrument
   kind: undefined
   official_concept:
   editions_present:

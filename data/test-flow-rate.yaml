@@ -2,6 +2,10 @@
 data:
   identifier: '02419'
   term: test flow rate
+  designations:
+  - type: expression
+    status: preferred
+    text: test flow rate
   kind: undefined
   official_concept:
   editions_present:

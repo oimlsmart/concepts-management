@@ -2,6 +2,10 @@
 data:
   identifier: '03313'
   term: minimum specified mass deviation
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum specified mass deviation
   kind: undefined
   official_concept:
   editions_present:

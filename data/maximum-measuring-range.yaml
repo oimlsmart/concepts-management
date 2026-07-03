@@ -2,6 +2,10 @@
 data:
   identifier: '03228'
   term: maximum measuring range
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum measuring range
   kind: undefined
   official_concept:
   editions_present:

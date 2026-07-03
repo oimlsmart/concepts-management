@@ -2,6 +2,10 @@
 data:
   identifier: '00619'
   term: tare weighing device
+  designations:
+  - type: expression
+    status: preferred
+    text: tare weighing device
   kind: undefined
   official_concept:
   editions_present:

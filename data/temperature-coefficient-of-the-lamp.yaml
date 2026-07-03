@@ -2,6 +2,10 @@
 data:
   identifier: '00407'
   term: temperature coefficient of the lamp
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature coefficient of the lamp
   kind: undefined
   official_concept:
   editions_present:

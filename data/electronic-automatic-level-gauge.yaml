@@ -2,6 +2,10 @@
 data:
   identifier: 02300-R085-1
   term: electronic automatic level gauge
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic automatic level gauge
   kind: undefined
   official_concept:
   editions_present:

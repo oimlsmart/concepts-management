@@ -2,6 +2,10 @@
 data:
   identifier: '03212'
   term: mandatory perodoc verification
+  designations:
+  - type: expression
+    status: preferred
+    text: mandatory perodoc verification
   kind: undefined
   official_concept:
   editions_present:

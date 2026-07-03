@@ -2,6 +2,10 @@
 data:
   identifier: '00101'
   term: National Issuing Authority
+  designations:
+  - type: expression
+    status: preferred
+    text: National Issuing Authority
   kind: undefined
   official_concept:
   editions_present:

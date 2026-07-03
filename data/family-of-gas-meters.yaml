@@ -2,6 +2,10 @@
 data:
   identifier: '02656'
   term: family of gas meters
+  designations:
+  - type: expression
+    status: preferred
+    text: family of gas meters
   kind: undefined
   official_concept:
   editions_present:

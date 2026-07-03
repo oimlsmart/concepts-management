@@ -2,6 +2,10 @@
 data:
   identifier: '00206'
   term: quality system surveillance
+  designations:
+  - type: expression
+    status: preferred
+    text: quality system surveillance
   kind: undefined
   official_concept:
   editions_present:

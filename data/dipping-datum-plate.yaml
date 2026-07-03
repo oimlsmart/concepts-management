@@ -2,6 +2,10 @@
 data:
   identifier: '02229-R071'
   term: dipping datum plate
+  designations:
+  - type: expression
+    status: preferred
+    text: dipping datum plate
   kind: undefined
   official_concept:
   editions_present:

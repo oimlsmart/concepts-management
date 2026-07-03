@@ -2,6 +2,10 @@
 data:
   identifier: '00348'
   term: interface
+  designations:
+  - type: expression
+    status: preferred
+    text: interface
   kind: undefined
   official_concept:
   editions_present:

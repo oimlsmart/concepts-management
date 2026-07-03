@@ -2,6 +2,16 @@
 data:
   identifier: '01639'
   term: relative error
+  designations:
+  - type: expression
+    status: preferred
+    text: relative error
+  - type: expression
+    status: admitted
+    text: error
+  - type: symbol
+    status: preferred
+    text: stem:[e]
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993
@@ -43,6 +53,18 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: '2010'
+    publication: OIML R 117-1:2007
+    publication_id: OIML R117-1:2007
+    tc_sc: ''
+    year: 2007
+    clause: T.e.4.2
+    link: https://www.oiml.org/en/files/pdf_R/r117-1-e07.pdf
+    g18_entry: '01560'
+    definition: error (of indication) divided by the reference (true) quantity
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: '2010'
     publication: OIML R 139:2007
     publication_id: OIML R139:2007
     tc_sc: TC8/SC7
@@ -68,6 +90,20 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: '2010'
+    publication: OIML R 137-1:2006
+    publication_id: OIML R137-1:2006
+    tc_sc: ''
+    year: 2006
+    clause: 2.2.7
+    link: https://www.oiml.org/en/files/pdf_R/r137-1-e06.pdf
+    g18_entry: '01943'
+    definition: error of measurement divided by a true value of the measurand. The
+      error is expressed as a percentage, and is calculated by stem:[e = (Y_{i} -
+      Y_{"ref"}) / Y_{"ref"} xx 100%]
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: '2010'
     publication: OIML R 125:1998
     publication_id: OIML R125:1998
     tc_sc: TC8/SC1
@@ -85,6 +121,18 @@ data:
       ref:
         source: urn:oiml:pub:v:2:1993
         id: '3.12'
+  - edition: 202X
+    publication: OIML R117-1:2019
+    publication_id: OIML R117-1:2019
+    tc_sc: ''
+    year: 2019
+    clause: T.e.4.2
+    link:
+    g18_entry: '03452'
+    definition: error (of indication) divided by the reference (true) quantity
+    notes: []
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R144-1:2013
     publication_id: OIML R144-1:2013

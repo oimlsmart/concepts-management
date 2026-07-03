@@ -2,6 +2,10 @@
 data:
   identifier: '03218'
   term: material measure
+  designations:
+  - type: expression
+    status: preferred
+    text: material measure
   kind: undefined
   official_concept:
   editions_present:

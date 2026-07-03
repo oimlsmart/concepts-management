@@ -2,6 +2,10 @@
 data:
   identifier: '01482'
   term: linear range of a detector
+  designations:
+  - type: expression
+    status: preferred
+    text: linear range of a detector
   kind: undefined
   official_concept:
   editions_present:

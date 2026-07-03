@@ -2,6 +2,10 @@
 data:
   identifier: 02266-R080-1
   term: longitudinal axis and pitch angle
+  designations:
+  - type: expression
+    status: preferred
+    text: longitudinal axis and pitch angle
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02904'
   term: base volume
+  designations:
+  - type: expression
+    status: preferred
+    text: base volume
   kind: undefined
   official_concept:
   editions_present:

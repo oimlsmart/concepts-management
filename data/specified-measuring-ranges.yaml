@@ -2,6 +2,10 @@
 data:
   identifier: '02074'
   term: specified measuring ranges
+  designations:
+  - type: expression
+    status: preferred
+    text: specified measuring ranges
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01044'
   term: direct selling to the public
+  designations:
+  - type: expression
+    status: preferred
+    text: direct selling to the public
   kind: undefined
   official_concept:
   editions_present:

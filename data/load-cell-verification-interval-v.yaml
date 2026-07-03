@@ -2,26 +2,16 @@
 data:
   identifier: '03204'
   term: load cell verification interval (v)
+  designations:
+  - type: expression
+    status: preferred
+    text: load cell verification interval (v)
   kind: undefined
   official_concept:
   editions_present:
-  - '2010'
   - 202X
   primary_edition: 202X
   publications:
-  - edition: '2010'
-    publication: OIML R 60:2000
-    publication_id: OIML R060:2000
-    tc_sc: TC9
-    year: 2000
-    clause: 2.3.4
-    link: https://www.oiml.org/en/files/pdf_R/r060-e00.pdf
-    g18_entry: '00715'
-    definition: load cell interval, expressed in units of mass, used in the test of
-      the load cell for accuracy classification
-    notes: []
-    consistency: pending
-    consistency_reason: ''
   - edition: 202X
     publication: OIML R060-1:2019
     publication_id: OIML R060-1:2019

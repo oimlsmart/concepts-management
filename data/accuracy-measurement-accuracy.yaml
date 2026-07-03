@@ -2,6 +2,10 @@
 data:
   identifier: '02443'
   term: accuracy measurement accuracy
+  designations:
+  - type: expression
+    status: preferred
+    text: accuracy measurement accuracy
   kind: undefined
   official_concept:
   editions_present:

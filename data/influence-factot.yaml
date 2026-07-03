@@ -2,6 +2,10 @@
 data:
   identifier: '01578'
   term: influence factot
+  designations:
+  - type: expression
+    status: preferred
+    text: influence factot
   kind: undefined
   official_concept:
   editions_present:

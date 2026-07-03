@@ -2,6 +2,10 @@
 data:
   identifier: '00998'
   term: consumer package
+  designations:
+  - type: expression
+    status: preferred
+    text: consumer package
   kind: undefined
   official_concept:
   editions_present:

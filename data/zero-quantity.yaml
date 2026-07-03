@@ -2,6 +2,10 @@
 data:
   identifier: '01633'
   term: zero quantity
+  designations:
+  - type: expression
+    status: preferred
+    text: zero quantity
   kind: undefined
   official_concept:
   editions_present:

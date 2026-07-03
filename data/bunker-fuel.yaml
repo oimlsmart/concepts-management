@@ -2,6 +2,10 @@
 data:
   identifier: '02913'
   term: bunker fuel
+  designations:
+  - type: expression
+    status: preferred
+    text: bunker fuel
   kind: undefined
   official_concept:
   editions_present:

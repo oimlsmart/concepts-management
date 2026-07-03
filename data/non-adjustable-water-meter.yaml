@@ -2,6 +2,10 @@
 data:
   identifier: '03703'
   term: non-adjustable water meter
+  designations:
+  - type: expression
+    status: preferred
+    text: non-adjustable water meter
   kind: undefined
   official_concept:
   editions_present:

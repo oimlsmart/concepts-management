@@ -2,6 +2,10 @@
 data:
   identifier: '03058'
   term: experimental standard deviation
+  designations:
+  - type: expression
+    status: preferred
+    text: experimental standard deviation
   kind: undefined
   official_concept:
   editions_present:

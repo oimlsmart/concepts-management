@@ -2,6 +2,10 @@
 data:
   identifier: '01136'
   term: centration error of the instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: centration error of the instrument
   kind: undefined
   official_concept:
   editions_present:

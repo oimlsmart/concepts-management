@@ -2,6 +2,11 @@
 data:
   identifier: '03238'
   term: maximum permissible measurement error maximum permissible error limit of error
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum permissible measurement error maximum permissible error limit of
+      error
   kind: undefined
   official_concept:
   editions_present:

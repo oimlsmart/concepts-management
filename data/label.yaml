@@ -2,6 +2,10 @@
 data:
   identifier: '02480'
   term: label
+  designations:
+  - type: expression
+    status: preferred
+    text: label
   kind: undefined
   official_concept:
   editions_present:

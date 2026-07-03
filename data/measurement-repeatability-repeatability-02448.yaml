@@ -2,6 +2,10 @@
 data:
   identifier: '02448'
   term: measurement repeatability repeatability
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement repeatability repeatability
   kind: undefined
   official_concept:
   editions_present:

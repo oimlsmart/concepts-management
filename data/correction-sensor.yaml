@@ -2,6 +2,10 @@
 data:
   identifier: 02304-R085-1
   term: correction sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: correction sensor
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01517'
   term: nebulizer
+  designations:
+  - type: expression
+    status: preferred
+    text: nebulizer
   kind: undefined
   official_concept:
   editions_present:

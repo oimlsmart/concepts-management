@@ -2,6 +2,10 @@
 data:
   identifier: '02206'
   term: type of a measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: type of a measuring instrument
   kind: undefined
   official_concept:
   editions_present:

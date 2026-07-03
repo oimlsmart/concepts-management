@@ -2,6 +2,10 @@
 data:
   identifier: '01379'
   term: printout
+  designations:
+  - type: expression
+    status: preferred
+    text: printout
   kind: undefined
   official_concept:
   editions_present:

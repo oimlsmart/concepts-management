@@ -2,6 +2,10 @@
 data:
   identifier: '03396'
   term: pump
+  designations:
+  - type: expression
+    status: preferred
+    text: pump
   kind: undefined
   official_concept:
   editions_present:

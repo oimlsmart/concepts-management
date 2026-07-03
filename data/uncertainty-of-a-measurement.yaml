@@ -2,6 +2,10 @@
 data:
   identifier: '03608'
   term: uncertainty of a measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: uncertainty of a measurement
   kind: undefined
   official_concept:
   editions_present:

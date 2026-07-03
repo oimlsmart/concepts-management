@@ -2,6 +2,10 @@
 data:
   identifier: '02124'
   term: sampling probe
+  designations:
+  - type: expression
+    status: preferred
+    text: sampling probe
   kind: undefined
   official_concept:
   editions_present:

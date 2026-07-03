@@ -2,6 +2,10 @@
 data:
   identifier: '03772'
   term: measurement angle
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement angle
   kind: undefined
   official_concept:
   editions_present:

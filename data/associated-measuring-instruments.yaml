@@ -2,6 +2,10 @@
 data:
   identifier: '00421'
   term: associated measuring instruments
+  designations:
+  - type: expression
+    status: preferred
+    text: associated measuring instruments
   kind: undefined
   official_concept:
   editions_present:

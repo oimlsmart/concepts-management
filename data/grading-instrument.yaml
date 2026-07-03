@@ -2,6 +2,10 @@
 data:
   identifier: '00568'
   term: grading instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: grading instrument
   kind: undefined
   official_concept:
   editions_present:

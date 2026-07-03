@@ -2,6 +2,10 @@
 data:
   identifier: '01436'
   term: cross float sensitivity
+  designations:
+  - type: expression
+    status: preferred
+    text: cross float sensitivity
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00142'
   term: blind test object (or blind material sample)
+  designations:
+  - type: expression
+    status: preferred
+    text: blind test object (or blind material sample)
   kind: undefined
   official_concept:
   editions_present:

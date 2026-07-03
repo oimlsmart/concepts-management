@@ -2,6 +2,10 @@
 data:
   identifier: '03438'
   term: reference material RM
+  designations:
+  - type: expression
+    status: preferred
+    text: reference material RM
   kind: undefined
   official_concept:
   editions_present:

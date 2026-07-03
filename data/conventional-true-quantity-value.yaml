@@ -2,6 +2,10 @@
 data:
   identifier: '02348'
   term: conventional true quantity value
+  designations:
+  - type: expression
+    status: preferred
+    text: conventional true quantity value
   kind: undefined
   official_concept:
   editions_present:

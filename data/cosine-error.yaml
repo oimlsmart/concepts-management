@@ -2,6 +2,10 @@
 data:
   identifier: '03746'
   term: cosine error
+  designations:
+  - type: expression
+    status: preferred
+    text: cosine error
   kind: undefined
   official_concept:
   editions_present:

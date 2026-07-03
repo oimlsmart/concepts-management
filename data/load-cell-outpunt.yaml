@@ -2,6 +2,10 @@
 data:
   identifier: '00714'
   term: load cell outpunt
+  designations:
+  - type: expression
+    status: preferred
+    text: load cell outpunt
   kind: undefined
   official_concept:
   editions_present:

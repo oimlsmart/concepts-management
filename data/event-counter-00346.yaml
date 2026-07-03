@@ -2,6 +2,10 @@
 data:
   identifier: '00346'
   term: event-counter
+  designations:
+  - type: expression
+    status: preferred
+    text: event-counter
   kind: undefined
   official_concept:
   editions_present:

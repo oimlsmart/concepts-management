@@ -2,6 +2,10 @@
 data:
   identifier: '03642'
   term: weighing segment length
+  designations:
+  - type: expression
+    status: preferred
+    text: weighing segment length
   kind: undefined
   official_concept:
   editions_present:

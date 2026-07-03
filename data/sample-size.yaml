@@ -2,6 +2,10 @@
 data:
   identifier: '02509'
   term: sample size
+  designations:
+  - type: expression
+    status: preferred
+    text: sample size
   kind: undefined
   official_concept:
   editions_present:

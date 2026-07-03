@@ -2,6 +2,10 @@
 data:
   identifier: '02953'
   term: control value
+  designations:
+  - type: expression
+    status: preferred
+    text: control value
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01463'
   term: test
+  designations:
+  - type: expression
+    status: preferred
+    text: test
   kind: undefined
   official_concept:
   editions_present:

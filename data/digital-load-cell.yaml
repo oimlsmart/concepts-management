@@ -2,6 +2,10 @@
 data:
   identifier: '02990'
   term: digital load cell
+  designations:
+  - type: expression
+    status: preferred
+    text: digital load cell
   kind: undefined
   official_concept:
   editions_present:

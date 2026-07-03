@@ -2,6 +2,10 @@
 data:
   identifier: '03566'
   term: testing
+  designations:
+  - type: expression
+    status: preferred
+    text: testing
   kind: undefined
   official_concept:
   editions_present:

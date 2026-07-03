@@ -2,6 +2,10 @@
 data:
   identifier: '03586'
   term: true (reference) quantity
+  designations:
+  - type: expression
+    status: preferred
+    text: true (reference) quantity
   kind: undefined
   official_concept:
   editions_present:

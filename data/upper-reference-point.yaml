@@ -2,6 +2,10 @@
 data:
   identifier: '01142'
   term: upper reference point
+  designations:
+  - type: expression
+    status: preferred
+    text: upper reference point
   kind: undefined
   official_concept:
   editions_present:

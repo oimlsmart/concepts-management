@@ -106,6 +106,23 @@ const uniqueGroups = computed(() => definitionGroups.value.filter(g => g.count =
 function rowVisible(p: any) {
   return enabledEditions.value.has(p.edition);
 }
+
+// Designations: split by type/status for the UI. Falls back to the legacy
+// `term.name` as preferred expression when the new field is absent.
+const designations = computed(() => (term.value?.designations || []) as any[]);
+const preferredExpression = computed(() => {
+  const hit = designations.value.find(d => d.type === "expression" && d.status === "preferred");
+  return (hit?.text as string) || (term.value?.name as string) || "";
+});
+const admittedExpressions = computed(() =>
+  designations.value.filter(d => d.type === "expression" && d.status === "admitted").map(d => d.text as string)
+);
+const symbols = computed(() =>
+  Array.from(new Set(designations.value.filter(d => d.type === "symbol").map(d => d.text as string)))
+);
+const abbreviations = computed(() =>
+  Array.from(new Set(designations.value.filter(d => d.type === "abbreviation").map(d => d.text as string)))
+);
 </script>
 
 <template>
@@ -142,6 +159,28 @@ function rowVisible(p: any) {
           <div v-if="edge.ref?.definition_text" class="authority-defn-body" style="font-size:0.92em">{{ edge.ref.definition_text }}</div>
         </li>
       </ul>
+    </section>
+
+    <section class="card" v-if="designations.length">
+      <h2>Designations</h2>
+      <dl class="designations">
+        <div v-if="preferredExpression" class="designations-row">
+          <dt>Term (preferred)</dt>
+          <dd>{{ preferredExpression }}</dd>
+        </div>
+        <div v-if="admittedExpressions.length" class="designations-row" v-for="ad in admittedExpressions" :key="'ad-'+ad">
+          <dt>Term (admitted)</dt>
+          <dd>{{ ad }}</dd>
+        </div>
+        <div v-if="symbols.length" class="designations-row" v-for="sym in symbols" :key="'sym-'+sym">
+          <dt>Symbol</dt>
+          <dd><code>{{ sym }}</code></dd>
+        </div>
+        <div v-if="abbreviations.length" class="designations-row" v-for="abbr in abbreviations" :key="'abbr-'+abbr">
+          <dt>Abbreviation</dt>
+          <dd><code>{{ abbr }}</code></dd>
+        </div>
+      </dl>
     </section>
 
     <section v-if="actions.length" class="card">
@@ -281,5 +320,27 @@ function rowVisible(p: any) {
   font-size: 0.95em;
   color: var(--oiml-amber-deep);
   margin-bottom: 0.4em;
+}
+.designations {
+  margin: 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4em 1.2em;
+  align-items: baseline;
+}
+.designations-row {
+  display: contents;
+}
+.designations dt {
+  font-weight: 600;
+  color: var(--ink-soft);
+  font-size: 0.88em;
+}
+.designations dd {
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .designations { grid-template-columns: 1fr; gap: 0.1em 0; }
+  .designations dt { font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.4em; }
 }
 </style>

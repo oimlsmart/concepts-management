@@ -2,26 +2,16 @@
 data:
   identifier: '02957'
   term: conversion factor (F)
+  designations:
+  - type: expression
+    status: preferred
+    text: conversion factor (F)
   kind: undefined
   official_concept:
   editions_present:
-  - '2010'
   - 202X
   primary_edition: 202X
   publications:
-  - edition: '2010'
-    publication: OIML R 129:2000
-    publication_id: OIML R129:2000
-    tc_sc: TC7/SC5
-    year: 2000
-    clause: '2.18'
-    link: https://www.oiml.org/en/files/pdf_R/r129-e00.pdf
-    g18_entry: '01717'
-    definition: the factor applied to the volume or dimensions of an object to determine
-      its dimensional weight
-    notes: []
-    consistency: pending
-    consistency_reason: ''
   - edition: 202X
     publication: OIML R129-1:2020
     publication_id: OIML R129-1:2020

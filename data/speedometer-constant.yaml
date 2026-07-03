@@ -2,6 +2,10 @@
 data:
   identifier: '00695'
   term: speedometer constant
+  designations:
+  - type: expression
+    status: preferred
+    text: speedometer constant
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00367'
   term: end measure
+  designations:
+  - type: expression
+    status: preferred
+    text: end measure
   kind: undefined
   official_concept:
   editions_present:

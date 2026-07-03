@@ -1,7 +1,11 @@
 ---
 data:
   identifier: '01326'
-  term: load-measuring  device
+  term: load-measuring device
+  designations:
+  - type: expression
+    status: preferred
+    text: load-measuring device
   kind: undefined
   official_concept:
   editions_present:
@@ -24,6 +28,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 2d72bc96-95ca-590d-990f-77f0238f9950
+id: 612dec93-4c6d-5cfb-a561-e4c0a017da5d
 schema_version: '3'
 related: []

@@ -2,6 +2,10 @@
 data:
   identifier: '02350'
   term: reference (quantity) value
+  designations:
+  - type: expression
+    status: preferred
+    text: reference (quantity) value
   kind: undefined
   official_concept:
   editions_present:

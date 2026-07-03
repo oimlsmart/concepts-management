@@ -2,6 +2,10 @@
 data:
   identifier: '03791'
   term: trigger distance
+  designations:
+  - type: expression
+    status: preferred
+    text: trigger distance
   kind: undefined
   official_concept:
   editions_present:

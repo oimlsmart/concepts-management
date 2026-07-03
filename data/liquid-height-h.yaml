@@ -2,6 +2,10 @@
 data:
   identifier: '02258-R080-1'
   term: liquid height (h)
+  designations:
+  - type: expression
+    status: preferred
+    text: liquid height (h)
   kind: undefined
   official_concept:
   editions_present:

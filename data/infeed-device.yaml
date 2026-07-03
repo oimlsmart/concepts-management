@@ -2,6 +2,10 @@
 data:
   identifier: '03113'
   term: infeed device
+  designations:
+  - type: expression
+    status: preferred
+    text: infeed device
   kind: undefined
   official_concept:
   editions_present:

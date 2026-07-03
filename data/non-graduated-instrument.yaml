@@ -2,6 +2,10 @@
 data:
   identifier: '00877'
   term: non-graduated instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: non-graduated instrument
   kind: undefined
   official_concept:
   editions_present:

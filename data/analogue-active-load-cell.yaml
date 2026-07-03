@@ -2,6 +2,10 @@
 data:
   identifier: '02854'
   term: analogue-active load cell
+  designations:
+  - type: expression
+    status: preferred
+    text: analogue-active load cell
   kind: undefined
   official_concept:
   editions_present:

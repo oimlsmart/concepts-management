@@ -1,7 +1,11 @@
 ---
 data:
   identifier: '00945'
-  term: maximum tare effect (T = + …, T = – …)
+  term: maximum tare effect (T = + …, T = - …)
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum tare effect (T = + …, T = - …)
   kind: undefined
   official_concept:
   editions_present:
@@ -22,6 +26,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 2b6479e2-6b12-5d3c-bc13-0ed4c2c908ca
+id: b9100e7c-6105-557a-9ba8-752b473607ac
 schema_version: '3'
 related: []

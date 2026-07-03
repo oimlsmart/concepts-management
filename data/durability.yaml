@@ -2,6 +2,10 @@
 data:
   identifier: '00649'
   term: durability
+  designations:
+  - type: expression
+    status: preferred
+    text: durability
   kind: undefined
   official_concept:
   editions_present:

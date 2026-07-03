@@ -2,6 +2,10 @@
 data:
   identifier: '01444'
   term: calibration certificate (report)
+  designations:
+  - type: expression
+    status: preferred
+    text: calibration certificate (report)
   kind: undefined
   official_concept:
   editions_present:

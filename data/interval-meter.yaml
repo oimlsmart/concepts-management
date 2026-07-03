@@ -2,6 +2,10 @@
 data:
   identifier: '02281-1'
   term: interval meter
+  designations:
+  - type: expression
+    status: preferred
+    text: interval meter
   kind: undefined
   official_concept:
   editions_present:

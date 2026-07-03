@@ -2,6 +2,10 @@
 data:
   identifier: '01619'
   term: tank calibration table
+  designations:
+  - type: expression
+    status: preferred
+    text: tank calibration table
   kind: undefined
   official_concept:
   editions_present:

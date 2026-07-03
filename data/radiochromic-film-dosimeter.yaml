@@ -2,6 +2,10 @@
 data:
   identifier: '01676'
   term: radiochromic film dosimeter
+  designations:
+  - type: expression
+    status: preferred
+    text: radiochromic film dosimeter
   kind: undefined
   official_concept:
   editions_present:

@@ -1,0 +1,37 @@
+---
+data:
+  identifier: '01965'
+  term: static pressure loss
+  designations:
+  - type: expression
+    status: preferred
+    text: pressure differential
+  - type: expression
+    status: preferred
+    text: static pressure loss
+  - type: symbol
+    status: preferred
+    text: stem:[Delta p]
+  kind: undefined
+  official_concept:
+  editions_present:
+  - '2010'
+  primary_edition: 202X
+  publications:
+  - edition: '2010'
+    publication: OIML R 137-1:2006
+    publication_id: OIML R137-1:2006
+    tc_sc: ''
+    year: 2006
+    clause: 2.3.9
+    link: https://www.oiml.org/en/files/pdf_R/r137-1-e06.pdf
+    g18_entry: '01965'
+    definition: mean difference between the pressures at the inlet and outlet of the
+      gas meter while the gas is flowing
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 19381f11-3f1a-5749-a272-59505818c8ea
+schema_version: '3'
+related: []

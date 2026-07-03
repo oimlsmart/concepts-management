@@ -2,6 +2,10 @@
 data:
   identifier: '01759'
   term: alanine dosimeter
+  designations:
+  - type: expression
+    status: preferred
+    text: alanine dosimeter
   kind: undefined
   official_concept:
   editions_present:

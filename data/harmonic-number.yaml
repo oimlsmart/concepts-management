@@ -2,6 +2,10 @@
 data:
   identifier: 02311-R046-1
   term: harmonic number
+  designations:
+  - type: expression
+    status: preferred
+    text: harmonic number
   kind: undefined
   official_concept:
   editions_present:

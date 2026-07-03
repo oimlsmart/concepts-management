@@ -2,6 +2,10 @@
 data:
   identifier: '01068'
   term: mass spectrum
+  designations:
+  - type: expression
+    status: preferred
+    text: mass spectrum
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00853'
   term: rated voltage, Un
+  designations:
+  - type: expression
+    status: preferred
+    text: rated voltage, Un
   kind: undefined
   official_concept:
   editions_present:

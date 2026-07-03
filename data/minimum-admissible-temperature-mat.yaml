@@ -2,6 +2,10 @@
 data:
   identifier: '02413'
   term: minimum admissible temperature mAT
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum admissible temperature mAT
   kind: undefined
   official_concept:
   editions_present:

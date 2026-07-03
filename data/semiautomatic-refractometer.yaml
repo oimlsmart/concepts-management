@@ -2,6 +2,10 @@
 data:
   identifier: '01409'
   term: semiautomatic refractometer
+  designations:
+  - type: expression
+    status: preferred
+    text: semiautomatic refractometer
   kind: undefined
   official_concept:
   editions_present:

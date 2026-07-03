@@ -2,6 +2,10 @@
 data:
   identifier: '01626'
   term: vertical cylindrical tank
+  designations:
+  - type: expression
+    status: preferred
+    text: vertical cylindrical tank
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02508'
   term: sample correction factor (SCF)
+  designations:
+  - type: expression
+    status: preferred
+    text: sample correction factor (SCF)
   kind: undefined
   official_concept:
   editions_present:

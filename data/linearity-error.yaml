@@ -2,6 +2,10 @@
 data:
   identifier: '03769'
   term: linearity error
+  designations:
+  - type: expression
+    status: preferred
+    text: linearity error
   kind: undefined
   official_concept:
   editions_present:

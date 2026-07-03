@@ -2,6 +2,10 @@
 data:
   identifier: '03250'
   term: mesured quantity (value)
+  designations:
+  - type: expression
+    status: preferred
+    text: mesured quantity (value)
   kind: undefined
   official_concept:
   editions_present:

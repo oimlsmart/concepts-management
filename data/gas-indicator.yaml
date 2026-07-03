@@ -2,6 +2,10 @@
 data:
   identifier: '03091'
   term: gas indicator
+  designations:
+  - type: expression
+    status: preferred
+    text: gas indicator
   kind: undefined
   official_concept:
   editions_present:

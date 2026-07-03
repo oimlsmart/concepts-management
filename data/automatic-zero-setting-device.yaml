@@ -2,6 +2,10 @@
 data:
   identifier: '00614'
   term: automatic zero setting device
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic zero setting device
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00804'
   term: maximum permissible error for influence factor tests
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum permissible error for influence factor tests
   kind: undefined
   official_concept:
   editions_present:

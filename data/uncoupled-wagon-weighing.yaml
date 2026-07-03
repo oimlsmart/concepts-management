@@ -2,6 +2,10 @@
 data:
   identifier: '02570'
   term: uncoupled wagon weighing
+  designations:
+  - type: expression
+    status: preferred
+    text: uncoupled wagon weighing
   kind: undefined
   official_concept:
   editions_present:

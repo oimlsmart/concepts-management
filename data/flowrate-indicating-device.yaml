@@ -2,6 +2,10 @@
 data:
   identifier: '03081'
   term: flowrate indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: flowrate indicating device
   kind: undefined
   official_concept:
   editions_present:

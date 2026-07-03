@@ -2,6 +2,10 @@
 data:
   identifier: '03449'
   term: regulatory designating authority
+  designations:
+  - type: expression
+    status: preferred
+    text: regulatory designating authority
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00401'
   term: radiance temperature
+  designations:
+  - type: expression
+    status: preferred
+    text: radiance temperature
   kind: undefined
   official_concept:
   editions_present:

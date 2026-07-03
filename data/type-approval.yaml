@@ -2,6 +2,10 @@
 data:
   identifier: '00192'
   term: type approval
+  designations:
+  - type: expression
+    status: preferred
+    text: type approval
   kind: defined_in_viml
   official_concept:
     source: urn:oiml:pub:v:1:2000
@@ -126,6 +130,11 @@ data:
     - 'Note:  See olso VIML A.25'
     consistency: pending
     consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '2.05'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -334,3 +343,15 @@ related:
     vocab: viml
     role: prior
     year: 2000
+- type: see
+  ref:
+    id: '2.05'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: decision of legal relevance, based on the review of the {{2.04,type
+      evaluation}} report, that the type of a {{0.10,measuring instrument}} complies
+      with the relevant statutory requirements and results in the issuance of the
+      {{3.01,type approval certificate}}
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

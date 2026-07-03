@@ -2,6 +2,10 @@
 data:
   identifier: '03074'
   term: feeding device
+  designations:
+  - type: expression
+    status: preferred
+    text: feeding device
   kind: undefined
   official_concept:
   editions_present:

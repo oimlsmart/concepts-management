@@ -2,6 +2,10 @@
 data:
   identifier: '01631'
   term: minimum measured quantity (inventory and transfer)
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum measured quantity (inventory and transfer)
   kind: undefined
   official_concept:
   editions_present:

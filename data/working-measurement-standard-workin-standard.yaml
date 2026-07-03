@@ -2,6 +2,10 @@
 data:
   identifier: '03647'
   term: working measurement standard workin standard
+  designations:
+  - type: expression
+    status: preferred
+    text: working measurement standard workin standard
   kind: undefined
   official_concept:
   editions_present:

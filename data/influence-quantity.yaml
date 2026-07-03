@@ -2,6 +2,10 @@
 data:
   identifier: '00374'
   term: influence quantity
+  designations:
+  - type: expression
+    status: preferred
+    text: influence quantity
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993
@@ -405,6 +409,28 @@ data:
     notes: []
     consistency: pending
     consistency_reason: ''
+  - edition: 202X
+    publication: OIML R091-1:2025
+    publication_id: OIML R091-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: 3.5.7
+    link:
+    g18_entry: '03766'
+    definition: quantity that, in a direct measurement, does not affect the quantity
+      that is actually measured, but affects the relation between the indication and
+      the measurement result
+    notes:
+    - 'Note: For speed meters the following quantities are examples of influence quantities:
+      ambient temperature, measurement angle, acceleration of measured vehicle, distance
+      and speed of other vehicles on the same or neighbouring lanes.'
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '0.07'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -836,3 +862,14 @@ related:
     vocab: vim
     role: legacy
     year: 1993
+- type: see
+  ref:
+    id: '0.07'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: quantity that, in a direct measurement, does not affect the quantity
+      that is actually measured, but affects the relation between the {{0.03,indication}}
+      and the measurement result
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

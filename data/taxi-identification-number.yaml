@@ -2,6 +2,10 @@
 data:
   identifier: '00358'
   term: taxi identification number
+  designations:
+  - type: expression
+    status: preferred
+    text: taxi identification number
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 02264-R080-1
   term: temperature sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature sensor
   kind: undefined
   official_concept:
   editions_present:

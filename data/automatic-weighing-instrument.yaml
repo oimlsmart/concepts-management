@@ -2,6 +2,10 @@
 data:
   identifier: '00560'
   term: automatic weighing instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic weighing instrument
   kind: undefined
   official_concept:
   editions_present:

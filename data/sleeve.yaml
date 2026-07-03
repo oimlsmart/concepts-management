@@ -2,6 +2,10 @@
 data:
   identifier: '00313'
   term: sleeve
+  designations:
+  - type: expression
+    status: preferred
+    text: sleeve
   kind: undefined
   official_concept:
   editions_present:

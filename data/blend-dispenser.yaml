@@ -2,6 +2,10 @@
 data:
   identifier: '02909'
   term: blend dispenser
+  designations:
+  - type: expression
+    status: preferred
+    text: blend dispenser
   kind: undefined
   official_concept:
   editions_present:

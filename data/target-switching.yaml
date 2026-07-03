@@ -2,6 +2,10 @@
 data:
   identifier: '03788'
   term: target switching
+  designations:
+  - type: expression
+    status: preferred
+    text: target switching
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00683'
   term: hysteresis
+  designations:
+  - type: expression
+    status: preferred
+    text: hysteresis
   kind: undefined
   official_concept:
   editions_present:

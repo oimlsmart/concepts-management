@@ -2,6 +2,10 @@
 data:
   identifier: '00687'
   term: final position
+  designations:
+  - type: expression
+    status: preferred
+    text: final position
   kind: undefined
   official_concept:
   editions_present:

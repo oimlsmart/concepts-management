@@ -2,6 +2,10 @@
 data:
   identifier: '00305'
   term: reference value (of the hectoliter mass of a cereal grain)
+  designations:
+  - type: expression
+    status: preferred
+    text: reference value (of the hectoliter mass of a cereal grain)
   kind: undefined
   official_concept:
   editions_present:

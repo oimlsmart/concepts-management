@@ -2,6 +2,10 @@
 data:
   identifier: '03744'
   term: centre line
+  designations:
+  - type: expression
+    status: preferred
+    text: centre line
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00304'
   term: hectolitre mass (of a given batch of grain)
+  designations:
+  - type: expression
+    status: preferred
+    text: hectolitre mass (of a given batch of grain)
   kind: undefined
   official_concept:
   editions_present:

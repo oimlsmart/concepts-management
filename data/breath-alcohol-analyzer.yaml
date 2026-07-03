@@ -2,6 +2,10 @@
 data:
   identifier: '02627'
   term: breath alcohol analyzer
+  designations:
+  - type: expression
+    status: preferred
+    text: breath alcohol analyzer
   kind: undefined
   official_concept:
   editions_present:

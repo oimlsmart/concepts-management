@@ -2,6 +2,10 @@
 data:
   identifier: '01407'
   term: hand refractometer
+  designations:
+  - type: expression
+    status: preferred
+    text: hand refractometer
   kind: undefined
   official_concept:
   editions_present:

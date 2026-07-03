@@ -2,6 +2,10 @@
 data:
   identifier: '03326'
   term: Newtonian viscosity stnadrd specimen (VSS)
+  designations:
+  - type: expression
+    status: preferred
+    text: Newtonian viscosity stnadrd specimen (VSS)
   kind: undefined
   official_concept:
   editions_present:

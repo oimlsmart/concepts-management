@@ -2,6 +2,10 @@
 data:
   identifier: '01256'
   term: rail-weigh bridge
+  designations:
+  - type: expression
+    status: preferred
+    text: rail-weigh bridge
   kind: undefined
   official_concept:
   editions_present:

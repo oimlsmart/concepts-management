@@ -2,6 +2,10 @@
 data:
   identifier: '03291'
   term: metadata
+  designations:
+  - type: expression
+    status: preferred
+    text: metadata
   kind: undefined
   official_concept:
   editions_present:

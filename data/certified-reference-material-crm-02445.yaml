@@ -2,6 +2,10 @@
 data:
   identifier: '02445'
   term: certified reference material CRM
+  designations:
+  - type: expression
+    status: preferred
+    text: certified reference material CRM
   kind: undefined
   official_concept:
   editions_present:

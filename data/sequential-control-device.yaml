@@ -2,6 +2,10 @@
 data:
   identifier: '03491'
   term: sequential control device
+  designations:
+  - type: expression
+    status: preferred
+    text: sequential control device
   kind: undefined
   official_concept:
   editions_present:

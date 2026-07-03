@@ -2,6 +2,10 @@
 data:
   identifier: '03107'
   term: indicating measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: indicating measuring instrument
   kind: undefined
   official_concept:
   editions_present:

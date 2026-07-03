@@ -1,7 +1,14 @@
 ---
 data:
   identifier: '01911'
-  term: mean area error ()
+  term: mean area error
+  designations:
+  - type: expression
+    status: preferred
+    text: mean area error
+  - type: symbol
+    status: preferred
+    text: stem:[(bar chi)_{e}]
   kind: undefined
   official_concept:
   editions_present:
@@ -40,6 +47,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 18dc4472-1ba8-50b3-9b12-5fda373a5e1a
+id: 4c41d7b4-f80d-5c58-b736-9cfd593bdc61
 schema_version: '3'
 related: []

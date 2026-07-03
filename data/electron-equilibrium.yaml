@@ -2,6 +2,10 @@
 data:
   identifier: '01682'
   term: electron equilibrium
+  designations:
+  - type: expression
+    status: preferred
+    text: electron equilibrium
   kind: undefined
   official_concept:
   editions_present:

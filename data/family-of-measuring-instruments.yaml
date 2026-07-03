@@ -2,6 +2,10 @@
 data:
   identifier: '03399'
   term: family of measuring instruments
+  designations:
+  - type: expression
+    status: preferred
+    text: family of measuring instruments
   kind: undefined
   official_concept:
   editions_present:

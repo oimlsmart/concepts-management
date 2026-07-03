@@ -2,6 +2,10 @@
 data:
   identifier: '01446'
   term: check standard
+  designations:
+  - type: expression
+    status: preferred
+    text: check standard
   kind: undefined
   official_concept:
   editions_present:

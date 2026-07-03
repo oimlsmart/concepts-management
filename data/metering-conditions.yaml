@@ -2,6 +2,10 @@
 data:
   identifier: '01025'
   term: metering conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: metering conditions
   kind: undefined
   official_concept:
   editions_present:

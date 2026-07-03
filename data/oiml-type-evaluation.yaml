@@ -2,6 +2,10 @@
 data:
   identifier: '03347'
   term: OIML type evaluation
+  designations:
+  - type: expression
+    status: preferred
+    text: OIML type evaluation
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01983'
   term: conventional true capacity
+  designations:
+  - type: expression
+    status: preferred
+    text: conventional true capacity
   kind: undefined
   official_concept:
   editions_present:

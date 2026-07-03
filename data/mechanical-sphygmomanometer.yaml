@@ -2,6 +2,10 @@
 data:
   identifier: '00316'
   term: mechanical sphygmomanometer
+  designations:
+  - type: expression
+    status: preferred
+    text: mechanical sphygmomanometer
   kind: undefined
   official_concept:
   editions_present:

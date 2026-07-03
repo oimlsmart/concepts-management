@@ -2,6 +2,10 @@
 data:
   identifier: '03478'
   term: self-service arrangement
+  designations:
+  - type: expression
+    status: preferred
+    text: self-service arrangement
   kind: undefined
   official_concept:
   editions_present:

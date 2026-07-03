@@ -2,6 +2,10 @@
 data:
   identifier: '03054'
   term: executable code
+  designations:
+  - type: expression
+    status: preferred
+    text: executable code
   kind: undefined
   official_concept:
   editions_present:

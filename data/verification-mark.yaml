@@ -2,6 +2,10 @@
 data:
   identifier: '00181'
   term: verification mark
+  designations:
+  - type: expression
+    status: preferred
+    text: verification mark
   kind: defined_in_viml
   official_concept:
     source: urn:oiml:pub:v:1:2000

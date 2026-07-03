@@ -2,6 +2,10 @@
 data:
   identifier: '00625'
   term: weighing range
+  designations:
+  - type: expression
+    status: preferred
+    text: weighing range
   kind: undefined
   official_concept:
   editions_present:

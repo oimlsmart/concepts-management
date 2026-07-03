@@ -2,6 +2,10 @@
 data:
   identifier: '03740'
   term: automatic measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic measurement
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03752'
   term: ego speed
+  designations:
+  - type: expression
+    status: preferred
+    text: ego speed
   kind: undefined
   official_concept:
   editions_present:

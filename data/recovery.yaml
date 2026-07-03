@@ -2,6 +2,10 @@
 data:
   identifier: '02431'
   term: recovery
+  designations:
+  - type: expression
+    status: preferred
+    text: recovery
   kind: undefined
   official_concept:
   editions_present:

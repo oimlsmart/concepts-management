@@ -2,6 +2,10 @@
 data:
   identifier: '01861'
   term: spectral width at one-hundredth maximum value
+  designations:
+  - type: expression
+    status: preferred
+    text: spectral width at one-hundredth maximum value
   kind: undefined
   official_concept:
   editions_present:

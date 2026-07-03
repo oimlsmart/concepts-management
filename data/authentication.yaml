@@ -2,6 +2,10 @@
 data:
   identifier: '02876'
   term: authentication
+  designations:
+  - type: expression
+    status: preferred
+    text: authentication
   kind: undefined
   official_concept:
   editions_present:

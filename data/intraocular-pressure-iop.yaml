@@ -2,6 +2,10 @@
 data:
   identifier: '02781'
   term: intraocular pressure (IOP)
+  designations:
+  - type: expression
+    status: preferred
+    text: intraocular pressure (IOP)
   kind: undefined
   official_concept:
   editions_present:

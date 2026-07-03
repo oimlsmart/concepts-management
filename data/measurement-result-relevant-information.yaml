@@ -2,6 +2,10 @@
 data:
   identifier: '03263'
   term: measurement result relevant information
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement result relevant information
   kind: undefined
   official_concept:
   editions_present:

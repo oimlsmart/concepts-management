@@ -2,6 +2,10 @@
 data:
   identifier: '03173'
   term: impartiality and independence
+  designations:
+  - type: expression
+    status: preferred
+    text: impartiality and independence
   kind: undefined
   official_concept:
   editions_present:

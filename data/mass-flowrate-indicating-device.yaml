@@ -2,6 +2,10 @@
 data:
   identifier: '03217'
   term: mass flowrate indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: mass flowrate indicating device
   kind: undefined
   official_concept:
   editions_present:

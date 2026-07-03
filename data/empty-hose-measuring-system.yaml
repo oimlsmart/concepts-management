@@ -2,6 +2,10 @@
 data:
   identifier: '03036'
   term: empty hose measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: empty hose measuring system
   kind: undefined
   official_concept:
   editions_present:

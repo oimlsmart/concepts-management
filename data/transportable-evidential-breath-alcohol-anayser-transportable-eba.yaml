@@ -2,6 +2,10 @@
 data:
   identifier: '03583'
   term: transportable evidential breath alcohol anayser (transportable EBA)
+  designations:
+  - type: expression
+    status: preferred
+    text: transportable evidential breath alcohol anayser (transportable EBA)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02414'
   term: maximum admissible temperature MAT
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum admissible temperature MAT
   kind: undefined
   official_concept:
   editions_present:

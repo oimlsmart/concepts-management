@@ -2,6 +2,10 @@
 data:
   identifier: '00134'
   term: accredited laboratory
+  designations:
+  - type: expression
+    status: preferred
+    text: accredited laboratory
   kind: undefined
   official_concept:
   editions_present:

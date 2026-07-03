@@ -2,6 +2,10 @@
 data:
   identifier: '02127'
   term: input measurement signal
+  designations:
+  - type: expression
+    status: preferred
+    text: input measurement signal
   kind: undefined
   official_concept:
   editions_present:

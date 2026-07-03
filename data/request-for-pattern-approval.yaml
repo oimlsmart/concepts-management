@@ -2,6 +2,10 @@
 data:
   identifier: '00125'
   term: request for pattern approval
+  designations:
+  - type: expression
+    status: preferred
+    text: request for pattern approval
   kind: undefined
   official_concept:
   editions_present:

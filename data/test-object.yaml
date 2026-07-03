@@ -2,6 +2,10 @@
 data:
   identifier: '00141'
   term: test object
+  designations:
+  - type: expression
+    status: preferred
+    text: test object
   kind: undefined
   official_concept:
   editions_present:

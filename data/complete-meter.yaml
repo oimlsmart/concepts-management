@@ -2,6 +2,10 @@
 data:
   identifier: '02382'
   term: complete meter
+  designations:
+  - type: expression
+    status: preferred
+    text: complete meter
   kind: undefined
   official_concept:
   editions_present:

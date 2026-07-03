@@ -2,6 +2,10 @@
 data:
   identifier: '01012'
   term: reference (or working) standard
+  designations:
+  - type: expression
+    status: preferred
+    text: reference (or working) standard
   kind: undefined
   official_concept:
   editions_present:

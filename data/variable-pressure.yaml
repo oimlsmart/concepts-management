@@ -2,6 +2,10 @@
 data:
   identifier: '01207'
   term: variable pressure
+  designations:
+  - type: expression
+    status: preferred
+    text: variable pressure
   kind: undefined
   official_concept:
   editions_present:

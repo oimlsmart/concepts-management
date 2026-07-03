@@ -2,6 +2,10 @@
 data:
   identifier: '02066'
   term: principal measurands
+  designations:
+  - type: expression
+    status: preferred
+    text: principal measurands
   kind: undefined
   official_concept:
   editions_present:

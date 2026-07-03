@@ -2,6 +2,10 @@
 data:
   identifier: '00183'
   term: legal metrology
+  designations:
+  - type: expression
+    status: preferred
+    text: legal metrology
   kind: defined_in_viml
   official_concept:
     source: urn:oiml:pub:v:1:2000

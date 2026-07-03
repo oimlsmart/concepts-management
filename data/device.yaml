@@ -2,6 +2,10 @@
 data:
   identifier: '00344'
   term: device
+  designations:
+  - type: expression
+    status: preferred
+    text: device
   kind: undefined
   official_concept:
   editions_present:

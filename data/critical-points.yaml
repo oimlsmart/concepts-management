@@ -2,6 +2,10 @@
 data:
   identifier: '00635'
   term: critical points
+  designations:
+  - type: expression
+    status: preferred
+    text: critical points
   kind: undefined
   official_concept:
   editions_present:

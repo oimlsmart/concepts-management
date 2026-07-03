@@ -2,6 +2,10 @@
 data:
   identifier: '00848'
   term: temperature sensor pair
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature sensor pair
   kind: undefined
   official_concept:
   editions_present:

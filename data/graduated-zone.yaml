@@ -2,6 +2,10 @@
 data:
   identifier: '01149'
   term: graduated zone
+  designations:
+  - type: expression
+    status: preferred
+    text: graduated zone
   kind: undefined
   official_concept:
   editions_present:

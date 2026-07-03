@@ -2,6 +2,10 @@
 data:
   identifier: '03348'
   term: OIML type evaluation report
+  designations:
+  - type: expression
+    status: preferred
+    text: OIML type evaluation report
   kind: undefined
   official_concept:
   editions_present:

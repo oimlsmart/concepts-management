@@ -2,6 +2,10 @@
 data:
   identifier: '02281-R080-1'
   term: liquid detector
+  designations:
+  - type: expression
+    status: preferred
+    text: liquid detector
   kind: undefined
   official_concept:
   editions_present:

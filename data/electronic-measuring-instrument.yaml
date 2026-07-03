@@ -2,6 +2,10 @@
 data:
   identifier: '02215'
   term: electronic measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic measuring instrument
   kind: undefined
   official_concept:
   editions_present:

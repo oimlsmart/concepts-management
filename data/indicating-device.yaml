@@ -2,6 +2,10 @@
 data:
   identifier: '00371'
   term: indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: indicating device
   kind: undefined
   official_concept:
   editions_present:

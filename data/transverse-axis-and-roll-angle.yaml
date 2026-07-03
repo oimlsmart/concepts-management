@@ -2,6 +2,10 @@
 data:
   identifier: 02267-R080-1
   term: transverse axis and roll angle
+  designations:
+  - type: expression
+    status: preferred
+    text: transverse axis and roll angle
   kind: undefined
   official_concept:
   editions_present:

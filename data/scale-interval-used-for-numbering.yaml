@@ -2,6 +2,10 @@
 data:
   identifier: '00950'
   term: scale interval used for numbering
+  designations:
+  - type: expression
+    status: preferred
+    text: scale interval used for numbering
   kind: undefined
   official_concept:
   editions_present:

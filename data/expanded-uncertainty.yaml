@@ -2,6 +2,10 @@
 data:
   identifier: '03056'
   term: expanded uncertainty
+  designations:
+  - type: expression
+    status: preferred
+    text: expanded uncertainty
   kind: undefined
   official_concept:
   editions_present:

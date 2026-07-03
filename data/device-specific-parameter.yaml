@@ -2,6 +2,10 @@
 data:
   identifier: '00594'
   term: device specific parameter
+  designations:
+  - type: expression
+    status: preferred
+    text: device specific parameter
   kind: undefined
   official_concept:
   editions_present:

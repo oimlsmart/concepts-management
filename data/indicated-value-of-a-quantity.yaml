@@ -2,6 +2,10 @@
 data:
   identifier: '02658'
   term: indicated value (of a quantity)
+  designations:
+  - type: expression
+    status: preferred
+    text: indicated value (of a quantity)
   kind: undefined
   official_concept:
   editions_present:

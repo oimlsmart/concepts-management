@@ -2,6 +2,10 @@
 data:
   identifier: '03203'
   term: load cell output
+  designations:
+  - type: expression
+    status: preferred
+    text: load cell output
   kind: undefined
   official_concept:
   editions_present:

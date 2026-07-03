@@ -2,6 +2,10 @@
 data:
   identifier: '01508-R108'
   term: automatic refractometer
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic refractometer
   kind: undefined
   official_concept:
   editions_present:

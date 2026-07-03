@@ -2,6 +2,10 @@
 data:
   identifier: '03329'
   term: non-automatic checking facility checking facility of type N
+  designations:
+  - type: expression
+    status: preferred
+    text: non-automatic checking facility checking facility of type N
   kind: undefined
   official_concept:
   editions_present:

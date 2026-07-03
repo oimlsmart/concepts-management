@@ -2,6 +2,10 @@
 data:
   identifier: '03294'
   term: metrological test mode
+  designations:
+  - type: expression
+    status: preferred
+    text: metrological test mode
   kind: undefined
   official_concept:
   editions_present:

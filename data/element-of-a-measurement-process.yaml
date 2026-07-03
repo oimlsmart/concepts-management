@@ -2,6 +2,10 @@
 data:
   identifier: '00121'
   term: element of a measurement process
+  designations:
+  - type: expression
+    status: preferred
+    text: element of a measurement process
   kind: undefined
   official_concept:
   editions_present:

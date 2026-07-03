@@ -2,6 +2,10 @@
 data:
   identifier: '00972'
   term: calculated weight value
+  designations:
+  - type: expression
+    status: preferred
+    text: calculated weight value
   kind: undefined
   official_concept:
   editions_present:

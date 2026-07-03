@@ -2,6 +2,10 @@
 data:
   identifier: '00586'
   term: indicator
+  designations:
+  - type: expression
+    status: preferred
+    text: indicator
   kind: undefined
   official_concept:
   editions_present:

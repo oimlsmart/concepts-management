@@ -2,6 +2,10 @@
 data:
   identifier: '00565'
   term: vehicle mounted instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: vehicle mounted instrument
   kind: undefined
   official_concept:
   editions_present:

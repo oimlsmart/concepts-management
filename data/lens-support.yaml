@@ -2,6 +2,10 @@
 data:
   identifier: '01127'
   term: lens support
+  designations:
+  - type: expression
+    status: preferred
+    text: lens support
   kind: undefined
   official_concept:
   editions_present:

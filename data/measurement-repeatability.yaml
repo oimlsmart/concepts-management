@@ -1,7 +1,14 @@
 ---
 data:
-  identifier: '03266'
+  identifier: '02792'
   term: measurement repeatability
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement repeatability
+  - type: expression
+    status: admitted
+    text: repeatability
   kind: undefined
   official_concept:
   editions_present:
@@ -32,6 +39,19 @@ data:
     definition: measurement precision under a set of repeatability conditions of measurement
       [VIM, 2.21]
     notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R146-1:2016
+    publication_id: OIML R146-1:2016
+    tc_sc: ''
+    year: 2016
+    clause: 2.1 Tab. 1.11
+    link:
+    g18_entry: '02792'
+    definition: ''
+    notes:
+    - "(-)"
     consistency: pending
     consistency_reason: ''
 status: current

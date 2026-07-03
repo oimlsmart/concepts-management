@@ -2,6 +2,10 @@
 data:
   identifier: '02429'
   term: preconditioning
+  designations:
+  - type: expression
+    status: preferred
+    text: preconditioning
   kind: undefined
   official_concept:
   editions_present:

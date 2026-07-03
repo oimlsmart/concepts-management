@@ -2,6 +2,10 @@
 data:
   identifier: '02847'
   term: aircraft hydrant measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: aircraft hydrant measuring system
   kind: undefined
   official_concept:
   editions_present:

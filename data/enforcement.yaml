@@ -2,6 +2,10 @@
 data:
   identifier: '00189'
   term: enforcement
+  designations:
+  - type: expression
+    status: preferred
+    text: enforcement
   kind: undefined
   official_concept:
   editions_present:

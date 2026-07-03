@@ -2,6 +2,10 @@
 data:
   identifier: '00314'
   term: sphygmomanometer
+  designations:
+  - type: expression
+    status: preferred
+    text: sphygmomanometer
   kind: undefined
   official_concept:
   editions_present:

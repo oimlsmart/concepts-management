@@ -2,6 +2,10 @@
 data:
   identifier: '01072'
   term: working range
+  designations:
+  - type: expression
+    status: preferred
+    text: working range
   kind: undefined
   official_concept:
   editions_present:

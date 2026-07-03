@@ -2,6 +2,10 @@
 data:
   identifier: '03617'
   term: vehicle
+  designations:
+  - type: expression
+    status: preferred
+    text: vehicle
   kind: undefined
   official_concept:
   editions_present:

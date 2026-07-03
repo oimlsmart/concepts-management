@@ -2,6 +2,10 @@
 data:
   identifier: '01907'
   term: maximum permissible deviation
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum permissible deviation
   kind: undefined
   official_concept:
   editions_present:

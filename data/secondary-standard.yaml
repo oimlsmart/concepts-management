@@ -2,6 +2,10 @@
 data:
   identifier: '00160'
   term: secondary standard
+  designations:
+  - type: expression
+    status: preferred
+    text: secondary standard
   kind: undefined
   official_concept:
   editions_present:

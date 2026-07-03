@@ -2,6 +2,10 @@
 data:
   identifier: '03367'
   term: pipeline measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: pipeline measuring system
   kind: undefined
   official_concept:
   editions_present:

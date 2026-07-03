@@ -2,6 +2,10 @@
 data:
   identifier: '03786'
   term: stationary speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: stationary speed meter
   kind: undefined
   official_concept:
   editions_present:

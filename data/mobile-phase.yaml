@@ -2,6 +2,10 @@
 data:
   identifier: '01048'
   term: mobile phase
+  designations:
+  - type: expression
+    status: preferred
+    text: mobile phase
   kind: undefined
   official_concept:
   editions_present:

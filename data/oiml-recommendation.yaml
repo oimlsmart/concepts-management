@@ -2,6 +2,10 @@
 data:
   identifier: '00092'
   term: OIML Recommendation
+  designations:
+  - type: expression
+    status: preferred
+    text: OIML Recommendation
   kind: undefined
   official_concept:
   editions_present:

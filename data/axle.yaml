@@ -2,6 +2,10 @@
 data:
   identifier: '02578'
   term: axle
+  designations:
+  - type: expression
+    status: preferred
+    text: axle
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03555'
   term: temperature effect on minimum dead load output
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature effect on minimum dead load output
   kind: undefined
   official_concept:
   editions_present:

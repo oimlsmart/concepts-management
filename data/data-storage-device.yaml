@@ -2,6 +2,10 @@
 data:
   identifier: '00357'
   term: data storage device
+  designations:
+  - type: expression
+    status: preferred
+    text: data storage device
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01677'
   term: dosimeter batch
+  designations:
+  - type: expression
+    status: preferred
+    text: dosimeter batch
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01670'
   term: device for adjustment to a standard
+  designations:
+  - type: expression
+    status: preferred
+    text: device for adjustment to a standard
   kind: undefined
   official_concept:
   editions_present:

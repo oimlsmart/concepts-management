@@ -2,6 +2,10 @@
 data:
   identifier: '02088'
   term: installation effect
+  designations:
+  - type: expression
+    status: preferred
+    text: installation effect
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02920'
   term: calibration hierarchy
+  designations:
+  - type: expression
+    status: preferred
+    text: calibration hierarchy
   kind: undefined
   official_concept:
   editions_present:

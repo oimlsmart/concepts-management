@@ -2,6 +2,10 @@
 data:
   identifier: '00623'
   term: maximum capacity, Max
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum capacity, Max
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02283-R046-1'
   term: multi-tariff meter multi-rate meter
+  designations:
+  - type: expression
+    status: preferred
+    text: multi-tariff meter multi-rate meter
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02647'
   term: measurand
+  designations:
+  - type: expression
+    status: preferred
+    text: measurand
   kind: undefined
   official_concept:
   editions_present:

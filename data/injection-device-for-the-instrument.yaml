@@ -2,6 +2,10 @@
 data:
   identifier: '01473'
   term: injection device for the instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: injection device for the instrument
   kind: undefined
   official_concept:
   editions_present:

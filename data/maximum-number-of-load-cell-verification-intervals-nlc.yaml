@@ -2,6 +2,10 @@
 data:
   identifier: '03229'
   term: maximum number of load cell verification intervals (nLC)
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum number of load cell verification intervals (nLC)
   kind: undefined
   official_concept:
   editions_present:

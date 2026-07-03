@@ -2,6 +2,10 @@
 data:
   identifier: '01885'
   term: leather
+  designations:
+  - type: expression
+    status: preferred
+    text: leather
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03019'
   term: durability for electronic devices
+  designations:
+  - type: expression
+    status: preferred
+    text: durability for electronic devices
   kind: undefined
   official_concept:
   editions_present:

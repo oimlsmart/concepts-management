@@ -2,6 +2,10 @@
 data:
   identifier: '00163'
   term: national responsible body
+  designations:
+  - type: expression
+    status: preferred
+    text: national responsible body
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02474'
   term: grain
+  designations:
+  - type: expression
+    status: preferred
+    text: grain
   kind: undefined
   official_concept:
   editions_present:

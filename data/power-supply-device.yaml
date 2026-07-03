@@ -2,6 +2,10 @@
 data:
   identifier: '03374'
   term: power supply device
+  designations:
+  - type: expression
+    status: preferred
+    text: power supply device
   kind: undefined
   official_concept:
   editions_present:

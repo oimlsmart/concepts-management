@@ -2,6 +2,10 @@
 data:
   identifier: '01719'
   term: electronic multi-dimensional measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic multi-dimensional measuring instrument
   kind: undefined
   official_concept:
   editions_present:

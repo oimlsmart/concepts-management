@@ -1,13 +1,35 @@
 ---
 data:
-  identifier: '01286'
+  identifier: '01814'
   term: maximum operating speed
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum operating speed
+  - type: symbol
+    status: preferred
+    text: stem:[v_{"max"}]
   kind: undefined
   official_concept:
   editions_present:
   - '2010'
+  - 202X
   primary_edition: 202X
   publications:
+  - edition: '2010'
+    publication: OIML R 134:2003
+    publication_id: OIML R134:2003
+    tc_sc: ''
+    year: 2003
+    clause: T.3.4.1
+    link: https://www.oiml.org/en/files/pdf_R/r134-e03.pdf
+    g18_entry: '01814'
+    definition: greatest velocity of a vehicle that the instrument is designed to
+      weigh in motion and above which the weighing results may be subject to an excessive
+      relative error
+    notes: []
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 106-1:1997
     publication_id: OIML R106-1:1997
@@ -18,6 +40,20 @@ data:
     g18_entry: '01286'
     definition: the greatest velocity of a wagon that the instrument is designed toweigh
       in-motion and above which the weighing results may besubject to an excessive
+      relative error
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R 134:2003
+    publication_id: OIML R134:2003
+    tc_sc: ''
+    year: 2003
+    clause: T.3.4.1
+    link: https://www.oiml.org/en/files/pdf_R/r134-e03.pdf
+    g18_entry: '01814'
+    definition: greatest velocity of a vehicle that the instrument is designed to
+      weigh in motion and above which the weighing results may be subject to an excessive
       relative error
     notes: []
     consistency: pending

@@ -2,6 +2,10 @@
 data:
   identifier: '00566'
   term: vehicle incorporated instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: vehicle incorporated instrument
   kind: undefined
   official_concept:
   editions_present:

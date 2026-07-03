@@ -2,6 +2,10 @@
 data:
   identifier: '02669'
   term: repeatability of error
+  designations:
+  - type: expression
+    status: preferred
+    text: repeatability of error
   kind: undefined
   official_concept:
   editions_present:

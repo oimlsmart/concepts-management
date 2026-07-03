@@ -2,6 +2,10 @@
 data:
   identifier: '00139'
   term: application of a measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: application of a measuring instrument
   kind: undefined
   official_concept:
   editions_present:

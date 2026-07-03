@@ -2,6 +2,10 @@
 data:
   identifier: '02506'
   term: random sampling
+  designations:
+  - type: expression
+    status: preferred
+    text: random sampling
   kind: undefined
   official_concept:
   editions_present:

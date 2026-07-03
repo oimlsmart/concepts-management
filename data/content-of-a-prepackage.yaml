@@ -2,6 +2,10 @@
 data:
   identifier: '01110'
   term: content of a prepackage
+  designations:
+  - type: expression
+    status: preferred
+    text: content of a prepackage
   kind: undefined
   official_concept:
   editions_present:

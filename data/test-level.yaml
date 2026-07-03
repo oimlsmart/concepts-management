@@ -2,6 +2,10 @@
 data:
   identifier: 02244-D011
   term: test level
+  designations:
+  - type: expression
+    status: preferred
+    text: test level
   kind: undefined
   official_concept:
   editions_present:

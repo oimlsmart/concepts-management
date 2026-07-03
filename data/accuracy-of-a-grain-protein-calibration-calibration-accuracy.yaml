@@ -2,6 +2,10 @@
 data:
   identifier: '02799'
   term: accuracy of a grain protein calibration calibration accuracy
+  designations:
+  - type: expression
+    status: preferred
+    text: accuracy of a grain protein calibration calibration accuracy
   kind: undefined
   official_concept:
   editions_present:

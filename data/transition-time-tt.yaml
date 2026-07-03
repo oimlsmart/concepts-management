@@ -2,6 +2,10 @@
 data:
   identifier: '02825'
   term: transition time, tt
+  designations:
+  - type: expression
+    status: preferred
+    text: transition time, tt
   kind: undefined
   official_concept:
   editions_present:

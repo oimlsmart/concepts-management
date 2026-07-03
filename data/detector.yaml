@@ -2,6 +2,10 @@
 data:
   identifier: '01052'
   term: detector
+  designations:
+  - type: expression
+    status: preferred
+    text: detector
   kind: undefined
   official_concept:
   editions_present:

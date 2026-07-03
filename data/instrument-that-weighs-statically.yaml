@@ -2,6 +2,10 @@
 data:
   identifier: '00645'
   term: instrument that weighs statically
+  designations:
+  - type: expression
+    status: preferred
+    text: instrument that weighs statically
   kind: undefined
   official_concept:
   editions_present:

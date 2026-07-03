@@ -2,6 +2,10 @@
 data:
   identifier: '01514'
   term: plasma
+  designations:
+  - type: expression
+    status: preferred
+    text: plasma
   kind: undefined
   official_concept:
   editions_present:

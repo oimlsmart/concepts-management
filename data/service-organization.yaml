@@ -2,6 +2,10 @@
 data:
   identifier: '00145'
   term: service organization
+  designations:
+  - type: expression
+    status: preferred
+    text: service organization
   kind: undefined
   official_concept:
   editions_present:

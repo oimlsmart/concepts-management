@@ -2,6 +2,10 @@
 data:
   identifier: '01618'
   term: mass measurement transducer
+  designations:
+  - type: expression
+    status: preferred
+    text: mass measurement transducer
   kind: undefined
   official_concept:
   editions_present:

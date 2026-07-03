@@ -2,6 +2,10 @@
 data:
   identifier: '03142'
   term: inspection body
+  designations:
+  - type: expression
+    status: preferred
+    text: inspection body
   kind: undefined
   official_concept:
   editions_present:

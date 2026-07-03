@@ -2,6 +2,10 @@
 data:
   identifier: 02310-R046-1
   term: sub-harmonic
+  designations:
+  - type: expression
+    status: preferred
+    text: sub-harmonic
   kind: undefined
   official_concept:
   editions_present:

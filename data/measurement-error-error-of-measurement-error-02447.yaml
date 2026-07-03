@@ -2,6 +2,10 @@
 data:
   identifier: '02447'
   term: measurement error error of measurement error
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement error error of measurement error
   kind: undefined
   official_concept:
   editions_present:

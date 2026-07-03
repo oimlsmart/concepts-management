@@ -2,6 +2,10 @@
 data:
   identifier: '03761'
   term: fixed speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: fixed speed meter
   kind: undefined
   official_concept:
   editions_present:

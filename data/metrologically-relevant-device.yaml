@@ -2,6 +2,10 @@
 data:
   identifier: '03614'
   term: metrologically relevant device
+  designations:
+  - type: expression
+    status: preferred
+    text: metrologically relevant device
   kind: undefined
   official_concept:
   editions_present:

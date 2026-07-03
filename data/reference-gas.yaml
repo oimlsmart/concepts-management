@@ -2,6 +2,10 @@
 data:
   identifier: '02370'
   term: reference gas
+  designations:
+  - type: expression
+    status: preferred
+    text: reference gas
   kind: undefined
   official_concept:
   editions_present:

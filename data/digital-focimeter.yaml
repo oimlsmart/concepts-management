@@ -2,6 +2,10 @@
 data:
   identifier: '01126'
   term: digital focimeter
+  designations:
+  - type: expression
+    status: preferred
+    text: digital focimeter
   kind: undefined
   official_concept:
   editions_present:

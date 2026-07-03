@@ -2,6 +2,10 @@
 data:
   identifier: '02997'
   term: displacement simulation device
+  designations:
+  - type: expression
+    status: preferred
+    text: displacement simulation device
   kind: undefined
   official_concept:
   editions_present:

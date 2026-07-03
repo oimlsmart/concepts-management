@@ -2,6 +2,10 @@
 data:
   identifier: '01531'
   term: aircraft refuelling tanker measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: aircraft refuelling tanker measuring system
   kind: undefined
   official_concept:
   editions_present:

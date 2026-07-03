@@ -2,6 +2,10 @@
 data:
   identifier: '03161'
   term: integrity (of programs, data, or parameters)
+  designations:
+  - type: expression
+    status: preferred
+    text: integrity (of programs, data, or parameters)
   kind: undefined
   official_concept:
   editions_present:

@@ -24,7 +24,7 @@ import editionStats from "@/data/edition-stats.json";
       <li><SLink to="/harmonization/">Harmonisation worklist →</SLink></li>
       <li><SLink to="/terms/?only=2010-only">Terms removed: in 2010 but deleted in 202X →</SLink></li>
       <li><SLink to="/terms/?only=202X-only">Terms added: new in 202X, not in 2010 →</SLink></li>
-      <li><SLink to="/conflicts/">ID conflicts →</SLink></li>
+      <li><SLink to="/conflicts/">ID conflicts (numbering errors) →</SLink></li>
     </ul>
   </section>
 </template>

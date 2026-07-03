@@ -2,6 +2,10 @@
 data:
   identifier: '02287-R046-1'
   term: static meter
+  designations:
+  - type: expression
+    status: preferred
+    text: static meter
   kind: undefined
   official_concept:
   editions_present:

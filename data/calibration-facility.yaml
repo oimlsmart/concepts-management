@@ -2,6 +2,10 @@
 data:
   identifier: '01683'
   term: calibration facility
+  designations:
+  - type: expression
+    status: preferred
+    text: calibration facility
   kind: undefined
   official_concept:
   editions_present:

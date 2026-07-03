@@ -2,6 +2,10 @@
 data:
   identifier: '03699'
   term: software configuration management
+  designations:
+  - type: expression
+    status: preferred
+    text: software configuration management
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03669'
   term: load for static test
+  designations:
+  - type: expression
+    status: preferred
+    text: load for static test
   kind: undefined
   official_concept:
   editions_present:

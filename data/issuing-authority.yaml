@@ -2,6 +2,10 @@
 data:
   identifier: '00091'
   term: Issuing Authority
+  designations:
+  - type: expression
+    status: preferred
+    text: Issuing Authority
   kind: undefined
   official_concept:
   editions_present:

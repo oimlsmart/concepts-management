@@ -2,6 +2,10 @@
 data:
   identifier: '03038'
   term: endurance
+  designations:
+  - type: expression
+    status: preferred
+    text: endurance
   kind: undefined
   official_concept:
   editions_present:

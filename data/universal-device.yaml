@@ -1,7 +1,11 @@
 ---
 data:
   identifier: '03610'
-  term: universal  device
+  term: universal device
+  designations:
+  - type: expression
+    status: preferred
+    text: universal device
   kind: undefined
   official_concept:
   editions_present:
@@ -36,6 +40,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 021105d5-f4d9-55b7-b258-a0a3a0d10050
+id: fc3a9130-3a25-5e2c-9237-37e26a2a4a08
 schema_version: '3'
 related: []

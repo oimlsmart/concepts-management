@@ -2,6 +2,10 @@
 data:
   identifier: '02567'
   term: axle partial weighing
+  designations:
+  - type: expression
+    status: preferred
+    text: axle partial weighing
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03247'
   term: measured dimensions
+  designations:
+  - type: expression
+    status: preferred
+    text: measured dimensions
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01980'
   term: measuring container bottles
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring container bottles
   kind: undefined
   official_concept:
   editions_present:

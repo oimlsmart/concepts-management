@@ -2,6 +2,10 @@
 data:
   identifier: '00620'
   term: preset tare device
+  designations:
+  - type: expression
+    status: preferred
+    text: preset tare device
   kind: undefined
   official_concept:
   editions_present:

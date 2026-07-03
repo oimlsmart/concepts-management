@@ -2,6 +2,10 @@
 data:
   identifier: '00333'
   term: oscillometric method
+  designations:
+  - type: expression
+    status: preferred
+    text: oscillometric method
   kind: undefined
   official_concept:
   editions_present:

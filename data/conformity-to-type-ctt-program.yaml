@@ -2,6 +2,10 @@
 data:
   identifier: '02942'
   term: conformity to type (CTT) program
+  designations:
+  - type: expression
+    status: preferred
+    text: conformity to type (CTT) program
   kind: undefined
   official_concept:
   editions_present:

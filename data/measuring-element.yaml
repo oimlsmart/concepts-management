@@ -2,6 +2,10 @@
 data:
   identifier: '02288-R046-1'
   term: measuring element
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring element
   kind: undefined
   official_concept:
   editions_present:

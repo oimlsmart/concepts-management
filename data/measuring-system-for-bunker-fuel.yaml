@@ -2,6 +2,10 @@
 data:
   identifier: '03284'
   term: measuring system for bunker fuel
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring system for bunker fuel
   kind: undefined
   official_concept:
   editions_present:

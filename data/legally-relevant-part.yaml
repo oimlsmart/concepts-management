@@ -2,6 +2,10 @@
 data:
   identifier: '03188'
   term: legally relevant part
+  designations:
+  - type: expression
+    status: preferred
+    text: legally relevant part
   kind: undefined
   official_concept:
   editions_present:

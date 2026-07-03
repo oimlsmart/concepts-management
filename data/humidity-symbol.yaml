@@ -2,6 +2,10 @@
 data:
   identifier: '03098'
   term: humidity symbol
+  designations:
+  - type: expression
+    status: preferred
+    text: humidity symbol
   kind: undefined
   official_concept:
   editions_present:

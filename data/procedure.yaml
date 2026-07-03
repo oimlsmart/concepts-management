@@ -2,6 +2,10 @@
 data:
   identifier: '00157'
   term: procedure
+  designations:
+  - type: expression
+    status: preferred
+    text: procedure
   kind: undefined
   official_concept:
   editions_present:

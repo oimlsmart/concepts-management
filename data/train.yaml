@@ -2,6 +2,10 @@
 data:
   identifier: '02531'
   term: train
+  designations:
+  - type: expression
+    status: preferred
+    text: train
   kind: undefined
   official_concept:
   editions_present:

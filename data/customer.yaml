@@ -2,6 +2,10 @@
 data:
   identifier: '00115'
   term: customer
+  designations:
+  - type: expression
+    status: preferred
+    text: customer
   kind: undefined
   official_concept:
   editions_present:

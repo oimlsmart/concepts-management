@@ -2,6 +2,10 @@
 data:
   identifier: '01651'
   term: base conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: base conditions
   kind: undefined
   official_concept:
   editions_present:

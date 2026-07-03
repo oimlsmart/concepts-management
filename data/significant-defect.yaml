@@ -2,6 +2,10 @@
 data:
   identifier: '03495'
   term: significant defect
+  designations:
+  - type: expression
+    status: preferred
+    text: significant defect
   kind: undefined
   official_concept:
   editions_present:

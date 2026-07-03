@@ -2,6 +2,10 @@
 data:
   identifier: '02566'
   term: partial weighing
+  designations:
+  - type: expression
+    status: preferred
+    text: partial weighing
   kind: undefined
   official_concept:
   editions_present:

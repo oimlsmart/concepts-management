@@ -2,6 +2,10 @@
 data:
   identifier: '02280-R046-1'
   term: electricity meter
+  designations:
+  - type: expression
+    status: preferred
+    text: electricity meter
   kind: undefined
   official_concept:
   editions_present:

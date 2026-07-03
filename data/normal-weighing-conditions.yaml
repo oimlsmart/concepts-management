@@ -2,6 +2,10 @@
 data:
   identifier: '01401'
   term: normal weighing conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: normal weighing conditions
   kind: undefined
   official_concept:
   editions_present:

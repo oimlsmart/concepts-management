@@ -2,6 +2,10 @@
 data:
   identifier: '00176'
   term: validation
+  designations:
+  - type: expression
+    status: preferred
+    text: validation
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:2012

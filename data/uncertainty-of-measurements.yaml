@@ -2,6 +2,10 @@
 data:
   identifier: '01914'
   term: uncertainty of measurements
+  designations:
+  - type: expression
+    status: preferred
+    text: uncertainty of measurements
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03696'
   term: operating system
+  designations:
+  - type: expression
+    status: preferred
+    text: operating system
   kind: undefined
   official_concept:
   editions_present:

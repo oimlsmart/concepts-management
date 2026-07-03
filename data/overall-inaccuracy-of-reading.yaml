@@ -2,6 +2,10 @@
 data:
   identifier: '00653'
   term: overall inaccuracy of reading
+  designations:
+  - type: expression
+    status: preferred
+    text: overall inaccuracy of reading
   kind: undefined
   official_concept:
   editions_present:

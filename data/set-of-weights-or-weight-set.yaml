@@ -2,6 +2,10 @@
 data:
   identifier: '01461'
   term: set of weights or weight set
+  designations:
+  - type: expression
+    status: preferred
+    text: set of weights or weight set
   kind: undefined
   official_concept:
   editions_present:

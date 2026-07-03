@@ -2,6 +2,10 @@
 data:
   identifier: '01053'
   term: noise
+  designations:
+  - type: expression
+    status: preferred
+    text: noise
   kind: undefined
   official_concept:
   editions_present:

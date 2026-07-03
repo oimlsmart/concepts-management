@@ -2,6 +2,10 @@
 data:
   identifier: '02073'
   term: traceability of a measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: traceability of a measurement
   kind: undefined
   official_concept:
   editions_present:

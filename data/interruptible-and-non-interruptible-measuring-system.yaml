@@ -2,6 +2,10 @@
 data:
   identifier: '03156'
   term: interruptible and non-interruptible measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: interruptible and non-interruptible measuring system
   kind: undefined
   official_concept:
   editions_present:

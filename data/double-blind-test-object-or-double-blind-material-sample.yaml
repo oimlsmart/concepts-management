@@ -2,6 +2,10 @@
 data:
   identifier: '00143'
   term: double-blind test object (or double-blind material sample)
+  designations:
+  - type: expression
+    status: preferred
+    text: double-blind test object (or double-blind material sample)
   kind: undefined
   official_concept:
   editions_present:

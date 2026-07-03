@@ -2,6 +2,10 @@
 data:
   identifier: '01155'
   term: single-valued line measure
+  designations:
+  - type: expression
+    status: preferred
+    text: single-valued line measure
   kind: undefined
   official_concept:
   editions_present:

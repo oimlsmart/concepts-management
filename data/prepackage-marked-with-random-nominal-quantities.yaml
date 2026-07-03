@@ -2,6 +2,10 @@
 data:
   identifier: '02488'
   term: prepackage marked with random nominal quantities
+  designations:
+  - type: expression
+    status: preferred
+    text: prepackage marked with random nominal quantities
   kind: undefined
   official_concept:
   editions_present:

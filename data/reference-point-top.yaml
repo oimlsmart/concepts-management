@@ -1,0 +1,48 @@
+---
+data:
+  identifier: '03444'
+  term: reference point top
+  designations:
+  - type: expression
+    status: preferred
+    text: reference point top
+  - type: abbreviation
+    status: preferred
+    text: RPT
+  kind: undefined
+  official_concept:
+  editions_present:
+  - '2010'
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: '2010'
+    publication: OIML R 80-1:2009
+    publication_id: OIML R080-1:2009
+    tc_sc: TC8/SC1
+    year: 2009
+    clause: '2.15'
+    link: https://www.oiml.org/en/files/pdf_R/r080-1-e09.pdf
+    g18_entry: '02254'
+    definition: reference point in the upper part of the tank, under normal operating
+      conditions above the liquid level
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R080-2:2017
+    publication_id: OIML R080-2:2017
+    tc_sc: ''
+    year: 2017
+    clause: '2'
+    link:
+    g18_entry: '03444'
+    definition: reference point in the upper part of the tank, under normal operating
+      conditions above the liquid level
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 8ea33126-3f2c-54eb-908f-b612f63f2c23
+schema_version: '3'
+related: []

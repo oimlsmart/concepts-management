@@ -2,6 +2,10 @@
 data:
   identifier: '02133'
   term: automatic adjustment means
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic adjustment means
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00672'
   term: span stability test
+  designations:
+  - type: expression
+    status: preferred
+    text: span stability test
   kind: undefined
   official_concept:
   editions_present:

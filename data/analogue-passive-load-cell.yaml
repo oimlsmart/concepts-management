@@ -2,6 +2,10 @@
 data:
   identifier: '02855'
   term: analogue-passive load cell
+  designations:
+  - type: expression
+    status: preferred
+    text: analogue-passive load cell
   kind: undefined
   official_concept:
   editions_present:

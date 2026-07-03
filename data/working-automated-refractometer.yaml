@@ -2,6 +2,10 @@
 data:
   identifier: '02117'
   term: working automated refractometer
+  designations:
+  - type: expression
+    status: preferred
+    text: working automated refractometer
   kind: undefined
   official_concept:
   editions_present:
