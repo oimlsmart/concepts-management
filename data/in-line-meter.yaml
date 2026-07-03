@@ -2,6 +2,10 @@
 data:
   identifier: '02381'
   term: in-line meter
+  designations:
+  - type: expression
+    status: preferred
+    text: in-line meter
   kind: undefined
   official_concept:
   editions_present:

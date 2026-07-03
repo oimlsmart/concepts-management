@@ -2,8 +2,21 @@
 data:
   identifier: '03723'
   term: measurement error (error of measurement, error)
-  kind: undefined
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement error (error of measurement, error)
+  kind: defined_in_vim
   official_concept:
+    source: urn:oiml:pub:v:2:2012
+    id: '2.16'
+    url: https://oimlsmart.github.io/vocab/vim-2012/concept/2.16
+    definition_text: "{{2.10,measured quantity value}} minus a {{5.18,reference quantity
+      value}}"
+    edition_label: VIM 2012
+    vocab: vim
+    role: current
+    year: 2012
   editions_present:
   - 202X
   primary_edition: 202X
@@ -28,7 +41,22 @@ data:
       error should not be confused with production error or mistake.'
     consistency: pending
     consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '2.16'
+        source: urn:oiml:pub:v:2:2012
 status: current
 id: 90378fd6-efa7-54ef-b0e0-2e637f147031
 schema_version: '3'
-related: []
+related:
+- type: see
+  ref:
+    id: '2.16'
+    source: urn:oiml:pub:v:2:2012
+    definition_text: "{{2.10,measured quantity value}} minus a {{5.18,reference quantity
+      value}}"
+    edition_label: VIM 2012
+    vocab: vim
+    role: current
+    year: 2012

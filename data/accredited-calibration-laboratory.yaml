@@ -2,6 +2,10 @@
 data:
   identifier: '02839'
   term: accredited calibration laboratory
+  designations:
+  - type: expression
+    status: preferred
+    text: accredited calibration laboratory
   kind: undefined
   official_concept:
   editions_present:

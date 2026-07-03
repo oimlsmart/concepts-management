@@ -2,6 +2,10 @@
 data:
   identifier: '02157'
   term: supervisor
+  designations:
+  - type: expression
+    status: preferred
+    text: supervisor
   kind: undefined
   official_concept:
   editions_present:

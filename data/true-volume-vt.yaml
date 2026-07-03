@@ -2,6 +2,10 @@
 data:
   identifier: '02248-R080-1'
   term: true volume, Vt
+  designations:
+  - type: expression
+    status: preferred
+    text: true volume, Vt
   kind: undefined
   official_concept:
   editions_present:

@@ -1,0 +1,34 @@
+---
+data:
+  identifier: '01902'
+  term: total area of a parcel of leather
+  designations:
+  - type: expression
+    status: preferred
+    text: total area of a parcel of leather
+  - type: symbol
+    status: preferred
+    text: stem:[A_{"total"}]
+  kind: undefined
+  official_concept:
+  editions_present:
+  - '2010'
+  primary_edition: 202X
+  publications:
+  - edition: '2010'
+    publication: OIML R 136-1:2004
+    publication_id: OIML R136-1:2004
+    tc_sc: ''
+    year: 2004
+    clause: T.3.4
+    link: https://www.oiml.org/en/files/pdf_R/r136-1-e04.pdf
+    g18_entry: '01902'
+    definition: sum of the areas of pieces of leather individually measured and bundled
+      into a parcel
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 7f59849c-945f-589d-bf84-894066600bf7
+schema_version: '3'
+related: []

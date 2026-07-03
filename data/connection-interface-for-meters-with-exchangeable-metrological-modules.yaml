@@ -2,6 +2,10 @@
 data:
   identifier: '02392'
   term: connection interface for meters with exchangeable metrological modules
+  designations:
+  - type: expression
+    status: preferred
+    text: connection interface for meters with exchangeable metrological modules
   kind: undefined
   official_concept:
   editions_present:

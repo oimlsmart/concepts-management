@@ -2,6 +2,10 @@
 data:
   identifier: '02441'
   term: non-automatic checking facility type N checking facility
+  designations:
+  - type: expression
+    status: preferred
+    text: non-automatic checking facility type N checking facility
   kind: undefined
   official_concept:
   editions_present:

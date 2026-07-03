@@ -2,6 +2,10 @@
 data:
   identifier: '00380'
   term: Rockwell hardness (value)
+  designations:
+  - type: expression
+    status: preferred
+    text: Rockwell hardness (value)
   kind: undefined
   official_concept:
   editions_present:

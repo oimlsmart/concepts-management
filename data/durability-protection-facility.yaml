@@ -2,6 +2,10 @@
 data:
   identifier: '01874'
   term: durability protection facility
+  designations:
+  - type: expression
+    status: preferred
+    text: durability protection facility
   kind: undefined
   official_concept:
   editions_present:

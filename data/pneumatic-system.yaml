@@ -2,6 +2,10 @@
 data:
   identifier: '00312'
   term: pneumatic system
+  designations:
+  - type: expression
+    status: preferred
+    text: pneumatic system
   kind: undefined
   official_concept:
   editions_present:

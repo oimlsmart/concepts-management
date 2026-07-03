@@ -2,6 +2,10 @@
 data:
   identifier: '00144'
   term: lot (of measuring instruments)
+  designations:
+  - type: expression
+    status: preferred
+    text: lot (of measuring instruments)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03609'
   term: uncertainty of the determination of an error
+  designations:
+  - type: expression
+    status: preferred
+    text: uncertainty of the determination of an error
   kind: undefined
   official_concept:
   editions_present:

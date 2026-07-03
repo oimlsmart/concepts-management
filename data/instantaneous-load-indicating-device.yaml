@@ -2,6 +2,10 @@
 data:
   identifier: '03146'
   term: instantaneous load indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: instantaneous load indicating device
   kind: undefined
   official_concept:
   editions_present:

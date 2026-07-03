@@ -2,6 +2,10 @@
 data:
   identifier: '00598'
   term: electronic device
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic device
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00173'
   term: quality control
+  designations:
+  - type: expression
+    status: preferred
+    text: quality control
   kind: undefined
   official_concept:
   editions_present:

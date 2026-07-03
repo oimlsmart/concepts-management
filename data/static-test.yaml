@@ -2,6 +2,10 @@
 data:
   identifier: '02622'
   term: static test
+  designations:
+  - type: expression
+    status: preferred
+    text: static test
   kind: undefined
   official_concept:
   editions_present:

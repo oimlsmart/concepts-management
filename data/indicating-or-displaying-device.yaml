@@ -2,6 +2,10 @@
 data:
   identifier: '02651'
   term: indicating or displaying device
+  designations:
+  - type: expression
+    status: preferred
+    text: indicating or displaying device
   kind: undefined
   official_concept:
   editions_present:

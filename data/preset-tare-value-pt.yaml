@@ -2,6 +2,10 @@
 data:
   identifier: '00631'
   term: preset tare value, PT
+  designations:
+  - type: expression
+    status: preferred
+    text: preset tare value, PT
   kind: undefined
   official_concept:
   editions_present:

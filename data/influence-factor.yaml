@@ -2,8 +2,21 @@
 data:
   identifier: '00375'
   term: influence factor
-  kind: undefined
+  designations:
+  - type: expression
+    status: preferred
+    text: influence factor
+  kind: defined_in_viml
   official_concept:
+    source: urn:oiml:pub:v:1:2022
+    id: '5.18'
+    url: https://oimlsmart.github.io/vocab/viml-2022/concept/5.18
+    definition_text: "{{0.07,influence quantity}} having a value which ranges within
+      the {{0.08,rated operating conditions}} of a {{0.10,measuring instrument}}"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022
   editions_present:
   - '2010'
   - 202X
@@ -324,6 +337,24 @@ data:
     notes: []
     consistency: pending
     consistency_reason: ''
+  - edition: 202X
+    publication: OIML R091-1:2025
+    publication_id: OIML R091-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: 3.5.8
+    link:
+    g18_entry: '03765'
+    definition: influence quantity having a value which ranges within the rated operating
+      conditions of a measuring instrument
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '5.18'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -678,4 +709,14 @@ data:
 status: current
 id: 498251ec-46fd-5b8d-b114-fb63445547ca
 schema_version: '3'
-related: []
+related:
+- type: see
+  ref:
+    id: '5.18'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: "{{0.07,influence quantity}} having a value which ranges within
+      the {{0.08,rated operating conditions}} of a {{0.10,measuring instrument}}"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

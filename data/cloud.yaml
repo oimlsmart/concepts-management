@@ -2,6 +2,10 @@
 data:
   identifier: '03688'
   term: cloud
+  designations:
+  - type: expression
+    status: preferred
+    text: cloud
   kind: undefined
   official_concept:
   editions_present:

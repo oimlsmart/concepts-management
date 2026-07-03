@@ -2,6 +2,10 @@
 data:
   identifier: '00915'
   term: complementary displaying device
+  designations:
+  - type: expression
+    status: preferred
+    text: complementary displaying device
   kind: undefined
   official_concept:
   editions_present:

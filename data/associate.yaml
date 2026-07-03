@@ -2,6 +2,10 @@
 data:
   identifier: '00110'
   term: Associate
+  designations:
+  - type: expression
+    status: preferred
+    text: Associate
   kind: undefined
   official_concept:
   editions_present:

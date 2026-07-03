@@ -2,6 +2,10 @@
 data:
   identifier: '03777'
   term: moving speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: moving speed meter
   kind: undefined
   official_concept:
   editions_present:

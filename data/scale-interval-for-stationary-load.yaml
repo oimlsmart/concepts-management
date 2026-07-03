@@ -2,6 +2,10 @@
 data:
   identifier: '03471'
   term: scale interval for stationary load
+  designations:
+  - type: expression
+    status: preferred
+    text: scale interval for stationary load
   kind: undefined
   official_concept:
   editions_present:

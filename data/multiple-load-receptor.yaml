@@ -2,6 +2,10 @@
 data:
   identifier: '01792'
   term: multiple load receptor
+  designations:
+  - type: expression
+    status: preferred
+    text: multiple load receptor
   kind: undefined
   official_concept:
   editions_present:

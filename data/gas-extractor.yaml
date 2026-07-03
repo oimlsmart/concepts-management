@@ -2,6 +2,10 @@
 data:
   identifier: '03090'
   term: gas extractor
+  designations:
+  - type: expression
+    status: preferred
+    text: gas extractor
   kind: undefined
   official_concept:
   editions_present:

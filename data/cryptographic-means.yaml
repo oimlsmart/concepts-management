@@ -2,6 +2,10 @@
 data:
   identifier: '02459'
   term: cryptographic means
+  designations:
+  - type: expression
+    status: preferred
+    text: cryptographic means
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02201'
   term: non-interruptible / interruptible measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: non-interruptible / interruptible measurement
   kind: undefined
   official_concept:
   editions_present:

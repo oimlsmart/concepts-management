@@ -2,6 +2,10 @@
 data:
   identifier: '03073'
   term: feed control device
+  designations:
+  - type: expression
+    status: preferred
+    text: feed control device
   kind: undefined
   official_concept:
   editions_present:

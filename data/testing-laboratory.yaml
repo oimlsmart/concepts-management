@@ -2,6 +2,10 @@
 data:
   identifier: '00132'
   term: testing laboratory
+  designations:
+  - type: expression
+    status: preferred
+    text: testing laboratory
   kind: undefined
   official_concept:
   editions_present:

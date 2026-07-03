@@ -2,6 +2,10 @@
 data:
   identifier: 02307-R085-1
   term: repeating indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: repeating indicating device
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02085'
   term: significant fault (for CVDDs)
+  designations:
+  - type: expression
+    status: preferred
+    text: significant fault (for CVDDs)
   kind: undefined
   official_concept:
   editions_present:

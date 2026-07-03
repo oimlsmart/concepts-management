@@ -2,6 +2,10 @@
 data:
   identifier: 02333-R046-1
   term: bi-directional (energy) flow
+  designations:
+  - type: expression
+    status: preferred
+    text: bi-directional (energy) flow
   kind: undefined
   official_concept:
   editions_present:

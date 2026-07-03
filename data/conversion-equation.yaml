@@ -2,6 +2,10 @@
 data:
   identifier: '01420'
   term: conversion equation
+  designations:
+  - type: expression
+    status: preferred
+    text: conversion equation
   kind: undefined
   official_concept:
   editions_present:

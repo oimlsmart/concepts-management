@@ -2,6 +2,10 @@
 data:
   identifier: '02205'
   term: measurement standard {etalon}
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement standard {etalon}
   kind: undefined
   official_concept:
   editions_present:

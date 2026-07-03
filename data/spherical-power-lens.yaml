@@ -2,6 +2,10 @@
 data:
   identifier: '01134'
   term: spherical power lens
+  designations:
+  - type: expression
+    status: preferred
+    text: spherical power lens
   kind: undefined
   official_concept:
   editions_present:

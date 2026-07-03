@@ -2,6 +2,10 @@
 data:
   identifier: '01506'
   term: temperature probe
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature probe
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02572'
   term: train weighing
+  designations:
+  - type: expression
+    status: preferred
+    text: train weighing
   kind: undefined
   official_concept:
   editions_present:

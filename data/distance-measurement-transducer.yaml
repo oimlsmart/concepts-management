@@ -2,6 +2,10 @@
 data:
   identifier: '00347'
   term: distance measurement transducer
+  designations:
+  - type: expression
+    status: preferred
+    text: distance measurement transducer
   kind: undefined
   official_concept:
   editions_present:

@@ -46,6 +46,14 @@ const filtered = computed(() => {
 function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "defined_in_viml" ? "VIML" : "—"; }
 function distinctDefs(pubs: any[]) { return new Set(pubs.map(p => (p.definition || "").trim()).filter(Boolean)).size; }
 function tcCount(t: any): number { return t.publications?.filter((p: any) => p.tc_sc === onlyTC.value).length || 0; }
+function symbolsOf(t: any): string[] {
+  if (!t.designations) return [];
+  return Array.from(new Set(t.designations.filter((d: any) => d.type === "symbol").map((d: any) => d.text as string)));
+}
+function admittedOf(t: any): string[] {
+  if (!t.designations) return [];
+  return t.designations.filter((d: any) => d.type === "expression" && d.status === "admitted").map((d: any) => d.text as string);
+}
 
 const pageTitle = computed(() => {
   if (onlyEdition.value === "2010-only") return "Terms removed in 202X (2010 only)";
@@ -63,7 +71,7 @@ const pageTitle = computed(() => {
     <p class="lede">{{ filtered.length }} of {{ terms.length }} terms, {{ (terms as any[]).reduce((s, t) => s + t.publications.length, 0) }} instances.</p>
   </div>
   <section class="card">
-    <form style="display:flex;gap:1em;flex-wrap:wrap;align-items:center;margin-bottom:0.5em" @submit.prevent>
+    <form class="filter-form" @submit.prevent>
       <input v-model="search" type="search" placeholder="Search…" style="padding:0.3em 0.5em;min-width:16em;border:1px solid var(--rule);border-radius:3px" />
       <select v-model="onlyEdition">
         <option value="">All editions</option>
@@ -82,6 +90,8 @@ const pageTitle = computed(() => {
       <thead>
         <tr>
           <th>Term</th>
+          <th>Alt</th>
+          <th>Sym</th>
           <th>VIM</th>
           <th>Ed.</th>
           <th>Inst.</th>
@@ -92,6 +102,12 @@ const pageTitle = computed(() => {
       <tbody>
         <tr v-for="t in filtered" :key="t.slug">
           <td><SLink :to="`/terms/${t.slug}/`">{{ t.name }}</SLink></td>
+          <td class="alt-cell">
+            <span v-for="ad in admittedOf(t)" :key="ad" class="alt-term">{{ ad }}</span>
+          </td>
+          <td class="sym-cell">
+            <code v-for="s in symbolsOf(t)" :key="s">{{ s }}</code>
+          </td>
           <td><span :class="['kind', `kind-${t.kind}`]">{{ kindLabel(t.kind) }}</span></td>
           <td><span v-for="e in t.editions_present" :key="e" :class="['edition-pill', `edition-${e.toLowerCase()}`]">{{ e }}</span></td>
           <td class="num">{{ t.publications.length }}</td>

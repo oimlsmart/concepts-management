@@ -2,6 +2,10 @@
 data:
   identifier: '00621'
   term: dynamic setting
+  designations:
+  - type: expression
+    status: preferred
+    text: dynamic setting
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02424'
   term: rated operating condition ROC
+  designations:
+  - type: expression
+    status: preferred
+    text: rated operating condition ROC
   kind: undefined
   official_concept:
   editions_present:

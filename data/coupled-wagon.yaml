@@ -2,6 +2,10 @@
 data:
   identifier: '02530'
   term: coupled wagon
+  designations:
+  - type: expression
+    status: preferred
+    text: coupled wagon
   kind: undefined
   official_concept:
   editions_present:

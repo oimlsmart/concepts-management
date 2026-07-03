@@ -2,6 +2,10 @@
 data:
   identifier: '01522'
   term: reference standard solution
+  designations:
+  - type: expression
+    status: preferred
+    text: reference standard solution
   kind: undefined
   official_concept:
   editions_present:

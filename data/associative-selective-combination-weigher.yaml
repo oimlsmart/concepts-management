@@ -2,6 +2,10 @@
 data:
   identifier: '00758'
   term: associative (selective combination) weigher
+  designations:
+  - type: expression
+    status: preferred
+    text: associative (selective combination) weigher
   kind: undefined
   official_concept:
   editions_present:

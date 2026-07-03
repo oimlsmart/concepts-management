@@ -2,6 +2,10 @@
 data:
   identifier: '02992'
   term: dimensional weight (Dim Wt or DW)
+  designations:
+  - type: expression
+    status: preferred
+    text: dimensional weight (Dim Wt or DW)
   kind: undefined
   official_concept:
   editions_present:

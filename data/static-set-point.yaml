@@ -2,6 +2,10 @@
 data:
   identifier: '03535'
   term: static set point
+  designations:
+  - type: expression
+    status: preferred
+    text: static set point
   kind: undefined
   official_concept:
   editions_present:

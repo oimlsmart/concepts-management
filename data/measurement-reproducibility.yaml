@@ -2,6 +2,10 @@
 data:
   identifier: '03267'
   term: measurement reproducibility
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement reproducibility
   kind: undefined
   official_concept:
   editions_present:

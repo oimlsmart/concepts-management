@@ -2,6 +2,10 @@
 data:
   identifier: '00931'
   term: selection device for load receptors and load-measuring devices
+  designations:
+  - type: expression
+    status: preferred
+    text: selection device for load receptors and load-measuring devices
   kind: undefined
   official_concept:
   editions_present:

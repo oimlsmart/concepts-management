@@ -2,6 +2,10 @@
 data:
   identifier: '00153'
   term: hazardous waste site
+  designations:
+  - type: expression
+    status: preferred
+    text: hazardous waste site
   kind: undefined
   official_concept:
   editions_present:

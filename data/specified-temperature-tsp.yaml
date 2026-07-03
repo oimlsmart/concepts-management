@@ -2,6 +2,10 @@
 data:
   identifier: '02685'
   term: specified temperature, tsp
+  designations:
+  - type: expression
+    status: preferred
+    text: specified temperature, tsp
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00699'
   term: conductance cell
+  designations:
+  - type: expression
+    status: preferred
+    text: conductance cell
   kind: undefined
   official_concept:
   editions_present:

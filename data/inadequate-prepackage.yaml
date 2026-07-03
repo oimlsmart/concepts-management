@@ -2,6 +2,10 @@
 data:
   identifier: '02496'
   term: inadequate prepackage
+  designations:
+  - type: expression
+    status: preferred
+    text: inadequate prepackage
   kind: undefined
   official_concept:
   editions_present:

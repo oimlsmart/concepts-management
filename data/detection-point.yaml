@@ -2,6 +2,10 @@
 data:
   identifier: '03748'
   term: detection point
+  designations:
+  - type: expression
+    status: preferred
+    text: detection point
   kind: undefined
   official_concept:
   editions_present:

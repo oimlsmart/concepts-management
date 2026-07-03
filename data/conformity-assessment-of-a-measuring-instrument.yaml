@@ -2,6 +2,10 @@
 data:
   identifier: '00191'
   term: conformity assessment of a measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: conformity assessment of a measuring instrument
   kind: defined_in_viml
   official_concept:
     source: urn:oiml:pub:v:1:2000

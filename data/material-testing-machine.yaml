@@ -2,6 +2,10 @@
 data:
   identifier: '00818'
   term: material testing machine
+  designations:
+  - type: expression
+    status: preferred
+    text: material testing machine
   kind: undefined
   official_concept:
   editions_present:

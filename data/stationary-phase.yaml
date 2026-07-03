@@ -2,6 +2,10 @@
 data:
   identifier: '01049'
   term: stationary phase
+  designations:
+  - type: expression
+    status: preferred
+    text: stationary phase
   kind: undefined
   official_concept:
   editions_present:

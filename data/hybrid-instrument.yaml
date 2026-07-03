@@ -2,6 +2,10 @@
 data:
   identifier: '00845'
   term: hybrid instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: hybrid instrument
   kind: undefined
   official_concept:
   editions_present:

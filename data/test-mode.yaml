@@ -2,6 +2,10 @@
 data:
   identifier: '03790'
   term: test mode
+  designations:
+  - type: expression
+    status: preferred
+    text: test mode
   kind: undefined
   official_concept:
   editions_present:

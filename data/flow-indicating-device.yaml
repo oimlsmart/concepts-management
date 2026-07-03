@@ -2,6 +2,10 @@
 data:
   identifier: '00509'
   term: flow indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: flow indicating device
   kind: undefined
   official_concept:
   editions_present:

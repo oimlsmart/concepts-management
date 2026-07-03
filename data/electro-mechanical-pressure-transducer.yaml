@@ -2,6 +2,10 @@
 data:
   identifier: '00331'
   term: electro-mechanical pressure transducer
+  designations:
+  - type: expression
+    status: preferred
+    text: electro-mechanical pressure transducer
   kind: undefined
   official_concept:
   editions_present:

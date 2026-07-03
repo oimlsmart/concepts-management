@@ -2,6 +2,10 @@
 data:
   identifier: '03199'
   term: load cell family
+  designations:
+  - type: expression
+    status: preferred
+    text: load cell family
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00386'
   term: test cycle
+  designations:
+  - type: expression
+    status: preferred
+    text: test cycle
   kind: undefined
   official_concept:
   editions_present:

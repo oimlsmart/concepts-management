@@ -2,6 +2,10 @@
 data:
   identifier: '00599'
   term: electronic sub-assembly
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic sub-assembly
   kind: undefined
   official_concept:
   editions_present:

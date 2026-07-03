@@ -2,6 +2,10 @@
 data:
   identifier: '01450'
   term: magnetism
+  designations:
+  - type: expression
+    status: preferred
+    text: magnetism
   kind: undefined
   official_concept:
   editions_present:

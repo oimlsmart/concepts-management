@@ -2,6 +2,10 @@
 data:
   identifier: '00360'
   term: operating position device
+  designations:
+  - type: expression
+    status: preferred
+    text: operating position device
   kind: undefined
   official_concept:
   editions_present:

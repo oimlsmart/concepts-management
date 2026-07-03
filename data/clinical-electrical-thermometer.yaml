@@ -2,6 +2,10 @@
 data:
   identifier: '01505'
   term: clinical electrical thermometer
+  designations:
+  - type: expression
+    status: preferred
+    text: clinical electrical thermometer
   kind: undefined
   official_concept:
   editions_present:

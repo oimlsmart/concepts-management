@@ -2,6 +2,10 @@
 data:
   identifier: '00873'
   term: self-heating effect
+  designations:
+  - type: expression
+    status: preferred
+    text: self-heating effect
   kind: undefined
   official_concept:
   editions_present:

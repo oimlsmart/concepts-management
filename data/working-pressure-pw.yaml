@@ -2,6 +2,10 @@
 data:
   identifier: '02417'
   term: working pressure pw
+  designations:
+  - type: expression
+    status: preferred
+    text: working pressure pw
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01518'
   term: carrier flow
+  designations:
+  - type: expression
+    status: preferred
+    text: carrier flow
   kind: undefined
   official_concept:
   editions_present:

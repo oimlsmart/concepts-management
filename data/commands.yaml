@@ -2,6 +2,10 @@
 data:
   identifier: '02174'
   term: commands
+  designations:
+  - type: expression
+    status: preferred
+    text: commands
   kind: undefined
   official_concept:
   editions_present:

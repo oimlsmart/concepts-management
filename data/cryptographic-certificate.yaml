@@ -2,6 +2,10 @@
 data:
   identifier: '02964'
   term: cryptographic certificate
+  designations:
+  - type: expression
+    status: preferred
+    text: cryptographic certificate
   kind: undefined
   official_concept:
   editions_present:

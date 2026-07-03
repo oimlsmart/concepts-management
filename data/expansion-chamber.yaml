@@ -2,6 +2,10 @@
 data:
   identifier: '01777'
   term: expansion chamber
+  designations:
+  - type: expression
+    status: preferred
+    text: expansion chamber
   kind: undefined
   official_concept:
   editions_present:

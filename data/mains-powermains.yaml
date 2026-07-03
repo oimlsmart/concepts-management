@@ -2,6 +2,10 @@
 data:
   identifier: 02247-D011
   term: mains powermains
+  designations:
+  - type: expression
+    status: preferred
+    text: mains powermains
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00388'
   term: indirect method (verification)
+  designations:
+  - type: expression
+    status: preferred
+    text: indirect method (verification)
   kind: undefined
   official_concept:
   editions_present:

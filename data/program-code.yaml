@@ -2,6 +2,10 @@
 data:
   identifier: '02204'
   term: program code
+  designations:
+  - type: expression
+    status: preferred
+    text: program code
   kind: undefined
   official_concept:
   editions_present:

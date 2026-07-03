@@ -2,6 +2,10 @@
 data:
   identifier: '02801'
   term: calibration equation calibration
+  designations:
+  - type: expression
+    status: preferred
+    text: calibration equation calibration
   kind: undefined
   official_concept:
   editions_present:

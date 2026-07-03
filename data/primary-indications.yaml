@@ -2,6 +2,10 @@
 data:
   identifier: '00574'
   term: primary indications
+  designations:
+  - type: expression
+    status: preferred
+    text: primary indications
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00339'
   term: taxi
+  designations:
+  - type: expression
+    status: preferred
+    text: taxi
   kind: undefined
   official_concept:
   editions_present:

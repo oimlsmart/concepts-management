@@ -2,6 +2,10 @@
 data:
   identifier: '03286'
   term: memory effect
+  designations:
+  - type: expression
+    status: preferred
+    text: memory effect
   kind: undefined
   official_concept:
   editions_present:

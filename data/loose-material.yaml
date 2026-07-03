@@ -2,6 +2,10 @@
 data:
   identifier: '00567'
   term: loose material
+  designations:
+  - type: expression
+    status: preferred
+    text: loose material
   kind: undefined
   official_concept:
   editions_present:

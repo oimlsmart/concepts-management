@@ -2,6 +2,10 @@
 data:
   identifier: '01299'
   term: maximum span stability error
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum span stability error
   kind: undefined
   official_concept:
   editions_present:

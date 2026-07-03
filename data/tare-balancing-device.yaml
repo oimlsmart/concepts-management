@@ -2,6 +2,10 @@
 data:
   identifier: '00618'
   term: tare balancing device
+  designations:
+  - type: expression
+    status: preferred
+    text: tare balancing device
   kind: undefined
   official_concept:
   editions_present:

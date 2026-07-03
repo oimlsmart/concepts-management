@@ -2,6 +2,10 @@
 data:
   identifier: '03605'
   term: unattended post-payment (or delayed payment)
+  designations:
+  - type: expression
+    status: preferred
+    text: unattended post-payment (or delayed payment)
   kind: undefined
   official_concept:
   editions_present:

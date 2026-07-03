@@ -2,6 +2,10 @@
 data:
   identifier: '03086'
   term: fuel dispenser
+  designations:
+  - type: expression
+    status: preferred
+    text: fuel dispenser
   kind: undefined
   official_concept:
   editions_present:

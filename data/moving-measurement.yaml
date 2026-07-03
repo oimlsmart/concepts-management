@@ -2,6 +2,10 @@
 data:
   identifier: '03776'
   term: moving measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: moving measurement
   kind: undefined
   official_concept:
   editions_present:

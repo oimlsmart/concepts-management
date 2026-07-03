@@ -2,6 +2,10 @@
 data:
   identifier: '01710'
   term: irregular shaped object
+  designations:
+  - type: expression
+    status: preferred
+    text: irregular shaped object
   kind: undefined
   official_concept:
   editions_present:

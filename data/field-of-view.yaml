@@ -2,6 +2,10 @@
 data:
   identifier: '02111'
   term: field of view
+  designations:
+  - type: expression
+    status: preferred
+    text: field of view
   kind: undefined
   official_concept:
   editions_present:

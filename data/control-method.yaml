@@ -2,6 +2,10 @@
 data:
   identifier: '02951'
   term: control method
+  designations:
+  - type: expression
+    status: preferred
+    text: control method
   kind: undefined
   official_concept:
   editions_present:

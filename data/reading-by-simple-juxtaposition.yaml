@@ -2,6 +2,10 @@
 data:
   identifier: '00652'
   term: reading by simple juxtaposition
+  designations:
+  - type: expression
+    status: preferred
+    text: reading by simple juxtaposition
   kind: undefined
   official_concept:
   editions_present:

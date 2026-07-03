@@ -2,6 +2,10 @@
 data:
   identifier: '00579'
   term: load transmitting device
+  designations:
+  - type: expression
+    status: preferred
+    text: load transmitting device
   kind: undefined
   official_concept:
   editions_present:

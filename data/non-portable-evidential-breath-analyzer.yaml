@@ -2,6 +2,10 @@
 data:
   identifier: '01663'
   term: non-portable evidential breath analyzer
+  designations:
+  - type: expression
+    status: preferred
+    text: non-portable evidential breath analyzer
   kind: undefined
   official_concept:
   editions_present:

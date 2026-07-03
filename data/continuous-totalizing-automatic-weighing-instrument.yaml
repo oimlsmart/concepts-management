@@ -2,6 +2,10 @@
 data:
   identifier: '02946'
   term: continuous totalizing automatic weighing instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: continuous totalizing automatic weighing instrument
   kind: undefined
   official_concept:
   editions_present:

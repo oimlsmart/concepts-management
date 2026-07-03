@@ -2,6 +2,10 @@
 data:
   identifier: '02579'
   term: bogie
+  designations:
+  - type: expression
+    status: preferred
+    text: bogie
   kind: undefined
   official_concept:
   editions_present:

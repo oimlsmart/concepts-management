@@ -2,6 +2,10 @@
 data:
   identifier: '01382'
   term: partial totalization indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: partial totalization indicating device
   kind: undefined
   official_concept:
   editions_present:

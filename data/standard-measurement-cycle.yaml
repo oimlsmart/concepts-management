@@ -2,6 +2,10 @@
 data:
   identifier: '03532'
   term: standard measurement cycle
+  designations:
+  - type: expression
+    status: preferred
+    text: standard measurement cycle
   kind: undefined
   official_concept:
   editions_present:

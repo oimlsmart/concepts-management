@@ -2,6 +2,10 @@
 data:
   identifier: '00126'
   term: pattern approval process
+  designations:
+  - type: expression
+    status: preferred
+    text: pattern approval process
   kind: undefined
   official_concept:
   editions_present:

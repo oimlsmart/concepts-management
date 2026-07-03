@@ -2,6 +2,10 @@
 data:
   identifier: '02084'
   term: significant fault (for associated measuring instruments other than CVDDs)
+  designations:
+  - type: expression
+    status: preferred
+    text: significant fault (for associated measuring instruments other than CVDDs)
   kind: undefined
   official_concept:
   editions_present:

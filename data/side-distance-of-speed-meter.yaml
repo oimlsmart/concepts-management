@@ -2,6 +2,10 @@
 data:
   identifier: '03781'
   term: side distance of speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: side distance of speed meter
   kind: undefined
   official_concept:
   editions_present:

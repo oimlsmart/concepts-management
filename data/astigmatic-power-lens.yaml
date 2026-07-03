@@ -2,6 +2,10 @@
 data:
   identifier: '01135'
   term: astigmatic power lens
+  designations:
+  - type: expression
+    status: preferred
+    text: astigmatic power lens
   kind: undefined
   official_concept:
   editions_present:

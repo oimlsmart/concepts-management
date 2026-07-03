@@ -2,6 +2,10 @@
 data:
   identifier: '02973'
   term: Declaration
+  designations:
+  - type: expression
+    status: preferred
+    text: Declaration
   kind: undefined
   official_concept:
   editions_present:

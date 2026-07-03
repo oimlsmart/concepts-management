@@ -2,6 +2,10 @@
 data:
   identifier: '00363'
   term: nominal length
+  designations:
+  - type: expression
+    status: preferred
+    text: nominal length
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 02335-R099-1
   term: filter unit
+  designations:
+  - type: expression
+    status: preferred
+    text: filter unit
   kind: undefined
   official_concept:
   editions_present:

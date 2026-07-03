@@ -2,6 +2,10 @@
 data:
   identifier: '03314'
   term: minimum specified price deviation
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum specified price deviation
   kind: undefined
   official_concept:
   editions_present:

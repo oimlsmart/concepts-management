@@ -2,6 +2,10 @@
 data:
   identifier: 02337-R046-1
   term: negative (energy) flow (for bi-directional and uni-directional meters)
+  designations:
+  - type: expression
+    status: preferred
+    text: negative (energy) flow (for bi-directional and uni-directional meters)
   kind: undefined
   official_concept:
   editions_present:

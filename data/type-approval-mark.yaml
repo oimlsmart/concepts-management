@@ -2,6 +2,10 @@
 data:
   identifier: '03593'
   term: type approval mark
+  designations:
+  - type: expression
+    status: preferred
+    text: type approval mark
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03698'
   term: snapshot
+  designations:
+  - type: expression
+    status: preferred
+    text: snapshot
   kind: undefined
   official_concept:
   editions_present:

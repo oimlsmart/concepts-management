@@ -2,6 +2,10 @@
 data:
   identifier: '01692'
   term: ergometers for foot crank work (foot crank ergometers)
+  designations:
+  - type: expression
+    status: preferred
+    text: ergometers for foot crank work (foot crank ergometers)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01046'
   term: injection device
+  designations:
+  - type: expression
+    status: preferred
+    text: injection device
   kind: undefined
   official_concept:
   editions_present:

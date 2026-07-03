@@ -2,6 +2,10 @@
 data:
   identifier: '02135'
   term: means for adjustment of a gas analyzer by the calibration gas mixture
+  designations:
+  - type: expression
+    status: preferred
+    text: means for adjustment of a gas analyzer by the calibration gas mixture
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01020'
   term: conversion device
+  designations:
+  - type: expression
+    status: preferred
+    text: conversion device
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02588'
   term: scale interval for stationary load, ds
+  designations:
+  - type: expression
+    status: preferred
+    text: scale interval for stationary load, ds
   kind: undefined
   official_concept:
   editions_present:

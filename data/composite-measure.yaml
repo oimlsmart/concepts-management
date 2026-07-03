@@ -2,6 +2,10 @@
 data:
   identifier: '00369'
   term: composite measure
+  designations:
+  - type: expression
+    status: preferred
+    text: composite measure
   kind: undefined
   official_concept:
   editions_present:

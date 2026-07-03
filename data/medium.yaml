@@ -2,6 +2,10 @@
 data:
   identifier: '02481'
   term: medium
+  designations:
+  - type: expression
+    status: preferred
+    text: medium
   kind: undefined
   official_concept:
   editions_present:

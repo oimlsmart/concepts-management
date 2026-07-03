@@ -2,6 +2,10 @@
 data:
   identifier: '03702'
   term: adjustable water meter
+  designations:
+  - type: expression
+    status: preferred
+    text: adjustable water meter
   kind: undefined
   official_concept:
   editions_present:

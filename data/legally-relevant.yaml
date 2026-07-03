@@ -2,6 +2,10 @@
 data:
   identifier: '00342'
   term: legally relevant
+  designations:
+  - type: expression
+    status: preferred
+    text: legally relevant
   kind: undefined
   official_concept:
   editions_present:

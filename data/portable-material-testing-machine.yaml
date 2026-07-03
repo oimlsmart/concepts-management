@@ -2,6 +2,10 @@
 data:
   identifier: '00819'
   term: portable material testing machine
+  designations:
+  - type: expression
+    status: preferred
+    text: portable material testing machine
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00684'
   term: non-linearity of elastic characteristic
+  designations:
+  - type: expression
+    status: preferred
+    text: non-linearity of elastic characteristic
   kind: undefined
   official_concept:
   editions_present:

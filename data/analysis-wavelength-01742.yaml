@@ -2,6 +2,10 @@
 data:
   identifier: '01742'
   term: analysis wavelength, 
+  designations:
+  - type: expression
+    status: preferred
+    text: analysis wavelength, 
   kind: undefined
   official_concept:
   editions_present:

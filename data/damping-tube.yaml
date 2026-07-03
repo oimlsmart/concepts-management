@@ -2,6 +2,10 @@
 data:
   identifier: '02268-R080-1'
   term: damping tube
+  designations:
+  - type: expression
+    status: preferred
+    text: damping tube
   kind: undefined
   official_concept:
   editions_present:

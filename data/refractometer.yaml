@@ -2,6 +2,10 @@
 data:
   identifier: '01406'
   term: refractometer
+  designations:
+  - type: expression
+    status: preferred
+    text: refractometer
   kind: undefined
   official_concept:
   editions_present:

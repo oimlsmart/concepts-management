@@ -2,6 +2,10 @@
 data:
   identifier: '01204'
   term: vacuum
+  designations:
+  - type: expression
+    status: preferred
+    text: vacuum
   kind: undefined
   official_concept:
   editions_present:

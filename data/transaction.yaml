@@ -2,6 +2,10 @@
 data:
   identifier: 02277-R080-1
   term: transaction
+  designations:
+  - type: expression
+    status: preferred
+    text: transaction
   kind: undefined
   official_concept:
   editions_present:

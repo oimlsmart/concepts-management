@@ -2,6 +2,10 @@
 data:
   identifier: '02898'
   term: average number of loads per fill
+  designations:
+  - type: expression
+    status: preferred
+    text: average number of loads per fill
   kind: undefined
   official_concept:
   editions_present:

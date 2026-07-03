@@ -2,6 +2,10 @@
 data:
   identifier: '01112'
   term: stem:[T_{1}] error
+  designations:
+  - type: expression
+    status: preferred
+    text: stem:[T_{1}] error
   kind: undefined
   official_concept:
   editions_present:

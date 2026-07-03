@@ -2,6 +2,10 @@
 data:
   identifier: '02882'
   term: authorised person
+  designations:
+  - type: expression
+    status: preferred
+    text: authorised person
   kind: undefined
   official_concept:
   editions_present:

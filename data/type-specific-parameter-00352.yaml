@@ -2,6 +2,10 @@
 data:
   identifier: '00352'
   term: type-specific parameter
+  designations:
+  - type: expression
+    status: preferred
+    text: type-specific parameter
   kind: undefined
   official_concept:
   editions_present:
@@ -163,6 +167,22 @@ data:
     definition: 'legally relevant parameter with a value that depends on the type
       of instrument only Type-specific parameters are part of the legally relevant
       software. They are fixed at type approval of the instrument. Examples: Parameters
+      used for weight value calculation, stability analysis or price calculation and
+      rounding, software identification.'
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R 76-1:2006
+    publication_id: OIML R076-1:2006
+    tc_sc: ''
+    year: 2006
+    clause: T.2.8.3
+    link: https://www.oiml.org/en/files/pdf_R/r076-1-e06.pdf
+    g18_entry: '00934'
+    definition: 'legally relevant parameter with a value that depends on the type
+      of instrument only. Type-specific parameters are part of the legally relevant
+      software. They are fixed at type approval of the instrument Examples: Parameters
       used for weight value calculation, stability analysis or price calculation and
       rounding, software identification.'
     notes: []

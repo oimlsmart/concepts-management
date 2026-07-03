@@ -2,6 +2,10 @@
 data:
   identifier: '01486'
   term: retention time (tr) for a measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: retention time (tr) for a measurement
   kind: undefined
   official_concept:
   editions_present:

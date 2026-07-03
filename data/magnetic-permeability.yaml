@@ -2,6 +2,10 @@
 data:
   identifier: '01455'
   term: magnetic permeability
+  designations:
+  - type: expression
+    status: preferred
+    text: magnetic permeability
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00385'
   term: primary reference test block
+  designations:
+  - type: expression
+    status: preferred
+    text: primary reference test block
   kind: undefined
   official_concept:
   editions_present:

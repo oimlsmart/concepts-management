@@ -2,6 +2,10 @@
 data:
   identifier: '00879'
   term: semi-self-indicating instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: semi-self-indicating instrument
   kind: undefined
   official_concept:
   editions_present:

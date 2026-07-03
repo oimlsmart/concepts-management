@@ -2,6 +2,10 @@
 data:
   identifier: '00152'
   term: dynamic range of a detector
+  designations:
+  - type: expression
+    status: preferred
+    text: dynamic range of a detector
   kind: undefined
   official_concept:
   editions_present:

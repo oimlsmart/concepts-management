@@ -2,6 +2,10 @@
 data:
   identifier: 02316-R085-1
   term: gauge reference length
+  designations:
+  - type: expression
+    status: preferred
+    text: gauge reference length
   kind: undefined
   official_concept:
   editions_present:

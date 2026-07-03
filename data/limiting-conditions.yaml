@@ -2,6 +2,10 @@
 data:
   identifier: '00454'
   term: limiting conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: limiting conditions
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993

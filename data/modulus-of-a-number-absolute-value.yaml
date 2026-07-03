@@ -2,6 +2,10 @@
 data:
   identifier: '02371'
   term: modulus (of a number) absolute value
+  designations:
+  - type: expression
+    status: preferred
+    text: modulus (of a number) absolute value
   kind: undefined
   official_concept:
   editions_present:

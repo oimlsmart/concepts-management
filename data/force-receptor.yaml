@@ -2,6 +2,10 @@
 data:
   identifier: '03083'
   term: force receptor
+  designations:
+  - type: expression
+    status: preferred
+    text: force receptor
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03323'
   term: national measurement standard national standard
+  designations:
+  - type: expression
+    status: preferred
+    text: national measurement standard national standard
   kind: undefined
   official_concept:
   editions_present:

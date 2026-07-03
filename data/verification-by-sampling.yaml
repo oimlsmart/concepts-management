@@ -2,6 +2,10 @@
 data:
   identifier: 02266-D016
   term: verification by sampling
+  designations:
+  - type: expression
+    status: preferred
+    text: verification by sampling
   kind: undefined
   official_concept:
   editions_present:

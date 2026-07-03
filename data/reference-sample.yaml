@@ -2,6 +2,10 @@
 data:
   identifier: '01054'
   term: reference sample
+  designations:
+  - type: expression
+    status: preferred
+    text: reference sample
   kind: undefined
   official_concept:
   editions_present:

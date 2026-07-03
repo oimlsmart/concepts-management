@@ -2,6 +2,10 @@
 data:
   identifier: '00308'
   term: cuff
+  designations:
+  - type: expression
+    status: preferred
+    text: cuff
   kind: undefined
   official_concept:
   editions_present:

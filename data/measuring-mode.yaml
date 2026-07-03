@@ -2,6 +2,10 @@
 data:
   identifier: '03279'
   term: measuring mode
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring mode
   kind: undefined
   official_concept:
   editions_present:

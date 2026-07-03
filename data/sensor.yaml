@@ -2,6 +2,10 @@
 data:
   identifier: '02041'
   term: sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: sensor
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01774'
   term: stem
+  designations:
+  - type: expression
+    status: preferred
+    text: stem
   kind: undefined
   official_concept:
   editions_present:

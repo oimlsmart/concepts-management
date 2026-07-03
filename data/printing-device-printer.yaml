@@ -2,6 +2,10 @@
 data:
   identifier: '00359'
   term: printing device (printer)
+  designations:
+  - type: expression
+    status: preferred
+    text: printing device (printer)
   kind: undefined
   official_concept:
   editions_present:

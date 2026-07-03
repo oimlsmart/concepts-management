@@ -2,6 +2,10 @@
 data:
   identifier: '00784'
   term: reference particle mass of a product
+  designations:
+  - type: expression
+    status: preferred
+    text: reference particle mass of a product
   kind: undefined
   official_concept:
   editions_present:

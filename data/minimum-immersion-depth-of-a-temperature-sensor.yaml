@@ -2,6 +2,10 @@
 data:
   identifier: '00872'
   term: minimum immersion depth of a temperature sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum immersion depth of a temperature sensor
   kind: undefined
   official_concept:
   editions_present:

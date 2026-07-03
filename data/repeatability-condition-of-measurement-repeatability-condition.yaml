@@ -2,6 +2,10 @@
 data:
   identifier: '02453'
   term: repeatability condition of measurement (repeatability condition)
+  designations:
+  - type: expression
+    status: preferred
+    text: repeatability condition of measurement (repeatability condition)
   kind: undefined
   official_concept:
   editions_present:

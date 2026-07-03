@@ -2,6 +2,10 @@
 data:
   identifier: '02289-1'
   term: current circuit
+  designations:
+  - type: expression
+    status: preferred
+    text: current circuit
   kind: undefined
   official_concept:
   editions_present:

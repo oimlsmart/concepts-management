@@ -2,6 +2,10 @@
 data:
   identifier: '00405'
   term: temperature inhomogeneity of the target area
+  designations:
+  - type: expression
+    status: preferred
+    text: temperature inhomogeneity of the target area
   kind: undefined
   official_concept:
   editions_present:

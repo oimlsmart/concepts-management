@@ -2,6 +2,10 @@
 data:
   identifier: '00603'
   term: extended displaying device
+  designations:
+  - type: expression
+    status: preferred
+    text: extended displaying device
   kind: undefined
   official_concept:
   editions_present:

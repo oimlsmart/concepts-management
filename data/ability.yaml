@@ -2,6 +2,10 @@
 data:
   identifier: '00242'
   term: ability
+  designations:
+  - type: expression
+    status: preferred
+    text: ability
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03764'
   term: image-based speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: image-based speed meter
   kind: undefined
   official_concept:
   editions_present:

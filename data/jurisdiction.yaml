@@ -2,6 +2,10 @@
 data:
   identifier: '00131'
   term: jurisdiction
+  designations:
+  - type: expression
+    status: preferred
+    text: jurisdiction
   kind: undefined
   official_concept:
   editions_present:

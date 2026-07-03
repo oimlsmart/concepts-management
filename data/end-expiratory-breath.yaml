@@ -2,6 +2,10 @@
 data:
   identifier: '03037'
   term: end expiratory breath
+  designations:
+  - type: expression
+    status: preferred
+    text: end expiratory breath
   kind: undefined
   official_concept:
   editions_present:

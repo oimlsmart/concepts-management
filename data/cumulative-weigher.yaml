@@ -2,6 +2,10 @@
 data:
   identifier: '00759'
   term: cumulative weigher
+  designations:
+  - type: expression
+    status: preferred
+    text: cumulative weigher
   kind: undefined
   official_concept:
   editions_present:

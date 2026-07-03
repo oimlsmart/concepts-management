@@ -2,6 +2,10 @@
 data:
   identifier: '00911'
   term: displaying component
+  designations:
+  - type: expression
+    status: preferred
+    text: displaying component
   kind: undefined
   official_concept:
   editions_present:

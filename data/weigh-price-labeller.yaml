@@ -2,6 +2,10 @@
 data:
   identifier: '00564'
   term: weigh-price labeller
+  designations:
+  - type: expression
+    status: preferred
+    text: weigh-price labeller
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01537'
   term: authorized person
+  designations:
+  - type: expression
+    status: preferred
+    text: authorized person
   kind: undefined
   official_concept:
   editions_present:

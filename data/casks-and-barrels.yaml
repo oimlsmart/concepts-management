@@ -2,6 +2,10 @@
 data:
   identifier: '01981'
   term: casks and barrels
+  designations:
+  - type: expression
+    status: preferred
+    text: casks and barrels
   kind: undefined
   official_concept:
   editions_present:

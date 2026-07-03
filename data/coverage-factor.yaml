@@ -2,6 +2,10 @@
 data:
   identifier: '02357'
   term: coverage factor
+  designations:
+  - type: expression
+    status: preferred
+    text: coverage factor
   kind: undefined
   official_concept:
   editions_present:

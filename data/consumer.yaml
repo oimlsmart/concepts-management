@@ -2,6 +2,10 @@
 data:
   identifier: '00201'
   term: consumer
+  designations:
+  - type: expression
+    status: preferred
+    text: consumer
   kind: undefined
   official_concept:
   editions_present:

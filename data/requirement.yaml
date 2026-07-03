@@ -2,6 +2,10 @@
 data:
   identifier: '00171'
   term: requirement
+  designations:
+  - type: expression
+    status: preferred
+    text: requirement
   kind: undefined
   official_concept:
   editions_present:

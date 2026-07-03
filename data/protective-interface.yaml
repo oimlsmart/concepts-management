@@ -2,6 +2,10 @@
 data:
   identifier: '00350'
   term: protective interface
+  designations:
+  - type: expression
+    status: preferred
+    text: protective interface
   kind: undefined
   official_concept:
   editions_present:

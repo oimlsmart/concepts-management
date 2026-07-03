@@ -2,6 +2,10 @@
 data:
   identifier: '02210'
   term: legal control of measuring instruments
+  designations:
+  - type: expression
+    status: preferred
+    text: legal control of measuring instruments
   kind: undefined
   official_concept:
   editions_present:

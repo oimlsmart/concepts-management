@@ -1,0 +1,33 @@
+---
+data:
+  identifier: '01418'
+  term: upper limit of measuring range
+  designations:
+  - type: expression
+    status: preferred
+    text: upper limit of measuring range
+  - type: symbol
+    status: preferred
+    text: stem:[P_{"max"}]
+  kind: undefined
+  official_concept:
+  editions_present:
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: 202X
+    publication: OIML R 110:1994
+    publication_id: OIML R110:1994
+    tc_sc: TC10/SC1
+    year: 1994
+    clause: 2.1.1.1
+    link: https://www.oiml.org/en/files/pdf_R/r110-e94.pdf
+    g18_entry: '01418'
+    definition: the maximum pressure to be measured
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 0bf79fac-95e1-5901-9909-9b86f4f54740
+schema_version: '3'
+related: []

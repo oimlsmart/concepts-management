@@ -2,6 +2,10 @@
 data:
   identifier: '01841'
   term: incident flux (Φ0)
+  designations:
+  - type: expression
+    status: preferred
+    text: incident flux (Φ0)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03559'
   term: tension loading
+  designations:
+  - type: expression
+    status: preferred
+    text: tension loading
   kind: undefined
   official_concept:
   editions_present:

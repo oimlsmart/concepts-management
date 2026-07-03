@@ -2,6 +2,10 @@
 data:
   identifier: '03533'
   term: standby mode
+  designations:
+  - type: expression
+    status: preferred
+    text: standby mode
   kind: undefined
   official_concept:
   editions_present:

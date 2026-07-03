@@ -2,6 +2,10 @@
 data:
   identifier: '00884'
   term: price labeling instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: price labeling instrument
   kind: undefined
   official_concept:
   editions_present:

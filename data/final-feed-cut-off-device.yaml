@@ -2,6 +2,10 @@
 data:
   identifier: '03078'
   term: final feed cut-off device
+  designations:
+  - type: expression
+    status: preferred
+    text: final feed cut-off device
   kind: undefined
   official_concept:
   editions_present:

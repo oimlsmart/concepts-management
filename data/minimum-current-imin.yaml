@@ -2,6 +2,10 @@
 data:
   identifier: 02302-2
   term: minimum current (Imin)
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum current (Imin)
   kind: undefined
   official_concept:
   editions_present:

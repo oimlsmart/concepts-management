@@ -2,6 +2,10 @@
 data:
   identifier: '03151'
   term: instantaneous force indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: instantaneous force indicating device
   kind: undefined
   official_concept:
   editions_present:

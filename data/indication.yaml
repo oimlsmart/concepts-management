@@ -2,6 +2,10 @@
 data:
   identifier: '02219'
   term: indication
+  designations:
+  - type: expression
+    status: preferred
+    text: indication
   kind: undefined
   official_concept:
   editions_present:

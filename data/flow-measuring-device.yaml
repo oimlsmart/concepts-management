@@ -2,6 +2,10 @@
 data:
   identifier: '02040'
   term: flow measuring device
+  designations:
+  - type: expression
+    status: preferred
+    text: flow measuring device
   kind: undefined
   official_concept:
   editions_present:

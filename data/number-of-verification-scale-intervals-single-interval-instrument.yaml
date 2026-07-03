@@ -2,6 +2,10 @@
 data:
   identifier: '00638'
   term: number of verification scale intervals (single-interval instrument)
+  designations:
+  - type: expression
+    status: preferred
+    text: number of verification scale intervals (single-interval instrument)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01889'
   term: mechanical device
+  designations:
+  - type: expression
+    status: preferred
+    text: mechanical device
   kind: undefined
   official_concept:
   editions_present:

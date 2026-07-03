@@ -2,6 +2,10 @@
 data:
   identifier: '03774'
   term: manual measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: manual measurement
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00886'
   term: mobile instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: mobile instrument
   kind: undefined
   official_concept:
   editions_present:

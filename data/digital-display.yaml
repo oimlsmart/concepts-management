@@ -2,6 +2,10 @@
 data:
   identifier: '00591'
   term: digital display
+  designations:
+  - type: expression
+    status: preferred
+    text: digital display
   kind: undefined
   official_concept:
   editions_present:

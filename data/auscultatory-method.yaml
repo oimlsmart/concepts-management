@@ -2,6 +2,10 @@
 data:
   identifier: '00317'
   term: auscultatory method
+  designations:
+  - type: expression
+    status: preferred
+    text: auscultatory method
   kind: undefined
   official_concept:
   editions_present:

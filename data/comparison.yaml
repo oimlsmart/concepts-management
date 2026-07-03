@@ -2,6 +2,10 @@
 data:
   identifier: '01447'
   term: comparison
+  designations:
+  - type: expression
+    status: preferred
+    text: comparison
   kind: undefined
   official_concept:
   editions_present:

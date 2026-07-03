@@ -2,6 +2,10 @@
 data:
   identifier: 02250-D011
   term: auxiliary battery
+  designations:
+  - type: expression
+    status: preferred
+    text: auxiliary battery
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03473'
   term: sealing
+  designations:
+  - type: expression
+    status: preferred
+    text: sealing
   kind: undefined
   official_concept:
   editions_present:

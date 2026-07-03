@@ -2,6 +2,10 @@
 data:
   identifier: '00686'
   term: initial position
+  designations:
+  - type: expression
+    status: preferred
+    text: initial position
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00602'
   term: indicating device with a differentiated scale division
+  designations:
+  - type: expression
+    status: preferred
+    text: indicating device with a differentiated scale division
   kind: undefined
   official_concept:
   editions_present:

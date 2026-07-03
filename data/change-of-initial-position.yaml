@@ -2,6 +2,10 @@
 data:
   identifier: '00688'
   term: change of initial position
+  designations:
+  - type: expression
+    status: preferred
+    text: change of initial position
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00930'
   term: auxiliary verification device
+  designations:
+  - type: expression
+    status: preferred
+    text: auxiliary verification device
   kind: undefined
   official_concept:
   editions_present:

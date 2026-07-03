@@ -2,6 +2,10 @@
 data:
   identifier: '02811'
   term: protein content (PMB)
+  designations:
+  - type: expression
+    status: preferred
+    text: protein content (PMB)
   kind: undefined
   official_concept:
   editions_present:

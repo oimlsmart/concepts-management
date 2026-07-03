@@ -2,6 +2,10 @@
 data:
   identifier: 02263-R080-1
   term: measuring range of the level sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring range of the level sensor
   kind: undefined
   official_concept:
   editions_present:

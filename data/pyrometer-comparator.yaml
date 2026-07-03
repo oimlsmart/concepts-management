@@ -2,6 +2,10 @@
 data:
   identifier: '02831'
   term: pyrometer-comparator
+  designations:
+  - type: expression
+    status: preferred
+    text: pyrometer-comparator
   kind: undefined
   official_concept:
   editions_present:

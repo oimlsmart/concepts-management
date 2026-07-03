@@ -2,6 +2,10 @@
 data:
   identifier: '01513'
   term: predicting clinical electrical thermometer
+  designations:
+  - type: expression
+    status: preferred
+    text: predicting clinical electrical thermometer
   kind: undefined
   official_concept:
   editions_present:

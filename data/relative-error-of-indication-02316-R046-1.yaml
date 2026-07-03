@@ -2,6 +2,10 @@
 data:
   identifier: 02316-R046-1
   term: relative error of indication
+  designations:
+  - type: expression
+    status: preferred
+    text: relative error of indication
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00332'
   term: electro-mechanical blood pressure measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: electro-mechanical blood pressure measuring system
   kind: undefined
   official_concept:
   editions_present:

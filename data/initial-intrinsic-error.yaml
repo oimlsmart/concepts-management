@@ -2,8 +2,21 @@
 data:
   identifier: '00657'
   term: initial intrinsic error
-  kind: undefined
+  designations:
+  - type: expression
+    status: preferred
+    text: initial intrinsic error
+  kind: defined_in_viml
   official_concept:
+    source: urn:oiml:pub:v:1:2022
+    id: '5.11'
+    url: https://oimlsmart.github.io/vocab/viml-2022/concept/5.11
+    definition_text: "{{0.06,intrinsic error}} of a {{0.10,measuring instrument}}
+      as determined prior to {{5.21,performance tests}} and {{5.15,durability}} evaluations"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022
   editions_present:
   - '2010'
   - 202X
@@ -253,6 +266,24 @@ data:
     notes: []
     consistency: pending
     consistency_reason: ''
+  - edition: 202X
+    publication: OIML R091-1:2025
+    publication_id: OIML R091-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: 3.5.4
+    link:
+    g18_entry: '03767'
+    definition: intrinsic error of a measuring instrument as determined prior to performance
+      tests and durability evaluations
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '5.11'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -538,4 +569,14 @@ data:
 status: current
 id: f26595f0-6ee5-50aa-a1f3-df7b7165a92f
 schema_version: '3'
-related: []
+related:
+- type: see
+  ref:
+    id: '5.11'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: "{{0.06,intrinsic error}} of a {{0.10,measuring instrument}}
+      as determined prior to {{5.21,performance tests}} and {{5.15,durability}} evaluations"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

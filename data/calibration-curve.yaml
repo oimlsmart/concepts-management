@@ -2,6 +2,10 @@
 data:
   identifier: '01684'
   term: calibration curve
+  designations:
+  - type: expression
+    status: preferred
+    text: calibration curve
   kind: undefined
   official_concept:
   editions_present:

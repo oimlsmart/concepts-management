@@ -2,6 +2,10 @@
 data:
   identifier: '02856'
   term: anatomical dead space
+  designations:
+  - type: expression
+    status: preferred
+    text: anatomical dead space
   kind: undefined
   official_concept:
   editions_present:

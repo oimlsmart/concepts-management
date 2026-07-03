@@ -2,6 +2,10 @@
 data:
   identifier: '01484'
   term: sensitivity of a detector
+  designations:
+  - type: expression
+    status: preferred
+    text: sensitivity of a detector
   kind: undefined
   official_concept:
   editions_present:

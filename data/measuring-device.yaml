@@ -2,6 +2,10 @@
 data:
   identifier: '03272'
   term: measuring device
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring device
   kind: undefined
   official_concept:
   editions_present:

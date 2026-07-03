@@ -2,6 +2,10 @@
 data:
   identifier: '01459'
   term: roughness parameter or R-parameter (Ra or Rz)
+  designations:
+  - type: expression
+    status: preferred
+    text: roughness parameter or R-parameter (Ra or Rz)
   kind: undefined
   official_concept:
   editions_present:

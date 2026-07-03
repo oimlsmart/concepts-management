@@ -2,6 +2,10 @@
 data:
   identifier: '02692'
   term: overload conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: overload conditions
   kind: undefined
   official_concept:
   editions_present:

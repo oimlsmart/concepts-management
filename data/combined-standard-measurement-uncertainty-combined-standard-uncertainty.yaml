@@ -2,6 +2,10 @@
 data:
   identifier: '02933'
   term: combined standard measurement uncertainty combined standard uncertainty
+  designations:
+  - type: expression
+    status: preferred
+    text: combined standard measurement uncertainty combined standard uncertainty
   kind: undefined
   official_concept:
   editions_present:

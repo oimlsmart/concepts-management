@@ -2,6 +2,10 @@
 data:
   identifier: '03270'
   term: measuring area
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring area
   kind: undefined
   official_concept:
   editions_present:

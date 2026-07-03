@@ -2,6 +2,10 @@
 data:
   identifier: '01422'
   term: working stroke of the piston
+  designations:
+  - type: expression
+    status: preferred
+    text: working stroke of the piston
   kind: undefined
   official_concept:
   editions_present:

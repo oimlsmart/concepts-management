@@ -2,6 +2,10 @@
 data:
   identifier: '01638'
   term: absolute error
+  designations:
+  - type: expression
+    status: preferred
+    text: absolute error
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993

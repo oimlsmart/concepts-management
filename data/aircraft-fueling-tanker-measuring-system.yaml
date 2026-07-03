@@ -2,6 +2,10 @@
 data:
   identifier: '02848'
   term: aircraft fueling tanker measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: aircraft fueling tanker measuring system
   kind: undefined
   official_concept:
   editions_present:

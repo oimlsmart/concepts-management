@@ -2,6 +2,10 @@
 data:
   identifier: '01021'
   term: empty-hose type or dry hose
+  designations:
+  - type: expression
+    status: preferred
+    text: empty-hose type or dry hose
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 02340-R049-1
   term: water meter
+  designations:
+  - type: expression
+    status: preferred
+    text: water meter
   kind: undefined
   official_concept:
   editions_present:

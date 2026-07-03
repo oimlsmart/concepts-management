@@ -2,6 +2,10 @@
 data:
   identifier: '03763'
   term: height of speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: height of speed meter
   kind: undefined
   official_concept:
   editions_present:

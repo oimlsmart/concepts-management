@@ -2,6 +2,10 @@
 data:
   identifier: '02938'
   term: condenser tank
+  designations:
+  - type: expression
+    status: preferred
+    text: condenser tank
   kind: undefined
   official_concept:
   editions_present:

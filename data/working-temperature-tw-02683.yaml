@@ -2,6 +2,10 @@
 data:
   identifier: '02683'
   term: working temperature, tw
+  designations:
+  - type: expression
+    status: preferred
+    text: working temperature, tw
   kind: undefined
   official_concept:
   editions_present:

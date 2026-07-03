@@ -2,6 +2,10 @@
 data:
   identifier: '00655'
   term: rounding error of digital indication
+  designations:
+  - type: expression
+    status: preferred
+    text: rounding error of digital indication
   kind: undefined
   official_concept:
   editions_present:

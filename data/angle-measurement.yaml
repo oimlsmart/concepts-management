@@ -2,6 +2,10 @@
 data:
   identifier: '03738-R091-1'
   term: angle measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: angle measurement
   kind: undefined
   official_concept:
   editions_present:

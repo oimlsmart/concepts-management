@@ -2,6 +2,10 @@
 data:
   identifier: '01115'
   term: inspection lot (also called a batch)
+  designations:
+  - type: expression
+    status: preferred
+    text: inspection lot (also called a batch)
   kind: undefined
   official_concept:
   editions_present:

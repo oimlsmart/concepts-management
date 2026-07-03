@@ -2,6 +2,13 @@
 data:
   identifier: '00660'
   term: maximum permissible error, MPE
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum permissible error, MPE
+  - type: expression
+    status: preferred
+    text: maximum permissible error, mpe
   kind: undefined
   official_concept:
   editions_present:
@@ -9,19 +16,6 @@ data:
   - 202X
   primary_edition: 202X
   publications:
-  - edition: '2010'
-    publication: OIML R 107-1:2007
-    publication_id: OIML R107-1:2007
-    tc_sc: ''
-    year: 2007
-    clause: T.4.5.8
-    link: https://www.oiml.org/en/files/pdf_R/r107-1-e07.pdf
-    g18_entry: '01394'
-    definition: "[V extreme values of an error permitted by specifications, regulations,
-      etc. for a given instrument IM: 1993, 5.21]"
-    notes: []
-    consistency: pending
-    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 51-1:2006
     publication_id: OIML R051-1:2006

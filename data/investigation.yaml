@@ -2,6 +2,10 @@
 data:
   identifier: '00188'
   term: investigation
+  designations:
+  - type: expression
+    status: preferred
+    text: investigation
   kind: undefined
   official_concept:
   editions_present:

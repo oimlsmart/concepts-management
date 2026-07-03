@@ -2,6 +2,10 @@
 data:
   identifier: '02573'
   term: static weighing
+  designations:
+  - type: expression
+    status: preferred
+    text: static weighing
   kind: undefined
   official_concept:
   editions_present:

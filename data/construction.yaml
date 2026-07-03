@@ -2,6 +2,10 @@
 data:
   identifier: '00577'
   term: construction
+  designations:
+  - type: expression
+    status: preferred
+    text: construction
   kind: undefined
   official_concept:
   editions_present:

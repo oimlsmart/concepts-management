@@ -2,6 +2,10 @@
 data:
   identifier: '01685'
   term: response function
+  designations:
+  - type: expression
+    status: preferred
+    text: response function
   kind: undefined
   official_concept:
   editions_present:

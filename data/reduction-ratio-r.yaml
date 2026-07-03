@@ -2,6 +2,10 @@
 data:
   identifier: '00954'
   term: reduction ratio, R
+  designations:
+  - type: expression
+    status: preferred
+    text: reduction ratio, R
   kind: undefined
   official_concept:
   editions_present:

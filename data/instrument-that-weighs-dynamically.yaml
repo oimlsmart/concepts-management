@@ -2,6 +2,10 @@
 data:
   identifier: '00646'
   term: instrument that weighs dynamically
+  designations:
+  - type: expression
+    status: preferred
+    text: instrument that weighs dynamically
   kind: undefined
   official_concept:
   editions_present:

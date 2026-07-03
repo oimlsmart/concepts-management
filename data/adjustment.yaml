@@ -2,6 +2,10 @@
 data:
   identifier: '02129'
   term: adjustment
+  designations:
+  - type: expression
+    status: preferred
+    text: adjustment
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:2007
@@ -29,6 +33,25 @@ data:
     g18_entry: '02129'
     definition: set of operations carried out on a measuring system so that it (VIM:2007,
       3.11) provides prescribed indications corresponding to given values of a quantity
+      to be measured
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        source: urn:oiml:pub:v:2:2007
+        id: '3.11'
+  - edition: '2010'
+    publication: OIML R 99-1:2008
+    publication_id: OIML R099-1:2008
+    tc_sc: ''
+    year: 2008
+    clause: '3.5'
+    link: https://www.oiml.org/en/files/pdf_R/r099-1-e08.pdf
+    g18_entry: '02337'
+    definition: set of operations carried out on a measuring system so that it (VIM:2007,
+      3.11) provides prescribed indications corresponding to given values of aquantity
       to be measured
     notes: []
     consistency: pending

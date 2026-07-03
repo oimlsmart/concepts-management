@@ -2,6 +2,10 @@
 data:
   identifier: '00629'
   term: net value, NET or N
+  designations:
+  - type: expression
+    status: preferred
+    text: net value, NET or N
   kind: undefined
   official_concept:
   editions_present:

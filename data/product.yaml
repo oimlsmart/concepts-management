@@ -2,6 +2,13 @@
 data:
   identifier: '02490'
   term: Product
+  designations:
+  - type: expression
+    status: preferred
+    text: Product
+  - type: expression
+    status: preferred
+    text: product
   kind: undefined
   official_concept:
   editions_present:

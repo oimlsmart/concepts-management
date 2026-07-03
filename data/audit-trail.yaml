@@ -2,6 +2,10 @@
 data:
   identifier: '01395'
   term: audit trail
+  designations:
+  - type: expression
+    status: preferred
+    text: audit trail
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00399'
   term: capacity (delivered by a standard graduated flask)
+  designations:
+  - type: expression
+    status: preferred
+    text: capacity (delivered by a standard graduated flask)
   kind: undefined
   official_concept:
   editions_present:

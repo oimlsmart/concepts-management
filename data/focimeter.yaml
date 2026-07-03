@@ -2,6 +2,10 @@
 data:
   identifier: '01124'
   term: focimeter
+  designations:
+  - type: expression
+    status: preferred
+    text: focimeter
   kind: undefined
   official_concept:
   editions_present:

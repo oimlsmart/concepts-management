@@ -2,6 +2,10 @@
 data:
   identifier: '01669'
   term: test procedure
+  designations:
+  - type: expression
+    status: preferred
+    text: test procedure
   kind: undefined
   official_concept:
   editions_present:

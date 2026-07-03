@@ -2,6 +2,10 @@
 data:
   identifier: '00617'
   term: tare device
+  designations:
+  - type: expression
+    status: preferred
+    text: tare device
   kind: undefined
   official_concept:
   editions_present:

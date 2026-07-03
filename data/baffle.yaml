@@ -2,6 +2,10 @@
 data:
   identifier: 02261-R080-1
   term: baffle
+  designations:
+  - type: expression
+    status: preferred
+    text: baffle
   kind: undefined
   official_concept:
   editions_present:

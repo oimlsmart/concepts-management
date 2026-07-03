@@ -2,6 +2,10 @@
 data:
   identifier: '01695'
   term: basic saddle position S
+  designations:
+  - type: expression
+    status: preferred
+    text: basic saddle position S
   kind: undefined
   official_concept:
   editions_present:

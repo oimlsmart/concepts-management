@@ -2,6 +2,10 @@
 data:
   identifier: '00851'
   term: response time, τ 0,5
+  designations:
+  - type: expression
+    status: preferred
+    text: response time, τ 0,5
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01629'
   term: measured mass
+  designations:
+  - type: expression
+    status: preferred
+    text: measured mass
   kind: undefined
   official_concept:
   editions_present:

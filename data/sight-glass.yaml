@@ -2,6 +2,10 @@
 data:
   identifier: '03494'
   term: sight glass
+  designations:
+  - type: expression
+    status: preferred
+    text: sight glass
   kind: undefined
   official_concept:
   editions_present:

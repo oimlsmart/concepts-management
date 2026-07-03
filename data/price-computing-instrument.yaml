@@ -2,6 +2,10 @@
 data:
   identifier: '00883'
   term: price computing instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: price computing instrument
   kind: undefined
   official_concept:
   editions_present:

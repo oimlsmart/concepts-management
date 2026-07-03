@@ -2,6 +2,10 @@
 data:
   identifier: '03631'
   term: weigh table
+  designations:
+  - type: expression
+    status: preferred
+    text: weigh table
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 02344-R099-1
   term: reference gas adjustment facility
+  designations:
+  - type: expression
+    status: preferred
+    text: reference gas adjustment facility
   kind: undefined
   official_concept:
   editions_present:

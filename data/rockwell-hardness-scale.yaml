@@ -2,6 +2,10 @@
 data:
   identifier: '00381'
   term: Rockwell (hardness) scale
+  designations:
+  - type: expression
+    status: preferred
+    text: Rockwell (hardness) scale
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02125'
   term: sample line
+  designations:
+  - type: expression
+    status: preferred
+    text: sample line
   kind: undefined
   official_concept:
   editions_present:

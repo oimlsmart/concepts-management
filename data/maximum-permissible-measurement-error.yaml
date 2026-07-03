@@ -2,6 +2,10 @@
 data:
   identifier: '02820'
   term: maximum permissible measurement error
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum permissible measurement error
   kind: undefined
   official_concept:
   editions_present:

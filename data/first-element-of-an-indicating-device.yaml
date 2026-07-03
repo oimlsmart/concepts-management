@@ -2,6 +2,10 @@
 data:
   identifier: '02404'
   term: first element of an indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: first element of an indicating device
   kind: undefined
   official_concept:
   editions_present:

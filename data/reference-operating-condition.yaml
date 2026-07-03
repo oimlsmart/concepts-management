@@ -2,6 +2,10 @@
 data:
   identifier: 02233-D011
   term: reference operating condition
+  designations:
+  - type: expression
+    status: preferred
+    text: reference operating condition
   kind: undefined
   official_concept:
   editions_present:

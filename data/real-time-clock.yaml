@@ -2,6 +2,10 @@
 data:
   identifier: '00345'
   term: real-time clock
+  designations:
+  - type: expression
+    status: preferred
+    text: real-time clock
   kind: undefined
   official_concept:
   editions_present:

@@ -2,8 +2,21 @@
 data:
   identifier: '00862'
   term: durability error
-  kind: undefined
+  designations:
+  - type: expression
+    status: preferred
+    text: durability error
+  kind: defined_in_viml
   official_concept:
+    source: urn:oiml:pub:v:1:2022
+    id: '5.16'
+    url: https://oimlsmart.github.io/vocab/viml-2022/concept/5.16
+    definition_text: difference between the {{0.06,intrinsic error}} after a period
+      of use and the {{5.11,initial intrinsic error}} of a measuring instrument
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022
   editions_present:
   - '2010'
   - 202X
@@ -74,6 +87,24 @@ data:
     notes: []
     consistency: pending
     consistency_reason: ''
+  - edition: 202X
+    publication: OIML R091-1:2025
+    publication_id: OIML R091-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: 3.5.5
+    link:
+    g18_entry: '03751'
+    definition: difference between the intrinsic error after a period of use and the
+      initial intrinsic error of a measuring instrument
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '5.16'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML R139-1:2022
     publication_id: OIML R139-1:2022
@@ -169,4 +200,14 @@ data:
 status: current
 id: cfe109de-878a-55bd-aef4-5b28038bb916
 schema_version: '3'
-related: []
+related:
+- type: see
+  ref:
+    id: '5.16'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: difference between the {{0.06,intrinsic error}} after a period
+      of use and the {{5.11,initial intrinsic error}} of a measuring instrument
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

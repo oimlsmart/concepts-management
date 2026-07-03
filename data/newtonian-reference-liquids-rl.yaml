@@ -2,6 +2,10 @@
 data:
   identifier: '03325'
   term: Newtonian reference liquids (RL)
+  designations:
+  - type: expression
+    status: preferred
+    text: Newtonian reference liquids (RL)
   kind: undefined
   official_concept:
   editions_present:

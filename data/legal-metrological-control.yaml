@@ -2,6 +2,10 @@
 data:
   identifier: '00164'
   term: legal metrological control
+  designations:
+  - type: expression
+    status: preferred
+    text: legal metrological control
   kind: defined_in_viml
   official_concept:
     source: urn:oiml:pub:v:1:2000

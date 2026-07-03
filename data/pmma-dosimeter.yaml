@@ -2,6 +2,10 @@
 data:
   identifier: '01740'
   term: PMMA dosimeter
+  designations:
+  - type: expression
+    status: preferred
+    text: PMMA dosimeter
   kind: undefined
   official_concept:
   editions_present:

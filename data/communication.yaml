@@ -2,6 +2,10 @@
 data:
   identifier: '02175'
   term: communication
+  designations:
+  - type: expression
+    status: preferred
+    text: communication
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02259-R080-1'
   term: sensitivity of a tank
+  designations:
+  - type: expression
+    status: preferred
+    text: sensitivity of a tank
   kind: undefined
   official_concept:
   editions_present:

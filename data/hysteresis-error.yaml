@@ -2,6 +2,10 @@
 data:
   identifier: '01210'
   term: hysteresis error
+  designations:
+  - type: expression
+    status: preferred
+    text: hysteresis error
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00199'
   term: manufacturer
+  designations:
+  - type: expression
+    status: preferred
+    text: manufacturer
   kind: undefined
   official_concept:
   editions_present:

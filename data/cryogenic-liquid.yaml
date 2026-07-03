@@ -2,6 +2,10 @@
 data:
   identifier: '01010'
   term: cryogenic liquid
+  designations:
+  - type: expression
+    status: preferred
+    text: cryogenic liquid
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01705'
   term: auxiliary devices
+  designations:
+  - type: expression
+    status: preferred
+    text: auxiliary devices
   kind: undefined
   official_concept:
   editions_present:

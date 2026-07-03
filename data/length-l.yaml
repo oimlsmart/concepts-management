@@ -2,6 +2,10 @@
 data:
   identifier: '03190'
   term: length (L)
+  designations:
+  - type: expression
+    status: preferred
+    text: length (L)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03661'
   term: digital display (device)
+  designations:
+  - type: expression
+    status: preferred
+    text: digital display (device)
   kind: undefined
   official_concept:
   editions_present:

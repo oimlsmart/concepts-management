@@ -2,6 +2,10 @@
 data:
   identifier: 02246-D011
   term: durability test
+  designations:
+  - type: expression
+    status: preferred
+    text: durability test
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 01213b
   term: total train
+  designations:
+  - type: expression
+    status: preferred
+    text: total train
   kind: undefined
   official_concept:
   editions_present:

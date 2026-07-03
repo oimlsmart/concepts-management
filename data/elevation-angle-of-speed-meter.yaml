@@ -2,6 +2,10 @@
 data:
   identifier: '03754'
   term: elevation angle of speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: elevation angle of speed meter
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 02252-R080-1
   term: liquid level
+  designations:
+  - type: expression
+    status: preferred
+    text: liquid level
   kind: undefined
   official_concept:
   editions_present:

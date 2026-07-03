@@ -2,6 +2,10 @@
 data:
   identifier: '02889'
   term: automatic instrument for weighing road vehicles in motion
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic instrument for weighing road vehicles in motion
   kind: undefined
   official_concept:
   editions_present:

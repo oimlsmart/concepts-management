@@ -2,6 +2,10 @@
 data:
   identifier: '02827-2'
   term: demountable contact sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: demountable contact sensor
   kind: undefined
   official_concept:
   editions_present:

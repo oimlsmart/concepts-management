@@ -2,6 +2,10 @@
 data:
   identifier: '03472'
   term: scale interval for testing
+  designations:
+  - type: expression
+    status: preferred
+    text: scale interval for testing
   kind: undefined
   official_concept:
   editions_present:

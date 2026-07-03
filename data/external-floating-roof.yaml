@@ -2,6 +2,10 @@
 data:
   identifier: '01627'
   term: external floating roof
+  designations:
+  - type: expression
+    status: preferred
+    text: external floating roof
   kind: undefined
   official_concept:
   editions_present:

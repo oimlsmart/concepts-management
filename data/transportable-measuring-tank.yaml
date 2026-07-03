@@ -2,6 +2,10 @@
 data:
   identifier: 02240-R080-1
   term: transportable measuring tank
+  designations:
+  - type: expression
+    status: preferred
+    text: transportable measuring tank
   kind: undefined
   official_concept:
   editions_present:

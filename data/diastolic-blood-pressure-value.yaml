@@ -2,6 +2,10 @@
 data:
   identifier: '00309'
   term: diastolic blood pressure (value)
+  designations:
+  - type: expression
+    status: preferred
+    text: diastolic blood pressure (value)
   kind: undefined
   official_concept:
   editions_present:

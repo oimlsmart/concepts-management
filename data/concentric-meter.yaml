@@ -2,6 +2,10 @@
 data:
   identifier: '02386'
   term: concentric meter
+  designations:
+  - type: expression
+    status: preferred
+    text: concentric meter
   kind: undefined
   official_concept:
   editions_present:

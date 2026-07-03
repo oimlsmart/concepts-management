@@ -2,6 +2,10 @@
 data:
   identifier: '02817'
   term: accreditation
+  designations:
+  - type: expression
+    status: preferred
+    text: accreditation
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02048'
   term: metering module
+  designations:
+  - type: expression
+    status: preferred
+    text: metering module
   kind: undefined
   official_concept:
   editions_present:

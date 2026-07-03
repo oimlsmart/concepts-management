@@ -2,6 +2,10 @@
 data:
   identifier: '03201'
   term: load cell intrinsic error
+  designations:
+  - type: expression
+    status: preferred
+    text: load cell intrinsic error
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993

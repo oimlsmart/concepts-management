@@ -2,6 +2,10 @@
 data:
   identifier: '01019'
   term: correction device
+  designations:
+  - type: expression
+    status: preferred
+    text: correction device
   kind: undefined
   official_concept:
   editions_present:

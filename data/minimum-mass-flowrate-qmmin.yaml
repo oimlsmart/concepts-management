@@ -2,6 +2,10 @@
 data:
   identifier: '03405'
   term: minimum mass flowrate, Qmmin
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum mass flowrate, Qmmin
   kind: undefined
   official_concept:
   editions_present:

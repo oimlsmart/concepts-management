@@ -2,8 +2,21 @@
 data:
   identifier: '00662'
   term: significant fault
-  kind: undefined
+  designations:
+  - type: expression
+    status: preferred
+    text: significant fault
+  kind: defined_in_viml
   official_concept:
+    source: urn:oiml:pub:v:1:2022
+    id: '5.14'
+    url: https://oimlsmart.github.io/vocab/viml-2022/concept/5.14
+    definition_text: "{{5.12,fault}} exceeding the applicable {{5.13,fault limit}}
+      value"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022
   editions_present:
   - '2010'
   - 202X
@@ -443,6 +456,25 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: 202X
+    publication: OIML R091-1:2025
+    publication_id: OIML R091-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: 3.5.10
+    link:
+    g18_entry: '03782'
+    definition: fault exceeding the applicable fault limit value defined in clause
+      6.18.1
+    notes:
+    - 'Note: See supplements in clause 6.18.2.'
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '5.14'
+        source: urn:oiml:pub:v:1:2022
+  - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
     tc_sc: ''
@@ -777,6 +809,22 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: 202X
+    publication: OIML R 140:2007
+    publication_id: OIML R140:2007
+    tc_sc: TC8/SC7
+    year: 2007
+    clause: T.2.17.4
+    link: https://www.oiml.org/en/files/pdf_R/r140-e07.pdf
+    g18_entry: '02086'
+    definition: 'The following faults are not considered as significant: faults resulting
+      from simultaneous causes independent from each other within the instrument itself
+      or within its checking facility; temporary faults resulting from momentary indication
+      variations, but which cannot be interpreted, stored or transmitted as measurement
+      results.'
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
     publication: OIML R 51-1:2006
     publication_id: OIML R051-1:2006
     tc_sc: ''
@@ -933,4 +981,14 @@ data:
 status: current
 id: 44ea0727-0119-505c-9fed-5ff4153d2b8f
 schema_version: '3'
-related: []
+related:
+- type: see
+  ref:
+    id: '5.14'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: "{{5.12,fault}} exceeding the applicable {{5.13,fault limit}}
+      value"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

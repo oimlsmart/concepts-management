@@ -2,6 +2,10 @@
 data:
   identifier: '01139'
   term: gauge hatch
+  designations:
+  - type: expression
+    status: preferred
+    text: gauge hatch
   kind: undefined
   official_concept:
   editions_present:

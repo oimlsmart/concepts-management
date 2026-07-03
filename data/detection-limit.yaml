@@ -2,6 +2,10 @@
 data:
   identifier: '00151'
   term: detection limit
+  designations:
+  - type: expression
+    status: preferred
+    text: detection limit
   kind: undefined
   official_concept:
   editions_present:

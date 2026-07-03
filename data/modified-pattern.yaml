@@ -2,6 +2,10 @@
 data:
   identifier: '00129'
   term: modified pattern
+  designations:
+  - type: expression
+    status: preferred
+    text: modified pattern
   kind: undefined
   official_concept:
   editions_present:

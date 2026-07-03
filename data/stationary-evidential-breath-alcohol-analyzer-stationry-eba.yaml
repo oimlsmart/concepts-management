@@ -2,6 +2,10 @@
 data:
   identifier: '03539'
   term: stationary evidential breath alcohol analyzer (stationry EBA)
+  designations:
+  - type: expression
+    status: preferred
+    text: stationary evidential breath alcohol analyzer (stationry EBA)
   kind: undefined
   official_concept:
   editions_present:

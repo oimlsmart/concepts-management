@@ -2,26 +2,16 @@
 data:
   identifier: '03341'
   term: number of load cell verification intervals (n)
+  designations:
+  - type: expression
+    status: preferred
+    text: number of load cell verification intervals (n)
   kind: undefined
   official_concept:
   editions_present:
-  - '2010'
   - 202X
   primary_edition: 202X
   publications:
-  - edition: '2010'
-    publication: OIML R 60:2000
-    publication_id: OIML R060:2000
-    tc_sc: TC9
-    year: 2000
-    clause: 2.3.12
-    link: https://www.oiml.org/en/files/pdf_R/r060-e00.pdf
-    g18_entry: '00723'
-    definition: number of load cell verification intervals into which the load cell
-      measuring range is divided
-    notes: []
-    consistency: pending
-    consistency_reason: ''
   - edition: 202X
     publication: OIML R060-1:2021
     publication_id: OIML R060-1:2021

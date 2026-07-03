@@ -2,6 +2,10 @@
 data:
   identifier: '00889'
   term: indications of an instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: indications of an instrument
   kind: undefined
   official_concept:
   editions_present:

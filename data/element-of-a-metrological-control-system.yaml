@@ -2,6 +2,10 @@
 data:
   identifier: '00122'
   term: element of a metrological control system
+  designations:
+  - type: expression
+    status: preferred
+    text: element of a metrological control system
   kind: undefined
   official_concept:
   editions_present:

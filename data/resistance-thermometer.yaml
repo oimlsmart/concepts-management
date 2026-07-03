@@ -2,6 +2,10 @@
 data:
   identifier: '03463'
   term: Resistance thermometer
+  designations:
+  - type: expression
+    status: preferred
+    text: Resistance thermometer
   kind: undefined
   official_concept:
   editions_present:

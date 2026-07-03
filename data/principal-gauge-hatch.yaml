@@ -2,6 +2,10 @@
 data:
   identifier: 02313-R085-1
   term: principal gauge hatch
+  designations:
+  - type: expression
+    status: preferred
+    text: principal gauge hatch
   kind: undefined
   official_concept:
   editions_present:

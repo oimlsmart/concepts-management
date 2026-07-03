@@ -2,6 +2,10 @@
 data:
   identifier: '00334'
   term: zero setting
+  designations:
+  - type: expression
+    status: preferred
+    text: zero setting
   kind: undefined
   official_concept:
   editions_present:

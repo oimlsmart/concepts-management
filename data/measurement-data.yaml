@@ -2,6 +2,10 @@
 data:
   identifier: '03252'
   term: measurement data
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement data
   kind: undefined
   official_concept:
   editions_present:

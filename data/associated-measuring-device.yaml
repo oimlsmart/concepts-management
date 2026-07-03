@@ -2,6 +2,10 @@
 data:
   identifier: '02865'
   term: associated measuring device
+  designations:
+  - type: expression
+    status: preferred
+    text: associated measuring device
   kind: undefined
   official_concept:
   editions_present:

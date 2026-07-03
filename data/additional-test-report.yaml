@@ -2,6 +2,10 @@
 data:
   identifier: '02842'
   term: additional test report
+  designations:
+  - type: expression
+    status: preferred
+    text: additional test report
   kind: undefined
   official_concept:
   editions_present:

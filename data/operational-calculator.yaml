@@ -2,6 +2,10 @@
 data:
   identifier: '03349'
   term: operational calculator
+  designations:
+  - type: expression
+    status: preferred
+    text: operational calculator
   kind: undefined
   official_concept:
   editions_present:

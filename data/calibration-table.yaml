@@ -2,6 +2,10 @@
 data:
   identifier: '01148'
   term: calibration table
+  designations:
+  - type: expression
+    status: preferred
+    text: calibration table
   kind: undefined
   official_concept:
   editions_present:

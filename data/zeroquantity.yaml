@@ -2,6 +2,10 @@
 data:
   identifier: '01633'
   term: zeroquantity
+  designations:
+  - type: expression
+    status: preferred
+    text: zeroquantity
   kind: undefined
   official_concept:
   editions_present:

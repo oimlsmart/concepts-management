@@ -2,6 +2,10 @@
 data:
   identifier: '00539'
   term: weighing instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: weighing instrument
   kind: undefined
   official_concept:
   editions_present:

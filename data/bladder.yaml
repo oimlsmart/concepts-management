@@ -2,6 +2,10 @@
 data:
   identifier: '00306'
   term: bladder
+  designations:
+  - type: expression
+    status: preferred
+    text: bladder
   kind: undefined
   official_concept:
   editions_present:

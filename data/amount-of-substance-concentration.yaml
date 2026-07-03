@@ -2,6 +2,10 @@
 data:
   identifier: '01846'
   term: amount of substance concentration
+  designations:
+  - type: expression
+    status: preferred
+    text: amount of substance concentration
   kind: undefined
   official_concept:
   editions_present:

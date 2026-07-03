@@ -2,6 +2,10 @@
 data:
   identifier: '02050'
   term: correction factor
+  designations:
+  - type: expression
+    status: preferred
+    text: correction factor
   kind: undefined
   official_concept:
   editions_present:

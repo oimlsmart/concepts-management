@@ -2,6 +2,10 @@
 data:
   identifier: '03644'
   term: width (W)
+  designations:
+  - type: expression
+    status: preferred
+    text: width (W)
   kind: undefined
   official_concept:
   editions_present:

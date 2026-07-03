@@ -2,6 +2,10 @@
 data:
   identifier: '03244'
   term: means of dissemination of units
+  designations:
+  - type: expression
+    status: preferred
+    text: means of dissemination of units
   kind: undefined
   official_concept:
   editions_present:

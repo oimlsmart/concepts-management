@@ -2,6 +2,10 @@
 data:
   identifier: '03689'
   term: component
+  designations:
+  - type: expression
+    status: preferred
+    text: component
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02850'
   term: alcoholic strength by volume
+  designations:
+  - type: expression
+    status: preferred
+    text: alcoholic strength by volume
   kind: undefined
   official_concept:
   editions_present:

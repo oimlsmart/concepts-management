@@ -2,6 +2,10 @@
 data:
   identifier: '02128'
   term: gas handling system
+  designations:
+  - type: expression
+    status: preferred
+    text: gas handling system
   kind: undefined
   official_concept:
   editions_present:

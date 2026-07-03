@@ -2,6 +2,10 @@
 data:
   identifier: '01664'
   term: portable evidential breath analyzer
+  designations:
+  - type: expression
+    status: preferred
+    text: portable evidential breath analyzer
   kind: undefined
   official_concept:
   editions_present:

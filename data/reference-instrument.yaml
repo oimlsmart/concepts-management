@@ -2,6 +2,10 @@
 data:
   identifier: '01884'
   term: reference instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: reference instrument
   kind: undefined
   official_concept:
   editions_present:

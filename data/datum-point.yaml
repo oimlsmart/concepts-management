@@ -2,6 +2,10 @@
 data:
   identifier: '01620'
   term: datum point
+  designations:
+  - type: expression
+    status: preferred
+    text: datum point
   kind: undefined
   official_concept:
   editions_present:

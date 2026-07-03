@@ -2,6 +2,10 @@
 data:
   identifier: '03693'
   term: mesured quantity value metadata
+  designations:
+  - type: expression
+    status: preferred
+    text: mesured quantity value metadata
   kind: undefined
   official_concept:
   editions_present:

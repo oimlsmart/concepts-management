@@ -2,6 +2,10 @@
 data:
   identifier: 02303-R046-1
   term: transitional current (Itr)
+  designations:
+  - type: expression
+    status: preferred
+    text: transitional current (Itr)
   kind: undefined
   official_concept:
   editions_present:

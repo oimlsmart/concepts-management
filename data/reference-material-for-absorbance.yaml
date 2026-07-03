@@ -2,6 +2,10 @@
 data:
   identifier: '01855'
   term: reference material for absorbance
+  designations:
+  - type: expression
+    status: preferred
+    text: reference material for absorbance
   kind: undefined
   official_concept:
   editions_present:

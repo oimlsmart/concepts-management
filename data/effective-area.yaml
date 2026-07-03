@@ -2,6 +2,10 @@
 data:
   identifier: '01421'
   term: effective area
+  designations:
+  - type: expression
+    status: preferred
+    text: effective area
   kind: undefined
   official_concept:
   editions_present:

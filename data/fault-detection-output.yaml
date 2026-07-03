@@ -2,6 +2,10 @@
 data:
   identifier: '03068'
   term: fault detection output
+  designations:
+  - type: expression
+    status: preferred
+    text: fault detection output
   kind: undefined
   official_concept:
   editions_present:

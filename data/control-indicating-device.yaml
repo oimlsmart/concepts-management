@@ -2,6 +2,10 @@
 data:
   identifier: '01384'
   term: control indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: control indicating device
   kind: undefined
   official_concept:
   editions_present:

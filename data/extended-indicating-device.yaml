@@ -2,6 +2,10 @@
 data:
   identifier: '00603'
   term: extended indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: extended indicating device
   kind: undefined
   official_concept:
   editions_present:

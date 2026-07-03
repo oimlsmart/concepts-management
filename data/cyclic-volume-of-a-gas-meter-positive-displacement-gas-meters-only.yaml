@@ -2,6 +2,10 @@
 data:
   identifier: '02659'
   term: cyclic volume of a gas meter (positive displacement gas meters only)
+  designations:
+  - type: expression
+    status: preferred
+    text: cyclic volume of a gas meter (positive displacement gas meters only)
   kind: undefined
   official_concept:
   editions_present:

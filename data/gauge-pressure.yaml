@@ -2,6 +2,10 @@
 data:
   identifier: '01203'
   term: gauge pressure
+  designations:
+  - type: expression
+    status: preferred
+    text: gauge pressure
   kind: undefined
   official_concept:
   editions_present:

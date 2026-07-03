@@ -2,6 +2,10 @@
 data:
   identifier: '03149'
   term: integrity (of software, measurement data, or parameters)
+  designations:
+  - type: expression
+    status: preferred
+    text: integrity (of software, measurement data, or parameters)
   kind: undefined
   official_concept:
   editions_present:

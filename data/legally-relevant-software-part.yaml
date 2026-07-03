@@ -2,6 +2,10 @@
 data:
   identifier: '03189'
   term: legally relevant software part
+  designations:
+  - type: expression
+    status: preferred
+    text: legally relevant software part
   kind: undefined
   official_concept:
   editions_present:

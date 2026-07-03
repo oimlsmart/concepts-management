@@ -2,6 +2,10 @@
 data:
   identifier: '02482'
   term: misleading prepackage
+  designations:
+  - type: expression
+    status: preferred
+    text: misleading prepackage
   kind: undefined
   official_concept:
   editions_present:

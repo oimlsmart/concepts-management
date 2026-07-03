@@ -2,6 +2,10 @@
 data:
   identifier: '02688'
   term: static pressure loss or pressure differential, p
+  designations:
+  - type: expression
+    status: preferred
+    text: static pressure loss or pressure differential, p
   kind: undefined
   official_concept:
   editions_present:

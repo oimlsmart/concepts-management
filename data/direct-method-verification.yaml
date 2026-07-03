@@ -2,6 +2,10 @@
 data:
   identifier: '00387'
   term: direct method (verification)
+  designations:
+  - type: expression
+    status: preferred
+    text: direct method (verification)
   kind: undefined
   official_concept:
   editions_present:

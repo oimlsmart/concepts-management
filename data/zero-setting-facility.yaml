@@ -2,6 +2,10 @@
 data:
   identifier: 02342-R099-1
   term: zero-setting facility
+  designations:
+  - type: expression
+    status: preferred
+    text: zero-setting facility
   kind: undefined
   official_concept:
   editions_present:

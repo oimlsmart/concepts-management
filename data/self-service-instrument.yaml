@@ -2,6 +2,10 @@
 data:
   identifier: '00885'
   term: self-service instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: self-service instrument
   kind: undefined
   official_concept:
   editions_present:

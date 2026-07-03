@@ -2,6 +2,10 @@
 data:
   identifier: '00679'
   term: elastic characteristic
+  designations:
+  - type: expression
+    status: preferred
+    text: elastic characteristic
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03701'
   term: verification software
+  designations:
+  - type: expression
+    status: preferred
+    text: verification software
   kind: undefined
   official_concept:
   editions_present:

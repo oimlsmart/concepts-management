@@ -2,6 +2,10 @@
 data:
   identifier: '00365'
   term: scale
+  designations:
+  - type: expression
+    status: preferred
+    text: scale
   kind: undefined
   official_concept:
   editions_present:

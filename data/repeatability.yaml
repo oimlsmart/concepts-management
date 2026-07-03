@@ -2,6 +2,10 @@
 data:
   identifier: '00159'
   term: repeatability
+  designations:
+  - type: expression
+    status: preferred
+    text: repeatability
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993

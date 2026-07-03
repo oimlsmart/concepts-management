@@ -2,6 +2,10 @@
 data:
   identifier: '02483'
   term: net quantity
+  designations:
+  - type: expression
+    status: preferred
+    text: net quantity
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00147'
   term: calibration
+  designations:
+  - type: expression
+    status: preferred
+    text: calibration
   kind: undefined
   official_concept:
   editions_present:

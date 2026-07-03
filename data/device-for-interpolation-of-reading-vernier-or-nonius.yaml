@@ -2,6 +2,10 @@
 data:
   identifier: '00914'
   term: device for interpolation of reading (vernier or nonius)
+  designations:
+  - type: expression
+    status: preferred
+    text: device for interpolation of reading (vernier or nonius)
   kind: undefined
   official_concept:
   editions_present:

@@ -5,7 +5,6 @@ import editionStats from "@/data/edition-stats.json";
 import conflictsData from "@/data/conflicts.json";
 
 const terms = termsData as any[];
-const totalInstances = terms.reduce((s: number, t: any) => s + t.publications.length, 0);
 
 function distinctDefs(t: any): number {
   return new Set(t.publications.map((p: any) => (p.definition || "").trim()).filter(Boolean)).size;
@@ -46,7 +45,6 @@ const priorityActions = computed<Action[]>(() => {
 });
 
 const divergentCount = terms.filter(t => distinctDefs(t) > 1).length;
-const okCount = terms.reduce((s: number, t: any) => s + t.publications.filter((p: any) => p.consistency === "ok").length, 0);
 const rawConflictCount = Object.values(conflictsData.raw || {}).flat().length;
 const collisionCount = Object.values(conflictsData.designation_collisions || {}).flat().length;
 
@@ -86,8 +84,8 @@ const topDivergent = computed(() =>
   <section class="grid grid-4">
     <SLink class="stat-card" to="/terms/"><div class="stat-value">{{ terms.length }}</div><div class="stat-label">unique terms</div></SLink>
     <SLink class="stat-card" to="/harmonization/"><div class="stat-value">{{ divergentCount }}</div><div class="stat-label">divergent terms</div></SLink>
-    <SLink class="stat-card" to="/editions/"><div class="stat-value">{{ okCount }}/{{ totalInstances }}</div><div class="stat-label">consistent</div></SLink>
-    <SLink class="stat-card" to="/conflicts/"><div class="stat-value">{{ rawConflictCount }}</div><div class="stat-label">raw ID conflicts</div></SLink>
+    <SLink class="stat-card" to="/harmonization/"><div class="stat-value">{{ collisionCount }}</div><div class="stat-label">designation collisions</div></SLink>
+    <SLink class="stat-card" to="/conflicts/"><div class="stat-value">{{ rawConflictCount }}</div><div class="stat-label">ID conflicts</div></SLink>
   </section>
 
   <section class="card">
@@ -143,11 +141,16 @@ const topDivergent = computed(() =>
   </section>
 
   <section class="card">
-    <h2>ID conflicts summary</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1em">
-      <div><strong>Raw ID conflicts</strong> (same ID → different concepts)<br /><span class="stat-value">{{ rawConflictCount }}</span></div>
-      <div><strong>Designation collisions</strong> (same concept → multiple IDs)<br /><span class="stat-value">{{ collisionCount }}</span></div>
+    <h2>Dataset quality</h2>
+    <div class="quality-grid">
+      <SLink class="quality-card" to="/conflicts/">
+        <div class="stat-value">{{ rawConflictCount }}</div>
+        <div class="quality-label"><strong>ID conflicts</strong><br /><span class="muted">Same ID → different concepts (numbering errors)</span></div>
+      </SLink>
+      <SLink class="quality-card" to="/harmonization/">
+        <div class="stat-value">{{ collisionCount }}</div>
+        <div class="quality-label"><strong>Designation collisions</strong><br /><span class="muted">Same concept → multiple IDs (harmonise)</span></div>
+      </SLink>
     </div>
-    <p style="margin-top:0.7em"><SLink to="/conflicts/">Full analysis →</SLink></p>
   </section>
 </template>

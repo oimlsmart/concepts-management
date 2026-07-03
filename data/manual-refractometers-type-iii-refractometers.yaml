@@ -2,6 +2,10 @@
 data:
   identifier: '03722'
   term: manual refractometers (type III refractometers)
+  designations:
+  - type: expression
+    status: preferred
+    text: manual refractometers (type III refractometers)
   kind: undefined
   official_concept:
   editions_present:

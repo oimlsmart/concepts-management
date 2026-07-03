@@ -2,6 +2,10 @@
 data:
   identifier: '00570'
   term: control instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: control instrument
   kind: undefined
   official_concept:
   editions_present:

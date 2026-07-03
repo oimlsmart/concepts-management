@@ -2,6 +2,10 @@
 data:
   identifier: '03708'
   term: automatic refractometer (type I refractometers
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic refractometer (type I refractometers
   kind: undefined
   official_concept:
   editions_present:

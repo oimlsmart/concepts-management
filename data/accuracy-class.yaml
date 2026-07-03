@@ -2,6 +2,10 @@
 data:
   identifier: '00825'
   term: accuracy class
+  designations:
+  - type: expression
+    status: preferred
+    text: accuracy class
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993

@@ -2,6 +2,10 @@
 data:
   identifier: '00913'
   term: rider
+  designations:
+  - type: expression
+    status: preferred
+    text: rider
   kind: undefined
   official_concept:
   editions_present:

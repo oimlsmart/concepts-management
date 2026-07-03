@@ -2,6 +2,10 @@
 data:
   identifier: '00584'
   term: module
+  designations:
+  - type: expression
+    status: preferred
+    text: module
   kind: defined_in_viml
   official_concept:
     source: urn:oiml:pub:v:1:2022

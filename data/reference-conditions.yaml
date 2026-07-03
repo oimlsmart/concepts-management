@@ -2,6 +2,13 @@
 data:
   identifier: '00378'
   term: reference conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: reference condition
+  - type: expression
+    status: preferred
+    text: reference conditions
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993
@@ -196,8 +203,8 @@ data:
     clause: T.5.3
     link: https://www.oiml.org/en/files/pdf_R/r051-1-e06.pdf
     g18_entry: '00668'
-    definition: inte set of specified values of influence factors fixed to ensure
-      valid r-comparison of the results of measurements
+    definition: set of specified values of influence factors fixed to ensure valid
+      inter-comparison of the results of measurements
     notes: []
     consistency: pending
     consistency_reason: ''
@@ -472,6 +479,11 @@ data:
       instrumental measurement uncertainty is the smallest possible.'
     consistency: pending
     consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '4.11'
+        source: urn:oiml:pub:v:2:2012
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -925,3 +937,14 @@ related:
     vocab: vim
     role: prior
     year: 2007
+- type: see
+  ref:
+    id: '4.11'
+    source: urn:oiml:pub:v:2:2012
+    definition_text: operating condition prescribed for evaluating the performance
+      of a {{3.1,measuring instrument}} or {{3.2,measuring system}} or for comparison
+      of {{2.9,measurement results}}
+    edition_label: VIM 2012
+    vocab: vim
+    role: current
+    year: 2012

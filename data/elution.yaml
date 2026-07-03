@@ -2,6 +2,10 @@
 data:
   identifier: '01051'
   term: elution
+  designations:
+  - type: expression
+    status: preferred
+    text: elution
   kind: undefined
   official_concept:
   editions_present:

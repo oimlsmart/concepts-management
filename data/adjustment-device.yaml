@@ -2,6 +2,10 @@
 data:
   identifier: '02051'
   term: adjustment device
+  designations:
+  - type: expression
+    status: preferred
+    text: adjustment device
   kind: undefined
   official_concept:
   editions_present:

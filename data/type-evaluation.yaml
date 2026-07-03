@@ -2,6 +2,10 @@
 data:
   identifier: '01466'
   term: type evaluation
+  designations:
+  - type: expression
+    status: preferred
+    text: type evaluation
   kind: defined_in_viml
   official_concept:
     source: urn:oiml:pub:v:1:2000

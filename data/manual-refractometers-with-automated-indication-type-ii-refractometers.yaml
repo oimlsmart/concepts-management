@@ -2,6 +2,10 @@
 data:
   identifier: '03721'
   term: manual refractometers with automated indication (type II refractometers)
+  designations:
+  - type: expression
+    status: preferred
+    text: manual refractometers with automated indication (type II refractometers)
   kind: undefined
   official_concept:
   editions_present:

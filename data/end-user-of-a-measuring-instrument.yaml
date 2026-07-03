@@ -2,6 +2,10 @@
 data:
   identifier: 02272-D016
   term: end user (of a measuring instrument)
+  designations:
+  - type: expression
+    status: preferred
+    text: end user (of a measuring instrument)
   kind: undefined
   official_concept:
   editions_present:

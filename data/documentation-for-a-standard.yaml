@@ -2,6 +2,10 @@
 data:
   identifier: '00221'
   term: documentation for a standard
+  designations:
+  - type: expression
+    status: preferred
+    text: documentation for a standard
   kind: undefined
   official_concept:
   editions_present:

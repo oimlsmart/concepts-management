@@ -2,6 +2,10 @@
 data:
   identifier: '00320'
   term: tamper proofing
+  designations:
+  - type: expression
+    status: preferred
+    text: tamper proofing
   kind: undefined
   official_concept:
   editions_present:

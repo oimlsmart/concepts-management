@@ -2,6 +2,10 @@
 data:
   identifier: '02868'
   term: associated measuring transducer (see also T.t.1)
+  designations:
+  - type: expression
+    status: preferred
+    text: associated measuring transducer (see also T.t.1)
   kind: undefined
   official_concept:
   editions_present:

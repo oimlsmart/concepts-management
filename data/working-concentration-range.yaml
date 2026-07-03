@@ -2,6 +2,10 @@
 data:
   identifier: '03645'
   term: working concentration range
+  designations:
+  - type: expression
+    status: preferred
+    text: working concentration range
   kind: undefined
   official_concept:
   editions_present:

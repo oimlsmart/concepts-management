@@ -2,6 +2,10 @@
 data:
   identifier: '02107'
   term: standard radiator
+  designations:
+  - type: expression
+    status: preferred
+    text: standard radiator
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01834'
   term: in-motion test
+  designations:
+  - type: expression
+    status: preferred
+    text: in-motion test
   kind: undefined
   official_concept:
   editions_present:

@@ -2,8 +2,22 @@
 data:
   identifier: '00376'
   term: disturbance
-  kind: undefined
+  designations:
+  - type: expression
+    status: preferred
+    text: disturbance
+  kind: defined_in_viml
   official_concept:
+    source: urn:oiml:pub:v:1:2022
+    id: '5.19'
+    url: https://oimlsmart.github.io/vocab/viml-2022/concept/5.19
+    definition_text: "{{0.07,influence quantity}} having a value within the limits
+      specified in the relevant Recommendation, but outside the specified {{0.08,rated
+      operating conditions}} of a {{0.10,measuring instrument}}"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022
   editions_present:
   - '2010'
   - 202X
@@ -380,6 +394,27 @@ data:
     - that influence quantity, the rated operating conditions are not specified.
     consistency: pending
     consistency_reason: ''
+  - edition: 202X
+    publication: OIML R091-1:2025
+    publication_id: OIML R091-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: 3.5.9
+    link:
+    g18_entry: '03749'
+    definition: influence quantity having a value within the limits specified in Part
+      2 of this Recommendation, but outside the specified rated operating conditions
+      of the measuring instrument
+    notes:
+    - 'Note: An influence quantity is a disturbance if the rated operating conditions
+      for that influence quantity are not specified.'
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '5.19'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -824,4 +859,15 @@ data:
 status: current
 id: bf7346a0-f1b4-51f8-baf2-24cbdf326bd6
 schema_version: '3'
-related: []
+related:
+- type: see
+  ref:
+    id: '5.19'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: "{{0.07,influence quantity}} having a value within the limits
+      specified in the relevant Recommendation, but outside the specified {{0.08,rated
+      operating conditions}} of a {{0.10,measuring instrument}}"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

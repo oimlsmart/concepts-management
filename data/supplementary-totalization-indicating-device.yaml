@@ -2,6 +2,10 @@
 data:
   identifier: '00502'
   term: supplementary totalization indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: supplementary totalization indicating device
   kind: undefined
   official_concept:
   editions_present:

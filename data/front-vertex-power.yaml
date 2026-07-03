@@ -2,6 +2,10 @@
 data:
   identifier: '01132'
   term: front vertex power
+  designations:
+  - type: expression
+    status: preferred
+    text: front vertex power
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03299'
   term: metrology
+  designations:
+  - type: expression
+    status: preferred
+    text: metrology
   kind: undefined
   official_concept:
   editions_present:

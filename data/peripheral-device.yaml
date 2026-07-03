@@ -2,6 +2,10 @@
 data:
   identifier: '00908'
   term: peripheral device
+  designations:
+  - type: expression
+    status: preferred
+    text: peripheral device
   kind: undefined
   official_concept:
   editions_present:

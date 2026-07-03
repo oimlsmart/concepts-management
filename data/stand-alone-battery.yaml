@@ -2,6 +2,10 @@
 data:
   identifier: '02249-D011'
   term: stand-alone battery
+  designations:
+  - type: expression
+    status: preferred
+    text: stand-alone battery
   kind: undefined
   official_concept:
   editions_present:

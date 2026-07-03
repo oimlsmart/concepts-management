@@ -2,6 +2,10 @@
 data:
   identifier: '02164'
   term: Evaluation Report
+  designations:
+  - type: expression
+    status: preferred
+    text: Evaluation Report
   kind: undefined
   official_concept:
   editions_present:

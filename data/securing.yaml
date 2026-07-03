@@ -2,6 +2,10 @@
 data:
   identifier: '03477'
   term: securing
+  designations:
+  - type: expression
+    status: preferred
+    text: securing
   kind: undefined
   official_concept:
   editions_present:

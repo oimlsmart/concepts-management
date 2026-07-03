@@ -2,6 +2,10 @@
 data:
   identifier: '02309-R046-1'
   term: harmonic
+  designations:
+  - type: expression
+    status: preferred
+    text: harmonic
   kind: undefined
   official_concept:
   editions_present:

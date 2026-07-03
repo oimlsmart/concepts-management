@@ -2,6 +2,10 @@
 data:
   identifier: '00613'
   term: semi-automatic zero setting device
+  designations:
+  - type: expression
+    status: preferred
+    text: semi-automatic zero setting device
   kind: undefined
   official_concept:
   editions_present:

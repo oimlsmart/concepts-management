@@ -2,6 +2,10 @@
 data:
   identifier: 02347-R099-1
   term: step response time
+  designations:
+  - type: expression
+    status: preferred
+    text: step response time
   kind: undefined
   official_concept:
   editions_present:

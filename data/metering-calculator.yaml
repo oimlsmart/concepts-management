@@ -2,6 +2,10 @@
 data:
   identifier: '03289'
   term: metering calculator
+  designations:
+  - type: expression
+    status: preferred
+    text: metering calculator
   kind: undefined
   official_concept:
   editions_present:

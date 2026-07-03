@@ -2,6 +2,10 @@
 data:
   identifier: '03338'
   term: non-invasive automated sphygmomanometer
+  designations:
+  - type: expression
+    status: preferred
+    text: non-invasive automated sphygmomanometer
   kind: undefined
   official_concept:
   editions_present:

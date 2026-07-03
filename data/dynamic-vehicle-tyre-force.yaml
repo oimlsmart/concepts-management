@@ -2,6 +2,10 @@
 data:
   identifier: '03022'
   term: dynamic vehicle tyre force
+  designations:
+  - type: expression
+    status: preferred
+    text: dynamic vehicle tyre force
   kind: undefined
   official_concept:
   editions_present:

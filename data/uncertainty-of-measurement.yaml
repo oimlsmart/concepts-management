@@ -2,6 +2,10 @@
 data:
   identifier: '02068'
   term: uncertainty of measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: uncertainty of measurement
   kind: undefined
   official_concept:
   editions_present:

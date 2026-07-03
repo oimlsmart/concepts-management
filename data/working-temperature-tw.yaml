@@ -1,7 +1,11 @@
 ---
 data:
   identifier: '02416'
-  term: working temperature  Tw
+  term: working temperature Tw
+  designations:
+  - type: expression
+    status: preferred
+    text: working temperature Tw
   kind: undefined
   official_concept:
   editions_present:
@@ -21,6 +25,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 63eb35bd-7347-5921-a41a-e994c0f3d5b6
+id: 84ed097d-d174-574e-a8ce-37060cd3b5c1
 schema_version: '3'
 related: []

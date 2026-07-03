@@ -2,6 +2,10 @@
 data:
   identifier: '03546'
   term: surveillance
+  designations:
+  - type: expression
+    status: preferred
+    text: surveillance
   kind: undefined
   official_concept:
   editions_present:

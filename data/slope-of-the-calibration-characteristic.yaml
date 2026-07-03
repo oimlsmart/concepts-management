@@ -2,6 +2,10 @@
 data:
   identifier: '00404'
   term: slope of the calibration characteristic
+  designations:
+  - type: expression
+    status: preferred
+    text: slope of the calibration characteristic
   kind: undefined
   official_concept:
   editions_present:

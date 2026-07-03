@@ -2,6 +2,10 @@
 data:
   identifier: '00608'
   term: sorting device
+  designations:
+  - type: expression
+    status: preferred
+    text: sorting device
   kind: undefined
   official_concept:
   editions_present:

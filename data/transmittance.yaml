@@ -2,6 +2,10 @@
 data:
   identifier: '01843'
   term: transmittance
+  designations:
+  - type: expression
+    status: preferred
+    text: transmittance
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01283'
   term: minimum wagon weight
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum wagon weight
   kind: undefined
   official_concept:
   editions_present:

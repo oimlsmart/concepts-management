@@ -2,6 +2,10 @@
 data:
   identifier: '01458'
   term: maximum permissible error (m or mpe)
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum permissible error (m or mpe)
   kind: undefined
   official_concept:
   editions_present:

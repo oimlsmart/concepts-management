@@ -2,6 +2,10 @@
 data:
   identifier: '01425'
   term: discrimination threshold
+  designations:
+  - type: expression
+    status: preferred
+    text: discrimination threshold
   kind: undefined
   official_concept:
   editions_present:

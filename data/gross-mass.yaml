@@ -2,6 +2,10 @@
 data:
   identifier: '01630'
   term: gross mass
+  designations:
+  - type: expression
+    status: preferred
+    text: gross mass
   kind: undefined
   official_concept:
   editions_present:

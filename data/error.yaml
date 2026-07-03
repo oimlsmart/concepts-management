@@ -1,9 +1,22 @@
 ---
 data:
-  identifier: '02139'
+  identifier: '00654'
   term: error
-  kind: undefined
+  designations:
+  - type: expression
+    status: preferred
+    text: error
+  kind: defined_in_vim
   official_concept:
+    source: urn:oiml:pub:v:2:1993
+    id: '5.20'
+    url: https://oimlsmart.github.io/vocab/vim-1993/concept/5.20
+    definition_text: indication of a measuring instrument minus a true value of the
+      corresponding input quantity
+    edition_label: VIM 1993
+    vocab: vim
+    role: legacy
+    year: 1993
   editions_present:
   - '2010'
   - 202X
@@ -20,6 +33,135 @@ data:
     definition: measured quantity value minus a reference quantity value
     notes:
     - "(VIM:2007, 2.16)"
+    consistency: pending
+    consistency_reason: ''
+  - edition: '2010'
+    publication: OIML D 31:2008
+    publication_id: OIML D031:2008
+    tc_sc: TC5/SC2
+    year: 2008
+    clause: 3.1.17
+    link: https://www.oiml.org/en/files/pdf_D/d031-e08.pdf
+    g18_entry: '02184'
+    definition: indication of a measuring instrument minus a true value of the corresponding
+      input quantity
+    notes:
+    - "[VIM:1993, 5.20; OIML D 11:2004, 3.5]"
+    consistency: pending
+    consistency_reason: ''
+  - edition: '2010'
+    publication: OIML R 85-1:2008
+    publication_id: OIML R085-1:2008
+    tc_sc: ''
+    year: 2008
+    clause: '3.28'
+    link: https://www.oiml.org/en/files/pdf_R/r085-1-e08.pdf
+    g18_entry: '02326'
+    definition: indication of an ALG minus a true value of the corresponding input
+      quantity
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: '2010'
+    publication: OIML R 99-1:2008
+    publication_id: OIML R099-1:2008
+    tc_sc: ''
+    year: 2008
+    clause: '3.17'
+    link: https://www.oiml.org/en/files/pdf_R/r099-1-e08.pdf
+    g18_entry: '02350'
+    definition: measured quantity value minus a reference quantity value
+    notes:
+    - "(VIM:2007, 2.16)"
+    consistency: pending
+    consistency_reason: ''
+  - edition: '2010'
+    publication: OIML R 51-1:2006
+    publication_id: OIML R051-1:2006
+    tc_sc: ''
+    year: 2006
+    clause: T.4.3.1
+    link: https://www.oiml.org/en/files/pdf_R/r051-1-e06.pdf
+    g18_entry: '00654'
+    definition: "[V indication of an instrument minus the (conventional) true value
+      ofthe mass IM:1993, 5.20]"
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: '2010'
+    publication: OIML R 76-1:2006
+    publication_id: OIML R076-1:2006
+    tc_sc: ''
+    year: 2006
+    clause: T.5.5.1
+    link: https://www.oiml.org/en/files/pdf_R/r076-1-e06.pdf
+    g18_entry: '00977'
+    definition: "[a indication of an instrument minus the (conventional) true value
+      ofthe corresponding mass dapted from VIM:1993, 1993, 3.10]"
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: '2010'
+    publication: OIML D 11:2004
+    publication_id: OIML D011:2004
+    tc_sc: TC5/SC1
+    year: 2004
+    clause: '3.5'
+    link: https://www.oiml.org/en/files/pdf_D/d011-e04.pdf
+    g18_entry: '00228'
+    definition: indication of a measuring instrument minus a true value of the corresponding
+      input quantity [VIM, 5.20]
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        source: urn:oiml:pub:v:2:1993
+        id: '5.20'
+  - edition: '2010'
+    publication: OIML R 50-1:1997
+    publication_id: OIML R050-1:1997
+    tc_sc: TC9/SC2
+    year: 1997
+    clause: T.5.1
+    link: https://www.oiml.org/en/files/pdf_R/r050-1-e97.pdf
+    g18_entry: '00525'
+    definition: "[A the value, in units of mass, of the difference between two readings
+      from a totalization indicating device on a belt weigher, minus the (conventional)
+      true value of the mass relating to those readings dapted from VIM:1993, 5.20]"
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        source: urn:oiml:pub:v:2:1993
+        id: '5.20'
+  - edition: 202X
+    publication: OIML R117-1:2019
+    publication_id: OIML R117-1:2019
+    tc_sc: ''
+    year: 2019
+    clause: T.e.4.1
+    link:
+    g18_entry: '03043'
+    definition: indicated quantity value minus the reference (true) quantity value
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R050-1:2014
+    publication_id: OIML R050-1:2014
+    tc_sc: ''
+    year: 2014
+    clause: 2.4.5
+    link:
+    g18_entry: '03044'
+    definition: indication minus a reference quantity value
+    notes:
+    - 'Note: This reference value is sometimes referred to as a (conventional) true
+      quantity value. [VIML, 4.06]'
     consistency: pending
     consistency_reason: ''
   - edition: 202X
@@ -66,7 +208,69 @@ data:
     notes: []
     consistency: pending
     consistency_reason: ''
+  - edition: 202X
+    publication: OIML R 85-1:2008
+    publication_id: OIML R085-1:2008
+    tc_sc: ''
+    year: 2008
+    clause: '3.28'
+    link: https://www.oiml.org/en/files/pdf_R/r085-1-e08.pdf
+    g18_entry: 02326-R085-1
+    definition: indication of an ALG minus a true value of the corresponding input
+      quantity
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R 99-1:2008
+    publication_id: OIML R099-1:2008
+    tc_sc: ''
+    year: 2008
+    clause: '3.17'
+    link: https://www.oiml.org/en/files/pdf_R/r099-1-e08.pdf
+    g18_entry: '02351'
+    definition: measured quantity value minus a reference quantity value [VIM:2007,
+      2.16]
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R 51-1:2006
+    publication_id: OIML R051-1:2006
+    tc_sc: ''
+    year: 2006
+    clause: T.4.3.1
+    link: https://www.oiml.org/en/files/pdf_R/r051-1-e06.pdf
+    g18_entry: '00654'
+    definition: indication of an instrument minus the (conventional) true value of
+      the mass [VIM:1993, 5.20]
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R 76-1:2006
+    publication_id: OIML R076-1:2006
+    tc_sc: ''
+    year: 2006
+    clause: T.5.5.1
+    link: https://www.oiml.org/en/files/pdf_R/r076-1-e06.pdf
+    g18_entry: '00977'
+    definition: indication of an instrument minus the (conventional) true value of
+      the corresponding mass [adapted from VIM:1993, 1993, 3.10]
+    notes: []
+    consistency: pending
+    consistency_reason: ''
 status: current
 id: e2da76bb-840a-5e65-abe3-3ac84d27964c
 schema_version: '3'
-related: []
+related:
+- type: see
+  ref:
+    source: urn:oiml:pub:v:2:1993
+    id: '5.20'
+    definition_text: indication of a measuring instrument minus a true value of the
+      corresponding input quantity
+    edition_label: VIM 1993
+    vocab: vim
+    role: legacy
+    year: 1993

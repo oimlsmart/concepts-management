@@ -2,6 +2,10 @@
 data:
   identifier: '00204'
   term: placing on the market
+  designations:
+  - type: expression
+    status: preferred
+    text: placing on the market
   kind: undefined
   official_concept:
   editions_present:

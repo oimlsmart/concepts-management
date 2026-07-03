@@ -2,6 +2,10 @@
 data:
   identifier: '02787'
   term: measured quantity value measured value indication {value of a measured quantity}
+  designations:
+  - type: expression
+    status: preferred
+    text: measured quantity value measured value indication {value of a measured quantity}
   kind: undefined
   official_concept:
   editions_present:

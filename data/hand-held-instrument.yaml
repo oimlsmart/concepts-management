@@ -2,6 +2,10 @@
 data:
   identifier: '02372'
   term: hand-held instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: hand-held instrument
   kind: undefined
   official_concept:
   editions_present:

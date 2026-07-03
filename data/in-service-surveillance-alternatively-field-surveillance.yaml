@@ -1,7 +1,11 @@
 ---
 data:
   identifier: '02278-D016'
-  term: in-service surveillance (alternatively “field surveillance”)
+  term: in-service surveillance (alternatively "field surveillance")
+  designations:
+  - type: expression
+    status: preferred
+    text: in-service surveillance (alternatively "field surveillance")
   kind: undefined
   official_concept:
   editions_present:
@@ -29,6 +33,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 53f02cfc-1ab1-5923-a2d5-a2cd0199da0b
+id: b25016e4-359d-57d3-9b4b-2c9e1d3a7ad5
 schema_version: '3'
 related: []

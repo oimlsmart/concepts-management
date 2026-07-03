@@ -2,6 +2,10 @@
 data:
   identifier: '03375'
   term: pre-payment
+  designations:
+  - type: expression
+    status: preferred
+    text: pre-payment
   kind: undefined
   official_concept:
   editions_present:

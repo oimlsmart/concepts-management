@@ -2,6 +2,10 @@
 data:
   identifier: '00696'
   term: standard solution reproducing conductivity
+  designations:
+  - type: expression
+    status: preferred
+    text: standard solution reproducing conductivity
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01154'
   term: main scale marks
+  designations:
+  - type: expression
+    status: preferred
+    text: main scale marks
   kind: undefined
   official_concept:
   editions_present:

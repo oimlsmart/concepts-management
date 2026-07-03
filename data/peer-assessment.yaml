@@ -2,6 +2,10 @@
 data:
   identifier: '00113'
   term: peer assessment
+  designations:
+  - type: expression
+    status: preferred
+    text: peer assessment
   kind: undefined
   official_concept:
   editions_present:

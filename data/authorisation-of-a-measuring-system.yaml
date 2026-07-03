@@ -2,6 +2,10 @@
 data:
   identifier: '02880'
   term: authorisation of a measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: authorisation of a measuring system
   kind: undefined
   official_concept:
   editions_present:

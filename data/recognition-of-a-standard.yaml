@@ -2,6 +2,10 @@
 data:
   identifier: '00222'
   term: recognition of a standard
+  designations:
+  - type: expression
+    status: preferred
+    text: recognition of a standard
   kind: undefined
   official_concept:
   editions_present:

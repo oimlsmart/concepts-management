@@ -2,6 +2,10 @@
 data:
   identifier: '02054'
   term: volume conversion device
+  designations:
+  - type: expression
+    status: preferred
+    text: volume conversion device
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03759'
   term: fixed beam
+  designations:
+  - type: expression
+    status: preferred
+    text: fixed beam
   kind: undefined
   official_concept:
   editions_present:

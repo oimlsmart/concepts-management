@@ -2,6 +2,10 @@
 data:
   identifier: '03092'
   term: gas separator
+  designations:
+  - type: expression
+    status: preferred
+    text: gas separator
   kind: undefined
   official_concept:
   editions_present:

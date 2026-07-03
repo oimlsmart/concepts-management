@@ -2,6 +2,10 @@
 data:
   identifier: '01866'
   term: error (of a measuring instrument)
+  designations:
+  - type: expression
+    status: preferred
+    text: error (of a measuring instrument)
   kind: undefined
   official_concept:
   editions_present:

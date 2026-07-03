@@ -2,6 +2,10 @@
 data:
   identifier: '03311'
   term: minimum measured quantity of a measuring system minimum delivery
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum measured quantity of a measuring system minimum delivery
   kind: undefined
   official_concept:
   editions_present:

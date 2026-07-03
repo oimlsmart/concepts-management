@@ -2,6 +2,10 @@
 data:
   identifier: '03575'
   term: totalisation scale interval, d
+  designations:
+  - type: expression
+    status: preferred
+    text: totalisation scale interval, d
   kind: undefined
   official_concept:
   editions_present:

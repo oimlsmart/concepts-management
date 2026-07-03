@@ -2,6 +2,10 @@
 data:
   identifier: '00676'
   term: reference point
+  designations:
+  - type: expression
+    status: preferred
+    text: reference point
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00402'
   term: time necessary to reach thermal equilibrium
+  designations:
+  - type: expression
+    status: preferred
+    text: time necessary to reach thermal equilibrium
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00698'
   term: secondary standard solution
+  designations:
+  - type: expression
+    status: preferred
+    text: secondary standard solution
   kind: undefined
   official_concept:
   editions_present:

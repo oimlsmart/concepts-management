@@ -2,6 +2,10 @@
 data:
   identifier: '02833'
   term: effective emissivity
+  designations:
+  - type: expression
+    status: preferred
+    text: effective emissivity
   kind: undefined
   official_concept:
   editions_present:

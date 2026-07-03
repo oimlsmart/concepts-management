@@ -2,6 +2,10 @@
 data:
   identifier: '02376'
   term: motor vehicle
+  designations:
+  - type: expression
+    status: preferred
+    text: motor vehicle
   kind: undefined
   official_concept:
   editions_present:

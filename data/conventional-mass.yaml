@@ -2,6 +2,10 @@
 data:
   identifier: '01448'
   term: conventional mass
+  designations:
+  - type: expression
+    status: preferred
+    text: conventional mass
   kind: undefined
   official_concept:
   editions_present:

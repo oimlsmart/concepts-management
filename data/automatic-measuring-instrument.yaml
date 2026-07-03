@@ -2,6 +2,10 @@
 data:
   identifier: '01882'
   term: automatic measuring instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic measuring instrument
   kind: undefined
   official_concept:
   editions_present:

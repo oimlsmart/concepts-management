@@ -2,6 +2,10 @@
 data:
   identifier: '00852'
   term: fast response meter
+  designations:
+  - type: expression
+    status: preferred
+    text: fast response meter
   kind: undefined
   official_concept:
   editions_present:

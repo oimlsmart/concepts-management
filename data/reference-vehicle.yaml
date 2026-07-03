@@ -2,6 +2,10 @@
 data:
   identifier: '03448'
   term: reference vehicle
+  designations:
+  - type: expression
+    status: preferred
+    text: reference vehicle
   kind: undefined
   official_concept:
   editions_present:

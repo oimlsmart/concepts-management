@@ -2,6 +2,10 @@
 data:
   identifier: '02991'
   term: digital load cell equipped with further data processing
+  designations:
+  - type: expression
+    status: preferred
+    text: digital load cell equipped with further data processing
   kind: undefined
   official_concept:
   editions_present:

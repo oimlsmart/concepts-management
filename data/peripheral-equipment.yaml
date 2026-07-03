@@ -2,6 +2,10 @@
 data:
   identifier: '01228'
   term: peripheral equipment
+  designations:
+  - type: expression
+    status: preferred
+    text: peripheral equipment
   kind: undefined
   official_concept:
   editions_present:

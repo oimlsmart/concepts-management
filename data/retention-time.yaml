@@ -2,6 +2,10 @@
 data:
   identifier: '01059'
   term: retention time
+  designations:
+  - type: expression
+    status: preferred
+    text: retention time
   kind: undefined
   official_concept:
   editions_present:

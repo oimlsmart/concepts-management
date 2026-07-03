@@ -2,6 +2,10 @@
 data:
   identifier: '00351'
   term: legally relevant software
+  designations:
+  - type: expression
+    status: preferred
+    text: legally relevant software
   kind: undefined
   official_concept:
   editions_present:

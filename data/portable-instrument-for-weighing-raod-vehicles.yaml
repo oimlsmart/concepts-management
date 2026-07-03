@@ -2,6 +2,10 @@
 data:
   identifier: '00887'
   term: portable instrument for weighing raod vehicles
+  designations:
+  - type: expression
+    status: preferred
+    text: portable instrument for weighing raod vehicles
   kind: undefined
   official_concept:
   editions_present:

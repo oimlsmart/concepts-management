@@ -2,6 +2,10 @@
 data:
   identifier: 02307-R046-1
   term: frequency (f)
+  designations:
+  - type: expression
+    status: preferred
+    text: frequency (f)
   kind: undefined
   official_concept:
   editions_present:

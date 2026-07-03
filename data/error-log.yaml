@@ -2,6 +2,10 @@
 data:
   identifier: '03048'
   term: error log
+  designations:
+  - type: expression
+    status: preferred
+    text: error log
   kind: undefined
   official_concept:
   editions_present:

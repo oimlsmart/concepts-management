@@ -2,6 +2,10 @@
 data:
   identifier: '02547'
   term: digital data processing module
+  designations:
+  - type: expression
+    status: preferred
+    text: digital data processing module
   kind: undefined
   official_concept:
   editions_present:

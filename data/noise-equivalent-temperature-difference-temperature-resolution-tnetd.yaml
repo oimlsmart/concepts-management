@@ -2,6 +2,10 @@
 data:
   identifier: '02114'
   term: noise equivalent temperature difference (temperature resolution, ΔTNETD)
+  designations:
+  - type: expression
+    status: preferred
+    text: noise equivalent temperature difference (temperature resolution, ΔTNETD)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01507'
   term: special purpose temperature probe
+  designations:
+  - type: expression
+    status: preferred
+    text: special purpose temperature probe
   kind: undefined
   official_concept:
   editions_present:

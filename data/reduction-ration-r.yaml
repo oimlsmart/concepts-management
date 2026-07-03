@@ -2,6 +2,10 @@
 data:
   identifier: '00954'
   term: reduction ration, R
+  designations:
+  - type: expression
+    status: preferred
+    text: reduction ration, R
   kind: undefined
   official_concept:
   editions_present:

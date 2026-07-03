@@ -2,6 +2,10 @@
 data:
   identifier: 02300-R046-1
   term: current (I)
+  designations:
+  - type: expression
+    status: preferred
+    text: current (I)
   kind: undefined
   official_concept:
   editions_present:

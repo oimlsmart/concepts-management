@@ -2,6 +2,10 @@
 data:
   identifier: '01979'
   term: capacity serving measures
+  designations:
+  - type: expression
+    status: preferred
+    text: capacity serving measures
   kind: undefined
   official_concept:
   editions_present:

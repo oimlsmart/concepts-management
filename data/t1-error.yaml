@@ -1,7 +1,11 @@
 ---
 data:
   identifier: '02494'
-  term: T1 error
+  term: T1 error
+  designations:
+  - type: expression
+    status: preferred
+    text: T1 error
   kind: undefined
   official_concept:
   editions_present:
@@ -25,6 +29,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: fc89e955-c57f-5e5f-94a9-3cf993ce9160
+id: '09d7939b-38fe-5462-9be9-041119e2bf76'
 schema_version: '3'
 related: []

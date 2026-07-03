@@ -2,6 +2,10 @@
 data:
   identifier: '03760'
   term: fixed-distance speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: fixed-distance speed meter
   kind: undefined
   official_concept:
   editions_present:

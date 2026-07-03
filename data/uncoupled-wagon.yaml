@@ -2,6 +2,10 @@
 data:
   identifier: '02529'
   term: uncoupled wagon
+  designations:
+  - type: expression
+    status: preferred
+    text: uncoupled wagon
   kind: undefined
   official_concept:
   editions_present:

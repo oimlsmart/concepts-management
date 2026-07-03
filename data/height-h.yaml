@@ -2,6 +2,10 @@
 data:
   identifier: '03096'
   term: height (H)
+  designations:
+  - type: expression
+    status: preferred
+    text: height (H)
   kind: undefined
   official_concept:
   editions_present:

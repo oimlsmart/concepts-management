@@ -2,8 +2,27 @@
 data:
   identifier: '00661'
   term: fault
-  kind: undefined
+  designations:
+  - type: expression
+    status: preferred
+    text: fault
+  - type: expression
+    status: preferred
+    text: Fault
+  - type: symbol
+    status: preferred
+    text: stem:[Delta e]
+  kind: defined_in_viml
   official_concept:
+    source: urn:oiml:pub:v:1:2022
+    id: '5.12'
+    url: https://oimlsmart.github.io/vocab/viml-2022/concept/5.12
+    definition_text: difference between the {{0.04,error of indication}} and the {{0.06,intrinsic
+      error}} of a measuring instrument
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022
   editions_present:
   - '2010'
   - 202X
@@ -379,6 +398,24 @@ data:
     notes: []
     consistency: pending
     consistency_reason: ''
+  - edition: 202X
+    publication: OIML R091-1:2025
+    publication_id: OIML R091-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: 3.5.6
+    link:
+    g18_entry: '03758'
+    definition: difference between the error of indication and the intrinsic error
+      of a measuring instrument
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '5.12'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML R142-1:2025
     publication_id: OIML R142-1:2025
@@ -880,4 +917,14 @@ data:
 status: current
 id: f34ebf71-9021-5cf4-9f61-946e7e8a7eb4
 schema_version: '3'
-related: []
+related:
+- type: see
+  ref:
+    id: '5.12'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: difference between the {{0.04,error of indication}} and the {{0.06,intrinsic
+      error}} of a measuring instrument
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

@@ -2,6 +2,10 @@
 data:
   identifier: '00944'
   term: extension interval of self-indication
+  designations:
+  - type: expression
+    status: preferred
+    text: extension interval of self-indication
   kind: undefined
   official_concept:
   editions_present:

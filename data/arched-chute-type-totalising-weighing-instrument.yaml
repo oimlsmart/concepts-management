@@ -2,6 +2,10 @@
 data:
   identifier: '02864'
   term: arched chute type totalising weighing instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: arched chute type totalising weighing instrument
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02369'
   term: lambda
+  designations:
+  - type: expression
+    status: preferred
+    text: lambda
   kind: undefined
   official_concept:
   editions_present:

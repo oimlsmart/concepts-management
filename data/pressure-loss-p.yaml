@@ -2,6 +2,10 @@
 data:
   identifier: '02418'
   term: pressure loss Δp
+  designations:
+  - type: expression
+    status: preferred
+    text: pressure loss Δp
   kind: undefined
   official_concept:
   editions_present:

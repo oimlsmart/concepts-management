@@ -2,6 +2,10 @@
 data:
   identifier: '02464'
   term: universal computer
+  designations:
+  - type: expression
+    status: preferred
+    text: universal computer
   kind: undefined
   official_concept:
   editions_present:

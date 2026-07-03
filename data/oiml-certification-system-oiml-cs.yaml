@@ -2,6 +2,10 @@
 data:
   identifier: '03344'
   term: OIML Certification System (OIML-CS)
+  designations:
+  - type: expression
+    status: preferred
+    text: OIML Certification System (OIML-CS)
   kind: undefined
   official_concept:
   editions_present:

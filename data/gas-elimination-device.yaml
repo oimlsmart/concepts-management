@@ -2,6 +2,10 @@
 data:
   identifier: '03089'
   term: gas elimination device
+  designations:
+  - type: expression
+    status: preferred
+    text: gas elimination device
   kind: undefined
   official_concept:
   editions_present:

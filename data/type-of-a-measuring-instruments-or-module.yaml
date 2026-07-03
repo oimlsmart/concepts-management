@@ -2,6 +2,10 @@
 data:
   identifier: '00084'
   term: type of a measuring instruments or module
+  designations:
+  - type: expression
+    status: preferred
+    text: type of a measuring instruments or module
   kind: undefined
   official_concept:
   editions_present:

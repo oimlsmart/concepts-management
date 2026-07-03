@@ -2,6 +2,10 @@
 data:
   identifier: '02592'
   term: maximum transit speed
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum transit speed
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02678'
   term: "(instrumental) drift"
+  designations:
+  - type: expression
+    status: preferred
+    text: "(instrumental) drift"
   kind: undefined
   official_concept:
   editions_present:

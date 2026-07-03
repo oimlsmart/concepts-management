@@ -2,6 +2,10 @@
 data:
   identifier: '02491'
   term: actual quantity
+  designations:
+  - type: expression
+    status: preferred
+    text: actual quantity
   kind: undefined
   official_concept:
   editions_present:

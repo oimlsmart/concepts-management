@@ -2,6 +2,10 @@
 data:
   identifier: '00582'
   term: load transport system
+  designations:
+  - type: expression
+    status: preferred
+    text: load transport system
   kind: undefined
   official_concept:
   editions_present:

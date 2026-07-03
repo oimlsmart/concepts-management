@@ -2,6 +2,10 @@
 data:
   identifier: '01693'
   term: foot crank ergometers with controlled braking power
+  designations:
+  - type: expression
+    status: preferred
+    text: foot crank ergometers with controlled braking power
   kind: undefined
   official_concept:
   editions_present:

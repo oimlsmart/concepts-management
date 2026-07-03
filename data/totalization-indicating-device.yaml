@@ -2,6 +2,10 @@
 data:
   identifier: '01380'
   term: totalization indicating device
+  designations:
+  - type: expression
+    status: preferred
+    text: totalization indicating device
   kind: undefined
   official_concept:
   editions_present:

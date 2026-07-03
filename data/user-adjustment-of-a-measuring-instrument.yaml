@@ -2,6 +2,10 @@
 data:
   identifier: '02338-R099-1'
   term: user adjustment (of a measuring instrument)
+  designations:
+  - type: expression
+    status: preferred
+    text: user adjustment (of a measuring instrument)
   kind: undefined
   official_concept:
   editions_present:

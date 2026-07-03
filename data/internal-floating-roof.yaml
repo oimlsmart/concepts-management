@@ -2,6 +2,10 @@
 data:
   identifier: '01628'
   term: internal floating roof
+  designations:
+  - type: expression
+    status: preferred
+    text: internal floating roof
   kind: undefined
   official_concept:
   editions_present:

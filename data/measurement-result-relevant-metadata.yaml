@@ -2,6 +2,13 @@
 data:
   identifier: '03262'
   term: measurement result relevant metadata
+  designations:
+  - type: expression
+    status: preferred
+    text: measurement result relevant metadata
+  - type: expression
+    status: admitted
+    text: relevant metadata
   kind: undefined
   official_concept:
   editions_present:

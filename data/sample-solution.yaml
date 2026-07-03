@@ -2,6 +2,10 @@
 data:
   identifier: '01851'
   term: sample solution
+  designations:
+  - type: expression
+    status: preferred
+    text: sample solution
   kind: undefined
   official_concept:
   editions_present:

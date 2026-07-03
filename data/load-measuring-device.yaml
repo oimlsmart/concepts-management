@@ -2,6 +2,10 @@
 data:
   identifier: '00580'
   term: load measuring device
+  designations:
+  - type: expression
+    status: preferred
+    text: load measuring device
   kind: undefined
   official_concept:
   editions_present:

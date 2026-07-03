@@ -2,6 +2,10 @@
 data:
   identifier: '03571'
   term: totalisation device
+  designations:
+  - type: expression
+    status: preferred
+    text: totalisation device
   kind: undefined
   official_concept:
   editions_present:

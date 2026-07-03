@@ -2,6 +2,10 @@
 data:
   identifier: 02251-R080-1
   term: tank or compartment calibration (tank calibration)
+  designations:
+  - type: expression
+    status: preferred
+    text: tank or compartment calibration (tank calibration)
   kind: undefined
   official_concept:
   editions_present:

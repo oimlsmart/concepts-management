@@ -2,6 +2,10 @@
 data:
   identifier: '01452'
   term: magnetic dipole moment (md)
+  designations:
+  - type: expression
+    status: preferred
+    text: magnetic dipole moment (md)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00867'
   term: reference values of the measurand, RVM
+  designations:
+  - type: expression
+    status: preferred
+    text: reference values of the measurand, RVM
   kind: undefined
   official_concept:
   editions_present:

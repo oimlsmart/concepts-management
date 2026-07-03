@@ -1,7 +1,11 @@
 ---
 data:
   identifier: '01858'
-  term: Beer’s factor (Kε = εb = Ac/c)
+  term: Beer's factor (Kε = εb = Ac/c)
+  designations:
+  - type: expression
+    status: preferred
+    text: Beer's factor (Kε = εb = Ac/c)
   kind: undefined
   official_concept:
   editions_present:
@@ -26,6 +30,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 11302b1c-3df8-555d-9670-74ef77e7c7e1
+id: d53f6040-b13e-545e-98d3-aef9bb3b1828
 schema_version: '3'
 related: []

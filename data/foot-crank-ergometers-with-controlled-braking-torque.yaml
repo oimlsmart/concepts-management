@@ -2,6 +2,10 @@
 data:
   identifier: '01694'
   term: foot crank ergometers with controlled braking torque
+  designations:
+  - type: expression
+    status: preferred
+    text: foot crank ergometers with controlled braking torque
   kind: undefined
   official_concept:
   editions_present:

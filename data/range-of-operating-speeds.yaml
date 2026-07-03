@@ -2,6 +2,10 @@
 data:
   identifier: '02591'
   term: range of operating speeds
+  designations:
+  - type: expression
+    status: preferred
+    text: range of operating speeds
   kind: undefined
   official_concept:
   editions_present:

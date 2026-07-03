@@ -2,6 +2,10 @@
 data:
   identifier: '00117'
   term: Committee on Participation Review
+  designations:
+  - type: expression
+    status: preferred
+    text: Committee on Participation Review
   kind: undefined
   official_concept:
   editions_present:

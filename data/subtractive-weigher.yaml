@@ -2,6 +2,10 @@
 data:
   identifier: '00760'
   term: subtractive weigher
+  designations:
+  - type: expression
+    status: preferred
+    text: subtractive weigher
   kind: undefined
   official_concept:
   editions_present:

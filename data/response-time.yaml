@@ -2,6 +2,13 @@
 data:
   identifier: '02138'
   term: response time
+  designations:
+  - type: expression
+    status: preferred
+    text: response time
+  - type: symbol
+    status: preferred
+    text: stem:[tau_{0.5}]
   kind: undefined
   official_concept:
   editions_present:
@@ -20,6 +27,20 @@ data:
     definition: time interval between the instant of a stepwise concentration change
       of the substance (SO2) being measured and the instant at which the signal reaches
       90 % of its stable value
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: '2010'
+    publication: OIML R 75-1:2002
+    publication_id: OIML R075-1:2002
+    tc_sc: ''
+    year: 2002
+    clause: '4.1'
+    link: https://www.oiml.org/en/files/pdf_R/r075-1-e02.pdf
+    g18_entry: '00851'
+    definition: time interval between the instant when the flow, the temperature orthe
+      temperature difference is subjected to a specified abrupt change, and the instant
+      when the response reaches 50 % of its final steady value
     notes: []
     consistency: pending
     consistency_reason: ''

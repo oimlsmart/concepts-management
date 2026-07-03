@@ -2,6 +2,10 @@
 data:
   identifier: '02493'
   term: individual prepackage error
+  designations:
+  - type: expression
+    status: preferred
+    text: individual prepackage error
   kind: undefined
   official_concept:
   editions_present:

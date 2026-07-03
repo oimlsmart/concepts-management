@@ -2,6 +2,10 @@
 data:
   identifier: '02999'
   term: displacer
+  designations:
+  - type: expression
+    status: preferred
+    text: displacer
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00878'
   term: self-indicating instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: self-indicating instrument
   kind: undefined
   official_concept:
   editions_present:

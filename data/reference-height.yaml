@@ -2,6 +2,13 @@
 data:
   identifier: 02232-R071
   term: reference height
+  designations:
+  - type: expression
+    status: preferred
+    text: reference height
+  - type: symbol
+    status: preferred
+    text: stem:[H]
   kind: undefined
   official_concept:
   editions_present:
@@ -9,6 +16,20 @@ data:
   - 202X
   primary_edition: 202X
   publications:
+  - edition: '2010'
+    publication: OIML R 80-1:2009
+    publication_id: OIML R080-1:2009
+    tc_sc: TC8/SC1
+    year: 2009
+    clause: '2.17'
+    link: https://www.oiml.org/en/files/pdf_R/r080-1-e09.pdf
+    g18_entry: '02256'
+    definition: distance, measured along the vertical measurement axis, between the
+      reference point top and the reference point bottom
+    notes:
+    - "(see figure 1)"
+    consistency: pending
+    consistency_reason: ''
   - edition: '2010'
     publication: OIML R 71:2008
     publication_id: OIML R071:2008

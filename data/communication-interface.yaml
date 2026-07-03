@@ -2,6 +2,10 @@
 data:
   identifier: '02550'
   term: communication interface
+  designations:
+  - type: expression
+    status: preferred
+    text: communication interface
   kind: undefined
   official_concept:
   editions_present:

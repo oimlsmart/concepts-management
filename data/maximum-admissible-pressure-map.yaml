@@ -2,6 +2,10 @@
 data:
   identifier: '02415'
   term: maximum admissible pressure MAP
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum admissible pressure MAP
   kind: undefined
   official_concept:
   editions_present:

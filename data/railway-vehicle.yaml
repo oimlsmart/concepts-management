@@ -2,6 +2,10 @@
 data:
   identifier: '02526'
   term: railway vehicle
+  designations:
+  - type: expression
+    status: preferred
+    text: railway vehicle
   kind: undefined
   official_concept:
   editions_present:

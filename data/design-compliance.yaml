@@ -2,6 +2,10 @@
 data:
   identifier: '02780'
   term: design compliance
+  designations:
+  - type: expression
+    status: preferred
+    text: design compliance
   kind: undefined
   official_concept:
   editions_present:

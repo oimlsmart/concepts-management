@@ -2,6 +2,10 @@
 data:
   identifier: '03633'
   term: weighing
+  designations:
+  - type: expression
+    status: preferred
+    text: weighing
   kind: undefined
   official_concept:
   editions_present:

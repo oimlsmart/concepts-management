@@ -2,6 +2,10 @@
 data:
   identifier: '02430'
   term: conditioning
+  designations:
+  - type: expression
+    status: preferred
+    text: conditioning
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03736'
   term: across-the road speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: across-the road speed meter
   kind: undefined
   official_concept:
   editions_present:

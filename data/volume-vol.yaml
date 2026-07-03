@@ -2,6 +2,10 @@
 data:
   identifier: '01712'
   term: volume (vol)
+  designations:
+  - type: expression
+    status: preferred
+    text: volume (vol)
   kind: undefined
   official_concept:
   editions_present:

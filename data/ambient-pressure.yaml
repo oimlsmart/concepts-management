@@ -2,6 +2,10 @@
 data:
   identifier: '01205'
   term: ambient pressure
+  designations:
+  - type: expression
+    status: preferred
+    text: ambient pressure
   kind: undefined
   official_concept:
   editions_present:

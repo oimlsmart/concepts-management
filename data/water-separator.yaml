@@ -2,6 +2,10 @@
 data:
   identifier: 02334-R099-1
   term: water separator
+  designations:
+  - type: expression
+    status: preferred
+    text: water separator
   kind: undefined
   official_concept:
   editions_present:

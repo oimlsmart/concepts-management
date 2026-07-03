@@ -2,6 +2,10 @@
 data:
   identifier: 02334-R046-1
   term: positive-direction only (energy) flow
+  designations:
+  - type: expression
+    status: preferred
+    text: positive-direction only (energy) flow
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00849'
   term: calculator
+  designations:
+  - type: expression
+    status: preferred
+    text: calculator
   kind: undefined
   official_concept:
   editions_present:

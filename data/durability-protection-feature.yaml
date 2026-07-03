@@ -2,6 +2,10 @@
 data:
   identifier: '01251'
   term: durability protection feature
+  designations:
+  - type: expression
+    status: preferred
+    text: durability protection feature
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02485'
   term: packing material
+  designations:
+  - type: expression
+    status: preferred
+    text: packing material
   kind: undefined
   official_concept:
   editions_present:

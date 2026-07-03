@@ -2,6 +2,10 @@
 data:
   identifier: '00953'
   term: multiple range instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: multiple range instrument
   kind: undefined
   official_concept:
   editions_present:

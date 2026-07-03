@@ -2,6 +2,10 @@
 data:
   identifier: '01128'
   term: adjusting rail
+  designations:
+  - type: expression
+    status: preferred
+    text: adjusting rail
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03531'
   term: special gas extractor
+  designations:
+  - type: expression
+    status: preferred
+    text: special gas extractor
   kind: undefined
   official_concept:
   editions_present:

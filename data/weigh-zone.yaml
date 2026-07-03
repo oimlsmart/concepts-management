@@ -2,6 +2,10 @@
 data:
   identifier: '02538'
   term: weigh zone
+  designations:
+  - type: expression
+    status: preferred
+    text: weigh zone
   kind: undefined
   official_concept:
   editions_present:

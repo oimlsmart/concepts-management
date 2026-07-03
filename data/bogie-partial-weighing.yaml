@@ -2,6 +2,10 @@
 data:
   identifier: '02568'
   term: bogie partial weighing
+  designations:
+  - type: expression
+    status: preferred
+    text: bogie partial weighing
   kind: undefined
   official_concept:
   editions_present:

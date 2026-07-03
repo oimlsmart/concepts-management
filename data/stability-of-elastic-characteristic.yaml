@@ -2,6 +2,10 @@
 data:
   identifier: '00689'
   term: stability of elastic characteristic
+  designations:
+  - type: expression
+    status: preferred
+    text: stability of elastic characteristic
   kind: undefined
   official_concept:
   editions_present:

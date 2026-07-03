@@ -2,6 +2,10 @@
 data:
   identifier: '00487'
   term: variable speed beltweigher
+  designations:
+  - type: expression
+    status: preferred
+    text: variable speed beltweigher
   kind: undefined
   official_concept:
   editions_present:

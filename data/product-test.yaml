@@ -2,6 +2,10 @@
 data:
   identifier: '03393'
   term: product test
+  designations:
+  - type: expression
+    status: preferred
+    text: product test
   kind: undefined
   official_concept:
   editions_present:

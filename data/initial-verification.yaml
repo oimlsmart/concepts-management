@@ -2,6 +2,10 @@
 data:
   identifier: '00194'
   term: initial verification
+  designations:
+  - type: expression
+    status: preferred
+    text: initial verification
   kind: undefined
   official_concept:
   editions_present:

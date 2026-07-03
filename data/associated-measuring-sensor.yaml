@@ -2,6 +2,10 @@
 data:
   identifier: '02867'
   term: associated measuring sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: associated measuring sensor
   kind: undefined
   official_concept:
   editions_present:

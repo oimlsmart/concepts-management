@@ -2,6 +2,10 @@
 data:
   identifier: '03355'
   term: payment
+  designations:
+  - type: expression
+    status: preferred
+    text: payment
   kind: undefined
   official_concept:
   editions_present:

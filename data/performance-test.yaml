@@ -2,6 +2,10 @@
 data:
   identifier: '00671'
   term: performance test
+  designations:
+  - type: expression
+    status: preferred
+    text: performance test
   kind: undefined
   official_concept:
   editions_present:

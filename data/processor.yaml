@@ -2,6 +2,10 @@
 data:
   identifier: '01621'
   term: processor
+  designations:
+  - type: expression
+    status: preferred
+    text: processor
   kind: undefined
   official_concept:
   editions_present:

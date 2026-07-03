@@ -2,6 +2,10 @@
 data:
   identifier: '03431'
   term: reference (operationg) conditions
+  designations:
+  - type: expression
+    status: preferred
+    text: reference (operationg) conditions
   kind: undefined
   official_concept:
   editions_present:

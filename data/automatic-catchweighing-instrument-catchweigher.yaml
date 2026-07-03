@@ -2,6 +2,10 @@
 data:
   identifier: '00561'
   term: automatic catchweighing instrument (catchweigher)
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic catchweighing instrument (catchweigher)
   kind: undefined
   official_concept:
   editions_present:

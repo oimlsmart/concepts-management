@@ -2,6 +2,10 @@
 data:
   identifier: '03775'
   term: mobile speed meter
+  designations:
+  - type: expression
+    status: preferred
+    text: mobile speed meter
   kind: undefined
   official_concept:
   editions_present:

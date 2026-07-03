@@ -2,6 +2,10 @@
 data:
   identifier: '01984'
   term: brim capacity, Vr
+  designations:
+  - type: expression
+    status: preferred
+    text: brim capacity, Vr
   kind: undefined
   official_concept:
   editions_present:

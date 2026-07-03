@@ -2,6 +2,10 @@
 data:
   identifier: '01760'
   term: EPR spectroscopy
+  designations:
+  - type: expression
+    status: preferred
+    text: EPR spectroscopy
   kind: undefined
   official_concept:
   editions_present:

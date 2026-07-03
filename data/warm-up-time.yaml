@@ -2,6 +2,10 @@
 data:
   identifier: '00642'
   term: warm-up time
+  designations:
+  - type: expression
+    status: preferred
+    text: warm-up time
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: 02341-R099-1
   term: automatic adjustment facility
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic adjustment facility
   kind: undefined
   official_concept:
   editions_present:

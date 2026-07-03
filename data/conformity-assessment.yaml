@@ -2,6 +2,10 @@
 data:
   identifier: '02939'
   term: conformity assessment
+  designations:
+  - type: expression
+    status: preferred
+    text: conformity assessment
   kind: undefined
   official_concept:
   editions_present:

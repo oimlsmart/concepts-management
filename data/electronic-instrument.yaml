@@ -2,6 +2,10 @@
 data:
   identifier: '00482'
   term: electronic instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: electronic instrument
   kind: undefined
   official_concept:
   editions_present:

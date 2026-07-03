@@ -2,6 +2,10 @@
 data:
   identifier: '02389'
   term: cartridge meter connection interface
+  designations:
+  - type: expression
+    status: preferred
+    text: cartridge meter connection interface
   kind: undefined
   official_concept:
   editions_present:

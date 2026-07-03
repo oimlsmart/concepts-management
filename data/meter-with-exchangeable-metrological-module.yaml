@@ -2,6 +2,10 @@
 data:
   identifier: '02390'
   term: meter with exchangeable metrological module
+  designations:
+  - type: expression
+    status: preferred
+    text: meter with exchangeable metrological module
   kind: undefined
   official_concept:
   editions_present:

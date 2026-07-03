@@ -2,6 +2,10 @@
 data:
   identifier: '00136'
   term: legal character
+  designations:
+  - type: expression
+    status: preferred
+    text: legal character
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03785'
   term: stationary measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: stationary measurement
   kind: undefined
   official_concept:
   editions_present:

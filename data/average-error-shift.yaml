@@ -2,6 +2,10 @@
 data:
   identifier: '02467'
   term: average error shift
+  designations:
+  - type: expression
+    status: preferred
+    text: average error shift
   kind: undefined
   official_concept:
   editions_present:

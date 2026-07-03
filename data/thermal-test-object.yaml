@@ -2,6 +2,10 @@
 data:
   identifier: '02109'
   term: thermal test object
+  designations:
+  - type: expression
+    status: preferred
+    text: thermal test object
   kind: undefined
   official_concept:
   editions_present:

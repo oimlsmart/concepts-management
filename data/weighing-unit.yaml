@@ -2,6 +2,10 @@
 data:
   identifier: '00495'
   term: weighing unit
+  designations:
+  - type: expression
+    status: preferred
+    text: weighing unit
   kind: undefined
   official_concept:
   editions_present:

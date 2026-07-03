@@ -2,6 +2,10 @@
 data:
   identifier: '00403'
   term: calibration temperature characteristic of the lamp
+  designations:
+  - type: expression
+    status: preferred
+    text: calibration temperature characteristic of the lamp
   kind: undefined
   official_concept:
   editions_present:

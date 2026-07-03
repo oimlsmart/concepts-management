@@ -2,6 +2,10 @@
 data:
   identifier: '02463'
   term: open network
+  designations:
+  - type: expression
+    status: preferred
+    text: open network
   kind: undefined
   official_concept:
   editions_present:

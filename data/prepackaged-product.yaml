@@ -2,6 +2,10 @@
 data:
   identifier: '00993'
   term: prepackaged product
+  designations:
+  - type: expression
+    status: preferred
+    text: prepackaged product
   kind: undefined
   official_concept:
   editions_present:

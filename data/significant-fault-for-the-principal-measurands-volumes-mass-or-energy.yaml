@@ -2,6 +2,10 @@
 data:
   identifier: '02083'
   term: 'significant fault (for the principal measurands: volumes, mass or energy)'
+  designations:
+  - type: expression
+    status: preferred
+    text: 'significant fault (for the principal measurands: volumes, mass or energy)'
   kind: undefined
   official_concept:
   editions_present:

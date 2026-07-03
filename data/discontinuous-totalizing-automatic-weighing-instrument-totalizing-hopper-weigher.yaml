@@ -3,6 +3,11 @@ data:
   identifier: '01317'
   term: discontinuous totalizing automatic weighing instrument (totalizing hopper
     weigher)
+  designations:
+  - type: expression
+    status: preferred
+    text: discontinuous totalizing automatic weighing instrument (totalizing hopper
+      weigher)
   kind: undefined
   official_concept:
   editions_present:

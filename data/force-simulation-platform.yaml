@@ -2,6 +2,10 @@
 data:
   identifier: '03084'
   term: force simulation platform
+  designations:
+  - type: expression
+    status: preferred
+    text: force simulation platform
   kind: undefined
   official_concept:
   editions_present:

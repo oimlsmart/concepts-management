@@ -2,6 +2,10 @@
 data:
   identifier: '00384'
   term: reference test block
+  designations:
+  - type: expression
+    status: preferred
+    text: reference test block
   kind: undefined
   official_concept:
   editions_present:

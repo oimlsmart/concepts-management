@@ -2,6 +2,10 @@
 data:
   identifier: '00955'
   term: type
+  designations:
+  - type: expression
+    status: preferred
+    text: type
   kind: undefined
   official_concept:
   editions_present:

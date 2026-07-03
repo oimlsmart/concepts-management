@@ -2,6 +2,10 @@
 data:
   identifier: '02105'
   term: thermographic instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: thermographic instrument
   kind: undefined
   official_concept:
   editions_present:

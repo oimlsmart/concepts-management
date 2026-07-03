@@ -2,6 +2,10 @@
 data:
   identifier: '03493'
   term: settlement of a transaction
+  designations:
+  - type: expression
+    status: preferred
+    text: settlement of a transaction
   kind: undefined
   official_concept:
   editions_present:

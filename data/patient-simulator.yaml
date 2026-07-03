@@ -2,6 +2,10 @@
 data:
   identifier: '00335'
   term: patient simulator
+  designations:
+  - type: expression
+    status: preferred
+    text: patient simulator
   kind: undefined
   official_concept:
   editions_present:

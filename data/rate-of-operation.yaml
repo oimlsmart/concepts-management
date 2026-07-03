@@ -2,6 +2,10 @@
 data:
   identifier: '00641'
   term: rate of operation
+  designations:
+  - type: expression
+    status: preferred
+    text: rate of operation
   kind: undefined
   official_concept:
   editions_present:

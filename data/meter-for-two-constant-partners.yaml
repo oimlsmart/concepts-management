@@ -2,6 +2,10 @@
 data:
   identifier: '02380'
   term: meter for two constant partners
+  designations:
+  - type: expression
+    status: preferred
+    text: meter for two constant partners
   kind: undefined
   official_concept:
   editions_present:

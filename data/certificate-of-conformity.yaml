@@ -2,6 +2,10 @@
 data:
   identifier: '01445'
   term: certificate of conformity
+  designations:
+  - type: expression
+    status: preferred
+    text: certificate of conformity
   kind: undefined
   official_concept:
   editions_present:

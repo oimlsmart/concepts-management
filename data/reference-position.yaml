@@ -2,6 +2,10 @@
 data:
   identifier: '00991'
   term: reference position
+  designations:
+  - type: expression
+    status: preferred
+    text: reference position
   kind: undefined
   official_concept:
   editions_present:

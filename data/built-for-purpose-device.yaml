@@ -2,6 +2,10 @@
 data:
   identifier: '02911'
   term: built-for-purpose device
+  designations:
+  - type: expression
+    status: preferred
+    text: built-for-purpose device
   kind: undefined
   official_concept:
   editions_present:

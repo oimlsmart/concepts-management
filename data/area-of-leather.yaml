@@ -2,6 +2,10 @@
 data:
   identifier: '01886'
   term: area of leather
+  designations:
+  - type: expression
+    status: preferred
+    text: area of leather
   kind: undefined
   official_concept:
   editions_present:

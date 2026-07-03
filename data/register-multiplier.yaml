@@ -2,6 +2,10 @@
 data:
   identifier: '02294-R046-1'
   term: register multiplier
+  designations:
+  - type: expression
+    status: preferred
+    text: register multiplier
   kind: undefined
   official_concept:
   editions_present:

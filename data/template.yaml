@@ -2,6 +2,10 @@
 data:
   identifier: '01887'
   term: template
+  designations:
+  - type: expression
+    status: preferred
+    text: template
   kind: undefined
   official_concept:
   editions_present:

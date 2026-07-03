@@ -2,6 +2,10 @@
 data:
   identifier: '03640'
   term: weighing rollers
+  designations:
+  - type: expression
+    status: preferred
+    text: weighing rollers
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02963'
   term: creep
+  designations:
+  - type: expression
+    status: preferred
+    text: creep
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01013'
   term: measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring system
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993

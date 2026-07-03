@@ -2,6 +2,10 @@
 data:
   identifier: '02472'
   term: enabling/inhibiting sealable hardware
+  designations:
+  - type: expression
+    status: preferred
+    text: enabling/inhibiting sealable hardware
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03682'
   term: selective combination weighing instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: selective combination weighing instrument
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02202'
   term: metrological traceability
+  designations:
+  - type: expression
+    status: preferred
+    text: metrological traceability
   kind: undefined
   official_concept:
   editions_present:

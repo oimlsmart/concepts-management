@@ -2,6 +2,10 @@
 data:
   identifier: '02972'
   term: data domain
+  designations:
+  - type: expression
+    status: preferred
+    text: data domain
   kind: undefined
   official_concept:
   editions_present:

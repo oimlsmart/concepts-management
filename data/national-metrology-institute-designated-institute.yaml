@@ -2,6 +2,10 @@
 data:
   identifier: '03324'
   term: National Metrology Institute (Designated Institute)
+  designations:
+  - type: expression
+    status: preferred
+    text: National Metrology Institute (Designated Institute)
   kind: undefined
   official_concept:
   editions_present:

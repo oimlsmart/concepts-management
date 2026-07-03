@@ -2,6 +2,10 @@
 data:
   identifier: '02126'
   term: gas analyzer
+  designations:
+  - type: expression
+    status: preferred
+    text: gas analyzer
   kind: undefined
   official_concept:
   editions_present:

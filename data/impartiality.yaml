@@ -2,6 +2,10 @@
 data:
   identifier: '03172'
   term: impartiality
+  designations:
+  - type: expression
+    status: preferred
+    text: impartiality
   kind: undefined
   official_concept:
   editions_present:

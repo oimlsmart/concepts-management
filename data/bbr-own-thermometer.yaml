@@ -2,6 +2,10 @@
 data:
   identifier: '02829'
   term: BBR own thermometer
+  designations:
+  - type: expression
+    status: preferred
+    text: BBR own thermometer
   kind: undefined
   official_concept:
   editions_present:

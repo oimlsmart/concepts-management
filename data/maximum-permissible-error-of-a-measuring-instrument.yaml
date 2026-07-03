@@ -1,13 +1,45 @@
 ---
 data:
   identifier: '01642'
-  term: maximum permissible error (of a measuring  instrument)
+  term: maximum permissible error (of a measuring instrument)
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum permissible error (of a measuring instrument)
   kind: undefined
   official_concept:
   editions_present:
   - 202X
   primary_edition: 202X
   publications:
+  - edition: 202X
+    publication: OIML D031:2023
+    publication_id: OIML D031:2023
+    tc_sc: ''
+    year: 2023
+    clause: 3.2.32
+    link:
+    g18_entry: '03237'
+    definition: extreme value of measurement error , with respect to a known reference
+      quantity value, permitted by specifications or regulations for a given measurement,  measuring
+      instrument, or measuring system adapted from [OIML V 1:2022, 0.05]
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML D011:2013
+    publication_id: OIML D011:2013
+    tc_sc: ''
+    year: 2013
+    clause: '3.7'
+    link:
+    g18_entry: '02221'
+    definition: extreme value of measurement error, with respect to a known reference
+      quantity value, permitted by specifications or regulations for a given measurement,
+      measuring instrument, or measuring system [VIM 4.26]
+    notes: []
+    consistency: pending
+    consistency_reason: ''
   - edition: 202X
     publication: OIML R 125:1998
     publication_id: OIML R125:1998
@@ -22,6 +54,6 @@ data:
     consistency: pending
     consistency_reason: ''
 status: current
-id: 6b7d0368-b547-5e31-96b9-a5912399bf35
+id: ba0087be-471c-5180-833d-d7f38781f50a
 schema_version: '3'
 related: []

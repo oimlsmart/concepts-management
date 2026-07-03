@@ -2,6 +2,10 @@
 data:
   identifier: 02227-R071
   term: gauge hatch (dip-hatch)
+  designations:
+  - type: expression
+    status: preferred
+    text: gauge hatch (dip-hatch)
   kind: undefined
   official_concept:
   editions_present:

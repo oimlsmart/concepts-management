@@ -2,6 +2,10 @@
 data:
   identifier: 02252-D011
   term: specimen
+  designations:
+  - type: expression
+    status: preferred
+    text: specimen
   kind: undefined
   official_concept:
   editions_present:

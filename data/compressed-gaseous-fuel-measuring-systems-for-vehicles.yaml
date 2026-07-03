@@ -2,6 +2,10 @@
 data:
   identifier: '02936'
   term: compressed gaseous fuel measuring systems for vehicles
+  designations:
+  - type: expression
+    status: preferred
+    text: compressed gaseous fuel measuring systems for vehicles
   kind: undefined
   official_concept:
   editions_present:

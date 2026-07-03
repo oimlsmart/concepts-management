@@ -2,6 +2,10 @@
 data:
   identifier: '03440'
   term: reference measurement standard reference standard
+  designations:
+  - type: expression
+    status: preferred
+    text: reference measurement standard reference standard
   kind: undefined
   official_concept:
   editions_present:

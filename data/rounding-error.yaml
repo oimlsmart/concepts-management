@@ -2,6 +2,10 @@
 data:
   identifier: '01910'
   term: rounding error
+  designations:
+  - type: expression
+    status: preferred
+    text: rounding error
   kind: undefined
   official_concept:
   editions_present:

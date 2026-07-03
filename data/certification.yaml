@@ -2,6 +2,10 @@
 data:
   identifier: '02819'
   term: certification
+  designations:
+  - type: expression
+    status: preferred
+    text: certification
   kind: undefined
   official_concept:
   editions_present:

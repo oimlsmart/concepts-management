@@ -2,6 +2,10 @@
 data:
   identifier: '00639'
   term: multi-interval instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: multi-interval instrument
   kind: undefined
   official_concept:
   editions_present:

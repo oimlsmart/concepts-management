@@ -2,6 +2,10 @@
 data:
   identifier: '02525'
   term: automatic rail-weighbridge
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic rail-weighbridge
   kind: undefined
   official_concept:
   editions_present:

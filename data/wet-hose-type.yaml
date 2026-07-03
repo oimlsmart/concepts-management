@@ -2,6 +2,10 @@
 data:
   identifier: '01219'
   term: wet hose type
+  designations:
+  - type: expression
+    status: preferred
+    text: wet hose type
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '01145'
   term: reference height, H
+  designations:
+  - type: expression
+    status: preferred
+    text: reference height, H
   kind: undefined
   official_concept:
   editions_present:

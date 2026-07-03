@@ -2,6 +2,10 @@
 data:
   identifier: '02087'
   term: drift
+  designations:
+  - type: expression
+    status: preferred
+    text: drift
   kind: undefined
   official_concept:
   editions_present:

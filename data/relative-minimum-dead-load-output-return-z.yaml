@@ -2,6 +2,10 @@
 data:
   identifier: '03450'
   term: relative minimum dead load output return (Z)
+  designations:
+  - type: expression
+    status: preferred
+    text: relative minimum dead load output return (Z)
   kind: undefined
   official_concept:
   editions_present:

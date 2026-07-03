@@ -2,6 +2,10 @@
 data:
   identifier: '02239-R071'
   term: dipping tape
+  designations:
+  - type: expression
+    status: preferred
+    text: dipping tape
   kind: undefined
   official_concept:
   editions_present:

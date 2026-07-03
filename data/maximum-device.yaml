@@ -2,6 +2,10 @@
 data:
   identifier: '01512'
   term: maximum device
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum device
   kind: undefined
   official_concept:
   editions_present:

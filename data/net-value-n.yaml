@@ -2,6 +2,10 @@
 data:
   identifier: '00968'
   term: net value, N
+  designations:
+  - type: expression
+    status: preferred
+    text: net value, N
   kind: undefined
   official_concept:
   editions_present:

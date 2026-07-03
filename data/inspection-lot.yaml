@@ -2,6 +2,10 @@
 data:
   identifier: '02497'
   term: inspection lot
+  designations:
+  - type: expression
+    status: preferred
+    text: inspection lot
   kind: undefined
   official_concept:
   editions_present:

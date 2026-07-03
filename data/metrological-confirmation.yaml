@@ -2,6 +2,10 @@
 data:
   identifier: '00169'
   term: metrological confirmation
+  designations:
+  - type: expression
+    status: preferred
+    text: metrological confirmation
   kind: undefined
   official_concept:
   editions_present:

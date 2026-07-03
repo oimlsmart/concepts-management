@@ -2,6 +2,10 @@
 data:
   identifier: '02173'
   term: closed network
+  designations:
+  - type: expression
+    status: preferred
+    text: closed network
   kind: undefined
   official_concept:
   editions_present:

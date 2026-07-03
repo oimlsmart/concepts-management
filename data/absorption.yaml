@@ -2,6 +2,10 @@
 data:
   identifier: '01840'
   term: absorption
+  designations:
+  - type: expression
+    status: preferred
+    text: absorption
   kind: undefined
   official_concept:
   editions_present:

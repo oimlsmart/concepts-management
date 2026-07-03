@@ -2,6 +2,10 @@
 data:
   identifier: '00207'
   term: being in service (use)
+  designations:
+  - type: expression
+    status: preferred
+    text: being in service (use)
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00307'
   term: pressure in a blood vessel
+  designations:
+  - type: expression
+    status: preferred
+    text: pressure in a blood vessel
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '03317'
   term: minimum totalized load (Σmin)
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum totalized load (Σmin)
   kind: undefined
   official_concept:
   editions_present:

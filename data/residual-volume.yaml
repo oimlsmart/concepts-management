@@ -2,6 +2,10 @@
 data:
   identifier: '03461'
   term: residual volume
+  designations:
+  - type: expression
+    status: preferred
+    text: residual volume
   kind: undefined
   official_concept:
   editions_present:

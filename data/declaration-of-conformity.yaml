@@ -2,6 +2,10 @@
 data:
   identifier: '00180'
   term: declaration of conformity
+  designations:
+  - type: expression
+    status: preferred
+    text: declaration of conformity
   kind: undefined
   official_concept:
   editions_present:

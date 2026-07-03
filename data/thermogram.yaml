@@ -2,6 +2,10 @@
 data:
   identifier: '02106'
   term: thermogram
+  designations:
+  - type: expression
+    status: preferred
+    text: thermogram
   kind: undefined
   official_concept:
   editions_present:

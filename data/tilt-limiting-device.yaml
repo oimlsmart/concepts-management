@@ -2,6 +2,10 @@
 data:
   identifier: '00610'
   term: tilt limiting device
+  designations:
+  - type: expression
+    status: preferred
+    text: tilt limiting device
   kind: undefined
   official_concept:
   editions_present:

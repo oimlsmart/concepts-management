@@ -2,6 +2,10 @@
 data:
   identifier: '02383'
   term: combined meter
+  designations:
+  - type: expression
+    status: preferred
+    text: combined meter
   kind: undefined
   official_concept:
   editions_present:

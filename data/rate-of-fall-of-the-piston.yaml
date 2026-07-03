@@ -2,6 +2,10 @@
 data:
   identifier: '01423'
   term: rate of fall of the piston
+  designations:
+  - type: expression
+    status: preferred
+    text: rate of fall of the piston
   kind: undefined
   official_concept:
   editions_present:

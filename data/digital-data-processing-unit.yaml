@@ -2,6 +2,10 @@
 data:
   identifier: '03690'
   term: digital data processing unit
+  designations:
+  - type: expression
+    status: preferred
+    text: digital data processing unit
   kind: undefined
   official_concept:
   editions_present:

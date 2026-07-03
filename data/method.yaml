@@ -2,6 +2,10 @@
 data:
   identifier: '00155'
   term: method
+  designations:
+  - type: expression
+    status: preferred
+    text: method
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02113'
   term: spatial (angular) resolution
+  designations:
+  - type: expression
+    status: preferred
+    text: spatial (angular) resolution
   kind: undefined
   official_concept:
   editions_present:

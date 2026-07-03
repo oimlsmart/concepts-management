@@ -2,6 +2,10 @@
 data:
   identifier: '03245'
   term: measurand quantity sensor sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: measurand quantity sensor sensor
   kind: undefined
   official_concept:
   editions_present:

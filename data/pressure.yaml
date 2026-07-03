@@ -2,6 +2,10 @@
 data:
   identifier: '00673'
   term: pressure
+  designations:
+  - type: expression
+    status: preferred
+    text: pressure
   kind: undefined
   official_concept:
   editions_present:

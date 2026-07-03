@@ -2,6 +2,10 @@
 data:
   identifier: '00337'
   term: self-linearizing deflation valve
+  designations:
+  - type: expression
+    status: preferred
+    text: self-linearizing deflation valve
   kind: undefined
   official_concept:
   editions_present:

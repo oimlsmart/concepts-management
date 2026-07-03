@@ -2,6 +2,10 @@
 data:
   identifier: '02207'
   term: software
+  designations:
+  - type: expression
+    status: preferred
+    text: software
   kind: undefined
   official_concept:
   editions_present:

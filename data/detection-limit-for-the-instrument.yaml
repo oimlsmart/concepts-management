@@ -2,6 +2,10 @@
 data:
   identifier: '01481'
   term: detection limit for the instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: detection limit for the instrument
   kind: undefined
   official_concept:
   editions_present:

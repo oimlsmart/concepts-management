@@ -2,6 +2,10 @@
 data:
   identifier: '03402'
   term: maximum mass flowrate, Qmmax
+  designations:
+  - type: expression
+    status: preferred
+    text: maximum mass flowrate, Qmmax
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '02863'
   term: arched chute
+  designations:
+  - type: expression
+    status: preferred
+    text: arched chute
   kind: undefined
   official_concept:
   editions_present:

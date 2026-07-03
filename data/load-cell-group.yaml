@@ -2,6 +2,10 @@
 data:
   identifier: '00711'
   term: load cell group
+  designations:
+  - type: expression
+    status: preferred
+    text: load cell group
   kind: undefined
   official_concept:
   editions_present:

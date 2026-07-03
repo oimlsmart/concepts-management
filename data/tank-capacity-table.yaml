@@ -2,6 +2,10 @@
 data:
   identifier: 02260-R080-1
   term: tank capacity table
+  designations:
+  - type: expression
+    status: preferred
+    text: tank capacity table
   kind: undefined
   official_concept:
   editions_present:

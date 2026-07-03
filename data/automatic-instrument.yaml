@@ -2,6 +2,10 @@
 data:
   identifier: '02888'
   term: automatic instrument
+  designations:
+  - type: expression
+    status: preferred
+    text: automatic instrument
   kind: undefined
   official_concept:
   editions_present:

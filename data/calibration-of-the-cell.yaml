@@ -2,6 +2,10 @@
 data:
   identifier: '00701'
   term: calibration of the cell
+  designations:
+  - type: expression
+    status: preferred
+    text: calibration of the cell
   kind: undefined
   official_concept:
   editions_present:

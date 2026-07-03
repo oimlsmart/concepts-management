@@ -2,6 +2,10 @@
 data:
   identifier: '00260'
   term: pattern evaluation
+  designations:
+  - type: expression
+    status: preferred
+    text: pattern evaluation
   kind: undefined
   official_concept:
   editions_present:

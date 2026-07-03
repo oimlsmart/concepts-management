@@ -2,6 +2,10 @@
 data:
   identifier: '02921'
   term: calibrated section
+  designations:
+  - type: expression
+    status: preferred
+    text: calibrated section
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00311'
   term: non-invasive blood pressure measurement
+  designations:
+  - type: expression
+    status: preferred
+    text: non-invasive blood pressure measurement
   kind: undefined
   official_concept:
   editions_present:

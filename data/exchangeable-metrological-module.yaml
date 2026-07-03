@@ -2,6 +2,10 @@
 data:
   identifier: '02391'
   term: exchangeable metrological module
+  designations:
+  - type: expression
+    status: preferred
+    text: exchangeable metrological module
   kind: undefined
   official_concept:
   editions_present:

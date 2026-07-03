@@ -2,6 +2,10 @@
 data:
   identifier: '03274'
   term: measuring equipment
+  designations:
+  - type: expression
+    status: preferred
+    text: measuring equipment
   kind: undefined
   official_concept:
   editions_present:

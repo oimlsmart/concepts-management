@@ -2,6 +2,10 @@
 data:
   identifier: '03648'
   term: zero adjustment of a measuring system
+  designations:
+  - type: expression
+    status: preferred
+    text: zero adjustment of a measuring system
   kind: undefined
   official_concept:
   editions_present:

@@ -2,6 +2,10 @@
 data:
   identifier: '00847'
   term: flow sensor
+  designations:
+  - type: expression
+    status: preferred
+    text: flow sensor
   kind: undefined
   official_concept:
   editions_present:

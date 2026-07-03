@@ -2,6 +2,10 @@
 data:
   identifier: '02935'
   term: cmplaint
+  designations:
+  - type: expression
+    status: preferred
+    text: cmplaint
   kind: undefined
   official_concept:
   editions_present:

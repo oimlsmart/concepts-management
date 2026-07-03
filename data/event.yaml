@@ -2,6 +2,10 @@
 data:
   identifier: '03051'
   term: event
+  designations:
+  - type: expression
+    status: preferred
+    text: event
   kind: undefined
   official_concept:
   editions_present:

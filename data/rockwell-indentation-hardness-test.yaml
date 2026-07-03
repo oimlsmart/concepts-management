@@ -2,6 +2,10 @@
 data:
   identifier: '00379'
   term: Rockwell (indentation) hardness test
+  designations:
+  - type: expression
+    status: preferred
+    text: Rockwell (indentation) hardness test
   kind: undefined
   official_concept:
   editions_present:

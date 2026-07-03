@@ -2,6 +2,10 @@
 data:
   identifier: '03792'
   term: trigger line
+  designations:
+  - type: expression
+    status: preferred
+    text: trigger line
   kind: undefined
   official_concept:
   editions_present:

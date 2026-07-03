@@ -2,6 +2,10 @@
 data:
   identifier: '01442'
   term: balance
+  designations:
+  - type: expression
+    status: preferred
+    text: balance
   kind: undefined
   official_concept:
   editions_present:

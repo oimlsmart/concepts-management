@@ -2,6 +2,10 @@
 data:
   identifier: '01130'
   term: vertex power
+  designations:
+  - type: expression
+    status: preferred
+    text: vertex power
   kind: undefined
   official_concept:
   editions_present:

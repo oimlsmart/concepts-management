@@ -2,6 +2,10 @@
 data:
   identifier: '00656'
   term: intrinsic error
+  designations:
+  - type: expression
+    status: preferred
+    text: intrinsic error
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993
@@ -262,6 +266,24 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: '2010'
+    publication: OIML R 75-1:2002
+    publication_id: OIML R075-1:2002
+    tc_sc: ''
+    year: 2002
+    clause: 4.9.2
+    link: https://www.oiml.org/en/files/pdf_R/r075-1-e02.pdf
+    g18_entry: '00860'
+    definition: "[ error of a measuring instrument, determined under reference conditions
+      VIM:1993, 5.24]."
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        source: urn:oiml:pub:v:2:1993
+        id: '5.24'
+  - edition: '2010'
     publication: OIML R 129:2000
     publication_id: OIML R129:2000
     tc_sc: TC7/SC5
@@ -365,6 +387,23 @@ data:
       ref:
         source: urn:oiml:pub:v:2:1993
         id: '5.27'
+  - edition: 202X
+    publication: OIML R091-1:2025
+    publication_id: OIML R091-1:2025
+    tc_sc: ''
+    year: 2025
+    clause: 3.5.3
+    link:
+    g18_entry: '03768'
+    definition: error of indication, determined under reference conditions
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+    related:
+    - type: see
+      ref:
+        id: '0.06'
+        source: urn:oiml:pub:v:1:2022
   - edition: 202X
     publication: OIML R142-1:2025
     publication_id: OIML R142-1:2025
@@ -800,3 +839,13 @@ related:
     vocab: vim
     role: legacy
     year: 1993
+- type: see
+  ref:
+    id: '0.06'
+    source: urn:oiml:pub:v:1:2022
+    definition_text: "{{0.04,error of indication}}, determined under {{0.09,reference
+      conditions}}"
+    edition_label: VIML 2022
+    vocab: viml
+    role: current
+    year: 2022

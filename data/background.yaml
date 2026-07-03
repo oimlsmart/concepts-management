@@ -2,6 +2,10 @@
 data:
   identifier: '02899'
   term: Background
+  designations:
+  - type: expression
+    status: preferred
+    text: Background
   kind: undefined
   official_concept:
   editions_present:

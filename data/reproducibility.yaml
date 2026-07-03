@@ -2,6 +2,10 @@
 data:
   identifier: '02670'
   term: reproducibility
+  designations:
+  - type: expression
+    status: preferred
+    text: reproducibility
   kind: undefined
   official_concept:
   editions_present:

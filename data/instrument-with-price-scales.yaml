@@ -2,6 +2,10 @@
 data:
   identifier: '00882'
   term: instrument with price scales
+  designations:
+  - type: expression
+    status: preferred
+    text: instrument with price scales
   kind: undefined
   official_concept:
   editions_present:

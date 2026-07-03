@@ -1,14 +1,21 @@
 ---
 data:
   identifier: '01698'
-  term: angle α
+  term: angle
+  designations:
+  - type: expression
+    status: preferred
+    text: angle
+  - type: symbol
+    status: preferred
+    text: stem:[alpha]
   kind: undefined
   official_concept:
   editions_present:
-  - 202X
+  - '2010'
   primary_edition: 202X
   publications:
-  - edition: 202X
+  - edition: '2010'
     publication: OIML R 128:2000
     publication_id: OIML R128:2000
     tc_sc: TC18
@@ -16,12 +23,12 @@ data:
     clause: '3.7'
     link: https://www.oiml.org/en/files/pdf_R/r128-e00.pdf
     g18_entry: '01698'
-    definition: the angle α is the angle between the saddle-height adjustment direction
-      (seat tube) and the vertical (see Fig. 1) 2
+    definition: the angle stem:[alpha] is the angle between the saddle-height adjustment
+      direction (seat tube) and the vertical (see Fig. 1)
     notes: []
     consistency: pending
     consistency_reason: ''
 status: current
-id: 9d013cf3-85ff-5367-9e00-e5f757ec5433
+id: f5344b5e-bb2d-562f-a940-c3b757610a15
 schema_version: '3'
 related: []
