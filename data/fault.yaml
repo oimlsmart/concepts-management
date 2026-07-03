@@ -414,8 +414,8 @@ data:
     related:
     - type: see
       ref:
-        id: '5.12'
         source: urn:oiml:pub:v:1:2022
+        id: '5.12'
   - edition: 202X
     publication: OIML R142-1:2025
     publication_id: OIML R142-1:2025
@@ -459,10 +459,11 @@ data:
     definition: difference between the error of indication and the intrinsic error
       of a measuring instrument [OIML V 1:202, 5.12]
     notes:
-    - Note 1:Principally, a fault is the result of an undesired change of data contained
-      in or flowing through an electronic measuring instrument. Note 2:From the definition
-      it follows a “fault” is a numerical value which is expressed either in a unit
-      of measurement or as a relative value, for instance as a percentage.
+    - 'Note 1: Principally, a fault is the result of an undesired change of data contained
+      in or flowing through an electronic measuring instrument.'
+    - 'Note 2: From the definition it follows a "fault" is a numerical value which
+      is expressed either in a unit of measurement or as a relative value, for instance
+      as a percentage.'
     consistency: pending
     consistency_reason: ''
   - edition: 202X
@@ -533,10 +534,11 @@ data:
     definition: difference between the error of indication and the intrinsic error
       of a measuring instrument [VIML:2013, 5.12]
     notes:
-    - Note 1:Principally, a fault is the result of an undesired change of data contained
-      in or flowing through an electronic measuring instrument. Note 2:From the definition
-      it follows a “fault” is a numerical value which is expressed either in a unit
-      of measurement or as a relative value, for instance as a percentage.
+    - 'Note 1: Principally, a fault is the result of an undesired change of data contained
+      in or flowing through an electronic measuring instrument.'
+    - 'Note 2: From the definition it follows a "fault" is a numerical value which
+      is expressed either in a unit of measurement or as a relative value, for instance
+      as a percentage.'
     consistency: pending
     consistency_reason: ''
   - edition: 202X
@@ -686,10 +688,11 @@ data:
     definition: difference between the error of indication and the intrinsic error
       of a measuring instrument [OIML D11, 3.9]
     notes:
-    - 'Note 1:In practice this is the difference between the error of the meter observed
+    - 'Note 1: In practice this is the difference between the error of the meter observed
       during or after a test, and the error of the meter prior to this test, performed
-      under reference conditions. Note 2: “measuring instrument” is to be interpreted
-      as a “gas meter” within the scope of this Recommendation.'
+      under reference conditions.'
+    - 'Note 2: "measuring instrument" is to be interpreted as a "gas meter" within
+      the scope of this Recommendation.'
     consistency: pending
     consistency_reason: ''
   - edition: 202X
@@ -869,8 +872,9 @@ data:
       of a weighing instrument
     notes:
     - 'Note 1: Principally, a fault is the result of an undesired change of data contained
-      in or flowing through an electronic instrument. Note 2:  From the definition
-      it follows that in this Recommendation a “fault” is a numerical value.'
+      in or flowing through an electronic instrument.'
+    - 'Note 2: From the definition it follows that in this Recommendation a "fault"
+      is a numerical value.'
     consistency: pending
     consistency_reason: ''
   - edition: 202X
@@ -920,8 +924,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '5.12'
     source: urn:oiml:pub:v:1:2022
+    id: '5.12'
     definition_text: difference between the {{0.04,error of indication}} and the {{0.06,intrinsic
       error}} of a measuring instrument
     edition_label: VIML 2022

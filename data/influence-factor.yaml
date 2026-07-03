@@ -353,8 +353,8 @@ data:
     related:
     - type: see
       ref:
-        id: '5.18'
         source: urn:oiml:pub:v:1:2022
+        id: '5.18'
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -463,10 +463,10 @@ data:
     definition: influence quantity having a value which ranges within the rated operating
       conditions of a measuring instrument [VIML 5.18]
     notes:
-    - Note 1:The rated operating conditions shall be in conformity with the applicable
-      requirements specified in the applicable Recommendation. Note 2:The variation
-      of an indication as a consequence of an influence factor is considered an error
-      and not a fault.
+    - 'Note 1: The rated operating conditions shall be in conformity with the applicable
+      requirements specified in the applicable Recommendation.'
+    - 'Note 2: The variation of an indication as a consequence of an influence factor
+      is considered an error and not a fault.'
     consistency: pending
     consistency_reason: ''
   - edition: 202X
@@ -712,8 +712,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '5.18'
     source: urn:oiml:pub:v:1:2022
+    id: '5.18'
     definition_text: "{{0.07,influence quantity}} having a value which ranges within
       the {{0.08,rated operating conditions}} of a {{0.10,measuring instrument}}"
     edition_label: VIML 2022

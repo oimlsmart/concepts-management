@@ -60,10 +60,11 @@ data:
       comply with all statutory requirements applicable to this instrument type [VIML
       2.11]
     notes:
-    - 'Note 1:Conformity assessment does not only concern metrological requirements
+    - 'Note 1: Conformity assessment does not only concern metrological requirements
       but may also cover requirements relating to: safety; EMC; software identification;
-      ease of use; marking, etc. Note 2:Conformity assessment of a measuring instrument
-      is hereafter referred to as “conformity assessment”.'
+      ease of use; marking, etc.'
+    - 'Note 2: Conformity assessment of a measuring instrument is hereafter referred
+      to as "conformity assessment".'
     consistency: pending
     consistency_reason: ''
   - edition: 202X

@@ -1,6 +1,6 @@
 ---
 data:
-  identifier: '02076'
+  identifier: '00442'
   term: minimum flowrate of the measuring system
   designations:
   - type: expression
@@ -13,6 +13,7 @@ data:
   official_concept:
   editions_present:
   - '2010'
+  - 202X
   primary_edition: 202X
   publications:
   - edition: '2010'
@@ -25,6 +26,19 @@ data:
     g18_entry: '02076'
     definition: flowrate equal to or greater than the smallest "minimum flowrate"
       of the individual meters
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R 140:2007
+    publication_id: OIML R140:2007
+    tc_sc: TC8/SC7
+    year: 2007
+    clause: T.2.10
+    link: https://www.oiml.org/en/files/pdf_R/r140-e07.pdf
+    g18_entry: '00442'
+    definition: lowest flowrate at which the water meter is required to operate within
+      the maximum permissible error
     notes: []
     consistency: pending
     consistency_reason: ''

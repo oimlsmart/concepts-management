@@ -1,0 +1,33 @@
+---
+data:
+  identifier: '02371'
+  term: modulus
+  designations:
+  - type: expression
+    status: preferred
+    text: modulus
+  - type: expression
+    status: admitted
+    text: absolute value
+  kind: undefined
+  official_concept:
+  editions_present:
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: 202X
+    publication: OIML R 99-1:2008
+    publication_id: OIML R099-1:2008
+    tc_sc: ''
+    year: 2008
+    clause: '3.35'
+    link: https://www.oiml.org/en/files/pdf_R/r099-1-e08.pdf
+    g18_entry: '02371'
+    definition: value of the number without regard to its sign
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 0dbfe12b-decf-57b9-83d5-e89f6b4cfe9f
+schema_version: '3'
+related: []

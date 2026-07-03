@@ -9,6 +9,9 @@ data:
   - type: expression
     status: preferred
     text: reference conditions
+  - type: expression
+    status: admitted
+    text: reference operating condition
   kind: defined_in_vim
   official_concept:
     source: urn:oiml:pub:v:2:1993
@@ -473,17 +476,18 @@ data:
     definition: operating condition prescribed for evaluating the performance of a
       measuring instrument or measuring system or for comparison of measurement results
     notes:
-    - 'Note 1:  Reference conditions specify intervals of values of the measurand
-      and influence quantities. Note 2: In IEC 60050-300, item 311-06-02, the term
-      “reference condition” refers to an operating condition under which the specified
-      instrumental measurement uncertainty is the smallest possible.'
+    - 'Note 1: Reference conditions specify intervals of values of the measurand and
+      influence quantities.'
+    - 'Note 2: In IEC 60050-300, item 311-06-02, the term "reference condition" refers
+      to an operating condition under which the specified instrumental measurement
+      uncertainty is the smallest possible.'
     consistency: pending
     consistency_reason: ''
     related:
     - type: see
       ref:
-        id: '4.11'
         source: urn:oiml:pub:v:2:2012
+        id: '4.11'
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -601,6 +605,24 @@ data:
       influence quantities. Note 2: In IEC 60050-300, item 311-06-02, the term “reference
       condition” refers to an operating condition under which the specified instrumental
       measurement uncertainty is the smallest possible.'
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R146-1:2016
+    publication_id: OIML R146-1:2016
+    tc_sc: ''
+    year: 2016
+    clause: 2.1 Tabl. 1.8
+    link:
+    g18_entry: '02789'
+    definition: operating condition prescribed for evaluating the performance of a
+      measuring instrument or measuring system or for comparison of measurement results
+    notes:
+    - NOTE 1 Reference operating conditions specify intervals of values of the measurand
+      and of the influence quantities.
+    - NOTE 2 In IEC 60050-300, item 311-06-02, the term "reference condition" refers
+      to an operating condition under which the specified instrumental measurement
+      uncertainty is the smallest possible.
     consistency: pending
     consistency_reason: ''
   - edition: 202X
@@ -939,8 +961,8 @@ related:
     year: 2007
 - type: see
   ref:
-    id: '4.11'
     source: urn:oiml:pub:v:2:2012
+    id: '4.11'
     definition_text: operating condition prescribed for evaluating the performance
       of a {{3.1,measuring instrument}} or {{3.2,measuring system}} or for comparison
       of {{2.9,measurement results}}

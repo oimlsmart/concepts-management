@@ -1,0 +1,34 @@
+---
+data:
+  identifier: 02302-2
+  term: minimum current
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum current
+  - type: symbol
+    status: preferred
+    text: stem:[I_{"min"}]
+  kind: undefined
+  official_concept:
+  editions_present:
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: 202X
+    publication:
+    publication_id:
+    tc_sc: ''
+    year:
+    clause:
+    link:
+    g18_entry: 02302-2
+    definition: lowest value of current at which the meter is specified by the manufacturer
+      to meet the accuracy requirements
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 6cda3566-7395-5153-aa2c-29cb7a313bce
+schema_version: '3'
+related: []

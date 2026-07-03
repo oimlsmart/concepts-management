@@ -1,0 +1,35 @@
+---
+data:
+  identifier: '03406'
+  term: minimum totalised quantity
+  designations:
+  - type: expression
+    status: preferred
+    text: minimum totalised quantity
+  - type: symbol
+    status: preferred
+    text: stem:[Sigma_{"min"}]
+  kind: undefined
+  official_concept:
+  editions_present:
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: 202X
+    publication: OIML R150-1:2020
+    publication_id: OIML R150-1:2020
+    tc_sc: ''
+    year: 2020
+    clause: 2.3.6
+    link:
+    g18_entry: '03406'
+    definition: totalised quantity, in units of mass, below which totalised values
+      may be subject to errors exceeding the applicable maximum permissible errors
+      (mpe)
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 6745dc53-f803-521e-b0db-a2b9520507ba
+schema_version: '3'
+related: []

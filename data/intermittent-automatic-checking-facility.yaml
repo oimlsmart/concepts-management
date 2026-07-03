@@ -160,6 +160,19 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: 202X
+    publication: OIML R139-1:2022
+    publication_id: OIML R139-1:2022
+    tc_sc: ''
+    year: 2022
+    clause: 3.2.15.2
+    link:
+    g18_entry: '03152'
+    definition: automatic checking facility that operates at certain time intervals
+      or per fixed number of measurement cycles [OIML D 11:2013, 3.19.1.2]
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
     publication: OIML R 85-1:2008
     publication_id: OIML R085-1:2008
     tc_sc: ''

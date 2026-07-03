@@ -56,7 +56,7 @@ data:
       is used in legal metrology with the more specimens of an identified type (pattern)
       of measuring same me instruments against documented requirements, the results
       of only "t which are contained in the evaluation report, in order to determine
-      whether the type may be approved [VIML, 2.5]
+      whether the type may be approved
     notes:
     - aning as "type"; in the entries below, ype" is used.
     consistency: pending
@@ -85,8 +85,8 @@ data:
     related:
     - type: see
       ref:
-        id: '2.04'
         source: urn:oiml:pub:v:1:2022
+        id: '2.04'
   - edition: 202X
     publication: OIML D031:2023
     publication_id: OIML D031:2023
@@ -217,8 +217,8 @@ related:
     year: 2000
 - type: see
   ref:
-    id: '2.04'
     source: urn:oiml:pub:v:1:2022
+    id: '2.04'
     definition_text: "{{A.1,conformity assessment}} procedure on one or more specimens
       of an identified type (pattern) of {{0.10,measuring instruments}} which results
       in an evaluation report and / or an evaluation certificate"

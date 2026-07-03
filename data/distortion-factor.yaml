@@ -1,0 +1,37 @@
+---
+data:
+  identifier: 02312-R046-1
+  term: distortion factor
+  designations:
+  - type: expression
+    status: preferred
+    text: distortion factor
+  - type: symbol
+    status: preferred
+    text: stem:[d]
+  kind: undefined
+  official_concept:
+  editions_present:
+  - 202X
+  primary_edition: 202X
+  publications:
+  - edition: 202X
+    publication: OIML R046-1:2012
+    publication_id: OIML R046-1:2012
+    tc_sc: ''
+    year: 2012
+    clause: 2.2.13
+    link:
+    g18_entry: 02312-R046-1
+    definition: ratio of the r.m.s. value of the harmonic content to the r.m.s. value
+      of the fundamental term
+    notes:
+    - 'Note 1: The harmonic content is obtained e.g. by subtracting from a non-sinusoidal
+      alternating quantity its fundamental term. Note 2: The distortion factor is
+      usually expressed as a percentage. It is equivalent to THD, total harmonic distortion.'
+    consistency: pending
+    consistency_reason: ''
+status: current
+id: 4853205f-18d3-55d5-8699-041ffa749c03
+schema_version: '3'
+related: []

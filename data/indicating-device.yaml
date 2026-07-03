@@ -222,6 +222,22 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: 202X
+    publication: OIML R061-1:2017
+    publication_id: OIML R061-1:2017
+    tc_sc: ''
+    year: 2017
+    clause: 3.3.3
+    link:
+    g18_entry: '03106'
+    definition: 'part of the load measuring device that displays the value of a weighing
+      result in units of mass and may additionally e.g., display the: • differences
+      between mass of a load and some reference value, • value of the mass of the
+      fill(s) and /or related quantities, • parameters of a number of consecutive
+      weighings'
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
     publication: OIML R 85-1:2008
     publication_id: OIML R085-1:2008
     tc_sc: ''

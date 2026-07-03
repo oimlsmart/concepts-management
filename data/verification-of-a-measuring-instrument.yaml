@@ -70,7 +70,6 @@ data:
     definition: procedure (other than type approval) which includes the examination
       and marking and/or issuing of a verification certificate, that ascertains and
       confirms that the measuring instrument complies with the statutory requirements
-      [VIML, 2.13]
     notes: []
     consistency: pending
     consistency_reason: ''
@@ -97,8 +96,8 @@ data:
     related:
     - type: see
       ref:
-        id: '2.09'
         source: urn:oiml:pub:v:1:2022
+        id: '2.09'
   - edition: 202X
     publication: OIML D031:2023
     publication_id: OIML D031:2023
@@ -279,8 +278,8 @@ related:
     year: 2000
 - type: see
   ref:
-    id: '2.09'
     source: urn:oiml:pub:v:1:2022
+    id: '2.09'
     definition_text: "{{A.1,conformity assessment}} procedure (other than {{2.04,type
       evaluation}}) which results in the affixing of a {{3.04,verification mark}}
       and/or issuing of a {{3.02,verification certificate}}"

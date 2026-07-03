@@ -59,7 +59,7 @@ module G18
           File.write(path, serialize_record(record))
           files_written << path
           multi_edge << term_key if Builders.merged_edges(instances).size > 1
-          per_instance_edge_count += instances.sum { |e| Loaders.see_edges(e[:meta]).size }
+          per_instance_edge_count += instances.sum { |e| Loaders.see_edges(e[:concept]).size }
         end
 
         total_pubs  = groups.values.sum { |instances| instances.size }

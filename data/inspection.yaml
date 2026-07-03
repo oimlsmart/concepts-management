@@ -41,8 +41,8 @@ data:
     related:
     - type: see
       ref:
-        id: A.11
         source: urn:oiml:pub:v:1:2022
+        id: A.11
   - edition: 202X
     publication: OIML D037:2022
     publication_id: OIML D037:2022
@@ -91,8 +91,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: A.11
     source: urn:oiml:pub:v:1:2022
+    id: A.11
     definition_text: examination of an object of conformity assessment and determination
       of its conformity with detailed requirements or, on the basis of professional
       judgement, with general requirements

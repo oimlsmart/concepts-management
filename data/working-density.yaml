@@ -1,6 +1,6 @@
 ---
 data:
-  identifier: '01966'
+  identifier: '02689'
   term: working density
   designations:
   - type: expression
@@ -8,11 +8,15 @@ data:
     text: working density
   - type: symbol
     status: preferred
+    text: stem:[rho_{"w"}]
+  - type: symbol
+    status: preferred
     text: stem:[rho_{w}]
   kind: undefined
   official_concept:
   editions_present:
   - '2010'
+  - 202X
   primary_edition: 202X
   publications:
   - edition: '2010'
@@ -25,6 +29,19 @@ data:
     g18_entry: '01966'
     definition: density of the gas flowing through the gas meter, corresponding to
       pw and tw
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R137:2012
+    publication_id: OIML R137:2012
+    tc_sc: ''
+    year: 2012
+    clause: 3.3.11
+    link:
+    g18_entry: '02689'
+    definition: density of the gas flowing through the gas meter, corresponding to
+      stem:[rho_{"w"}] and stem:[t_{"w"}]
     notes: []
     consistency: pending
     consistency_reason: ''

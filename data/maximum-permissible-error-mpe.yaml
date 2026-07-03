@@ -6,30 +6,12 @@ data:
   - type: expression
     status: preferred
     text: maximum permissible error (mpe)
-  - type: expression
-    status: preferred
-    text: maximum permissible error (MPE)
   kind: undefined
   official_concept:
   editions_present:
   - 202X
   primary_edition: 202X
   publications:
-  - edition: 202X
-    publication: OIML R060-1:2021
-    publication_id: OIML R060-1:2021
-    tc_sc: ''
-    year: 2021
-    clause: 3.7.10
-    link:
-    g18_entry: '03234'
-    definition: extreme value of measurement error, with respect to a konown reference
-      quantity value, permitted by specifications or regulations for given measurement,
-      measuring instrument, or measuring system [VIM 4.26]
-    notes:
-    - "(for notes, refer to the VIM)"
-    consistency: pending
-    consistency_reason: ''
   - edition: 202X
     publication: OIML R129-1:2020
     publication_id: OIML R129-1:2020

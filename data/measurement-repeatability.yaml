@@ -1,6 +1,6 @@
 ---
 data:
-  identifier: '02792'
+  identifier: '02448'
   term: measurement repeatability
   designations:
   - type: expression
@@ -38,6 +38,18 @@ data:
     g18_entry: '03403'
     definition: measurement precision under a set of repeatability conditions of measurement
       [VIM, 2.21]
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML R059-1:2016
+    publication_id: OIML R059-1:2016
+    tc_sc: ''
+    year: 2016
+    clause: 2.1.7
+    link:
+    g18_entry: '02448'
+    definition: measurement precision under a set of repeatability conditions of measurement
     notes: []
     consistency: pending
     consistency_reason: ''

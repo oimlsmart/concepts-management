@@ -103,6 +103,20 @@ data:
     consistency: pending
     consistency_reason: ''
   - edition: 202X
+    publication: OIML R059-1:2016
+    publication_id: OIML R059-1:2016
+    tc_sc: ''
+    year: 2016
+    clause: 2.1.4
+    link:
+    g18_entry: '02445'
+    definition: reference material, accompanied by documentation issued by an authoritative
+      body and providing one or more specified property values with associated uncertainties
+      and traceabilities, using valid procedures
+    notes: []
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
     publication: OIML R146-1:2016
     publication_id: OIML R146-1:2016
     tc_sc: ''
@@ -131,6 +145,20 @@ data:
       but uses the modifiers "metrological" and "metrologically" to refer to both
       quantity and nominal property. Refer to Annex B for guidelines on producing
       whole-grain CRMs. Further general information is in OIML D 18:2008.
+    consistency: pending
+    consistency_reason: ''
+  - edition: 202X
+    publication: OIML D 18:2008
+    publication_id: OIML D018:2008
+    tc_sc: TC3/SC3
+    year: 2008
+    clause: '2.2'
+    link: https://www.oiml.org/en/files/pdf_D/d018-e08.pdf
+    g18_entry: '02153'
+    definition: reference material, accompanied by documentation issued by an authoritative
+      body and providing one or more specified property values with associated uncertainties
+      and traceabilities, using valid procedures
+    notes: []
     consistency: pending
     consistency_reason: ''
   - edition: 202X

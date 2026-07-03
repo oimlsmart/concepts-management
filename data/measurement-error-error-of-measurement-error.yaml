@@ -44,16 +44,16 @@ data:
     related:
     - type: see
       ref:
-        id: '2.16'
         source: urn:oiml:pub:v:2:2012
+        id: '2.16'
 status: current
 id: 90378fd6-efa7-54ef-b0e0-2e637f147031
 schema_version: '3'
 related:
 - type: see
   ref:
-    id: '2.16'
     source: urn:oiml:pub:v:2:2012
+    id: '2.16'
     definition_text: "{{2.10,measured quantity value}} minus a {{5.18,reference quantity
       value}}"
     edition_label: VIM 2012

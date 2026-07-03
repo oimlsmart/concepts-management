@@ -45,8 +45,8 @@ data:
     related:
     - type: see
       ref:
-        id: '4.04'
         source: urn:oiml:pub:v:1:2022
+        id: '4.04'
   - edition: '2010'
     publication: OIML R 51-1:2006
     publication_id: OIML R051-1:2006
@@ -69,8 +69,8 @@ data:
     related:
     - type: see
       ref:
-        id: '4.04'
         source: urn:oiml:pub:v:1:2022
+        id: '4.04'
   - edition: '2010'
     publication: OIML R 76-1:2006
     publication_id: OIML R076-1:2006
@@ -92,8 +92,8 @@ data:
     related:
     - type: see
       ref:
-        id: '4.04'
         source: urn:oiml:pub:v:1:2022
+        id: '4.04'
   - edition: '2010'
     publication: OIML B 3:2003
     publication_id: OIML B003:2003
@@ -112,8 +112,8 @@ data:
     related:
     - type: see
       ref:
-        id: '4.04'
         source: urn:oiml:pub:v:1:2022
+        id: '4.04'
   - edition: 202X
     publication: OIML R060-1:2021
     publication_id: OIML R060-1:2021
@@ -256,8 +256,8 @@ schema_version: '3'
 related:
 - type: see
   ref:
-    id: '4.04'
     source: urn:oiml:pub:v:1:2022
+    id: '4.04'
     definition_text: identifiable part of a {{0.10,measuring instrument}} or of a
       {{4.02,family of measuring instruments}} that performs a specific function or
       functions and that can be separately evaluated according to prescribed metrological
