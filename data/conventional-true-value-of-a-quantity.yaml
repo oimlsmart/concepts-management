@@ -46,8 +46,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Adds a specific example (area of leather) not in the original,
+      and replaces 'sometimes by convention' with the stronger 'by convention', narrowing
+      the definition.
     related:
     - type: see
       ref:
@@ -107,8 +109,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Adds a specific example (area of leather) not in the original,
+      and replaces 'sometimes by convention' with the stronger 'by convention', narrowing
+      the definition.
 status: current
 id: a7467654-5c29-5b41-a154-c6dd316f1ac9
 schema_version: '3'

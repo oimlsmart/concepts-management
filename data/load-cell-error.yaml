@@ -45,8 +45,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrows the general concept to load cells specifically and
+      conflates 'indication' with 'measurement result'.
     related:
     - type: see
       ref:

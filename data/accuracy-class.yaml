@@ -44,8 +44,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Plural 'instruments/meets' vs singular 'instrument/meets'
+      is a trivial grammatical difference with identical meaning.
   - edition: '2010'
     publication: OIML R 137-1:2006
     publication_id: OIML R137-1:2006
@@ -68,8 +69,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The plural/singular difference between 'instruments/meets'
+      and 'instrument/meets' is grammatical, not semantic; the meaning is identical.
   - edition: '2010'
     publication: OIML R 111-1:2004
     publication_id: OIML R111-1:2004
@@ -89,8 +91,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication narrows scope to weights/weight sets and mass
+      values rather than measuring instruments generally, and adds 'designation' which
+      changes the concept slightly.
   - edition: '2010'
     publication: OIML R 133:2002
     publication_id: OIML R133:2002
@@ -110,8 +114,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication narrows the general concept from all measuring
+      instruments to only liquid-in-glass thermometers.
   - edition: '2010'
     publication: OIML R 60:2000
     publication_id: OIML R060:2000
@@ -131,8 +136,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrows scope from measuring instruments to load cells and
+      drops 'specified limits' in favor of vaguer 'conditions of accuracy.'
     related:
     - type: see
       ref:
@@ -157,8 +163,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication narrows the scope from 'measuring instruments'
+      to 'pressure balances', making it a specific instance rather than the general
+      concept.
   - edition: 202X
     publication: OIML R046-1:2012
     publication_id: OIML R046-1:2012
@@ -255,8 +263,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Plural 'instruments/meets' vs singular 'instrument/meets'
+      is a trivial grammatical difference with identical meaning.
   - edition: 202X
     publication: OIML R 111-1:2004
     publication_id: OIML R111-1:2004
@@ -276,8 +285,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication narrows scope to weights/weight sets and mass
+      values rather than measuring instruments generally, and adds 'designation' which
+      changes the concept slightly.
   - edition: 202X
     publication: OIML R 133:2002
     publication_id: OIML R133:2002
@@ -297,8 +308,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication narrows the general concept from all measuring
+      instruments to only liquid-in-glass thermometers.
   - edition: 202X
     publication:
     publication_id:
@@ -318,8 +330,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication narrows the scope from 'measuring instruments'
+      to 'pressure balances', making it a specific instance rather than the general
+      concept.
 status: current
 id: 240b05c2-452e-5027-b64e-60bf7d1eac98
 schema_version: '3'

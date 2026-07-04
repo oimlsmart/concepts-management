@@ -53,8 +53,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: An in-text citation '(VIM:2007, 5.14)' is embedded mid-definition,
+      which is irrelevant detail that disrupts the definition's formulation.
     related:
     - type: see
       ref:
@@ -81,8 +82,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication uses singular 'a specified property value' and
+      'valid procedures used to obtain,' losing the 'one or more' property values
+      with associated uncertainties and traceabilities meaning.
   - edition: '2010'
     publication: OIML D 22:1991
     publication_id: OIML D022:1991
@@ -133,8 +136,10 @@ data:
       ref_source: OIML V 2-200:2007
       ref_id: '5.14'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication uses singular 'a specified property value' and
+      'valid procedures used to obtain,' losing the 'one or more' property values
+      with associated uncertainties and traceabilities meaning.
   - edition: 202X
     publication: OIML D005:2022
     publication_id: OIML D005:2022
@@ -312,8 +317,9 @@ data:
       ref_source: OIML V 2-200:2007
       ref_id: '5.14'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: An in-text citation '(VIM:2007, 5.14)' is embedded mid-definition,
+      which is irrelevant detail that disrupts the definition's formulation.
   - edition: 202X
     publication: OIML D 22:1991
     publication_id: OIML D022:1991

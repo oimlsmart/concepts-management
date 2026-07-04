@@ -111,4 +111,46 @@ ul, ol { margin: 0.5em 0; padding-left: 1.4em; }
 li { margin: 0.2em 0; }
 hr { border: 0; border-top: 1px solid var(--color-rule); margin: 1.5em 0; }
 
+/* ── Backwards-compat aliases ──────────────────────────────────────────
+   Tailwind v4's @theme names tokens `--color-X`, but existing scoped
+   styles + inline styles in templates still reference the pre-Tailwind
+   names (`--accent`, `--rule`, `--oiml-brand-600`, etc). These aliases
+   keep both naming conventions working — utilities (`bg-accent`) and
+   legacy `var(--accent)` both resolve to the OIML brand colour. */
+:root {
+  --paper:        var(--color-paper);
+  --paper-soft:   var(--color-paper-soft);
+  --paper-tint:   var(--color-paper-tint);
+  --ink:          var(--color-ink);
+  --ink-soft:     var(--color-ink-soft);
+  --ink-muted:    var(--color-ink-muted);
+  --rule:         var(--color-rule);
+  --rule-soft:    var(--color-rule-soft);
+  --accent:       var(--color-accent);
+  --accent-hover: var(--color-accent-hover);
+  --accent-soft:  var(--color-accent-soft);
+  --accent-tint:  var(--color-accent-tint);
+
+  --oiml-cream:      var(--color-oiml-cream);
+  --oiml-cream-soft: var(--color-oiml-cream-soft);
+  --oiml-cream-deep: var(--color-oiml-cream-deep);
+  --oiml-amber:      var(--color-oiml-amber);
+  --oiml-amber-soft: var(--color-oiml-amber-soft);
+  --oiml-amber-deep: var(--color-oiml-amber-deep);
+
+  --oiml-brand-50:  var(--color-oiml-brand-50);
+  --oiml-brand-100: var(--color-oiml-brand-100);
+  --oiml-brand-200: var(--color-oiml-brand-200);
+  --oiml-brand-300: var(--color-oiml-brand-300);
+  --oiml-brand-400: var(--color-oiml-brand-400);
+  --oiml-brand-500: var(--color-oiml-brand-500);
+  --oiml-brand-600: var(--color-oiml-brand-600);
+  --oiml-brand-700: var(--color-oiml-brand-700);
+  --oiml-brand-800: var(--color-oiml-brand-800);
+  --oiml-brand-900: var(--color-oiml-brand-900);
+
+  --green: var(--color-green);
+  --red:   var(--color-red);
+}
+
 @import "./components.css";

@@ -1213,8 +1213,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Semantically equivalent; minor wording differences such as
+      'evaluating' vs 'testing' and inclusion of 'measuring system' do not change
+      the core meaning.
   - edition: 202X
     publication: OIML R 35-1:2007
     publication_id: OIML R035-1:2007

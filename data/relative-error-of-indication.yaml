@@ -42,8 +42,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Replaces 'measurand' with 'actual volume' and 'error of measurement'
+      with 'error of indication', narrowing scope to a specific application context.
     related:
     - type: see
       ref:

@@ -49,8 +49,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Replaces general 'measurement results' with narrower 'weighing
+      results' and 'instrument' with 'weighing module', narrowing the concept's scope.
     related:
     - type: see
       ref:
@@ -81,8 +82,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication narrows scope to weighing-specific examples and
+      changes the purpose from 'operate the instrument' to 'monitor operations,' and
+      makes the display optional instead of required.
   - edition: 202X
     publication: OIML R061-1:2017
     publication_id: OIML R061-1:2017
@@ -108,8 +111,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Shifts from 'operate the instrument' to 'monitor operations'
+      and adds specific examples irrelevant to the general definition.
   - edition: 202X
     publication: OIML R 76-1:2006
     publication_id: OIML R076-1:2006
@@ -133,8 +137,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Replaces general 'measurement results' with narrower 'weighing
+      results' and 'instrument' with 'weighing module', narrowing the concept's scope.
 status: current
 id: '05297317-6ba2-512d-99fd-ea622da6fc33'
 schema_version: '3'

@@ -4,6 +4,10 @@ import conflictsData from "@/data/conflicts.json";
 const rawByEdition = (conflictsData as any).raw || {};
 const editions = Object.keys(rawByEdition).sort();
 const totalCount = Object.values(rawByEdition).flat().length;
+
+function slugify(s: string): string {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
 </script>
 
 <template>
@@ -43,7 +47,7 @@ const totalCount = Object.values(rawByEdition).flat().length;
           <td><code>{{ c.id }}</code></td>
           <td>
             <div v-for="con in c.concepts" :key="con.designation + con.source" class="conflict-concept">
-              <strong>{{ con.designation }}</strong>
+              <SLink :to="`/terms/${slugify(con.designation)}/`"><strong>{{ con.designation }}</strong></SLink>
               <span class="muted"> — {{ con.source }} <code>{{ con.raw_id }}</code></span>
             </div>
           </td>

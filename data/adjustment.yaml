@@ -47,8 +47,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The only addition is an inline reference to the VIM clause
+      number, which does not alter the semantic content of the definition.
     related:
     - type: see
       ref:
@@ -75,8 +76,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The publication adds a VIM citation reference and has a minor
+      typo, but the semantic content is identical.
     related:
     - type: see
       ref:
@@ -107,8 +109,8 @@ data:
       ref_source: OIML V 2-200:2007
       ref_id: '3.11'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The definitions are identical in wording and meaning.
   - edition: 202X
     publication: OIML R059-1:2016
     publication_id: OIML R059-1:2016
@@ -145,8 +147,8 @@ data:
       ref_source: OIML V 2-200:2012
       ref_id: '3.11'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The definitions are identical in wording and meaning.
   - edition: 202X
     publication: OIML R146-1:2016
     publication_id: OIML R146-1:2016
@@ -205,8 +207,8 @@ data:
       ref_source: OIML V 2-200:2012
       ref_id: '3.11'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The definitions are identical in wording and meaning.
   - edition: 202X
     publication: OIML R144-1:2013
     publication_id: OIML R144-1:2013
@@ -238,8 +240,8 @@ data:
       ref_source: OIML V 2-200:2012
       ref_id: '3.11'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The definitions are identical in wording and meaning.
   - edition: 202X
     publication: OIML R 143:2009
     publication_id: OIML R143:2009
@@ -261,8 +263,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The only addition is an inline reference to the VIM clause
+      number, which does not alter the semantic content of the definition.
 status: current
 id: 462342cb-b390-515c-b4b6-1b42455c007e
 schema_version: '3'

@@ -43,8 +43,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrows the general concept from 'measuring instrument' specifically
+      to 'load cell'.
     related:
     - type: see
       ref:
@@ -67,8 +68,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication incorrectly narrows 'measuring instrument' to
+      'load cell', changing the general concept to a specific instrument type.
 status: current
 id: 64fb876f-862d-5a73-a583-32f038fa96c8
 schema_version: '3'

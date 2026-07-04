@@ -174,8 +174,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Semantically equivalent; minor wording differences like 'operating
+      condition' vs 'conditions of use' and 'measuring system' vs 'instrument' do
+      not change the meaning.
   - edition: '2010'
     publication: OIML R 117-1:2007
     publication_id: OIML R117-1:2007

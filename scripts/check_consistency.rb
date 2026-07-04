@@ -89,16 +89,32 @@ puts "  Limit:            #{options[:limit] || '(none)'}"
 
 exit 0 if items.empty?
 
+# Apply cached results to data/ regardless of --run — even in dry-run we
+# want previously-classified instances to surface their cached label
+# instead of staying "pending". Only the *uncached* comparisons require --run.
+results_by_g18_entry = {}
+items.each do |item|
+  next if results_by_g18_entry.key?(item[:g18_entry])
+  cached = cache[item[:cache_key]]
+  next unless cached
+  results_by_g18_entry[item[:g18_entry]] = {
+    "classification" => cached["classification"],
+    "reason"         => cached["reason"],
+  }
+end
+
 unless options[:run]
+  G18::Consistency.apply_results(options[:data_dir], results_by_g18_entry)
+  puts
+  puts "Applied #{results_by_g18_entry.size} cached results to data/."
   if unprocessed.any?
     puts
     puts "Next uncached comparisons:"
     unprocessed.first(options[:limit] || 10).each_with_index do |i, idx|
       puts "  #{idx + 1}. #{i[:term_name]} (G18 ##{i[:g18_entry]}) — #{i[:publication]}"
     end
-    puts "Run with --run to call the LLM and update data/."
+    puts "Run with --run to call the LLM and classify these."
   else
-    puts
     puts "All instances cached. Re-running with --run is a no-op."
   end
   exit 0

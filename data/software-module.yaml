@@ -42,8 +42,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the enumeration of activities (manufacture, import,
+      installation, use, maintenance, repair) and the object (measuring instruments),
+      keeping only the general purpose.
   - edition: 202X
     publication: OIML D031:2023
     publication_id: OIML D031:2023

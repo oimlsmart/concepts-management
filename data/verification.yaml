@@ -65,8 +65,10 @@ data:
       ref_source: OIML V 1:2000
       ref_id: '2.13'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication focuses on marking/certification and compliance
+      confirmation but omits the broader purpose of determining metrological properties
+      and testifying e.g. in court.
   - edition: '2010'
     publication: OIML R 111-1:2004
     publication_id: OIML R111-1:2004
@@ -92,8 +94,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: The publication narrows the scope to weights and stamping,
+      adds the actor (legal metrology organ), and omits explicit reference to determining
+      metrological properties and court-of-law testimony.
     related:
     - type: see
       ref:
@@ -118,8 +122,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ko
+    consistency_reason: Publication gives a generic conformity-assessment definition,
+      omitting the legal context, examination of measuring instruments, and determination
+      of metrological properties.
   - edition: 202X
     publication: OIML D005:2022
     publication_id: OIML D005:2022
@@ -189,8 +195,11 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ko
+    consistency_reason: The official definition describes legal metrology examination
+      of measuring instruments for court testimony and statutory compliance, while
+      the publication quotes a generic VIM definition of 'verification' applicable
+      to any item.
   - edition: 202X
     publication: OIML R147:2016
     publication_id: OIML R147:2016
@@ -251,8 +260,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: The publication narrows the scope to weights and stamping,
+      adds the actor (legal metrology organ), and omits explicit reference to determining
+      metrological properties and court-of-law testimony.
 status: current
 id: db855584-f972-5488-b570-2a87a2753de9
 schema_version: '3'

@@ -49,8 +49,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: '"Displaying device" and "indicating device" are semantically
+      equivalent terms for the same concept.'
     related:
     - type: see
       ref:

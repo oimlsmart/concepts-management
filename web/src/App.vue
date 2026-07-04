@@ -47,7 +47,7 @@ onMounted(() => {
   <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-rule">
     <div class="mx-auto max-w-[1080px] flex items-center justify-between gap-4 px-6 max-sm:px-4 h-14">
       <a class="flex items-center gap-2.5 no-underline text-ink hover:no-underline" :href="base" @click="closeMenu">
-        <img :src="logoSrc" alt="OIML" class="block h-7 w-auto shrink-0" />
+        <img :src="logoSrc" alt="OIML" class="block h-6 w-auto shrink-0" width="24" height="21" />
         <span class="flex flex-col leading-none">
           <span class="text-[15px] font-semibold tracking-tight text-accent">G 18 Registry</span>
           <span class="text-[11px] text-ink-muted mt-0.5 max-sm:hidden">OIML Term-Usage Registry</span>

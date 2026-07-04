@@ -50,8 +50,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Semantically equivalent; only trivial grammatical differences
+      ('instruments' vs 'instrument', 'the' vs 'an').
     related:
     - type: see
       ref:
@@ -130,8 +131,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the purpose clause 'to determine whether the type may
+      be approved' and replaces 'documented requirements' with the generic term 'conformity
+      assessment procedure.'
     related:
     - type: see
       ref:
@@ -201,8 +204,11 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits 'systematic examination and testing' and
+      'documented requirements', replacing them with the more generic 'conformity
+      assessment procedure', and adds 'evaluation certificate' not in the official
+      definition.
   - edition: 202X
     publication: OIML R060-1:2021
     publication_id: OIML R060-1:2021
@@ -239,8 +245,10 @@ data:
       ref_source: OIML V 1:2013
       ref_id: '2.04'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the purpose clause 'to determine whether the type may
+      be approved' and replaces 'documented requirements' with the generic term 'conformity
+      assessment procedure.'
   - edition: 202X
     publication: OIML D030:2020
     publication_id: OIML D030:2020
@@ -270,8 +278,11 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits 'systematic examination and testing' and
+      'documented requirements', replacing them with the more generic 'conformity
+      assessment procedure', and adds 'evaluation certificate' not in the official
+      definition.
   - edition: 202X
     publication: OIML R059-1:2016
     publication_id: OIML R059-1:2016
@@ -310,8 +321,10 @@ data:
       ref_source: OIML V 1:2013
       ref_id: '2.04'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the purpose clause 'to determine whether the type may
+      be approved' and replaces 'documented requirements' with the generic term 'conformity
+      assessment procedure.'
   - edition: 202X
     publication: OIML R146-1:2016
     publication_id: OIML R146-1:2016

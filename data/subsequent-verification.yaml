@@ -146,8 +146,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication adds verification before expiry of validity period
+      (at user request or stamp invalidation) not present in the official definition.
   - edition: 202X
     publication: OIML R126-1:2021
     publication_id: OIML R126-1:2021
@@ -179,8 +180,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the enumerative clause specifying what subsequent verification
+      includes (mandatory periodic verification, verification after repair).
   - edition: 202X
     publication: OIML D034:2019
     publication_id: OIML D034:2019
@@ -198,8 +200,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the enumerative clause specifying what subsequent verification
+      includes (mandatory periodic verification, verification after repair).
   - edition: 202X
     publication: OIML D016:2011
     publication_id: OIML D016:2011
@@ -309,8 +312,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication adds verification before expiry of validity period
+      (at user request or stamp invalidation) not present in the official definition.
 status: current
 id: 7b61e5d6-b467-5cb6-be13-4ac6cf2b2f16
 schema_version: '3'
