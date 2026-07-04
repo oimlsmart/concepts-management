@@ -7,4 +7,8 @@ source "https://rubygems.org"
 gem "psych", "~> 5.2.0"
 gem "glossarist", "~> 2.8"
 gem "plurimath", "~> 0.11"
+
+group :test do
+  gem "rspec", "~> 3.13"
+end
 gem "yaml"

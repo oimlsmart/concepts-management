@@ -45,7 +45,7 @@ GEM
     connection_pool (3.0.2)
     csv (3.3.5)
     date (3.5.1)
-    diff-lcs (2.0.0)
+    diff-lcs (1.6.2)
     domain_name (0.6.20240107)
     drb (2.2.3)
     ebnf (2.6.0)
@@ -525,6 +525,19 @@ GEM
     rfcxml (0.4.4)
       lutaml-model (~> 0.8.0)
       nokogiri
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.8)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.7)
     ruby-ll (2.2.0)
       ansi
       ast
@@ -614,6 +627,7 @@ DEPENDENCIES
   glossarist (~> 2.8)
   plurimath (~> 0.11)
   psych (~> 5.2.0)
+  rspec (~> 3.13)
   yaml
 
 CHECKSUMS
@@ -633,7 +647,7 @@ CHECKSUMS
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
   csv (3.3.5) sha256=6e5134ac3383ef728b7f02725d9872934f523cb40b961479f69cf3afa6c8e73f
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
-  diff-lcs (2.0.0) sha256=708a5d52ec2945b50f8f53a181174aa1ef2c496edf81c05957fe956dabb363d5
+  diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
   domain_name (0.6.20240107) sha256=5f693b2215708476517479bf2b3802e49068ad82167bcd2286f899536a17d933
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
   ebnf (2.6.0) sha256=e746a316caa885cc45e243dc33efc194943956760bc9bc13948de1732fbcf63e
@@ -763,6 +777,11 @@ CHECKSUMS
   relaton-w3c (2.1.4) sha256=02dd71fb3126aa455edefec3aa84e21957f108c3ddae2eb986d0afff290a96a9
   relaton-xsf (2.1.1) sha256=fac02ec91f3557060781fcfdc2b5630c73285bab8c605bc9dcf50ba796271ebd
   rfcxml (0.4.4) sha256=c338de6822d167d3ed8c71663e33feecc36844875436257eb7174bf2e9d32cb8
+  rspec (3.13.2) sha256=206284a08ad798e61f86d7ca3e376718d52c0bc944626b2349266f239f820587
+  rspec-core (3.13.6) sha256=a8823c6411667b60a8bca135364351dda34cd55e44ff94c4be4633b37d828b2d
+  rspec-expectations (3.13.5) sha256=33a4d3a1d95060aea4c94e9f237030a8f9eae5615e9bd85718fe3a09e4b58836
+  rspec-mocks (3.13.8) sha256=086ad3d3d17533f4237643de0b5c42f04b66348c28bf6b9c2d3f4a3b01af1d47
+  rspec-support (3.13.7) sha256=0640e5570872aafefd79867901deeeeb40b0c9875a36b983d85f54fb7381c47c
   ruby-ll (2.2.0) sha256=f8811ae1dfc77d6d95033a615aacb6ab8e93fb9f421fefe75107b077dc9ab588
   ruby2_keywords (0.0.5) sha256=ffd13740c573b7301cf7a2e61fc857b2a8e3d3aff32545d6f8300d8bae10e3ef
   rubyntlm (0.6.5) sha256=47013402b99ae29ee93f930af51edaec8c6008556f4be25705a422b4430314f5
