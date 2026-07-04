@@ -7,10 +7,12 @@ const route = useRoute();
 const search = ref("");
 const onlyEdition = ref((route.query.only as string) || "");
 const onlyTC = ref("");
+const onlyKind = ref("");
+const sortKey = ref<"name" | "pubs" | "defs">("name");
+const sortDir = ref<1 | -1>(1);
 
 watch(() => route.query.only, (val) => { onlyEdition.value = (val as string) || ""; });
 
-// Build list of distinct TC/SCs from publication data
 const allTCs = computed(() => {
   const set = new Set<string>();
   for (const t of terms as any[]) {
@@ -21,30 +23,49 @@ const allTCs = computed(() => {
   return Array.from(set).sort();
 });
 
+function distinctDefs(pubs: any[]) {
+  return new Set(pubs.map(p => (p.definition || "").replace(/\{\{[^,}]+,([^}]+)\}\}/g, "$1").trim()).filter(Boolean)).size;
+}
+
 const filtered = computed(() => {
   let t = terms as any[];
   if (onlyEdition.value === "2010-only") {
-    // Deleted: in 2010 but NOT in 202X
     t = t.filter(x => (x.editions_present || []).includes("2010") && !(x.editions_present || []).includes("202X"));
   } else if (onlyEdition.value === "202X-only") {
-    // Added: in 202X but NOT in 2010
     t = t.filter(x => (x.editions_present || []).includes("202X") && !(x.editions_present || []).includes("2010"));
   } else if (onlyEdition.value) {
-    // Normal: all terms in this edition
     t = t.filter(x => x.editions_present?.includes(onlyEdition.value));
   }
   if (onlyTC.value) {
     t = t.filter(x => x.publications?.some((p: any) => p.tc_sc === onlyTC.value));
   }
+  if (onlyKind.value) {
+    t = t.filter(x => x.kind === onlyKind.value);
+  }
   if (search.value) {
     const q = search.value.toLowerCase();
     t = t.filter(x => x.name?.toLowerCase().includes(q));
   }
-  return t.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+
+  const sorters: Record<string, (a: any, b: any) => number> = {
+    name: (a, b) => (a.name || "").localeCompare(b.name || ""),
+    pubs: (a, b) => (b.publications?.length || 0) - (a.publications?.length || 0),
+    defs: (a, b) => distinctDefs(b.publications || []) - distinctDefs(a.publications || []),
+  };
+  const dir = sortDir.value;
+  return [...t].sort((a, b) => sorters[sortKey.value](a, b) * dir);
 });
 
+function toggleSort(key: "name" | "pubs" | "defs") {
+  if (sortKey.value === key) {
+    sortDir.value = (sortDir.value === 1 ? -1 : 1) as 1 | -1;
+  } else {
+    sortKey.value = key;
+    sortDir.value = 1;
+  }
+}
+
 function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "defined_in_viml" ? "VIML" : "—"; }
-function distinctDefs(pubs: any[]) { return new Set(pubs.map(p => (p.definition || "").trim()).filter(Boolean)).size; }
 function tcCount(t: any): number { return t.publications?.filter((p: any) => p.tc_sc === onlyTC.value).length || 0; }
 function symbolsOf(t: any): string[] {
   if (!t.designations) return [];
@@ -72,13 +93,19 @@ const pageTitle = computed(() => {
   </div>
   <section class="card">
     <form class="filter-form" @submit.prevent>
-      <input v-model="search" type="search" placeholder="Search…" style="padding:0.3em 0.5em;min-width:16em;border:1px solid var(--rule);border-radius:3px" />
+      <input v-model="search" type="search" placeholder="Search…" />
+      <select v-model="onlyKind">
+        <option value="">All (VIM/VIML/other)</option>
+        <option value="defined_in_vim">VIM only</option>
+        <option value="defined_in_viml">VIML only</option>
+        <option value="undefined">Neither (OIML-original)</option>
+      </select>
       <select v-model="onlyEdition">
         <option value="">All editions</option>
-        <option value="2010">2010 (all)</option>
-        <option value="202X">202X (all)</option>
-        <option value="2010-only">Removed: in 2010 only (not in 202X)</option>
-        <option value="202X-only">Added: in 202X only (not in 2010)</option>
+        <option value="202X">202X (draft)</option>
+        <option value="2010">2010 (historic)</option>
+        <option value="202X-only">Added: 202X only</option>
+        <option value="2010-only">Removed: 2010 only</option>
       </select>
       <select v-model="onlyTC">
         <option value="">All TC/SCs</option>
@@ -90,14 +117,14 @@ const pageTitle = computed(() => {
       <table>
       <thead>
         <tr>
-          <th>Term</th>
+          <th @click="toggleSort('name')" style="cursor:pointer">Term {{ sortKey === 'name' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
           <th>Alt</th>
           <th>Sym</th>
           <th>VIM</th>
           <th>Ed.</th>
-          <th>Inst.</th>
+          <th @click="toggleSort('pubs')" style="cursor:pointer" class="num">Inst. {{ sortKey === 'pubs' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
           <th v-if="onlyTC">TC pubs</th>
-          <th>Distinct defs</th>
+          <th @click="toggleSort('defs')" style="cursor:pointer" class="num">Defs {{ sortKey === 'defs' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
         </tr>
       </thead>
       <tbody>
@@ -110,7 +137,7 @@ const pageTitle = computed(() => {
             <DefText v-for="s in symbolsOf(t)" :key="s" :text="s" />
           </td>
           <td><span :class="['kind', `kind-${t.kind}`]">{{ kindLabel(t.kind) }}</span></td>
-          <td><span v-for="e in t.editions_present" :key="e" :class="['edition-pill', `edition-${e.toLowerCase()}`]">{{ e }}</span></td>
+          <td><span v-for="e in [...(t.editions_present || [])].sort((a:string,b:string) => (b==='202X'?1:0)-(a==='202X'?1:0))" :key="e" :class="['edition-pill', `edition-${e.toLowerCase()}`]">{{ e }}</span></td>
           <td class="num">{{ t.publications.length }}</td>
           <td v-if="onlyTC" class="num">{{ tcCount(t) }}</td>
           <td class="num">{{ distinctDefs(t.publications) }}</td>
