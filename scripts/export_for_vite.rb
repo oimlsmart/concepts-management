@@ -21,6 +21,7 @@ require "yaml"
 require "json"
 require "fileutils"
 require_relative "../lib/g18/vocabulary"
+require_relative "../lib/g18/actions"
 
 # Plurimath for AsciiMath → MathML pre-rendering of stem:[...] content.
 # The JS package (@plurimath/plurimath) has broken dist; the Ruby gem
@@ -182,6 +183,9 @@ Dir.glob(File.join(options[:data_dir], "*.yaml")).sort.each do |path|
     "editions_present" => data["editions_present"],
     "primary_edition" => data["primary_edition"],
     "latest_check" => oc_urn ? check_latest_edition(data["term"], oc_urn, latest_indices) : nil,
+    "suggested_actions" => G18::Actions::Compiler.for_term(
+      "data" => data, "latest_check" => oc_urn ? check_latest_edition(data["term"], oc_urn, latest_indices) : nil
+    ).map(&:to_h),
     "publications" => (data["publications"] || []).map do |p|
       render_stem_deep(p).merge(
         "defined" => data["kind"] == "defined_in_vim" || data["kind"] == "defined_in_viml",
