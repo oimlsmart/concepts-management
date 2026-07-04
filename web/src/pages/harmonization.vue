@@ -2,6 +2,16 @@
 import { ref, computed } from "vue";
 import harmonization from "@/data/harmonization.json";
 import conflictsData from "@/data/conflicts.json";
+import termsData from "@/data/terms.json";
+
+// Build a name → kind lookup for VIM/VIML column in collision table.
+const termKindMap: Record<string, string> = {};
+for (const t of termsData as any[]) {
+  if (t.name) termKindMap[t.name.toLowerCase()] = t.kind;
+}
+function termKind(designation: string): string | undefined {
+  return termKindMap[designation.toLowerCase()];
+}
 
 type SortKey = "divergence" | "citations" | "name";
 const sort = ref<SortKey>("divergence");
@@ -45,7 +55,7 @@ const standardizeTerms = computed(() =>
 );
 
 // Designation-collision analysis (same concept cited under multiple G 18 IDs)
-const collisionEditions = Object.keys((conflictsData as any).designation_collisions || {}).sort();
+const collisionEditions = Object.keys((conflictsData as any).designation_collisions || {}).sort((a: string, b: string) => (b === "202X" ? 1 : 0) - (a === "202X" ? 1 : 0));
 function collisionSummary(ed: string) {
   const list = ((conflictsData as any).designation_collisions || {})[ed] || [];
   const totalIds = list.reduce((s: number, c: any) => s + c.ids.length, 0);
@@ -74,8 +84,16 @@ function collisionSummary(ed: string) {
     </p>
   </div>
 
+  <!-- Subnav for quick jumping between sections -->
+  <nav class="card" style="padding:0.5em 1em;display:flex;gap:0.8em;flex-wrap:wrap;font-size:0.9em">
+    <a href="#collisions">Designation collisions</a>
+    <a href="#worklist">Worklist</a>
+    <a href="#how-to">How to use</a>
+    <a href="#standardize">Ready to standardize</a>
+  </nav>
+
   <!-- Designation collisions: structural view of the same problem -->
-  <section class="card">
+  <section id="collisions" class="card">
     <h2>Designation collisions <span class="muted">(same concept, multiple IDs)</span></h2>
     <p class="lede">
       The same term appears under multiple distinct G 18 IDs because each
@@ -113,10 +131,11 @@ function collisionSummary(ed: string) {
       <div class="table-wrap">
         <div class="table-scroll">
       <table>
-          <thead><tr><th>Designation</th><th>Distinct IDs</th><th>Total pubs</th><th>IDs</th></tr></thead>
+          <thead><tr><th>Designation</th><th>VIM/VIML</th><th>Distinct IDs</th><th>Total pubs</th><th>IDs</th></tr></thead>
           <tbody>
             <tr v-for="c in (((conflictsData as any).designation_collisions || {})[ed] || []).slice(0, 30)" :key="c.designation">
               <td><SLink :to="`/terms/${slugify(c.designation)}/`">{{ c.designation }}</SLink></td>
+              <td><span v-if="termKind(c.designation)" :class="['kind', `kind-${termKind(c.designation)}`]">{{ termKind(c.designation) === 'defined_in_vim' ? 'VIM' : termKind(c.designation) === 'defined_in_viml' ? 'VIML' : '—' }}</span><span v-else class="muted">—</span></td>
               <td class="num"><strong>{{ c.ids.length }}</strong></td>
               <td class="num">{{ c.count }}</td>
               <td><code>{{ c.ids.slice(0, 5).join(', ') }}{{ c.ids.length > 5 ? '…' : '' }}</code></td>
@@ -129,8 +148,7 @@ function collisionSummary(ed: string) {
   </section>
 
   <!-- Worklist with sort -->
-  <section class="card">
-    <div class="card-head">
+  <section id="worklist" class="card">
       <h2>Worklist</h2>
       <form class="filter-form" @submit.prevent>
         <input v-model="search" type="search" placeholder="Search term…" aria-label="Search term" />
@@ -146,7 +164,6 @@ function collisionSummary(ed: string) {
           >{{ opt.label }}</button>
         </div>
       </form>
-    </div>
     <p class="muted">{{ rows.length }} terms shown of {{ (harmonization as any[]).length }} cited by ≥ 2 publications.</p>
     <div class="table-wrap">
       <div class="table-scroll">
@@ -167,7 +184,7 @@ function collisionSummary(ed: string) {
     </div>
   </section>
 
-  <section class="card" style="background: var(--oiml-cream-soft); border-color: var(--oiml-amber-soft);">
+  <section id="how-to" class="card" style="background: var(--oiml-cream-soft); border-color: var(--oiml-amber-soft);">
     <h2>How to use this worklist</h2>
     <ol>
       <li>Sort by <strong>Divergence</strong> to find terms with the most distinct definitions across publications — the highest-priority harmonisation targets.</li>
@@ -178,7 +195,7 @@ function collisionSummary(ed: string) {
   </section>
 
   <!-- Ready to standardize (TODO 6) -->
-  <section v-if="standardizeTerms.length" class="card">
+  <section id="standardize" v-if="standardizeTerms.length" class="card">
     <h2>Ready to standardize ({{ standardizeTerms.length }})</h2>
     <p class="lede">
       Terms cited by ≥ 2 publications where <strong>all definitions are identical</strong>.
