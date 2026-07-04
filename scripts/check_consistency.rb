@@ -25,7 +25,7 @@ require_relative "../lib/g18/consistency"
 repo_root = File.expand_path("..", __dir__)
 default_vocab_dir = File.expand_path("vocab/datasets", File.join(repo_root, ".."))
 options = {
-  vocab_dir: ENV.fetch("VOCAB_DIR", default_vocab_dir),
+  vocab_dir: ENV.fetch("VOCAB_ROOT", ENV.fetch("VOCAB_DIR", default_vocab_dir)),
   data_dir: ENV.fetch("DATA_DIR", File.join(repo_root, "data")),
   cache_path: ENV.fetch("CACHE_PATH", G18::Consistency::DEFAULT_CACHE_PATH),
   model: ENV.fetch("CONSISTENCY_MODEL", G18::Consistency::DEFAULT_MODEL),
@@ -54,7 +54,7 @@ end.parse!
 
 unless Dir.exist?(options[:vocab_dir])
   warn "vocab-dir not found: #{options[:vocab_dir]}"
-  warn "set --vocab-dir or VOCAB_DIR"
+  warn "set --vocab-dir or VOCAB_ROOT (or VOCAB_DIR) env var"
   exit 1
 end
 
