@@ -50,8 +50,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrows the general definition to water meters only and adds
+      a non-exhaustive list of specific extreme conditions not present in the official
+      definition.
     related:
     - type: see
       ref:

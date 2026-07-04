@@ -89,8 +89,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Only difference is singular vs plural 'values/value', which
+      does not change the semantic meaning of the definition.
   - edition: '2010'
     publication: OIML R 85-1:2008
     publication_id: OIML R085-1:2008
@@ -133,8 +134,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication adds 'known reference quantity value' and extends
+      scope to 'measurement' and 'measuring system,' and replaces 'error' with 'measurement
+      error,' introducing extra detail beyond the official definition.
   - edition: '2010'
     publication: OIML R 107-1:2007
     publication_id: OIML R107-1:2007
@@ -207,8 +210,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication restricts the scope to 'this Recommendation' rather
+      than the broader 'specifications, regulations, etc.' and omits 'for a given
+      measuring instrument'.
   - edition: '2010'
     publication: OIML R 49-1:2006
     publication_id: OIML R049-1:2006
@@ -266,8 +271,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Uses singular 'maximum value' instead of plural 'extreme values',
+      omitting the minimum (lower) limit of the permitted error range.
   - edition: '2010'
     publication: OIML R 137-1:2006
     publication_id: OIML R137-1:2006
@@ -335,8 +341,9 @@ data:
       ref_source: OIML V 2:1993
       ref_id: '5.21'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Only difference is singular vs plural 'values/value', which
+      does not change the semantic meaning of the definition.
     related:
     - type: see
       ref:
@@ -438,8 +445,9 @@ data:
       ref_source: OIML V 2:1993
       ref_id: '5.21'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Only difference is singular vs plural 'values/value', which
+      does not change the semantic meaning of the definition.
   - edition: '2010'
     publication: OIML R 136-1:2004
     publication_id: OIML R136-1:2004
@@ -472,8 +480,9 @@ data:
       ref_source: OIML V 2-200:1993
       ref_id: '5.21'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Adds explanatory clause about indication vs true value but
+      drops 'etc.' allowing for other sources of permitted error limits.
   - edition: '2010'
     publication: OIML R 75-1:2002
     publication_id: OIML R075-1:2002
@@ -530,8 +539,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrows the general concept to a specific load cell and replaces
+      the open-ended source of permission with a single document.
     related:
     - type: see
       ref:
@@ -556,8 +566,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The definitions are semantically identical, differing only
+      in a leading article.
     related:
     - type: see
       ref:
@@ -671,8 +682,10 @@ data:
       ref_source: OIML V 2-200:2007
       ref_id: '4.26'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication adds 'known reference quantity value' and extends
+      scope to 'measurement' and 'measuring system,' and replaces 'error' with 'measurement
+      error,' introducing extra detail beyond the official definition.
   - edition: 202X
     publication: OIML D031:2023
     publication_id: OIML D031:2023
@@ -937,8 +950,9 @@ data:
       ref_source: OIML V 2:1993
       ref_id: '5.21'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Only difference is singular vs plural 'values/value', which
+      does not change the semantic meaning of the definition.
   - edition: 202X
     publication: OIML R 136-1:2004
     publication_id: OIML R136-1:2004
@@ -971,8 +985,9 @@ data:
       ref_source: OIML V 2-200:1993
       ref_id: '5.21'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Adds explanatory clause about indication vs true value but
+      drops 'etc.' allowing for other sources of permitted error limits.
   - edition: 202X
     publication: OIML R 125:1998
     publication_id: OIML R125:1998
@@ -992,8 +1007,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The definitions are semantically identical, differing only
+      in a leading article.
   - edition: 202X
     publication: OIML R 24:1975
     publication_id: OIML R024:1975

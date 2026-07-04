@@ -146,8 +146,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication drops the defining clause 'which contribute to
+      metrological assurance' that distinguishes this concept from legal metrology
+      activities in general.
   - edition: 202X
     publication: OIML D034:2019
     publication_id: OIML D034:2019

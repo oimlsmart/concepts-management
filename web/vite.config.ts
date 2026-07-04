@@ -27,8 +27,16 @@ export default defineConfig({
         try {
           const list = JSON.parse(fs.readFileSync(`${dataDir}/${sub}.json`, "utf-8"));
           for (const item of list) {
-            // publications.json uses `id`; terms/tc use `slug`.
-            const slug = item.slug || item.id;
+            // Handle three shapes:
+            //   - terms/tc-by-slug objects: { slug: "..." }
+            //   - publications: { id: "..." } (no slug)
+            //   - tc.json as a flat array of display-name strings: "CEEMS"
+            let slug: string | undefined;
+            if (typeof item === "string") {
+              slug = item.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+            } else {
+              slug = item.slug || item.id;
+            }
             if (slug) dynamic.push(`/${sub}/${slug}/`);
           }
         } catch (_) { /* data file may not exist yet */ }

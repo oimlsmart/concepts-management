@@ -47,8 +47,9 @@ data:
         type have the same range of viscosity.
       sources: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Replaces 'true value' with 'reference quantity value' and
+      drops 'measuring instrument' and 'corresponding input quantity' context.
   - edition: '2010'
     publication: OIML R 21:2007
     publication_id: OIML R021:2007

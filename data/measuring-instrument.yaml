@@ -47,8 +47,8 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The definitions are identical word for word.
   - edition: '2010'
     publication: OIML R 136-1:2004
     publication_id: OIML R136-1:2004
@@ -71,8 +71,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: "'instrument' is narrower than 'device', which encompasses
+      instruments, measures, reference materials, and combinations thereof."
   - edition: '2010'
     publication: OIML B 3:2003
     publication_id: OIML B003:2003
@@ -92,8 +93,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The publication's definition is identical in semantic content;
+      it merely appends the source reference.
     related:
     - type: see
       ref:
@@ -245,8 +247,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: 'Both definitions convey the same meaning: a device for making
+      measurements, optionally with supplementary devices.'
   - edition: 202X
     publication: OIML R129-1:2019
     publication_id: OIML R129-1:2019
@@ -339,8 +342,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: The publication quotes the VIM definition correctly but adds
+      an expanded scope covering measuring systems, material measures, and components,
+      which goes beyond the official definition.
   - edition: 202X
     publication: OIML R 136-1:2004
     publication_id: OIML R136-1:2004
@@ -360,8 +365,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: "'instrument' is narrower than 'device', which encompasses
+      instruments, measures, reference materials, and combinations thereof."
   - edition: 202X
     publication: OIML D 15:1986
     publication_id: OIML D015:1986

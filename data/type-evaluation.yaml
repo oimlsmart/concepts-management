@@ -50,8 +50,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The publication's definition is identical in semantic content,
+      only omitting the parenthetical '(pattern)' which is non-essential to the meaning.
     related:
     - type: see
       ref:
@@ -80,8 +81,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the parenthetical '(pattern)' after 'type' from the
+      official definition.
     related:
     - type: see
       ref:
@@ -110,8 +112,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The only addition is an inline citation reference [OIML V
+      1:2000, 2.5], which does not alter the semantic content of the definition.
   - edition: '2010'
     publication: OIML B 10-1:2004
     publication_id: OIML B010-1:2004
@@ -135,8 +138,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops '(pattern)' after 'type', removing an explicit synonym
+      for 'type' that appears in the official definition.
   - edition: '2010'
     publication: OIML R 111-1:2004
     publication_id: OIML R111-1:2004
@@ -158,8 +162,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication is narrower (weights/weight sets only), references
+      a specific Recommendation rather than documented requirements, and omits the
+      purpose of determining type approval.
   - edition: '2010'
     publication: OIML R 135:2004
     publication_id: OIML R135:2004
@@ -200,8 +206,10 @@ data:
       ref_source: OIML V 1:2000
       ref_id: '2.5'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Editorial note 'The term "pattern" is used in legal metrology'
+      is accidentally spliced into the definition, replacing '(pattern)' and disrupting
+      the sentence.
   - edition: 202X
     publication: OIML R049-1:2024
     publication_id: OIML R049-1:2024
@@ -225,8 +233,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The definitions are semantically identical; 'type (pattern)'
+      and 'type or pattern' convey the same meaning.
   - edition: 202X
     publication: OIML D034:2019
     publication_id: OIML D034:2019
@@ -251,8 +260,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the requirements of systematic examination/testing against
+      documented requirements and the purpose of determining type approval; replaces
+      with generic 'conformity assessment procedure'.
   - edition: 202X
     publication: OIML D 29:2008
     publication_id: OIML D029:2008
@@ -288,8 +299,9 @@ data:
       ref_source: OIML V 1:2000
       ref_id: '2.5'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The publication's definition is identical in semantic content,
+      only omitting the parenthetical '(pattern)' which is non-essential to the meaning.
   - edition: 202X
     publication: OIML R 111-1:2004
     publication_id: OIML R111-1:2004
@@ -311,8 +323,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication is narrower (weights/weight sets only), references
+      a specific Recommendation rather than documented requirements, and omits the
+      purpose of determining type approval.
   - edition: 202X
     publication: OIML R 135:2004
     publication_id: OIML R135:2004
@@ -353,8 +367,10 @@ data:
       ref_source: OIML V 1:2000
       ref_id: '2.5'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Editorial note 'The term "pattern" is used in legal metrology'
+      is accidentally spliced into the definition, replacing '(pattern)' and disrupting
+      the sentence.
 status: current
 id: bb3e9e11-f379-5fba-b61f-c8b816856e34
 schema_version: '3'

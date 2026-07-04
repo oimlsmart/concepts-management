@@ -43,8 +43,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication adds 'conventional' which narrows 'true value'
+      to a specific type of true value.
     related:
     - type: see
       ref:

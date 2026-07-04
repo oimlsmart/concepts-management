@@ -101,8 +101,9 @@ data:
       ref_source: OIML V 1:2000
       ref_id: '2.13'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Semantically equivalent; only minor wording differences such
+      as 'establishes' vs 'ascertains' and 'confirm' vs 'confirms'.
   - edition: '2010'
     publication: OIML D 27:2001
     publication_id: OIML D027:2001
@@ -166,8 +167,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits the essential purpose clause that the procedure
+      'ascertains and confirms that the measuring instrument complies with the statutory
+      requirements'.
     related:
     - type: see
       ref:
@@ -208,8 +211,10 @@ data:
       ref_source: OIML V 1:2022
       ref_id: '2.09'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits the essential purpose clause that the procedure
+      'ascertains and confirms that the measuring instrument complies with the statutory
+      requirements'.
   - edition: 202X
     publication: OIML D005:2022
     publication_id: OIML D005:2022
@@ -245,8 +250,10 @@ data:
       ref_source: OIML V 1:2022
       ref_id: '2.09'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits the essential purpose clause that the procedure
+      'ascertains and confirms that the measuring instrument complies with the statutory
+      requirements'.
   - edition: 202X
     publication: OIML R126-1:2021
     publication_id: OIML R126-1:2021
@@ -271,8 +278,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication drops the purpose clause 'ascertains and confirms
+      that the measuring instrument complies with the statutory requirements.'
   - edition: 202X
     publication: OIML D034:2019
     publication_id: OIML D034:2019
@@ -294,8 +302,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the core semantic element of ascertaining and confirming
+      compliance with statutory requirements, replacing it only with the procedural
+      outputs (marking/certificate).
   - edition: 202X
     publication: OIML R059-1:2016
     publication_id: OIML R059-1:2016
@@ -331,8 +341,10 @@ data:
       ref_source: OIML V 1:2013
       ref_id: '2.09'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits the essential purpose clause that the procedure
+      'ascertains and confirms that the measuring instrument complies with the statutory
+      requirements'.
   - edition: 202X
     publication: OIML R146-1:2016
     publication_id: OIML R146-1:2016
@@ -368,8 +380,10 @@ data:
       ref_source: OIML V 1:2013
       ref_id: '2.09'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits the essential purpose clause that the procedure
+      'ascertains and confirms that the measuring instrument complies with the statutory
+      requirements'.
   - edition: 202X
     publication: OIML D001:2012
     publication_id: OIML D001:2012
@@ -510,8 +524,9 @@ data:
       ref_source: OIML V 1:2000
       ref_id: '2.13'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Semantically equivalent; only minor wording differences such
+      as 'establishes' vs 'ascertains' and 'confirm' vs 'confirms'.
   - edition: 202X
     publication: OIML D 27:2001
     publication_id: OIML D027:2001

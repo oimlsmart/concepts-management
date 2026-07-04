@@ -46,8 +46,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: "'Measuring system' is encompassed by 'measuring instrument',
+      and 'measurand' is semantically equivalent to 'corresponding input quantity';
+      these are synonymous substitutions with no change in meaning."
   - edition: 202X
     publication: OIML R059-1:2016
     publication_id: OIML R059-1:2016

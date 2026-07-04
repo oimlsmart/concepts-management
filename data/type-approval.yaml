@@ -58,8 +58,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Contains stray editorial artifacts ('For the purpose of this
+      Document, the type the type') that obscure the definition's clarity and introduce
+      a drafting remnant.
   - edition: '2010'
     publication: OIML B 10-1:2004
     publication_id: OIML B010-1:2004
@@ -84,8 +86,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The publication's definition is identical to the official
+      definition aside from formatting artifacts (a leading 'V' and trailing source
+      citation 'IML 2.6').
   - edition: '2010'
     publication: OIML D 9:2004
     publication_id: OIML D009:2004
@@ -151,8 +155,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrowed to weights/weight sets and omits the key requirement
+      that the instrument is expected to provide reliable measurement results over
+      a defined period of time.
   - edition: '2010'
     publication: OIML R 135:2004
     publication_id: OIML R135:2004
@@ -219,8 +225,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits 'suitable for use in the regulated area'
+      and 'expected to provide reliable measurement results over a defined period
+      of time', replacing them with the administrative action of certificate issuance.
     related:
     - type: see
       ref:
@@ -249,8 +257,8 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: The definitions are identical word-for-word.
   - edition: 202X
     publication: OIML D005:2022
     publication_id: OIML D005:2022
@@ -287,8 +295,10 @@ data:
       ref_source: OIML V 1:2022
       ref_id: '2.05'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits 'suitable for use in the regulated area'
+      and 'expected to provide reliable measurement results over a defined period
+      of time', replacing them with the administrative action of certificate issuance.
   - edition: 202X
     publication: OIML D037:2022
     publication_id: OIML D037:2022
@@ -317,8 +327,11 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the key requirement that the instrument is 'suitable
+      for use in the regulated area' and 'expected to provide reliable measurement
+      results over a defined period of time'; adds irrelevant procedural detail about
+      certificate issuance.
   - edition: 202X
     publication: OIML R060-1:2021
     publication_id: OIML R060-1:2021
@@ -352,8 +365,10 @@ data:
       ref_source: OIML V 1:2013
       ref_id: '2.05'
       is_vimline: true
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication omits 'suitable for use in the regulated area'
+      and 'expected to provide reliable measurement results over a defined period
+      of time', replacing them with the administrative action of certificate issuance.
   - edition: 202X
     publication: OIML D034:2019
     publication_id: OIML D034:2019
@@ -377,8 +392,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Drops the key requirement of suitability for reliable measurement
+      results over a defined period, and adds procedural detail about certificate
+      issuance not in the official definition.
   - edition: 202X
     publication: OIML R059-1:2016
     publication_id: OIML R059-1:2016
@@ -522,8 +539,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Contains stray editorial artifacts ('For the purpose of this
+      Document, the type the type') that obscure the definition's clarity and introduce
+      a drafting remnant.
   - edition: 202X
     publication: OIML D 9:2004
     publication_id: OIML D009:2004
@@ -584,8 +603,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrowed to weights/weight sets and omits the key requirement
+      that the instrument is expected to provide reliable measurement results over
+      a defined period of time.
   - edition: 202X
     publication: OIML R 135:2004
     publication_id: OIML R135:2004

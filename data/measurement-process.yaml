@@ -51,8 +51,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ko
+    consistency_reason: The publication's text is garbled and appears to describe
+      a measurement system or process, not a quantity functionally related to the
+      measurand.
     related:
     - type: see
       ref:
@@ -85,8 +87,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ko
+    consistency_reason: The publication's text is garbled and appears to describe
+      a measurement system or process rather than a quantity functionally related
+      to the measurand.
   - edition: 202X
     publication: OIML D 20:1988
     publication_id: OIML D020:1988
@@ -113,8 +117,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ko
+    consistency_reason: The publication's text is garbled and appears to describe
+      a measurement system or process, not a quantity functionally related to the
+      measurand.
 status: current
 id: 3d9e93c7-879d-5f59-a69f-34b3a484d66a
 schema_version: '3'

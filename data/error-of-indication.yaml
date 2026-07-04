@@ -44,8 +44,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrows the general concept to mass only and adds 'conventional'
+      qualifier, dropping the broader 'corresponding input quantity'.
   - edition: '2010'
     publication: OIML R 117-1:2007
     publication_id: OIML R117-1:2007
@@ -63,8 +64,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: ok
+    consistency_reason: Both define error of indication as the indicated value minus
+      the true/reference value of the corresponding input quantity.
   - edition: '2010'
     publication: OIML R 49-1:2006
     publication_id: OIML R049-1:2006
@@ -83,8 +85,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Uses specific terms 'indicated volume' and 'actual volume'
+      instead of the general VIM concepts of 'indication' and 'true value of input
+      quantity'.
     related:
     - type: see
       ref:
@@ -112,8 +116,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Replaces the general 'corresponding input quantity' with the
+      specific 'area', narrowing the definition's scope.
   - edition: '2010'
     publication: OIML R 134:2003
     publication_id: OIML R134:2003
@@ -133,8 +138,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrows the general definition to mass only and adds 'conventional'
+      qualifier, dropping the broader 'measuring instrument' and 'input quantity'
+      generality.
   - edition: '2010'
     publication: OIML R 106-1:1997
     publication_id: OIML R106-1:1997
@@ -154,8 +161,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrows the general definition to mass only and adds 'conventional'
+      qualifier, losing generality of 'corresponding input quantity'.
   - edition: '2010'
     publication: OIML R 105:1993
     publication_id: OIML R105:1993
@@ -175,8 +183,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Uses narrower terms 'measuring system' and 'measure' instead
+      of the general 'measuring instrument' and 'corresponding input quantity'.
     related:
     - type: see
       ref:
@@ -201,8 +210,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Narrows the general concept to mass only and adds 'conventional'
+      qualifier, dropping the broader 'corresponding input quantity'.
 status: current
 id: 9912d377-7cc1-5f4c-b166-fb565f5f6006
 schema_version: '3'

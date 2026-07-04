@@ -82,8 +82,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication narrows the concept by adding 'systematic, independent
+      and documented' qualifiers and substitutes audit-specific terms ('audit evidence/criteria')
+      for the broader 'conformity assessment' object and 'specified requirements.'
     related:
     - type: see
       ref:
@@ -134,8 +136,10 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Publication narrows the concept by adding 'systematic, independent
+      and documented' qualifiers and substitutes audit-specific terms ('audit evidence/criteria')
+      for the broader 'conformity assessment' object and 'specified requirements.'
 status: current
 id: e7421b9b-9c88-5bf5-8f42-77566f10a79c
 schema_version: '3'

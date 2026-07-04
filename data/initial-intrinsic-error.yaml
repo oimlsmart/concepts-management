@@ -680,8 +680,9 @@ data:
     examples: []
     example_paragraphs: []
     source:
-    consistency: pending
-    consistency_reason: ''
+    consistency: partial
+    consistency_reason: Adds 'objective evidence' elaboration and narrows scope to
+      'this Document' rather than keeping the definition general.
   - edition: 202X
     publication: OIML R046-1:2012
     publication_id: OIML R046-1:2012
