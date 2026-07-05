@@ -3,8 +3,8 @@
 // gets back filtered views for its audience.
 //
 // Action types (from Ruby G18::Actions::Compiler):
-//   upgrade_vim / upgrade_viml — cite superseded edition
-//   removed                    — not in latest edition
+//   upgrade_vim / upgrade_viml — cite superseded edition (label: "Update")
+//   removed                    — not in latest edition (label: "Removed from VIM/VIML")
 //   adopt_vim / adopt_viml     — could adopt from other vocabulary
 //   harmonize                  — ≥ 2 distinct definitions
 //   standardize                — all pubs identical, ready to confirm
@@ -36,6 +36,30 @@ const PRIORITY_RANK: Record<string, number> = {
   info: 2,
   low: 3,
 };
+
+// Canonical action metadata — used by every page that renders actions.
+// Pages should NOT hard-code type labels; import from here so a rename
+// (or icon swap) propagates everywhere.
+export interface ActionMeta {
+  label: string;       // short name for filter buttons, e.g. "Update VIM"
+  icon: string;        // single Unicode glyph
+  hint: string;        // one-line "what decision does TC 1 need to make?"
+  applies_to: string;  // "202X only" / "all editions"
+}
+export const ACTION_META: Record<string, ActionMeta> = {
+  upgrade_vim:  { label: "Update VIM ref",  icon: "↑", hint: "Cited VIM is superseded; the term exists in VIM 2012. Re-cite to current, or keep older citation with justification.", applies_to: "202X only" },
+  upgrade_viml: { label: "Update VIML ref", icon: "↑", hint: "Cited VIML is superseded; the term exists in VIML 2022. Re-cite to current, or keep older citation with justification.", applies_to: "202X only" },
+  removed:      { label: "Removed from VIM/VIML", icon: "⊘", hint: "Term is in the cited older edition but no longer in VIM 2012 / VIML 2022. Verify rename, reallocate, or justify retention.", applies_to: "202X only" },
+  adopt_vim:    { label: "Adopt from VIM",  icon: "←", hint: "OIML-original term that VIM also defines. Consider citing VIM as authoritative source.", applies_to: "202X only" },
+  adopt_viml:   { label: "Adopt from VIML", icon: "←", hint: "OIML-original term that VIML also defines. Consider citing VIML as authoritative source.", applies_to: "202X only" },
+  harmonize:    { label: "Harmonize",       icon: "⇄", hint: "≥ 2 publications under this TC/SC use different definitions for the same term. Decide: merge into one, or document why divergence is intentional.", applies_to: "all editions" },
+  standardize:  { label: "Standardize",     icon: "≡", hint: "All citing publications already use identical wording. Batch-confirm as canonical for G 18:202X.", applies_to: "202X only" },
+  unique:       { label: "OIML-original",   icon: "★", hint: "Term has no VIM/VIML reference. Confirm OIML is the authoritative source.", applies_to: "all editions" },
+};
+
+export function actionMeta(type: string): ActionMeta {
+  return ACTION_META[type] || { label: type, icon: "•", hint: "", applies_to: "" };
+}
 
 // Normalize publication IDs so spaced ("OIML R 76-1:2006") and compact
 // ("OIML R076-1:2006") formats compare equal.

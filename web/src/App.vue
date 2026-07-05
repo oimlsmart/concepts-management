@@ -57,7 +57,7 @@ onMounted(() => {
             <span style="font-family: var(--font-display); font-weight: 500; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--color-ink); font-variation-settings: 'opsz' 60, 'SOFT' var(--display-soft, 30), 'WONK' var(--display-wonk, 0);">G&nbsp;18</span>
             <span class="text-[13px] tracking-tight text-ink-soft">Registry</span>
           </span>
-          <span class="text-[10.5px] text-ink-muted mt-1 max-sm:hidden uppercase tracking-[0.12em] font-semibold">OIML Term-Usage</span>
+          <span class="text-[10.5px] text-ink-muted mt-1 max-md:hidden uppercase tracking-[0.12em] font-semibold">OIML Term-Usage</span>
         </span>
       </a>
 
@@ -75,11 +75,11 @@ onMounted(() => {
               :style="menuOpen ? 'transform: translateY(-4.5px) rotate(-45deg)' : ''" />
       </button>
 
-      <nav class="hidden md:flex items-center gap-2 text-[13.5px]" aria-label="Primary">
+      <nav class="hidden md:flex items-center gap-0.5 text-[13px]" aria-label="Primary">
         <template v-for="(group, gi) in navGroups" :key="gi">
-          <span v-if="gi > 0" class="h-4 w-px bg-rule mx-1" aria-hidden="true" />
+          <span v-if="gi > 0" class="h-4 w-px bg-rule mx-0.5" aria-hidden="true" />
           <a v-for="n in group.items" :key="n.href"
-             class="px-2.5 py-1.5 rounded text-ink-soft hover:text-accent hover:bg-accent-tint transition-colors no-underline font-medium"
+             class="px-2 py-1.5 rounded text-ink-soft hover:text-accent hover:bg-accent-tint transition-colors no-underline font-medium whitespace-nowrap"
              :href="base + n.href"
              @click="closeMenu">{{ n.label }}</a>
         </template>

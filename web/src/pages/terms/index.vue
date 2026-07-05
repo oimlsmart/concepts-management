@@ -129,7 +129,7 @@ const pageTitle = computed(() => {
       </thead>
       <tbody>
         <tr v-for="t in filtered" :key="t.slug">
-          <td><SLink :to="`/terms/${t.slug}/`">{{ t.name }}</SLink></td>
+          <td class="term-cell"><SLink :to="`/terms/${t.slug}/`">{{ t.name }}</SLink></td>
           <td class="alt-cell">
             <span v-for="ad in admittedOf(t)" :key="ad" class="alt-term">{{ ad }}</span>
           </td>

@@ -53,7 +53,7 @@ function slugify(s: string): string {
           <td>
             <div v-for="con in c.concepts" :key="con.designation + con.source" class="conflict-concept">
               <SLink :to="`/terms/${slugify(con.designation)}/`"><strong>{{ con.designation }}</strong></SLink>
-              <span class="muted"> — {{ con.source }} <code>{{ con.raw_id }}</code></span>
+              <span class="muted"> — <SLink v-if="con.source" :to="`/publications/${con.source}/`">{{ con.source }}</SLink> <code>{{ con.raw_id }}</code></span>
             </div>
           </td>
         </tr>

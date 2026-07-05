@@ -38,7 +38,7 @@ RSpec.describe G18::Actions::Compiler do
       actions = described_class.for_term(term)
       removed = actions.find { |a| a.type == :removed }
       expect(removed).not_to be_nil
-      expect(removed.description).to include("not found in VIM 2012")
+      expect(removed.description).to include("removed from VIM 2012")
     end
 
     it "returns harmonize action when definitions diverge" do

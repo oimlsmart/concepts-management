@@ -68,19 +68,17 @@ function problemCount(pubId: string): number {
     </form>
     <div class="table-scroll">
       <table>
-      <thead><tr><th>ID</th><th>Reference</th><th>Year</th><th>TC/SC</th><th>Terms</th><th v-if="sortByProblems">Problematic</th><th>PDF</th></tr></thead>
+      <thead><tr><th>Reference</th><th>Year</th><th>TC/SC</th><th>Terms</th><th v-if="sortByProblems">Problematic</th></tr></thead>
       <tbody>
         <tr v-for="p in filtered" :key="p.id">
-          <td><code>{{ p.id }}</code></td>
           <td><SLink :to="`/publications/${p.id}/`">{{ p.reference || p.id }}</SLink></td>
           <td class="num">{{ (p.id || '').match(/(\d{4})/)?.[1] || "—" }}</td>
-          <td>{{ p.tc_sc || "—" }}</td>
+          <td><SLink :to="`/tc/${(p.tc_sc || '').toLowerCase().replace('/', '-').toLowerCase()}/`">{{ p.tc_sc || "—" }}</SLink></td>
           <td class="num">{{ termCount(p.id, onlyEdition) }}</td>
           <td v-if="sortByProblems" class="num">
             <span v-if="problemCount(p.id)" class="problem-count">{{ problemCount(p.id) }}</span>
             <span v-else class="muted">—</span>
           </td>
-          <td><a v-if="p.link" class="external" :href="p.link">PDF ↗</a></td>
         </tr>
       </tbody>
     </table>
