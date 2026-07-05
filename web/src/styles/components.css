@@ -127,13 +127,24 @@ tbody tr:hover { background: var(--color-accent-tint); }
 
 /* Table scroll wrapper — keeps thead/tbody column alignment intact.
    The div scrolls; the table stays as display:table so the browser
-   computes column widths across thead+tbody together. */
+   computes column widths across thead+tbody together. `min-width: 100%`
+   inside the scroller means the table fills the card on wide viewports
+   but can grow to its natural max-content width on narrow ones (terms
+   table on mobile needs this so the Term column doesn't collapse). */
 .table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin: 0.5rem 0;
 }
-.table-scroll table { margin: 0; }
+.table-scroll table {
+  margin: 0;
+  min-width: 100%;
+  width: max-content;
+}
+.table-scroll table > thead,
+.table-scroll table > tbody {
+  width: 100%;
+}
 
 /* ── Badges & pills ──────────────────────────────────────────────────── */
 .badge {
@@ -302,6 +313,63 @@ tbody tr:hover { background: var(--color-accent-tint); }
 .action-pill-medium  { background: #fef3c7; color: var(--color-oiml-amber-deep); border-color: #fde68a; }
 .action-pill-low     { background: transparent; color: var(--color-ink-soft); border-color: var(--color-rule); }
 .action-pill-info    { background: var(--color-accent-tint); color: var(--color-accent); border-color: var(--color-accent-soft); }
+
+/* ── Action icons (compact glyph badges) ───────────────────────────────
+   Use these in dense tables where the long-form action-pill text would
+   wrap awkwardly. Pair with a `.action-legend` block above the table. */
+.action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55em;
+  height: 1.55em;
+  border-radius: 50%;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--color-rule-soft);
+  color: var(--color-ink-soft);
+  border: 1px solid var(--color-rule);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.action-icon-upgrade_vim,
+.action-icon-upgrade_viml { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+.action-icon-removed      { background: var(--color-red); color: #fff; border-color: var(--color-red); }
+.action-icon-harmonize    { background: var(--color-oiml-amber-deep); color: #fff; border-color: var(--color-oiml-amber-deep); }
+.action-icon-standardize  { background: var(--color-green); color: #fff; border-color: var(--color-green); }
+.action-icon-adopt_vim,
+.action-icon-adopt_viml   { background: var(--color-accent-tint); color: var(--color-accent); border-color: var(--color-accent-soft); }
+.action-icon-unique       { background: transparent; color: var(--color-ink-muted); border-color: var(--color-rule); }
+
+/* Action icon legend */
+.action-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em 1.2em;
+  align-items: center;
+  padding: 0.7em 0.9em;
+  background: var(--color-paper-tint);
+  border: 1px solid var(--color-rule-soft);
+  border-radius: 4px;
+  margin: 0.7em 0 0.4em;
+  font-size: 0.84rem;
+}
+.action-legend-title {
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+.action-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+}
+.action-legend-label {
+  color: var(--color-ink-soft);
+}
 
 /* stats grid */
 .grid { display: grid; gap: 1rem; }
@@ -513,6 +581,7 @@ tbody tr:hover { background: var(--color-accent-tint); }
 .conflict-concept { padding: 0.3em 0; }
 
 /* term-list cells */
+.term-cell { white-space: nowrap; }
 .alt-cell { max-width: 22ch; }
 .alt-cell .alt-term {
   display: inline-block;

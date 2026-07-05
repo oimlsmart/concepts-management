@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import publications from "@/data/publications.json";
 import termsData from "@/data/terms.json";
-import { useSuggestedActions } from "@/composables/useSuggestedActions";
+import { useSuggestedActions, ACTION_META, actionMeta } from "@/composables/useSuggestedActions";
 
 const route = useRoute();
 const pubId = computed(() => route.params.slug as string);
@@ -25,11 +25,81 @@ const cleanTerms = computed(() => {
   return pubTerms.value.filter(t => !actionSlugs.has(t.slug));
 });
 
-const typeLabels: Record<string, string> = {
-  upgrade_vim: "Upgrade VIM citation", upgrade_viml: "Upgrade VIML citation",
-  removed: "Not in latest edition", harmonize: "Harmonize with other pubs",
-  standardize: "Ready to standardize", unique: "Unique to this publication",
-};
+type ViewMode = "by-action" | "by-clause" | "alphabetical";
+const viewMode = ref<ViewMode>("by-action");
+
+// Build rows enriched with clause + edition info for the publication.
+interface Row {
+  slug: string;
+  name: string;
+  type: string;
+  priority: string;
+  description: string;
+  clause: string;
+  edition: string;
+  kind: string;
+}
+
+const actionRows = computed<Row[]>(() => {
+  const rows: Row[] = [];
+  for (const a of pubActions.value) {
+    const t = terms.find(x => x.slug === a.slug);
+    const pub = t?.publications.find((p: any) => p.publication_id === pubId.value);
+    rows.push({
+      slug: a.slug, name: a.name, type: a.type, priority: a.priority,
+      description: a.description,
+      clause: pub?.clause || "—",
+      edition: pub?.edition || "—",
+      kind: t?.kind || "undefined",
+    });
+  }
+  return rows;
+});
+
+const sortedRows = computed<Row[]>(() => {
+  const r = actionRows.value;
+  if (viewMode.value === "alphabetical") {
+    return [...r].sort((a, b) => a.name.localeCompare(b.name));
+  }
+  if (viewMode.value === "by-clause") {
+    return [...r].sort((a, b) => {
+      // Numeric clause sort (T.2.10 → [T, 2, 10])
+      const pa = (a.clause || "").split(/[.\s]/).map((x: string) => parseInt(x) || 0);
+      const pb = (b.clause || "").split(/[.\s]/).map((x: string) => parseInt(x) || 0);
+      for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+        const diff = (pa[i] || 0) - (pb[i] || 0);
+        if (diff !== 0) return diff;
+      }
+      return a.name.localeCompare(b.name);
+    });
+  }
+  // by-action: group by action type, then alphabetical within group
+  const typeOrder = ["upgrade_vim", "upgrade_viml", "removed", "harmonize", "adopt_vim", "adopt_viml", "standardize", "unique"];
+  return [...r].sort((a, b) => {
+    const ta = typeOrder.indexOf(a.type);
+    const tb = typeOrder.indexOf(b.type);
+    if (ta !== tb) return (ta < 0 ? 99 : ta) - (tb < 0 ? 99 : tb);
+    return a.name.localeCompare(b.name);
+  });
+});
+
+const viewModes: { val: ViewMode; label: string }[] = [
+  { val: "by-action", label: "Group by action" },
+  { val: "by-clause", label: "List by clause" },
+  { val: "alphabetical", label: "A–Z" },
+];
+
+const legendTypes = computed(() => {
+  const set = new Set(actionRows.value.map(r => r.type));
+  return Object.keys(ACTION_META).filter(t => set.has(t));
+});
+
+// Distinct action types present in this publication
+const actionTypesPresent = computed(() => {
+  const counts: Record<string, number> = {};
+  for (const a of pubActions.value) counts[a.type] = (counts[a.type] || 0) + 1;
+  return Object.entries(counts).sort(([,a],[,b]) => b - a);
+});
 </script>
 
 <template>
@@ -40,11 +110,18 @@ const typeLabels: Record<string, string> = {
       <h1>{{ pub.reference || pub.id }}</h1>
       <p class="lede">
         {{ pubTerms.length }} terms
-        <span v-if="pub.tc_sc"> · TC/SC: {{ pub.tc_sc }}</span>
+        <span v-if="pub.tc_sc"> · TC/SC: <SLink :to="`/tc/${(pub.tc_sc || '').toLowerCase().replace('/', '-')}/`">{{ pub.tc_sc }}</SLink></span>
         <span v-if="pub.year"> · {{ pub.year }}</span>
         <a v-if="pub.link" class="external" :href="pub.link" style="margin-left:0.6em">PDF ↗</a>
       </p>
     </div>
+
+    <!-- 202X-only callout: makes the scope unambiguous -->
+    <section class="card admonition warn" style="margin-top:1rem">
+      <strong>Scope:</strong> Suggested actions below apply only to terms cited in the
+      <strong>G 18:202X draft</strong>. The 2010 edition is historic and cannot be edited —
+      if a term appears here only via 2010, no action is required.
+    </section>
 
     <!-- Summary tiles -->
     <section class="card">
@@ -52,7 +129,7 @@ const typeLabels: Record<string, string> = {
       <div class="prov-grid">
         <div class="prov-tile prov-tile-warn">
           <div class="prov-tile-num">{{ pubActions.length }}</div>
-          <div class="prov-tile-label">Terms needing action</div>
+          <div class="prov-tile-label">Terms needing action (202X)</div>
         </div>
         <div class="prov-tile">
           <div class="prov-tile-num">{{ cleanTerms.length }}</div>
@@ -60,22 +137,62 @@ const typeLabels: Record<string, string> = {
         </div>
         <div class="prov-tile">
           <div class="prov-tile-num">{{ pubTerms.length }}</div>
-          <div class="prov-tile-label">Total terms</div>
+          <div class="prov-tile-label">Total terms cited</div>
         </div>
       </div>
+
+      <!-- Per-action-type breakdown -->
+      <ul v-if="actionTypesPresent.length" class="action-type-list">
+        <li v-for="[type, count] in actionTypesPresent" :key="type">
+          <span class="action-icon" :class="`action-icon-${type}`" :title="actionMeta(type).label">{{ actionMeta(type).icon }}</span>
+          <strong>{{ count }}</strong>
+          <span class="muted">{{ actionMeta(type).label }}</span>
+          <span class="muted" style="font-size:0.85em">— {{ actionMeta(type).hint }}</span>
+        </li>
+      </ul>
     </section>
 
-    <!-- Action list sorted by term -->
+    <!-- Action list with view modes -->
     <section v-if="pubActions.length" class="card">
-      <h2>Suggested actions (sorted by term)</h2>
+      <div class="card-head">
+        <h2>Terms needing action</h2>
+        <div class="sort-toggle" role="group" aria-label="View mode">
+          <button v-for="m in viewModes" :key="m.val"
+            type="button"
+            :class="['sort-btn', { 'sort-btn-active': viewMode === m.val }]"
+            @click="viewMode = m.val"
+          >{{ m.label }}</button>
+        </div>
+      </div>
+
+      <!-- Action icon legend -->
+      <div class="action-legend">
+        <span class="action-legend-title">Legend:</span>
+        <span v-for="t in legendTypes" :key="t" class="action-legend-item">
+          <span class="action-icon" :class="`action-icon-${t}`">{{ actionMeta(t).icon }}</span>
+          <span class="action-legend-label">{{ actionMeta(t).label }}</span>
+        </span>
+      </div>
+
       <div class="table-scroll">
         <table>
-          <thead><tr><th>Term</th><th>Action</th><th>Description</th></tr></thead>
+          <thead><tr>
+            <th v-if="viewMode === 'by-action'">Action</th>
+            <th>Term</th>
+            <th v-if="viewMode !== 'by-clause'">Clause</th>
+            <th v-if="viewMode === 'by-clause'">Clause</th>
+            <th>Ed.</th>
+            <th>What to decide</th>
+          </tr></thead>
           <tbody>
-            <tr v-for="a in pubActions.slice().sort((a,b) => a.name.localeCompare(b.name))" :key="a.slug + a.type">
-              <td><SLink :to="`/terms/${a.slug}/`">{{ a.name }}</SLink></td>
-              <td><span class="action-pill" :class="`action-pill-${a.priority}`">{{ typeLabels[a.type] || a.type }}</span></td>
-              <td>{{ a.description }}</td>
+            <tr v-for="r in sortedRows" :key="r.slug + r.type">
+              <td v-if="viewMode === 'by-action'">
+                <span class="action-icon" :class="`action-icon-${r.type}`" :title="actionMeta(r.type).label">{{ actionMeta(r.type).icon }}</span>
+              </td>
+              <td class="term-cell"><SLink :to="`/terms/${r.slug}/`">{{ r.name }}</SLink></td>
+              <td><code v-if="r.clause !== '—'">{{ r.clause }}</code><span v-else class="muted">—</span></td>
+              <td><span class="edition-pill" :class="`edition-${r.edition.toLowerCase()}`">{{ r.edition }}</span></td>
+              <td><span class="muted" style="font-size:0.88em">{{ actionMeta(r.type).hint }}</span></td>
             </tr>
           </tbody>
         </table>
@@ -88,11 +205,12 @@ const typeLabels: Record<string, string> = {
       <p class="lede">No action needed — these terms match the authoritative baseline.</p>
       <div class="table-scroll">
         <table>
-          <thead><tr><th>Term</th><th>VIM</th><th>Definition</th></tr></thead>
+          <thead><tr><th>Term</th><th>VIM</th><th>Clause</th><th>Definition</th></tr></thead>
           <tbody>
             <tr v-for="t in cleanTerms" :key="t.slug">
-              <td><SLink :to="`/terms/${t.slug}/`">{{ t.name }}</SLink></td>
+              <td class="term-cell"><SLink :to="`/terms/${t.slug}/`">{{ t.name }}</SLink></td>
               <td><span :class="['kind', `kind-${t.kind}`]">{{ kindLabel(t.kind) }}</span></td>
+              <td><code>{{ t.publications.find((p: any) => p.publication_id === pubId)?.clause || '—' }}</code></td>
               <td style="max-width:540px">{{ t.publications.find((p: any) => p.publication_id === pubId)?.definition }}</td>
             </tr>
           </tbody>
@@ -109,5 +227,28 @@ const typeLabels: Record<string, string> = {
 .prov-tile-num { font-size: 1.8em; font-weight: 700; color: var(--accent); line-height: 1; }
 .prov-tile-warn .prov-tile-num { color: var(--oiml-amber-deep); }
 .prov-tile-label { font-size: 0.85em; color: var(--ink-soft); margin-top: 0.2em; }
-@media (max-width: 600px) { .prov-grid { grid-template-columns: 1fr; } }
+.action-type-list {
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55em;
+}
+.action-type-list li {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: baseline;
+  gap: 0.6em;
+  font-size: 0.92rem;
+}
+.action-type-list li .muted:last-child {
+  grid-column: 2 / -1;
+  font-size: 0.86em;
+}
+@media (max-width: 600px) {
+  .prov-grid { grid-template-columns: 1fr; }
+  .action-type-list li { grid-template-columns: auto 1fr; }
+  .action-type-list li .muted:last-child { grid-column: 1 / -1; }
+}
 </style>

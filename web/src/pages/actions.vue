@@ -1,30 +1,13 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import termsData from "@/data/terms.json";
-import { useSuggestedActions } from "@/composables/useSuggestedActions";
+import { useSuggestedActions, ACTION_META, actionMeta } from "@/composables/useSuggestedActions";
 
 const terms = termsData as any[];
 const { byTerm, counts, allActions } = useSuggestedActions(terms);
 
 const filterType = ref("");
 const search = ref("");
-
-const typeLabels: Record<string, string> = {
-  upgrade_vim: "Upgrade VIM",
-  upgrade_viml: "Upgrade VIML",
-  removed: "Removed",
-  harmonize: "Harmonize",
-  standardize: "Standardize",
-  unique: "Unique",
-  adopt_vim: "Adopt VIM",
-  adopt_viml: "Adopt VIML",
-};
-
-const priorityLabel = (rank: number) =>
-  rank === 0 ? "High" : rank === 1 ? "Medium" : rank === 2 ? "Info" : "Low";
-
-const priorityBadge = (rank: number) =>
-  rank === 0 ? "badge-ko" : rank === 1 ? "badge-partial" : "badge-pending";
 
 const filtered = computed(() => {
   let groups = byTerm.value;
@@ -43,12 +26,21 @@ const filtered = computed(() => {
 const totalActions = computed(() => allActions.value.length);
 const totalTerms = computed(() => byTerm.value.length);
 
+const priorityLabel = (rank: number) =>
+  rank === 0 ? "High" : rank === 1 ? "Medium" : rank === 2 ? "Info" : "Low";
+
+const priorityBadge = (rank: number) =>
+  rank === 0 ? "badge-ko" : rank === 1 ? "badge-partial" : "badge-pending";
+
 const filterButtons = computed(() => [
   { val: "", label: `All (${totalTerms.value})` },
   ...Object.entries(counts.value)
     .sort(([, a], [, b]) => b - a)
-    .map(([type, count]) => ({ val: type, label: `${typeLabels[type] || type} (${count})` })),
+    .map(([type, count]) => ({ val: type, label: `${actionMeta(type).label} (${count})` })),
 ]);
+
+// Show the legend above the table when filter is "All" or matches an action type
+const legendTypes = computed(() => Object.keys(ACTION_META).filter(t => counts.value[t] > 0));
 </script>
 
 <template>
@@ -71,6 +63,15 @@ const filterButtons = computed(() => [
       Showing {{ filtered.length }} terms · each row groups every action that applies to that term.
     </p>
 
+    <!-- Action icon legend -->
+    <div class="action-legend">
+      <span class="action-legend-title">Legend:</span>
+      <span v-for="t in legendTypes" :key="t" class="action-legend-item">
+        <span class="action-icon" :class="`action-icon-${t}`">{{ actionMeta(t).icon }}</span>
+        <span class="action-legend-label">{{ actionMeta(t).label }}</span>
+      </span>
+    </div>
+
     <div class="table-scroll">
       <table>
         <thead>
@@ -90,8 +91,10 @@ const filterButtons = computed(() => [
             <td>
               <ul class="action-group-list">
                 <li v-for="a in g.actions" :key="a.type">
-                  <span class="action-pill" :class="`action-pill-${a.priority}`">{{ typeLabels[a.type] || a.type }}</span>
-                  <span class="action-group-text">{{ a.description }}</span>
+                  <span class="action-icon" :class="`action-icon-${a.type}`" :title="actionMeta(a.type).label">{{ actionMeta(a.type).icon }}</span>
+                  <span class="action-group-text">
+                    <strong>{{ actionMeta(a.type).label }}</strong> — {{ a.description }}
+                  </span>
                 </li>
               </ul>
             </td>

@@ -67,7 +67,7 @@ module G18
             out << Action.new(
               type: action_type,
               priority: :high,
-              description: "Cites #{cited_label}; available in #{latest}. Upgrade citation.",
+              description: "Cites #{cited_label}; available in #{latest}. Update citation.",
               publication_ids: @pubs.map { |p| p["publication_id"] }.uniq,
               vocab_ref: { "latest_label" => latest, "cited_label" => cited_label },
             )
@@ -77,7 +77,7 @@ module G18
           out << Action.new(
             type: :removed,
             priority: :high,
-            description: "Cites #{cited_label}; not found in #{latest}. Verify or reallocate.",
+            description: "In #{cited_label}; removed from #{latest}. Verify or reallocate.",
             publication_ids: @pubs.map { |p| p["publication_id"] }.uniq,
             vocab_ref: { "latest_label" => latest, "cited_label" => cited_label },
           )

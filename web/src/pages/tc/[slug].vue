@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import tcData from "@/data/tc.json";
 import publicationsData from "@/data/publications.json";
 import termsData from "@/data/terms.json";
-import { useSuggestedActions } from "@/composables/useSuggestedActions";
+import { useSuggestedActions, ACTION_META, actionMeta } from "@/composables/useSuggestedActions";
 
 const route = useRoute();
 function slugify(name: string) { return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
@@ -40,13 +40,81 @@ const pubStatus = computed(() => tcPubs.value.map(pub => {
 const cleanCount = computed(() => pubStatus.value.filter(s => s.status === "clean").length);
 const attentionCount = computed(() => pubStatus.value.filter(s => s.status === "attention").length);
 
-const typeLabels: Record<string, string> = {
-  upgrade_vim: "Upgrade VIM", upgrade_viml: "Upgrade VIML",
-  removed: "Removed", harmonize: "Harmonize",
-  standardize: "Standardize", unique: "Unique",
-};
-
 function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "defined_in_viml" ? "VIML" : "—"; }
+
+// ── Action list view modes ────────────────────────────────────────────
+type ViewMode = "by-action" | "by-pub" | "alphabetical";
+const viewMode = ref<ViewMode>("by-action");
+
+interface Row {
+  slug: string;
+  name: string;
+  type: string;
+  priority: string;
+  description: string;
+  kind: string;
+  // publication IDs under this TC/SC where this term has the action
+  sourcePubIds: string[];
+}
+
+const actionRows = computed<Row[]>(() => {
+  const out: Row[] = [];
+  for (const a of tcActions.value) {
+    const t = terms.find(x => x.slug === a.slug);
+    if (!t) continue;
+    // Only count publications under THIS tc/sc (actions come from across all pubs,
+    // but the secretary only controls their own).
+    const sourcePubIds = (t.publications || [])
+      .filter((p: any) => p.tc_sc === tcName.value)
+      .map((p: any) => p.publication_id);
+    out.push({
+      slug: a.slug, name: a.name, type: a.type, priority: a.priority,
+      description: a.description,
+      kind: t?.kind || "undefined",
+      sourcePubIds: [...new Set(sourcePubIds)],
+    });
+  }
+  return out;
+});
+
+const sortedRows = computed<Row[]>(() => {
+  const r = actionRows.value;
+  if (viewMode.value === "alphabetical") {
+    return [...r].sort((a, b) => a.name.localeCompare(b.name));
+  }
+  if (viewMode.value === "by-pub") {
+    return [...r].sort((a, b) => {
+      const pa = a.sourcePubIds[0] || "";
+      const pb = b.sourcePubIds[0] || "";
+      if (pa !== pb) return pa.localeCompare(pb);
+      return a.name.localeCompare(b.name);
+    });
+  }
+  // by-action
+  const typeOrder = ["upgrade_vim", "upgrade_viml", "removed", "harmonize", "adopt_vim", "adopt_viml", "standardize", "unique"];
+  return [...r].sort((a, b) => {
+    const ta = typeOrder.indexOf(a.type);
+    const tb = typeOrder.indexOf(b.type);
+    if (ta !== tb) return (ta < 0 ? 99 : ta) - (tb < 0 ? 99 : tb);
+    return a.name.localeCompare(b.name);
+  });
+});
+
+const viewModes: { val: ViewMode; label: string }[] = [
+  { val: "by-action", label: "Group by action" },
+  { val: "by-pub", label: "Group by publication" },
+  { val: "alphabetical", label: "A–Z" },
+];
+
+const legendTypes = computed(() => {
+  const set = new Set(actionRows.value.map(r => r.type));
+  return Object.keys(ACTION_META).filter(t => set.has(t));
+});
+
+// Lookup publication reference for display
+function pubRef(id: string): string {
+  return publications.find(p => p.id === id)?.reference || id;
+}
 </script>
 
 <template>
@@ -57,6 +125,12 @@ function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "d
       <h1>{{ tcName }}</h1>
       <p class="lede">Aggregated view for the TC/SC secretary.</p>
     </div>
+
+    <!-- 202X-only callout -->
+    <section class="card admonition warn" style="margin-top:1rem">
+      <strong>Scope:</strong> Suggested actions below apply only to terms cited in the
+      <strong>G 18:202X draft</strong>. The 2010 edition is historic and cannot be edited.
+    </section>
 
     <!-- Dashboard tiles -->
     <section class="card">
@@ -111,17 +185,51 @@ function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "d
       </div>
     </section>
 
-    <!-- Action list -->
+    <!-- Action list with view modes -->
     <section v-if="tcActions.length" class="card">
-      <h2>Suggested actions ({{ tcActions.length }})</h2>
+      <div class="card-head">
+        <h2>Suggested actions ({{ tcActions.length }})</h2>
+        <div class="sort-toggle" role="group" aria-label="View mode">
+          <button v-for="m in viewModes" :key="m.val"
+            type="button"
+            :class="['sort-btn', { 'sort-btn-active': viewMode === m.val }]"
+            @click="viewMode = m.val"
+          >{{ m.label }}</button>
+        </div>
+      </div>
+
+      <!-- Action icon legend -->
+      <div class="action-legend">
+        <span class="action-legend-title">Legend:</span>
+        <span v-for="t in legendTypes" :key="t" class="action-legend-item">
+          <span class="action-icon" :class="`action-icon-${t}`">{{ actionMeta(t).icon }}</span>
+          <span class="action-legend-label">{{ actionMeta(t).label }}</span>
+        </span>
+      </div>
+
       <div class="table-scroll">
         <table>
-          <thead><tr><th>Term</th><th>Action</th><th>Description</th></tr></thead>
+          <thead><tr>
+            <th v-if="viewMode !== 'alphabetical'">Action</th>
+            <th>Term</th>
+            <th v-if="viewMode === 'by-pub'">Publication</th>
+            <th v-if="viewMode !== 'by-pub'">Publications</th>
+            <th>What to decide</th>
+          </tr></thead>
           <tbody>
-            <tr v-for="a in tcActions.slice().sort((a,b) => a.name.localeCompare(b.name))" :key="a.slug + a.type">
-              <td><SLink :to="`/terms/${a.slug}/`">{{ a.name }}</SLink></td>
-              <td><span class="action-pill" :class="`action-pill-${a.priority}`">{{ typeLabels[a.type] || a.type }}</span></td>
-              <td>{{ a.description }}</td>
+            <tr v-for="r in sortedRows" :key="r.slug + r.type">
+              <td v-if="viewMode !== 'alphabetical'">
+                <span class="action-icon" :class="`action-icon-${r.type}`" :title="actionMeta(r.type).label">{{ actionMeta(r.type).icon }}</span>
+              </td>
+              <td class="term-cell"><SLink :to="`/terms/${r.slug}/`">{{ r.name }}</SLink></td>
+              <td v-if="viewMode === 'by-pub'">
+                <SLink v-if="r.sourcePubIds[0]" :to="`/publications/${r.sourcePubIds[0]}/`">{{ pubRef(r.sourcePubIds[0]) }}</SLink>
+                <span v-if="r.sourcePubIds.length > 1" class="muted"> +{{ r.sourcePubIds.length - 1 }}</span>
+              </td>
+              <td v-else>
+                <SLink v-for="pid in r.sourcePubIds" :key="pid" :to="`/publications/${pid}/`" class="src-pub-link">{{ pubRef(pid) }}</SLink>
+              </td>
+              <td><span class="muted" style="font-size:0.88em">{{ actionMeta(r.type).hint }}</span></td>
             </tr>
           </tbody>
         </table>
@@ -136,7 +244,7 @@ function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "d
           <thead><tr><th>Term</th><th>VIM</th><th>Instances</th><th>Action?</th></tr></thead>
           <tbody>
             <tr v-for="t in tcTerms" :key="t.slug">
-              <td><SLink :to="`/terms/${t.slug}/`">{{ t.name }}</SLink></td>
+              <td class="term-cell"><SLink :to="`/terms/${t.slug}/`">{{ t.name }}</SLink></td>
               <td><span :class="['kind', `kind-${t.kind}`]">{{ kindLabel(t.kind) }}</span></td>
               <td class="num">{{ t.publications.filter((p: any) => p.tc_sc === tcName).length }}</td>
               <td>
@@ -158,5 +266,11 @@ function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "d
 .prov-tile-num { font-size: 1.8em; font-weight: 700; color: var(--accent); line-height: 1; }
 .prov-tile-warn .prov-tile-num { color: var(--oiml-amber-deep); }
 .prov-tile-label { font-size: 0.85em; color: var(--ink-soft); margin-top: 0.2em; }
+.src-pub-link {
+  display: inline-block;
+  margin-right: 0.6em;
+  margin-bottom: 0.2em;
+  font-size: 0.85em;
+}
 @media (max-width: 600px) { .prov-grid { grid-template-columns: repeat(2, 1fr); } }
 </style>
