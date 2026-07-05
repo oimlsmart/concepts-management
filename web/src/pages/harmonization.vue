@@ -18,7 +18,25 @@ const sort = ref<SortKey>("divergence");
 const search = ref("");
 
 function kindLabel(k: string) { return k === "defined_in_vim" ? "VIM" : k === "defined_in_viml" ? "VIML" : "—"; }
-function distinctDefs(pubs: any[]) { return new Set(pubs.map(p => (p.definition || "").trim()).filter(Boolean)).size; }
+function distinctDefs(pubs: any[]): number {
+  // Max distinct definitions WITHIN A SINGLE EDITION. Cross-edition
+  // definition changes (e.g. 2010 vs 202X wording differ) are intentional
+  // editorial evolution and NOT a harmonisation conflict.
+  const byEd: Record<string, Set<string>> = {};
+  for (const p of pubs) {
+    const d = (p.definition || "").trim();
+    if (!d) continue;
+    const ed = p.edition || "(unspecified)";
+    if (!byEd[ed]) byEd[ed] = new Set();
+    byEd[ed].add(d);
+  }
+  return Math.max(0, ...Object.values(byEd).map(s => s.size));
+}
+function distinctDefsAll(pubs: any[]): number {
+  // Cross-edition count — used by the "Ready to standardize" check, where
+  // we want to know if every pub (anywhere) uses identical wording.
+  return new Set(pubs.map(p => (p.definition || "").trim()).filter(Boolean)).size;
+}
 function slugify(s: string) { return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
 function tcscList(pubs: any[]): string {
   const set = new Set(pubs.map(p => p.tc_sc).filter(Boolean));
@@ -31,7 +49,12 @@ const rows = computed(() => {
       ...t,
       _defs: distinctDefs(t.publications),
       _pubs: t.publications.length,
-    }));
+    }))
+    // Only show terms with WITHIN-EDITION divergence — these are the real
+    // harmonisation conflicts. Cross-edition-only differences are intentional
+    // editorial evolution, and identical-across-all-pubs is "ready to
+    // standardize" (handled in its own section below).
+    .filter(t => t._defs >= 2);
   if (search.value) {
     const q = search.value.toLowerCase();
     list = list.filter(t => t.name?.toLowerCase().includes(q));
@@ -46,10 +69,12 @@ const rows = computed(() => {
 
 const topDivergent = computed(() => [...rows.value].sort((a, b) => b._defs - a._defs || b._pubs - a._pubs).slice(0, 20));
 
-// Terms ready to standardize: cited by ≥ 2 pubs, all definitions identical.
+// Terms ready to standardize: cited by ≥ 2 pubs, all definitions identical
+// (across all editions — a stricter test than the per-edition one above,
+// since this is about confirming a single canonical wording for G 18:202X).
 const standardizeTerms = computed(() =>
   (harmonization as any[])
-    .map(t => ({ ...t, _defs: distinctDefs(t.publications), _pubs: t.publications.length }))
+    .map(t => ({ ...t, _defs: distinctDefsAll(t.publications), _pubs: t.publications.length }))
     .filter(t => t._pubs >= 2 && t._defs === 1)
     .sort((a, b) => (a.name || "").localeCompare(b.name || ""))
 );
@@ -75,11 +100,12 @@ function collisionSummary(ed: string) {
     <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Definition Conflicts</span></div>
     <h1>Definition conflicts</h1>
     <p class="lede">
-      Terms cited by ≥ 2 OIML publications with <strong>divergent definitions</strong>.
-      Each row shows the number of distinct definition texts across the publications
-      that cite the term. Sort by divergence to find the worst offenders — these are
-      TC 1's harmonisation targets. Open a term to see definitions grouped (identical
-      wording collapsed) and decide: merge into one, or document why divergence is
+      Terms cited by ≥ 2 OIML publications where <strong>a single edition has
+      divergent definitions</strong>. Cross-edition wording changes (e.g. 2010 vs
+      202X) are intentional editorial evolution and are excluded — TC 1
+      harmonises WITHIN the 202X draft. Sort by divergence to find the worst
+      offenders; open a term to see definitions grouped (identical wording
+      collapsed) and decide: merge into one, or document why divergence is
       intentional.
     </p>
   </div>
@@ -164,7 +190,7 @@ function collisionSummary(ed: string) {
           >{{ opt.label }}</button>
         </div>
       </form>
-    <p class="muted">{{ rows.length }} terms shown of {{ (harmonization as any[]).length }} cited by ≥ 2 publications.</p>
+    <p class="muted">{{ rows.length }} terms with within-edition divergence (of {{ (harmonization as any[]).length }} cited by ≥ 2 publications).</p>
     <div class="table-wrap">
       <div class="table-scroll">
       <table>
