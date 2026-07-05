@@ -179,6 +179,38 @@ const abbreviations = computed(() =>
   Array.from(new Set(designations.value.filter(d => d.type === "abbreviation").map(d => d.text as string)))
 );
 
+// Operative definition: when a term has no authoritative VIM/VIML source
+// (kind === 'undefined'), surface the wording used by the publications so
+// the page leads with a definition instead of burying it inside the
+// Publication instances table. Picks the most-cited wording; ties broken
+// by lexicographic order for stability.
+const operativeDefinition = computed<{ text: string; pubCount: number; distinctCount: number; editions: string[] } | null>(() => {
+  if (!term.value) return null;
+  if (term.value.official_concept && term.value.kind !== "undefined") return null;
+  const counts = new Map<string, { pubs: any[]; editions: Set<string> }>();
+  for (const p of term.value.publications || []) {
+    const d = normalizeDef(p.definition || "");
+    if (!d) continue;
+    if (!counts.has(d)) counts.set(d, { pubs: [], editions: new Set() });
+    const entry = counts.get(d)!;
+    entry.pubs.push(p);
+    if (p.edition) entry.editions.add(p.edition);
+  }
+  if (!counts.size) return null;
+  // most-cited wording
+  let best: { text: string; pubs: any[]; editions: Set<string> } | null = null;
+  for (const [text, entry] of counts.entries()) {
+    if (!best || entry.pubs.length > best.pubs.length) best = { text, pubs: entry.pubs, editions: entry.editions };
+  }
+  if (!best) return null;
+  return {
+    text: best.text,
+    pubCount: best.pubs.length,
+    distinctCount: counts.size,
+    editions: Array.from(best.editions).sort(),
+  };
+});
+
 // Homonym risk: any designation with usage_info present — flag so editors
 // don't merge by text alone.
 const hasHomonymRisk = computed(() =>
@@ -400,6 +432,20 @@ const filteredPublications = computed(() => {
     </div>
     </section>
 
+    <!-- Operative definition: shown when there's no authoritative VIM/VIML
+         source (OIML-original term). Surfaces the most-cited wording so
+         the page leads with the actual definition instead of forcing the
+         user to dig into Publication instances. -->
+    <section v-if="operativeDefinition" class="card">
+      <h2>Definition</h2>
+      <div class="authority-defn">
+        <span class="badge">OIML-original</span>
+        · <strong>{{ operativeDefinition.pubCount }}</strong> publication{{ operativeDefinition.pubCount === 1 ? '' : 's' }}
+        <span v-if="operativeDefinition.distinctCount > 1"> · {{ operativeDefinition.distinctCount }} distinct wordings — see <a href="#pub-instances">Publication instances</a> for the variants</span>
+        <p class="authority-defn-body"><DefText :text="operativeDefinition.text" /></p>
+      </div>
+    </section>
+
     <section class="card" v-if="designations.length">
       <h2>Designations</h2>
       <dl class="designations">
@@ -484,7 +530,7 @@ const filteredPublications = computed(() => {
       </ol>
     </section>
 
-    <section class="card">
+    <section class="card" id="pub-instances">
       <div class="card-head">
         <h2>Publication instances</h2>
         <div style="display:flex;gap:1em;align-items:center;flex-wrap:wrap">
