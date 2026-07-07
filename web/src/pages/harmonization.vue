@@ -116,7 +116,16 @@ const topDivergent = computed(() => [...rows.value].sort((a, b) => b._defs - a._
 // since this is about confirming a single canonical wording for G 18:202X).
 const standardizeTerms = computed(() =>
   (harmonization as any[])
-    .map(t => ({ ...t, _defs: distinctDefsAll(t.publications), _pubs: t.publications.length }))
+    .map(t => {
+      const pubs = t.publications || [];
+      const uniquePubIds = new Set(pubs.map((p: any) => p.publication_id));
+      return {
+        ...t,
+        _defs: distinctDefsAll(pubs),
+        _pubs: pubs.length,
+        _uniquePubs: uniquePubIds.size,
+      };
+    })
     .filter(t => t._pubs >= 2 && t._defs === 1)
     .sort((a, b) => (a.name || "").localeCompare(b.name || ""))
 );
@@ -296,20 +305,23 @@ function collisionSummary(ed: string) {
     </ol>
   </section>
 
-  <!-- Ready to standardize (TODO 6) -->
+  <!-- Ready to standardize -->
   <section id="standardize" v-if="standardizeTerms.length" class="card">
     <h2>Ready to standardize ({{ standardizeTerms.length }})</h2>
     <p class="lede">
-      Terms cited by ≥ 2 publications where <strong>all definitions are identical</strong>.
-      No editorial work needed — TC 1 can batch-confirm these as canonical for G 18:202X.
+      Terms cited by ≥ 2 publications (or the same publication across multiple
+      editions) where <strong>all definitions are identical</strong>. No
+      editorial work needed — TC 1 can batch-confirm these as canonical for
+      G 18:202X.
     </p>
     <div class="table-scroll">
       <table>
-        <thead><tr><th>Term</th><th>VIM</th><th>Pubs</th><th>TC/SCs</th></tr></thead>
+        <thead><tr><th>Term</th><th>VIM</th><th>Unique pubs</th><th>Instances</th><th>TC/SCs</th></tr></thead>
         <tbody>
           <tr v-for="t in standardizeTerms" :key="t.slug">
             <td><SLink :to="`/terms/${t.slug}/`">{{ t.name }}</SLink></td>
             <td><span :class="['kind', `kind-${t.kind}`]">{{ kindLabel(t.kind) }}</span></td>
+            <td class="num">{{ t._uniquePubs }}</td>
             <td class="num">{{ t._pubs }}</td>
             <td class="muted" style="font-size:0.85em">{{ tcscList(t.publications) }}</td>
           </tr>
