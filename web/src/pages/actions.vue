@@ -21,11 +21,14 @@ function groupMatchesEdition(g: any): boolean {
 }
 
 const filtered = computed(() => {
+  // Filter determines WHICH TERMS appear (those having at least one action of
+  // the selected type), but every action for each matching term is rendered
+  // in the row. This way users see the full picture — e.g. a term with
+  // `removed:high` + `standardize:info` shows both when filtered to either,
+  // so the High badge is explained by the listed `removed` action.
   let groups = byTerm.value.filter(groupMatchesEdition);
   if (filterType.value) {
-    groups = groups
-      .map(g => ({ ...g, actions: g.actions.filter(a => a.type === filterType.value) }))
-      .filter(g => g.actions.length > 0);
+    groups = groups.filter(g => g.actions.some(a => a.type === filterType.value));
   }
   if (search.value) {
     const q = search.value.toLowerCase();

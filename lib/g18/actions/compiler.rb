@@ -118,17 +118,27 @@ module G18
         )]
       end
 
-      # Terms cited by ≥ 2 pubs with identical definitions — ready
-      # to standardize.
+      # Terms cited by ≥ 2 pubs (or the same pub across multiple editions) with
+      # identical definitions — ready to standardize. The description distinguishes:
+      #   - N unique pubs across M instances: "All N publications share…"
+      #   - 1 unique pub cited in M editions: "Cited by 1 publication across M editions"
+      # The latter is a weaker form of "standardize" (no other pub to disagree
+      # with), but still useful as a stability signal.
       def standardize_action
         return [] if @pubs.size < 2
         defs = distinct_definitions
         return [] unless defs.size == 1
+        unique_pub_ids = @pubs.map { |p| p["publication_id"] }.uniq
+        description = if unique_pub_ids.size == 1
+          "Cited by 1 publication across #{@pubs.size} editions; definition stable."
+        else
+          "All #{unique_pub_ids.size} publications share the same definition. Ready to standardize."
+        end
         [Action.new(
           type: :standardize,
           priority: :info,
-          description: "All #{@pubs.size} publications share the same definition. Ready to standardize.",
-          publication_ids: @pubs.map { |p| p["publication_id"] }.uniq,
+          description: description,
+          publication_ids: unique_pub_ids,
         )]
       end
 
