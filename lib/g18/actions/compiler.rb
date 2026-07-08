@@ -42,14 +42,27 @@ module G18
         # viml: { ... } | nil }. Used to enrich action descriptions with
         # near-miss guidance so TC 1 sees "VIML term is X" inline.
         @presence = @term["vocab_presence"] || {}
+        # canonical_mismatch is computed at export time for defined terms
+        # whose latest_check found nothing. It surfaces the most-likely
+        # rename candidate (e.g. "maximum permissible errors" → VIML
+        # "maximum permissible measurement error") so the `removed` action
+        # description can suggest "verify rename".
+        @mismatch = @term["canonical_mismatch"]
       end
 
       def call
+        # Pre-compute whether harmonize will also fire for this term so the
+        # vocab_actions can append "...or document why divergence is
+        # intentional" guidance when both concerns apply at once.
+        @has_divergence = distinct_definitions_per_edition.values.any? { |d| d.size >= 2 }
         actions = []
         actions.concat(vocab_actions)
         actions.concat(harmonize_action)
         actions.concat(standardize_action)
-        actions.concat(unique_action) if actions.empty?
+        # Fire `unique` for any undefined term (OIML-original), even when
+        # other actions also apply — the "candidate for V 1/V 2/V 3"
+        # guidance is independent of citation currency / divergence.
+        actions.concat(unique_action) if @kind == "undefined" || actions.empty?
         actions.sort_by(&:priority_rank)
       end
 
@@ -69,23 +82,45 @@ module G18
           # Term exists in latest edition — check if citing an older one.
           if superseded?(cited_urn, vocab)
             action_type = vocab == "vim" ? :upgrade_vim : :upgrade_viml
+            vocab_short = vocab == :vim ? "VIM" : "VIML"
+            tail = @has_divergence ?
+              " Update citation, or document why divergence is intentional." :
+              " Update citation."
             out << Action.new(
               type: action_type,
               priority: :high,
-              description: "Cites #{cited_label}; available in #{latest}. Update citation.",
+              description: "#{vocab_short} reference outdated — #{cited_label} superseded by #{latest}.#{tail}",
               publication_ids: @pubs.map { |p| p["publication_id"] }.uniq,
               vocab_ref: { "latest_label" => latest, "cited_label" => cited_label },
             )
           end
         else
           # Term not found in latest — removed or renamed.
-          out << Action.new(
-            type: :removed,
-            priority: :high,
-            description: "In #{cited_label}; removed from #{latest}. Verify or reallocate.",
-            publication_ids: @pubs.map { |p| p["publication_id"] }.uniq,
-            vocab_ref: { "latest_label" => latest, "cited_label" => cited_label },
-          )
+          if @mismatch
+            # Suggested rename candidate exists. Surface it so TC 1 can
+            # decide: re-link to the canonical, or reallocate.
+            tail = @has_divergence ?
+              " Update or document why divergence is intentional." :
+              ""
+            out << Action.new(
+              type: :removed,
+              priority: :high,
+              description: "Not in #{@mismatch["latest_label"]}. #{@mismatch["latest_label"]} term is '#{@mismatch["designation"]}'. Verify rename or reallocate.#{tail}",
+              publication_ids: @pubs.map { |p| p["publication_id"] }.uniq,
+              vocab_ref: { "latest_label" => @mismatch["latest_label"], "cited_label" => cited_label },
+            )
+          else
+            tail = @has_divergence ?
+              " Update or document why divergence is intentional." :
+              ""
+            out << Action.new(
+              type: :removed,
+              priority: :high,
+              description: "In #{cited_label}; removed from #{latest}. Verify or reallocate.#{tail}",
+              publication_ids: @pubs.map { |p| p["publication_id"] }.uniq,
+              vocab_ref: { "latest_label" => latest, "cited_label" => cited_label },
+            )
+          end
         end
 
         out
@@ -117,7 +152,7 @@ module G18
         [Action.new(
           type: :harmonize,
           priority: worst_count.size >= 5 ? :high : (worst_count.size >= 3 ? :medium : :low),
-          description: "#{worst_count.size} distinct definitions within #{worst_edition} across #{pubs_in_edition} publications.",
+          description: "#{worst_count.size} distinct definitions within #{worst_edition} across #{pubs_in_edition} publications. Update, or document why divergence is intentional.",
           publication_ids: @pubs.select { |p| p["edition"] == worst_edition }
                                  .map { |p| p["publication_id"] }.uniq,
         )]
@@ -169,16 +204,19 @@ module G18
         vim = @presence[:vim] || @presence["vim"]
         viml = @presence[:viml] || @presence["viml"]
         candidate = select_near_miss(viml, vim)
+        divergence_tail = @has_divergence ?
+          " Check divergent definitions and update, or document why divergence is intentional." :
+          " Check divergent definitions and confirm authoritative source."
         if candidate.nil?
-          "OIML-original term — no VIM/VIML reference. Candidate for V 1/V 2/V 3? Check divergent definitions and confirm authoritative source."
+          "Not in VIML/VIM. Candidate term for V 1/V 2/V 3?#{divergence_tail}"
         elsif candidate[:match_type] == "exact" || candidate["match_type"] == "exact"
           desig = candidate[:designation] || candidate["designation"]
           vocab_label = candidate[:latest_label] || candidate["latest_label"]
-          "OIML-original term, but #{vocab_label} has an exact match: '#{desig}'. Re-link to #{vocab_label} or document why this term should remain OIML-specific."
+          "OIML-original term, but #{vocab_label} has an exact match: '#{desig}'. Re-link to #{vocab_label} or document why this term should remain OIML-specific.#{divergence_tail}"
         else
           desig = candidate[:designation] || candidate["designation"]
           vocab_label = candidate[:latest_label] || candidate["latest_label"]
-          "OIML-original term. #{vocab_label} has a similar term: '#{desig}'. Reconcile with #{vocab_label}, document as a specific term (candidate for V 3), or confirm OIML as authoritative."
+          "OIML-original term. #{vocab_label} has a similar term: '#{desig}'. Reconcile with #{vocab_label}, document as a specific term (candidate for V 3), or confirm OIML as authoritative.#{divergence_tail}"
         end
       end
 
