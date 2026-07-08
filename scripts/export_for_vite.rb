@@ -256,6 +256,26 @@ Dir.glob(File.join(options[:data_dir], "*.yaml")).sort.each do |path|
   vocab_presence = data["kind"] == "undefined" ?
     check_vocab_presence(data["term"], latest_indices) : nil
   latest = oc_urn ? check_latest_edition(data["term"], oc_urn, latest_indices) : nil
+  # For defined terms whose latest_check found nothing, run a fuzzy match
+  # against the same vocab to surface rename candidates. This drives the
+  # "VIML term is 'X'" guidance on the `removed` action description.
+  canonical_mismatch = nil
+  if latest && !latest["found"]
+    v = G18::Vocabulary.vocab(oc_urn)
+    if v && latest_indices[v]&.any?
+      m = fuzzy_match(data["term"], latest_indices[v])
+      if m
+        info = LATEST_DATASETS[v]
+        canonical_mismatch = {
+          "vocab" => v.to_s,
+          "latest_label" => info[:label],
+          "designation" => m[:designation],
+          "concept_id" => m[:entry][:id],
+          "similarity" => m[:similarity].round(3),
+        }
+      end
+    end
+  end
   term = {
     "slug" => File.basename(path, ".yaml"),
     "identifier" => data["identifier"],
@@ -267,7 +287,9 @@ Dir.glob(File.join(options[:data_dir], "*.yaml")).sort.each do |path|
     "primary_edition" => data["primary_edition"],
     "latest_check" => latest,
     "suggested_actions" => G18::Actions::Compiler.for_term(
-      "data" => data, "latest_check" => latest, "vocab_presence" => vocab_presence
+      "data" => data, "latest_check" => latest,
+      "vocab_presence" => vocab_presence,
+      "canonical_mismatch" => canonical_mismatch
     ).map(&:to_h),
     "publications" => (data["publications"] || []).map do |p|
       render_stem_deep(p).merge(
