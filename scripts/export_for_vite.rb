@@ -313,30 +313,33 @@ Dir.glob(File.join(options[:data_dir], "*.yaml")).sort.each do |path|
       end
     end
   end
-  # Load full VIM/VIML concept details (designations, definitions,
-  # notes, examples) for terms with an official_concept. Shows TC 1
-  # the complete authoritative target on the term detail page.
-  # Try the latest edition first (best harmonisation target); fall
-  # back to the cited edition (terms removed from latest still have
-  # their original concept file).
-  full_concept = nil
+  # Load full VIM/VIML concept details from the vocab repo. Load BOTH
+  # the cited edition (what G 18 currently references) AND the latest
+  # edition (what G 18 should reference) so the term detail page can
+  # show a side-by-side comparison when they differ.
+  cited_concept = nil
+  latest_concept = nil
   if data["official_concept"] && (oc_id = data["official_concept"]["id"])
     v = G18::Vocabulary.vocab(oc_urn)
-    if v && (info = LATEST_DATASETS[v])
-      full_concept = load_concept_details(options[:vocab_root], info[:dir], oc_id)
-    end
-    # Fallback: try the cited edition's directory derived from the URN.
-    if !full_concept && oc_urn
+    # Cited edition: derive directory from the URN year.
+    if oc_urn
       cited_dir = oc_urn.match(/v:[12]:(\d{4})/) do |m|
         year = m[1]
         vocab_prefix = oc_urn.include?("v:2") ? "vim" : "viml"
         "#{vocab_prefix}-#{year}"
       end
       if cited_dir
-        full_concept = load_concept_details(options[:vocab_root], cited_dir, oc_id)
+        cited_concept = load_concept_details(options[:vocab_root], cited_dir, oc_id)
       end
     end
+    # Latest edition: load using latest_check concept_id (may differ
+    # from cited id due to renumbering between editions).
+    if v && (info = LATEST_DATASETS[v])
+      latest_id = latest && latest["found"] ? latest["concept_id"] : oc_id
+      latest_concept = load_concept_details(options[:vocab_root], info[:dir], latest_id)
+    end
   end
+  full_concept = latest_concept || cited_concept
   term = {
     "slug" => File.basename(path, ".yaml"),
     "identifier" => data["identifier"],
@@ -344,7 +347,9 @@ Dir.glob(File.join(options[:data_dir], "*.yaml")).sort.each do |path|
     "designations" => render_stem_deep(data["designations"] || []),
     "kind" => data["kind"],
     "official_concept" => render_stem_deep(data["official_concept"])&.merge(
-      "full_concept" => render_stem_deep(full_concept)
+      "full_concept" => render_stem_deep(full_concept),
+      "cited_concept" => render_stem_deep(cited_concept),
+      "latest_concept" => render_stem_deep(latest_concept),
     ),
     "editions_present" => data["editions_present"],
     "primary_edition" => data["primary_edition"],

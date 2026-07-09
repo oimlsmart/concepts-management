@@ -178,14 +178,32 @@ const isHistoricTerm = computed(() => {
 // Full VIM/VIML concept content (designations, definitions, notes,
 // examples) loaded from the vocab repo at export time. Shows TC 1
 // the complete authoritative target on the term detail page.
-const fullConcept = computed(() => term.value?.official_concept?.full_concept || null);
-const fullConceptLangs = computed(() => fullConcept.value ? Object.keys(fullConcept.value) : []);
-const fullConceptLang = ref("eng");
-const fullConceptData = computed(() => {
-  const fc = fullConcept.value;
-  if (!fc) return null;
-  return fc[fullConceptLang.value] || fc["eng"] || Object.values(fc)[0] || null;
+const citedConcept = computed(() => term.value?.official_concept?.cited_concept || null);
+const latestConcept = computed(() => term.value?.official_concept?.latest_concept || null);
+const fullConceptLangs = computed(() => {
+  const fc = latestConcept.value || citedConcept.value;
+  return fc ? Object.keys(fc) : [];
 });
+const fullConceptLang = ref("eng");
+function conceptData(source: any) {
+  if (!source) return null;
+  return source[fullConceptLang.value] || source["eng"] || Object.values(source)[0] || null;
+}
+// Determine the VIM/VIML relationship state for UI rendering:
+// - 'none': OIML-original, no concept card
+// - 'current': term cites the latest edition, content matches
+// - 'upgrade': term cites old edition, available in latest (may have different content/id)
+// - 'removed': term not found in latest edition
+const conceptState = computed(() => {
+  const oc = term.value?.official_concept;
+  if (!oc || isOimlOriginal(term.value)) return "none";
+  const lc = term.value?.latest_check;
+  if (lc && !lc.found) return "removed";
+  if (citedConcept.value && latestConcept.value && lc && lc.found &&
+      oc.id !== lc.concept_id) return "upgrade";
+  return "current";
+});
+const showConceptCard = computed(() => conceptState.value !== "none");
 
 // Designations: split by type/status for the UI. Falls back to the legacy
 // `term.name` as preferred expression when the new field is absent.
@@ -449,77 +467,79 @@ const filteredPublications = computed(() => {
       </div>
     </div>
 
-    <section class="card" v-if="term.official_concept && !isOimlOriginal(term)">
+    <section class="card" v-if="showConceptCard">
       <div class="card-head">
-        <h2>Authoritative concept</h2>
+        <h2>VIM / VIML concept</h2>
         <a v-if="term.official_concept.url" class="external" :href="term.official_concept.url" style="font-size:0.85em">view on vocab site ↗</a>
       </div>
-      <div :class="['authority-defn', confidenceClass(term.official_concept.source)]">
-        <span :class="confidenceClass(term.official_concept.source)">
-          {{ term.official_concept.edition_label || term.official_concept.source }}
-          <span v-if="isCurrent(term.official_concept.source)" class="viml-latest-badge">Latest</span>
-        </span>
-        · concept <strong>#{{ term.official_concept.id }}</strong>
+
+      <!-- Language toggle (shown when eng + fra both available) -->
+      <div v-if="fullConceptLangs.length > 1" class="sort-toggle" style="margin:0.6em 0">
+        <button v-for="lang in fullConceptLangs" :key="lang"
+                type="button"
+                :class="['sort-btn', { 'sort-btn-active': fullConceptLang === lang }]"
+                @click="fullConceptLang = lang">
+          {{ lang === 'eng' ? 'English' : lang === 'fra' ? 'Français' : lang }}
+        </button>
       </div>
 
-      <!-- Full concept content from vocab repo (eng + fra) -->
-      <template v-if="fullConceptData">
-        <!-- Language toggle -->
-        <div v-if="fullConceptLangs.length > 1" class="sort-toggle" style="margin:0.6em 0">
-          <button v-for="lang in fullConceptLangs" :key="lang"
-                  type="button"
-                  :class="['sort-btn', { 'sort-btn-active': fullConceptLang === lang }]"
-                  @click="fullConceptLang = lang">
-            {{ lang === 'eng' ? 'English' : lang === 'fra' ? 'Français' : lang }}
-          </button>
+      <!-- UPGRADE: side-by-side comparison (cited vs latest) -->
+      <div v-if="conceptState === 'upgrade'" class="concept-comparison">
+        <div class="concept-panel concept-panel-old">
+          <div class="concept-panel-head">
+            <span class="viml-ref vim-legacy">{{ term.official_concept.edition_label || term.official_concept.source }}</span>
+            · #{{ term.official_concept.id }}
+            <span class="concept-panel-tag">currently cites</span>
+          </div>
+          <template v-if="conceptData(citedConcept)">
+            <ConceptBody :data="conceptData(citedConcept)" />
+          </template>
         </div>
-
-        <!-- Designations -->
-        <div v-if="fullConceptData.designations?.length" class="full-concept-section">
-          <span class="full-concept-label">Designations:</span>
-          <ul class="full-concept-designations">
-            <li v-for="(d, i) in fullConceptData.designations" :key="i">
-              <span :class="['kind', `kind-${d.status}`]" style="margin-right:0.4em">{{ d.status }}</span>
-              <DefText v-if="d.type === 'expression'" :text="d.text" />
-              <code v-else>{{ d.text }}</code>
-              <span v-if="d.type !== 'expression'" class="muted" style="margin-left:0.3em;font-size:0.8em">({{ d.type }})</span>
-            </li>
-          </ul>
+        <div class="concept-panel concept-panel-new">
+          <div class="concept-panel-head">
+            <span class="viml-ref vim-current">{{ term.latest_check?.latest_label }}</span>
+            · #{{ term.latest_check?.concept_id }}
+            <span class="concept-panel-tag concept-panel-tag-upgrade">upgrade to</span>
+          </div>
+          <template v-if="conceptData(latestConcept)">
+            <ConceptBody :data="conceptData(latestConcept)" />
+          </template>
         </div>
+      </div>
 
-        <!-- Definitions -->
-        <div v-if="fullConceptData.definitions?.length" class="full-concept-section">
-          <span class="full-concept-label">Definition:</span>
-          <p v-for="(def, i) in fullConceptData.definitions" :key="i" class="authority-defn-body">
-            <DefText :text="def" />
-          </p>
+      <!-- REMOVED: single panel with cited concept + removal note -->
+      <div v-else-if="conceptState === 'removed'">
+        <div class="concept-panel-head" style="margin-bottom:0.6em">
+          <span :class="confidenceClass(term.official_concept.source)">{{ term.official_concept.edition_label || term.official_concept.source }}</span>
+          · #{{ term.official_concept.id }}
+          <span class="concept-panel-tag concept-panel-tag-removed">removed from latest</span>
         </div>
-
-        <!-- Notes -->
-        <div v-if="fullConceptData.notes?.length" class="full-concept-section">
-          <span class="full-concept-label">Notes:</span>
-          <ol class="full-concept-list">
-            <li v-for="(note, i) in fullConceptData.notes" :key="i">
-              <DefText :text="note" />
-            </li>
-          </ol>
+        <template v-if="conceptData(citedConcept)">
+          <ConceptBody :data="conceptData(citedConcept)" />
+        </template>
+        <p v-else-if="term.official_concept.definition_text" class="authority-defn-body"><DefText :text="term.official_concept.definition_text" /></p>
+        <div v-if="term.canonical_mismatch || (term.latest_check && !term.latest_check.found)" class="admonition warn" style="margin-top:0.6em">
+          <strong>Removed from {{ term.latest_check?.latest_label }}.</strong>
+          <template v-if="term.canonical_mismatch"> A similar term exists: <strong>{{ term.canonical_mismatch.designation }}</strong> (#{{ term.canonical_mismatch.concept_id }}).</template>
         </div>
+      </div>
 
-        <!-- Examples -->
-        <div v-if="fullConceptData.examples?.length" class="full-concept-section">
-          <span class="full-concept-label">Examples:</span>
-          <ol class="full-concept-list">
-            <li v-for="(ex, i) in fullConceptData.examples" :key="i">
-              <DefText :text="ex" />
-            </li>
-          </ol>
+      <!-- CURRENT: single panel with latest concept -->
+      <div v-else>
+        <div class="concept-panel-head" style="margin-bottom:0.6em">
+          <span :class="confidenceClass(term.official_concept.source)">
+            {{ term.official_concept.edition_label || term.official_concept.source }}
+            <span v-if="isCurrent(term.official_concept.source)" class="viml-latest-badge">Latest</span>
+          </span>
+          · #{{ term.official_concept.id }}
         </div>
-      </template>
+        <template v-if="conceptData(latestConcept) || conceptData(citedConcept)">
+          <ConceptBody :data="conceptData(latestConcept) || conceptData(citedConcept)" />
+        </template>
+        <p v-else-if="term.official_concept.definition_text" class="authority-defn-body"><DefText :text="term.official_concept.definition_text" /></p>
+      </div>
 
-      <!-- Fallback: basic definition text when full concept not loaded -->
-      <p v-else-if="term.official_concept.definition_text" class="authority-defn-body"><DefText :text="term.official_concept.definition_text" /></p>
-
-      <div v-if="isSuperseded(term.official_concept.source)" class="admonition warn">
+      <div v-if="isSuperseded(term.official_concept.source) && conceptState !== 'upgrade'" class="admonition warn" style="margin-top:0.6em">
         <strong>Outdated:</strong> Cites {{ label(term.official_concept.source) }}. Latest: {{ latestLabel(term.official_concept.source) }}.
       </div>
       <ul v-if="term.related?.length" style="list-style:none;padding:0;margin-top:0.5em">
@@ -922,6 +942,54 @@ const filteredPublications = computed(() => {
 .match-empty, .match-nobaseline { background: var(--status-neutral-bg); color: var(--status-neutral-text); }
 
 /* Full VIM/VIML concept rendering */
+.concept-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin: 0.6em 0;
+}
+@media (max-width: 720px) {
+  .concept-comparison {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+.concept-panel {
+  padding: 0.8em 1em;
+  border: 1px solid var(--color-rule);
+  border-radius: 4px;
+  background: var(--color-paper);
+}
+.concept-panel-old { border-left: 3px solid var(--status-warn-border); }
+.concept-panel-new { border-left: 3px solid var(--status-ok-border); }
+.concept-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  flex-wrap: wrap;
+  margin-bottom: 0.4em;
+  font-size: 0.88rem;
+}
+.concept-panel-tag {
+  margin-left: auto;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.1em 0.5em;
+  border-radius: 2px;
+  background: var(--color-rule-soft);
+  color: var(--color-ink-muted);
+}
+.concept-panel-tag-upgrade {
+  background: var(--status-ok-bg);
+  color: var(--status-ok-text);
+}
+.concept-panel-tag-removed {
+  background: var(--status-error-bg);
+  color: var(--status-error-text);
+}
+
 .full-concept-section {
   margin: 0.8em 0;
 }
