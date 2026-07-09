@@ -4,6 +4,7 @@ import { routes } from "./routes";
 import SLink from "./components/SLink.vue";
 import DefText from "./components/DefText.vue";
 import PaginationControls from "./components/PaginationControls.vue";
+import ConceptBody from "./components/ConceptBody.vue";
 import { initTheme } from "./composables/useTheme";
 
 export const createApp = ViteSSG(
@@ -13,6 +14,7 @@ export const createApp = ViteSSG(
     app.component("SLink", SLink);
     app.component("DefText", DefText);
     app.component("PaginationControls", PaginationControls);
+    app.component("ConceptBody", ConceptBody);
   },
 );
 
