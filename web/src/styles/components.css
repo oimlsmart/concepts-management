@@ -529,6 +529,47 @@ tbody tr:hover { background: var(--color-accent-tint); }
 .quality-label { font-size: 0.875rem; line-height: 1.4; }
 .quality-label strong { color: var(--color-ink); }
 
+/* Unified summary tiles (publication + TC detail pages). Uses the
+   same display font and sizing as the dashboard stat tiles for visual
+   consistency across the site. */
+.prov-grid {
+  display: grid;
+  gap: 0.8em;
+  margin: 0.5em 0;
+}
+.prov-grid:has(> :nth-child(4)) { grid-template-columns: repeat(4, 1fr); }
+.prov-grid:has(> :nth-child(3):not(:nth-child(4))) { grid-template-columns: repeat(3, 1fr); }
+.prov-grid:has(> :nth-child(2):not(:nth-child(3))) { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 600px) { .prov-grid { grid-template-columns: 1fr !important; } }
+
+.prov-tile {
+  padding: 0.9em 1.1em;
+  background: var(--color-paper);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  border-left: 3px solid var(--color-accent);
+}
+.prov-tile-warn { border-left-color: var(--status-warn-border); }
+.prov-tile-num {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--color-ink);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  font-variation-settings: "opsz" 96, "SOFT" var(--display-soft, 30), "WONK" var(--display-wonk, 0);
+}
+.prov-tile-warn .prov-tile-num { color: var(--status-warn-text); }
+.prov-tile-label {
+  font-size: 0.72rem;
+  color: var(--color-ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.3em;
+  font-weight: 600;
+}
+
 /* filter form + sort toggle */
 .filter-form {
   display: flex;

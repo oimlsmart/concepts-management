@@ -329,12 +329,6 @@ const actionTypesPresent = computed(() => {
 </template>
 
 <style scoped>
-.prov-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7em; margin: 0.5em 0; }
-.prov-tile { padding: 0.8em 1em; background: var(--accent-tint); border-radius: 5px; border-left: 3px solid var(--accent); }
-.prov-tile-warn { background: var(--status-warn-bg); border-left-color: var(--status-warn-text); }
-.prov-tile-num { font-size: 1.8em; font-weight: 700; color: var(--accent); line-height: 1; }
-.prov-tile-warn .prov-tile-num { color: var(--status-warn-text); }
-.prov-tile-label { font-size: 0.85em; color: var(--ink-soft); margin-top: 0.2em; }
 .action-type-list {
   list-style: none;
   margin: 1em 0 0;
@@ -355,7 +349,6 @@ const actionTypesPresent = computed(() => {
   font-size: 0.86em;
 }
 @media (max-width: 600px) {
-  .prov-grid { grid-template-columns: 1fr; }
   .action-type-list li { grid-template-columns: auto 1fr; }
   .action-type-list li .muted:last-child { grid-column: 1 / -1; }
 }
