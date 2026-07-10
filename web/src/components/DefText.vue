@@ -5,21 +5,52 @@
 //
 // MathML is pre-rendered by Plurimath (Ruby) at export time; the frontend
 // just renders it via v-html. Cross-references are converted client-side
-// because the slug depends on the frontend's slugify convention.
+// using the VIM concept ID to look up the correct G 18 term slug.
 import { computed } from "vue";
+import termBySlug from "@/data/term-by-slug.json";
 
 const props = defineProps<{ text: string }>();
 const base = import.meta.env.BASE_URL;
 
+// Build lookups for resolving cross-reference slugs.
+// VIM concept IDs change between editions (VIM 1993 #4.1 → VIM 2012 #3.1),
+// so we also match by term name with singular/plural normalization.
+const conceptIdLookup: Record<string, string> = {};
+const nameLookup: Record<string, string> = {};
+for (const [slug, term] of Object.entries(termBySlug as any)) {
+  const id = term.official_concept?.id;
+  if (id && !conceptIdLookup[id]) conceptIdLookup[id] = slug;
+  if (term.name) nameLookup[term.name.toLowerCase()] = slug;
+}
+
+function singularize(s: string): string {
+  if (s.endsWith("ies")) return s.slice(0, -3) + "y";
+  if (s.endsWith("s")) return s.slice(0, -1);
+  return s;
+}
+
+function slugifyText(s: string): string {
+  return s.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+function resolveXrefSlug(conceptId: string, text: string): string {
+  if (conceptIdLookup[conceptId]) return conceptIdLookup[conceptId];
+  const lower = text.trim().toLowerCase();
+  if (nameLookup[lower]) return nameLookup[lower];
+  const singular = singularize(lower);
+  if (nameLookup[singular]) return nameLookup[singular];
+  return slugifyText(text);
+}
+
 const rendered = computed(() => {
   if (!props.text) return "";
   let html = props.text;
-  // Convert {{id,text}} → <a href="<base>/terms/<slug>/">text</a>
   html = html.replace(
     /\{\{([^,}]+),([^}]+)\}\}/g,
-    (_match: string, _id: string, text: string) => {
-      const slug = text.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-      return `<a href="${base}terms/${slug}/" class="xref">${text.trim()}</a>`;
+    (_match: string, id: string, text: string) => {
+      const trimmedText = text.trim();
+      const slug = resolveXrefSlug(id.trim(), trimmedText);
+      return `<a href="${base}terms/${slug}/" class="xref">${trimmedText}</a>`;
     }
   );
   return html;
