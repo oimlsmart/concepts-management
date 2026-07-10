@@ -82,6 +82,14 @@ const worstEdition = computed(() => {
   return worst;
 });
 
+const CONSISTENCY_HINTS: Record<string, string> = {
+  ok: "Definition matches the authoritative VIM/VIML source",
+  partial: "Partial match — some wording divergence",
+  ko: "Significant divergence from the authoritative definition",
+  pending: "Not yet classified — LLM consistency check pending",
+};
+function consistencyHint(c: string): string { return CONSISTENCY_HINTS[c] || c; }
+
 const consistencyCounts = computed(() => {
   if (!term.value) return { ok: 0, partial: 0, ko: 0, pending: 0 } as Record<string, number>;
   const c: Record<string, number> = { ok: 0, partial: 0, ko: 0, pending: 0 };
@@ -844,6 +852,14 @@ const filteredPublications = computed(() => {
         </div>
       </div>
 
+      <!-- Consistency legend -->
+      <div v-if="hasConsistencyData" class="consistency-legend">
+        <span class="legend-item"><span class="badge badge-ok">ok</span> matches VIM/VIML</span>
+        <span class="legend-item"><span class="badge badge-partial">partial</span> some divergence</span>
+        <span class="legend-item"><span class="badge badge-ko">ko</span> significant divergence</span>
+        <span class="legend-item"><span class="badge badge-pending">pending</span> not yet classified</span>
+      </div>
+
       <!-- Grouped mode: show definition groups -->
       <template v-if="groupMode">
         <p class="lede" style="margin-bottom:0.5em">
@@ -875,7 +891,7 @@ const filteredPublications = computed(() => {
                 <td><SLink :to="`/publications/${slugifyPubId(p.publication_id)}/`">{{ p.publication }}</SLink></td>
                 <td class="num">{{ p.clause }}</td>
                 <td class="num">{{ p.g18_entry }}</td>
-                <td v-if="hasConsistencyData"><span :class="['badge', `badge-${p.consistency || 'pending'}`]">{{ p.consistency || "pending" }}</span></td>
+                <td v-if="hasConsistencyData"><span :class="['badge', `badge-${p.consistency || 'pending'}`]" :title="consistencyHint(p.consistency || 'pending')">{{ p.consistency || "pending" }}</span></td>
               </tr>
             </tbody>
           </table>
@@ -896,7 +912,7 @@ const filteredPublications = computed(() => {
                 <td class="num">{{ g.publications[0].clause }}</td>
                 <td class="num">{{ g.publications[0].g18_entry }}</td>
                 <td style="max-width:400px"><div style="white-space:pre-wrap;font-size:0.9em"><DefText :text="g.definition" /></div></td>
-                <td v-if="hasConsistencyData"><span :class="['badge', `badge-${g.publications[0].consistency || 'pending'}`]">{{ g.publications[0].consistency || "pending" }}</span></td>
+                <td v-if="hasConsistencyData"><span :class="['badge', `badge-${g.publications[0].consistency || 'pending'}`]" :title="consistencyHint(g.publications[0].consistency || 'pending')">{{ g.publications[0].consistency || "pending" }}</span></td>
               </tr>
             </tbody>
           </table>
@@ -938,7 +954,7 @@ const filteredPublications = computed(() => {
                 </span>
                 <span v-else class="muted">OIML</span>
               </td>
-              <td v-if="hasConsistencyData"><span :class="['badge', `badge-${p.consistency || 'pending'}`]">{{ p.consistency || "pending" }}</span></td>
+              <td v-if="hasConsistencyData"><span :class="['badge', `badge-${p.consistency || 'pending'}`]" :title="consistencyHint(p.consistency || 'pending')">{{ p.consistency || "pending" }}</span></td>
             </tr>
           </tbody>
         </table>
@@ -1382,5 +1398,25 @@ const filteredPublications = computed(() => {
   color: var(--color-ink-muted);
   margin: 0.4em 0 0;
   font-style: italic;
+}
+
+/* Consistency legend */
+.consistency-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8em 1.5em;
+  padding: 0.5em 0 0.7em;
+  margin-bottom: 0.3em;
+  border-bottom: 1px solid var(--color-rule-soft);
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+}
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+.legend-item .badge {
+  font-size: 0.72rem;
 }
 </style>
