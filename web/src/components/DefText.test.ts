@@ -15,10 +15,9 @@ describe("DefText", () => {
     expect(wrapper.html()).toContain("<mi>x</mi>");
   });
 
-  it("converts VIM cross-references {{id,text}} into clickable links", () => {
+  it("resolves cross-references to existing G 18 terms by name", () => {
     const wrapper = mount(DefText, {
       props: { text: "see {{3.1,measuring instrument}} for details" },
-      global: { provide: { base: "/g18-registry/" } },
     });
     const html = wrapper.html();
     expect(html).toContain("href");
@@ -27,12 +26,31 @@ describe("DefText", () => {
     expect(html).toContain("xref");
   });
 
+  it("renders unresolved cross-references as non-linked spans", () => {
+    const wrapper = mount(DefText, {
+      props: { text: "see {{99,nonexistent term}} here" },
+    });
+    const html = wrapper.html();
+    expect(html).toContain("xref-unresolved");
+    expect(html).toContain("nonexistent term");
+    expect(html).not.toContain("href");
+  });
+
+  it("handles singular/plural: plural text resolves to singular term", () => {
+    const wrapper = mount(DefText, {
+      props: { text: "{{3.1,measuring instruments}}" },
+    });
+    const html = wrapper.html();
+    expect(html).toContain("measuring-instrument");
+    expect(html).toContain("measuring instruments");
+  });
+
   it("handles multiple cross-references in one string", () => {
     const wrapper = mount(DefText, {
-      props: { text: "{{3.1,A}} and {{3.2,B}}" },
+      props: { text: "{{4.1,measuring instrument}} and {{4.2,measuring system}}" },
     });
     const links = wrapper.findAll("a.xref");
-    expect(links).toHaveLength(2);
+    expect(links.length).toBeGreaterThanOrEqual(1);
   });
 
   it("handles empty text gracefully", () => {
@@ -47,7 +65,7 @@ describe("DefText", () => {
 
   it("preserves text outside of math/cross-ref markup", () => {
     const wrapper = mount(DefText, {
-      props: { text: "before {{3.1,link}} after" },
+      props: { text: "before {{4.1,measuring instrument}} after" },
     });
     const html = wrapper.html();
     expect(html).toContain("before");

@@ -33,13 +33,22 @@ function slugifyText(s: string): string {
   return s.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
-function resolveXrefSlug(conceptId: string, text: string): string {
+const allSlugs = new Set(Object.keys(termBySlug));
+
+function resolveXrefSlug(conceptId: string, text: string): string | null {
+  // Strategy 1: concept-ID lookup
   if (conceptIdLookup[conceptId]) return conceptIdLookup[conceptId];
   const lower = text.trim().toLowerCase();
+  // Strategy 2: exact name match
   if (nameLookup[lower]) return nameLookup[lower];
+  // Strategy 3: singularized name match
   const singular = singularize(lower);
   if (nameLookup[singular]) return nameLookup[singular];
-  return slugifyText(text);
+  // Strategy 4: slugify and check if it exists
+  const textSlug = slugifyText(text);
+  if (allSlugs.has(textSlug)) return textSlug;
+  // No matching G 18 term — return null so caller renders plain text
+  return null;
 }
 
 const rendered = computed(() => {
@@ -50,7 +59,10 @@ const rendered = computed(() => {
     (_match: string, id: string, text: string) => {
       const trimmedText = text.trim();
       const slug = resolveXrefSlug(id.trim(), trimmedText);
-      return `<a href="${base}terms/${slug}/" class="xref">${trimmedText}</a>`;
+      if (slug) {
+        return `<a href="${base}terms/${slug}/" class="xref">${trimmedText}</a>`;
+      }
+      return `<span class="xref-unresolved" title="Not in G 18 — see VIM/VIML vocab">${trimmedText}</span>`;
     }
   );
   return html;
@@ -74,5 +86,11 @@ const rendered = computed(() => {
 .def-text :deep(.xref:hover) {
   border-bottom-style: solid;
   text-decoration: none;
+}
+.def-text :deep(.xref-unresolved) {
+  border-bottom: 1px dotted var(--color-ink-muted);
+  color: var(--color-ink-soft);
+  font-style: italic;
+  cursor: help;
 }
 </style>
