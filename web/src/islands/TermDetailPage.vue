@@ -207,6 +207,56 @@ const conceptState = computed(() => {
 });
 const showConceptCard = computed(() => conceptState.value !== "none");
 
+interface ConceptVersion {
+  label: string;
+  conceptId: string;
+  data: any;
+  status: "current" | "superseded" | "removed";
+  url?: string;
+  fallbackDef?: string;
+}
+const conceptVersions = computed<ConceptVersion[]>(() => {
+  if (!showConceptCard.value || !term.value?.official_concept) return [];
+  const oc = term.value.official_concept;
+  const versions: ConceptVersion[] = [];
+
+  if (conceptState.value === "upgrade") {
+    versions.push({
+      label: oc.edition_label || label(oc.source),
+      conceptId: oc.id,
+      data: conceptData(citedConcept.value),
+      status: "superseded",
+      fallbackDef: !conceptData(citedConcept.value) ? oc.definition_text : undefined,
+    });
+    versions.push({
+      label: term.value.latest_check?.latest_label || latestLabel(oc.source),
+      conceptId: term.value.latest_check?.concept_id || "?",
+      data: conceptData(latestConcept.value),
+      status: "current",
+      url: term.value.latest_check?.url,
+    });
+  } else if (conceptState.value === "removed") {
+    versions.push({
+      label: oc.edition_label || label(oc.source),
+      conceptId: oc.id,
+      data: conceptData(citedConcept.value),
+      status: "removed",
+      fallbackDef: !conceptData(citedConcept.value) ? oc.definition_text : undefined,
+    });
+  } else {
+    const data = conceptData(latestConcept.value) || conceptData(citedConcept.value);
+    versions.push({
+      label: oc.edition_label || label(oc.source),
+      conceptId: oc.id,
+      data,
+      status: "current",
+      url: oc.url,
+      fallbackDef: !data ? oc.definition_text : undefined,
+    });
+  }
+  return versions;
+});
+
 // Designations: split by type/status for the UI. Falls back to the legacy
 // `term.name` as preferred expression when the new field is absent.
 const designations = computed(() => (term.value?.designations || []) as any[]);
@@ -485,64 +535,51 @@ const filteredPublications = computed(() => {
         </button>
       </div>
 
-      <!-- UPGRADE: side-by-side comparison (cited vs latest) -->
-      <div v-if="conceptState === 'upgrade'" class="concept-comparison">
-        <div class="concept-panel concept-panel-old">
-          <div class="concept-panel-head">
-            <span class="viml-ref vim-legacy">{{ term.official_concept.edition_label || term.official_concept.source }}</span>
-            · #{{ term.official_concept.id }}
-            <span class="concept-panel-tag">currently cites</span>
+      <!-- Concept version series: superseded → current (or removed) -->
+      <div class="concept-series">
+        <template v-for="(v, i) in conceptVersions" :key="i">
+          <!-- Connector between versions -->
+          <div v-if="i > 0" class="concept-version-connector">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <polyline points="19 12 12 19 5 12" />
+            </svg>
+            <span>superseded by</span>
           </div>
-          <template v-if="conceptData(citedConcept)">
-            <ConceptBody :data="conceptData(citedConcept)" />
-          </template>
-        </div>
-        <div class="concept-panel concept-panel-new">
-          <div class="concept-panel-head">
-            <span class="viml-ref vim-current">{{ term.latest_check?.latest_label }}</span>
-            · #{{ term.latest_check?.concept_id }}
-            <span class="concept-panel-tag concept-panel-tag-upgrade">upgrade to</span>
+
+          <!-- Version card -->
+          <div :class="['concept-version-card', `concept-version-card-${v.status}`]">
+            <div class="concept-version-bar"></div>
+            <div class="concept-version-body">
+              <div class="concept-version-head">
+                <span :class="['concept-version-badge', `concept-version-badge-${v.status}`]">
+                  {{ v.status === "current" ? "Current" : v.status === "superseded" ? "Superseded" : "Removed" }}
+                </span>
+                <span class="concept-version-source">{{ v.label }}</span>
+                <span class="concept-version-id">#{{ v.conceptId }}</span>
+                <a v-if="v.url" class="concept-version-link" :href="v.url">view on vocab site ↗</a>
+              </div>
+
+              <div v-if="v.status === 'current'" class="concept-version-use-this">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                TC 1 should cite this version
+              </div>
+
+              <div class="concept-version-divider"></div>
+
+              <ConceptBody v-if="v.data" :data="v.data" />
+              <p v-else-if="v.fallbackDef" class="authority-defn-body"><DefText :text="v.fallbackDef" /></p>
+            </div>
           </div>
-          <template v-if="conceptData(latestConcept)">
-            <ConceptBody :data="conceptData(latestConcept)" />
-          </template>
-        </div>
-      </div>
-
-      <!-- REMOVED: single panel with cited concept + removal note -->
-      <div v-else-if="conceptState === 'removed'">
-        <div class="concept-panel-head" style="margin-bottom:0.6em">
-          <span :class="confidenceClass(term.official_concept.source)">{{ term.official_concept.edition_label || term.official_concept.source }}</span>
-          · #{{ term.official_concept.id }}
-          <span class="concept-panel-tag concept-panel-tag-removed">removed from latest</span>
-        </div>
-        <template v-if="conceptData(citedConcept)">
-          <ConceptBody :data="conceptData(citedConcept)" />
         </template>
-        <p v-else-if="term.official_concept.definition_text" class="authority-defn-body"><DefText :text="term.official_concept.definition_text" /></p>
-        <div v-if="term.canonical_mismatch || (term.latest_check && !term.latest_check.found)" class="admonition warn" style="margin-top:0.6em">
-          <strong>Removed from {{ term.latest_check?.latest_label }}.</strong>
-          <template v-if="term.canonical_mismatch"> A similar term exists: <strong>{{ term.canonical_mismatch.designation }}</strong> (#{{ term.canonical_mismatch.concept_id }}).</template>
-        </div>
       </div>
 
-      <!-- CURRENT: single panel with latest concept -->
-      <div v-else>
-        <div class="concept-panel-head" style="margin-bottom:0.6em">
-          <span :class="confidenceClass(term.official_concept.source)">
-            {{ term.official_concept.edition_label || term.official_concept.source }}
-            <span v-if="isCurrent(term.official_concept.source)" class="viml-latest-badge">Latest</span>
-          </span>
-          · #{{ term.official_concept.id }}
-        </div>
-        <template v-if="conceptData(latestConcept) || conceptData(citedConcept)">
-          <ConceptBody :data="conceptData(latestConcept) || conceptData(citedConcept)" />
-        </template>
-        <p v-else-if="term.official_concept.definition_text" class="authority-defn-body"><DefText :text="term.official_concept.definition_text" /></p>
-      </div>
-
-      <div v-if="isSuperseded(term.official_concept.source) && conceptState !== 'upgrade'" class="admonition warn" style="margin-top:0.6em">
-        <strong>Outdated:</strong> Cites {{ label(term.official_concept.source) }}. Latest: {{ latestLabel(term.official_concept.source) }}.
+      <!-- Removal warning -->
+      <div v-if="conceptState === 'removed'" class="admonition warn" style="margin-top:0.6em">
+        <strong>Removed from {{ term.latest_check?.latest_label }}.</strong>
+        <template v-if="term.canonical_mismatch"> A similar term exists: <strong>{{ term.canonical_mismatch.designation }}</strong> (#{{ term.canonical_mismatch.concept_id }}).</template>
       </div>
       <ul v-if="term.related?.length" style="list-style:none;padding:0;margin-top:0.5em">
         <li v-for="(edge, i) in term.related" :key="i" style="margin-bottom:0.3em">
@@ -943,53 +980,123 @@ const filteredPublications = computed(() => {
 .match-differs { background: var(--status-error-bg); color: var(--status-error-text); }
 .match-empty, .match-nobaseline { background: var(--status-neutral-bg); color: var(--status-neutral-text); }
 
-/* Full VIM/VIML concept rendering */
-.concept-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
+/* Concept version series — vertical timeline of superseding cards */
+.concept-series {
+  display: flex;
+  flex-direction: column;
   margin: 0.6em 0;
 }
-@media (max-width: 720px) {
-  .concept-comparison {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-  }
-}
-.concept-panel {
-  padding: 0.8em 1em;
-  border: 1px solid var(--color-rule);
-  border-radius: 4px;
-  background: var(--color-paper);
-}
-.concept-panel-old { border-left: 3px solid var(--status-warn-border); }
-.concept-panel-new { border-left: 3px solid var(--status-ok-border); }
-.concept-panel-head {
+
+/* Connector between version cards */
+.concept-version-connector {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4em;
-  flex-wrap: wrap;
-  margin-bottom: 0.4em;
-  font-size: 0.88rem;
-}
-.concept-panel-tag {
-  margin-left: auto;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.1em 0.5em;
-  border-radius: 2px;
-  background: var(--color-rule-soft);
+  padding: 0.45em 0;
   color: var(--color-ink-muted);
 }
-.concept-panel-tag-upgrade {
-  background: var(--status-ok-bg);
-  color: var(--status-ok-text);
+.concept-version-connector span {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
 }
-.concept-panel-tag-removed {
+
+/* Individual version card */
+.concept-version-card {
+  display: flex;
+  border: 1px solid var(--color-rule);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--color-paper-soft);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+/* Left visual bar — color varies by status */
+.concept-version-bar {
+  width: 4px;
+  flex-shrink: 0;
+}
+.concept-version-card-current .concept-version-bar { background: var(--color-accent); }
+.concept-version-card-superseded .concept-version-bar { background: var(--status-warn-border); }
+.concept-version-card-removed .concept-version-bar { background: var(--status-error-border); }
+
+/* Current card: elevated, accent border */
+.concept-version-card-current {
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 8px -4px rgba(0, 73, 150, 0.2);
+}
+
+/* Card body */
+.concept-version-body {
+  flex: 1;
+  padding: 0.9em 1.1em;
+  min-width: 0;
+}
+
+/* Header: badge + source + concept ID + link */
+.concept-version-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+.concept-version-source {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.concept-version-id {
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+}
+.concept-version-link {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+/* Status badge */
+.concept-version-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.15em 0.55em;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.concept-version-badge-current {
+  background: var(--color-accent);
+  color: #fff;
+}
+.concept-version-badge-superseded {
+  background: var(--status-warn-bg);
+  color: var(--status-warn-text);
+}
+.concept-version-badge-removed {
   background: var(--status-error-bg);
   color: var(--status-error-text);
+}
+
+/* "USE THIS VERSION" callout */
+.concept-version-use-this {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin: 0.5em 0 0.1em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* Divider between header and concept body */
+.concept-version-divider {
+  height: 1px;
+  background: var(--color-rule-soft);
+  margin: 0.6em 0 0.4em;
 }
 
 .full-concept-section {
