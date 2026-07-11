@@ -7,7 +7,7 @@ import { slugifyPubId, isOimlOriginal } from "@/composables/useSuggestedActions"
 import SLink from "@/components/SLink.vue";
 import DefText from "@/components/DefText.vue";
 import ConceptBody from "@/components/ConceptBody.vue";
-import { kindLabel, normalizeDef, isHistoricTerm, groupProvenance, provenanceLabel as provLabel, computeCrossEditionDrift } from "@/utils/term-utils";
+import { kindLabel, normalizeDef, isHistoricTerm, groupProvenance, provenanceLabel as provLabel } from "@/utils/term-utils";
 
 const props = defineProps<{ slug: string }>();
 const base = import.meta.env.BASE_URL;
@@ -255,12 +255,6 @@ const allExamples = computed(() => {
   return out;
 });
 
-// Cross-edition drift: detect when 2010 and 202X have different
-// authoritative sources or different definition text. The most important
-// signal for TC1 reviewing 202X — did 202X intentionally diverge from
-// 2010, or just refresh the source citation?
-const crossEditionDrift = computed(() => computeCrossEditionDrift(term.value?.publications || []));
-
 // Authoritative baseline text for match comparison. From the official
 // concept (VIM/VIML citation).
 const authoritativeText = computed(() => {
@@ -476,24 +470,6 @@ const filteredPublications = computed(() => {
       <p style="margin:0">Some definition paragraphs cite <strong>multiple sources</strong> (e.g. adapted from VIM with additions from VIML). Review the Source column in Publication instances below for the full citation chain.</p>
     </section>
 
-    <section v-if="crossEditionDrift" class="card admonition warn">
-      <h2 style="margin-top:0">Cross-edition drift</h2>
-      <p style="margin:0.3em 0">
-        The 2010 and 202X editions use <strong>different definition text</strong>
-        <span v-if="crossEditionDrift.srcChanged"> and cite <strong>different sources</strong></span>.
-        TC 1 must decide: is this an intentional update, or should 202X be re-aligned with 2010?
-      </p>
-      <div class="table-scroll">
-      <table style="margin-top:0.5em;font-size:0.9em">
-        <thead><tr><th>Edition</th><th>Source</th><th>Relationship</th></tr></thead>
-        <tbody>
-          <tr><td>2010</td><td>{{ crossEditionDrift.src2010 || '—' }}</td><td>{{ crossEditionDrift.rel2010 || '—' }}</td></tr>
-          <tr><td>202X</td><td>{{ crossEditionDrift.src202X || '—' }}</td><td>{{ crossEditionDrift.rel202X || '—' }}</td></tr>
-        </tbody>
-      </table>
-    </div>
-    </section>
-
     <!-- Operative definition: shown when there's no authoritative VIM/VIML
          source (OIML-original term). Surfaces the most-cited wording so
          the page leads with the actual definition instead of forcing the
@@ -508,8 +484,8 @@ const filteredPublications = computed(() => {
       </div>
     </section>
 
-    <section class="card" v-if="designations.length">
-      <h2>Designations</h2>
+    <section class="card" v-if="designations.length && (admittedExpressions.length || symbolDesignations.length || abbreviations.length || (!showConceptCard && preferredExpression))">
+      <h2>G 18 designations</h2>
       <dl class="designations">
         <div v-if="preferredExpression" class="designations-row">
           <dt>Term (preferred)</dt>
