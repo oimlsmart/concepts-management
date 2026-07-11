@@ -166,7 +166,7 @@ LATEST_DATASETS.each do |vocab, info|
   end
 end
 
-def check_latest_edition(term_name, official_urn, latest_indices)
+def check_latest_edition(term_name, official_urn, concept_id, latest_indices)
   return nil unless official_urn && term_name
   vocab = G18::Vocabulary.vocab(official_urn)
   return nil unless vocab
@@ -175,7 +175,18 @@ def check_latest_edition(term_name, official_urn, latest_indices)
   idx = latest_indices[vocab]
   return nil unless idx&.any?
   lookup = term_name.to_s.downcase.strip
+
+  # 1. Exact name match
   entry = idx[lookup]
+
+  # 2. Concept-ID match (handles designation changes across editions,
+  #    e.g. "adjustment" in VIM 2007 → "adjustment of a measuring system"
+  #    in VIM 2012, same concept #3.11)
+  entry ||= idx.values.find { |v| v[:id] == concept_id } if concept_id
+
+  # 3. Fuzzy match (handles concept renumbering + designation changes)
+  entry ||= (m = G18::FuzzyMatch.match(term_name, idx); m ? m[:entry] : nil)
+
   if entry
     {
       "found" => true,
@@ -259,7 +270,8 @@ Dir.glob(File.join(options[:data_dir], "*.yaml")).sort.each do |path|
   is_oiml_original = data["kind"] == "oiml_original" || data["kind"] == "undefined"
   vocab_presence = is_oiml_original ?
     check_vocab_presence(data["term"], latest_indices) : nil
-  latest = oc_urn ? check_latest_edition(data["term"], oc_urn, latest_indices) : nil
+  oc_id = data["official_concept"]&.dig("id")
+  latest = oc_urn ? check_latest_edition(data["term"], oc_urn, oc_id, latest_indices) : nil
   # For defined terms whose latest_check found nothing, run a fuzzy match
   # against the same vocab to surface rename candidates. This drives the
   # "VIML term is 'X'" guidance on the `removed` action description.

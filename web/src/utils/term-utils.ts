@@ -24,9 +24,8 @@ export interface ProvenanceGroup {
 }
 
 const PROVENANCE_RANK: Record<string, number> = {
-  identical: 0, modified: 1, authoritative: 2, derived: 3, similar: 4,
+  identical: 0, modified: 1, authoritative: 2, derived: 3, similar: 4, uncited: 5,
 };
-
 export function provenanceLabel(s: any): string {
   if (!s) return "OIML-original";
   const kl = ({ vim: "VIM", viml: "VIML", oiml_pub: "OIML document", other: "Other" } as Record<string, string>)[s.kind] || s.kind;
@@ -38,8 +37,8 @@ export function groupProvenance(publications: any[]): ProvenanceGroup[] {
   for (const p of publications) {
     const s = p.source;
     if (!s) {
-      const key = "oiml-original|authoritative";
-      const g = groups.get(key) || { kind: "oiml-original", relationship: "authoritative", ref: "", label: "OIML-original", pubs: [] };
+      const key = "oiml-original|uncited";
+      const g = groups.get(key) || { kind: "oiml-original", relationship: "uncited", ref: "", label: "No VIM/VIML citation", pubs: [] };
       g.pubs.push(p);
       groups.set(key, g);
       continue;
