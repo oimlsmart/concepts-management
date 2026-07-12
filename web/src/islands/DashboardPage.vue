@@ -19,7 +19,8 @@ const { byTerm } = useSuggestedActions(terms);
 const vimCount = terms.filter(t => t.kind === "defined_in_vim").length;
 const vimlCount = terms.filter(t => t.kind === "defined_in_viml").length;
 const oimlCount = terms.filter(t => t.kind === "oiml_original" || t.kind === "undefined").length;
-const gapsWithNearMiss = vocabGaps.filter(g => g.near_misses?.vim || g.near_misses?.viml).length;
+const gapsVimlNearMiss = vocabGaps.filter(g => g.near_misses?.viml).length;
+const gapsVimNearMiss = vocabGaps.filter(g => g.near_misses?.vim).length;
 const gapsNoMatch = vocabGaps.filter(g => !g.near_misses?.vim && !g.near_misses?.viml).length;
 
 // G 18:202X readiness
@@ -59,13 +60,13 @@ const divergentCount = terms.filter(t => maxWithinEditionDistinctDefs(t.publicat
         <div class="target-label">V 1</div>
         <div class="target-title">Future VIML</div>
         <p>Concepts proposed for the next edition of the International Vocabulary of Legal Metrology.</p>
-        <SLink to="/analysis/gaps/" class="target-link">{{ gapsWithNearMiss }} candidates with VIML near-miss →</SLink>
+        <SLink to="/analysis/gaps/" class="target-link">{{ gapsVimlNearMiss }} candidates with VIML near-miss →</SLink>
       </div>
       <div class="target-card target-v2">
         <div class="target-label">V 2</div>
         <div class="target-title">Future VIM</div>
         <p>Concepts proposed for the next edition of the International Vocabulary of Metrology. Suggestions go to JCGM.</p>
-        <SLink to="/analysis/gaps/" class="target-link">{{ gapsWithNearMiss }} candidates with VIM near-miss →</SLink>
+        <SLink to="/analysis/gaps/" class="target-link">{{ gapsVimNearMiss }} candidates with VIM near-miss →</SLink>
       </div>
       <div class="target-card target-v3">
         <div class="target-label">V 3</div>
