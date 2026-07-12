@@ -548,8 +548,9 @@ const filteredPublications = computed(() => {
                 </a>
               </div>
               <div class="decision-options">
-                <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Adopt the V 1/V 2 term →</a>
-                <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Propose V 3 based on V 1/V 2 term →</a>
+                <a v-if="vocabGap.near_misses.viml" class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Adopt V 1 (VIML: {{ vocabGap.near_misses.viml.designation }}) →</a>
+                <a v-if="vocabGap.near_misses.vim" class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Adopt V 2 (VIM: {{ vocabGap.near_misses.vim.designation }}) →</a>
+                <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Propose V 3 →</a>
               </div>
             </template>
             <template v-else>
@@ -587,25 +588,37 @@ const filteredPublications = computed(() => {
           <div v-if="term.vocab_presence?.viml" class="vocab-concept-card vocab-concept-viml">
             <div class="vocab-concept-badge">V 1 — {{ term.vocab_presence.viml.latest_label }}</div>
             <div class="vocab-concept-designation">{{ term.vocab_presence.viml.designation }}</div>
+            <div v-if="term.vocab_presence.viml.designations?.filter(d => d.status === 'admitted').length" class="vocab-concept-admitted">
+              <span class="muted">also: </span>
+              <span v-for="(d, i) in term.vocab_presence.viml.designations.filter(d => d.status === 'admitted')" :key="i">
+                <span v-if="d.usage_info" class="vocab-usage">{{ d.usage_info }} </span>{{ d.text }}<span v-if="i < term.vocab_presence.viml.designations.filter(d => d.status === 'admitted').length - 1">, </span>
+              </span>
+            </div>
             <DefText v-if="term.vocab_presence.viml.definition" :text="term.vocab_presence.viml.definition" class="vocab-concept-def" />
-            <ul v-if="term.vocab_presence.viml.notes?.length" class="vocab-concept-notes">
-              <li v-for="(n, i) in term.vocab_presence.viml.notes" :key="i"><DefText :text="n" /></li>
-            </ul>
-            <ul v-if="term.vocab_presence.viml.examples?.length" class="vocab-concept-examples">
-              <li v-for="(e, i) in term.vocab_presence.viml.examples" :key="i"><em>EXAMPLE:</em> <DefText :text="e" /></li>
-            </ul>
+            <div v-if="term.vocab_presence.viml.notes?.length" class="vocab-concept-notes">
+              <div v-for="(n, i) in term.vocab_presence.viml.notes" :key="i" class="vocab-note"><DefText :text="n" /></div>
+            </div>
+            <div v-if="term.vocab_presence.viml.examples?.length" class="vocab-concept-examples">
+              <div v-for="(e, i) in term.vocab_presence.viml.examples" :key="i" class="vocab-example"><em>EXAMPLE:</em> <DefText :text="e" /></div>
+            </div>
             <a :href="term.vocab_presence.viml.url" class="vocab-concept-link" target="_blank" rel="noopener">View full concept ↗</a>
           </div>
           <div v-if="term.vocab_presence?.vim" class="vocab-concept-card vocab-concept-vim">
             <div class="vocab-concept-badge">V 2 — {{ term.vocab_presence.vim.latest_label }}</div>
             <div class="vocab-concept-designation">{{ term.vocab_presence.vim.designation }}</div>
+            <div v-if="term.vocab_presence.vim.designations?.filter(d => d.status === 'admitted').length" class="vocab-concept-admitted">
+              <span class="muted">also: </span>
+              <span v-for="(d, i) in term.vocab_presence.vim.designations.filter(d => d.status === 'admitted')" :key="i">
+                <span v-if="d.usage_info" class="vocab-usage">{{ d.usage_info }} </span>{{ d.text }}<span v-if="i < term.vocab_presence.vim.designations.filter(d => d.status === 'admitted').length - 1">, </span>
+              </span>
+            </div>
             <DefText v-if="term.vocab_presence.vim.definition" :text="term.vocab_presence.vim.definition" class="vocab-concept-def" />
-            <ul v-if="term.vocab_presence.vim.notes?.length" class="vocab-concept-notes">
-              <li v-for="(n, i) in term.vocab_presence.vim.notes" :key="i"><DefText :text="n" /></li>
-            </ul>
-            <ul v-if="term.vocab_presence.vim.examples?.length" class="vocab-concept-examples">
-              <li v-for="(e, i) in term.vocab_presence.vim.examples" :key="i"><em>EXAMPLE:</em> <DefText :text="e" /></li>
-            </ul>
+            <div v-if="term.vocab_presence.vim.notes?.length" class="vocab-concept-notes">
+              <div v-for="(n, i) in term.vocab_presence.vim.notes" :key="i" class="vocab-note"><DefText :text="n" /></div>
+            </div>
+            <div v-if="term.vocab_presence.vim.examples?.length" class="vocab-concept-examples">
+              <div v-for="(e, i) in term.vocab_presence.vim.examples" :key="i" class="vocab-example"><em>EXAMPLE:</em> <DefText :text="e" /></div>
+            </div>
             <a :href="term.vocab_presence.vim.url" class="vocab-concept-link" target="_blank" rel="noopener">View full concept ↗</a>
           </div>
         </div>
@@ -1327,6 +1340,13 @@ const filteredPublications = computed(() => {
   padding: 1em 1.2em;
   margin-bottom: 1.2em;
 }
+.decision-box {
+  order: 99;
+}
+section.card:has(> .decision-box) {
+  display: flex;
+  flex-direction: column;
+}
 .decision-box h2 {
   font-size: 1rem;
   font-weight: 600;
@@ -1767,6 +1787,18 @@ const filteredPublications = computed(() => {
   font-style: italic;
   letter-spacing: -0.01em;
 }
+.vocab-concept-admitted {
+  font-size: 0.82rem;
+  color: var(--color-ink-soft);
+  font-style: italic;
+  margin-bottom: 0.5em;
+}
+.vocab-usage {
+  font-weight: 600;
+  font-style: normal;
+  color: var(--color-ink-muted);
+  font-size: 0.85em;
+}
 .vocab-concept-def {
   font-size: 0.9rem;
   line-height: 1.55;
@@ -1775,22 +1807,29 @@ const filteredPublications = computed(() => {
 }
 .vocab-concept-notes {
   margin: 0.3em 0 0.5em;
-  padding-left: 1.2em;
-  list-style: disc;
+  padding: 0;
 }
-.vocab-concept-notes li,
-.vocab-concept-examples li {
-  font-size: 0.84rem;
-  line-height: 1.45;
+.vocab-note {
+  font-size: 0.82rem;
+  line-height: 1.5;
   color: var(--color-ink-soft);
+  padding: 0.3em 0 0.3em 1em;
+  border-left: 2px solid var(--color-rule-soft);
   margin-bottom: 0.3em;
 }
 .vocab-concept-examples {
   margin: 0.3em 0 0.5em;
-  padding-left: 1.2em;
-  list-style: none;
+  padding: 0;
 }
-.vocab-concept-examples li em {
+.vocab-example {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--color-ink-soft);
+  padding: 0.3em 0 0.3em 1em;
+  border-left: 2px solid var(--color-rule-soft);
+  margin-bottom: 0.3em;
+}
+.vocab-example em {
   font-style: normal;
   font-weight: 600;
   font-size: 0.78rem;
