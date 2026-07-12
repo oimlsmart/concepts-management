@@ -24,6 +24,8 @@ if (mode === "full") {
           type: t.type,
           status: t.normativeStatus,
           text: t.designation,
+          usage_info: t.usageInfo || null,
+          grammar_info: t.grammarInfo || null,
         })),
         definitions: (loc.definitions || []).map((d) => d.content).filter(Boolean),
         notes: (loc.notes || []).map((d) => d.content).filter(Boolean),
