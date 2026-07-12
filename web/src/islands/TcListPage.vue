@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import tcData from "@/data/tc.json";
 import terms from "@/data/terms.json";
+import publicationsData from "@/data/publications.json";
 import SLink from "@/components/SLink.vue";
 
 type EditionFilter = "202X" | "2010" | "all";
@@ -30,6 +31,50 @@ function pubCount(name: string, edition: string | null) {
 const editionForFilter = computed<string | null>(() =>
   editionFilter.value === "all" ? null : editionFilter.value
 );
+
+// Publications with TC/SC from publications.json (relaton-enriched).
+// Term instances may lack tc_sc but the publication itself may have one.
+const pubTcScMap = computed(() => {
+  const map: Record<string, string> = {};
+  for (const p of (publicationsData as any[])) {
+    if (p.tc_sc) map[p.id] = p.tc_sc;
+  }
+  return map;
+});
+
+// Publications that have terms in the selected edition but no TC/SC
+// assignment anywhere — either a data quality issue (wrong pubid in
+// relaton) or genuinely unassigned.
+const unassignedPubs = computed(() => {
+  const ed = editionForFilter.value;
+  const ids = new Set<string>();
+  for (const t of (terms as any[])) {
+    if (ed && !(t.editions_present || []).includes(ed)) continue;
+    for (const p of (t.publications || [])) {
+      if (ed && p.edition !== ed) continue;
+      if (!p.publication_id) continue;
+      const tcSc = p.tc_sc || pubTcScMap.value[p.publication_id] || "";
+      if (!tcSc || tcSc.trim() === "") {
+        ids.add(p.publication_id);
+      }
+    }
+  }
+  return [...ids].sort();
+});
+
+const unassignedTermCount = computed(() => {
+  const ed = editionForFilter.value;
+  const unassignedIds = new Set(unassignedPubs.value);
+  return (terms as any[]).filter(t =>
+    t.publications.some((p: any) =>
+      p.publication_id &&
+      unassignedIds.has(p.publication_id) &&
+      (ed === null || p.edition === ed)
+    )
+  ).length;
+});
+
+const showUnassigned = ref(false);
 
 function slug(name: string) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -78,8 +123,76 @@ function slug(name: string) {
           <td class="num">{{ pubCount(t, editionForFilter) }}</td>
           <td class="num">{{ termCount(t, editionForFilter) }}</td>
         </tr>
+        <tr v-if="unassignedPubs.length" class="unassigned-row" @click="showUnassigned = !showUnassigned">
+          <td>
+            <span class="unassigned-label">Not assigned</span>
+            <span class="unassigned-hint">{{ showUnassigned ? "▾" : "▸" }} {{ unassignedPubs.length }} pubs — likely wrong pubid or missing from relaton</span>
+          </td>
+          <td class="num">{{ unassignedPubs.length }}</td>
+          <td class="num">{{ unassignedTermCount }}</td>
+        </tr>
       </tbody>
     </table>
     </div>
+
+    <!-- Expandable list of unassigned publications -->
+    <div v-if="showUnassigned && unassignedPubs.length" class="unassigned-list">
+      <div class="unassigned-list-head">Publications not assigned to any TC — check pubid spelling against relaton-data-oiml</div>
+      <ul class="unassigned-pubs">
+        <li v-for="pid in unassignedPubs" :key="pid">
+          <SLink :to="`/publications/${pid.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/`">{{ pid }}</SLink>
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
+
+<style scoped>
+.unassigned-row {
+  cursor: pointer;
+  border-top: 2px solid var(--status-warn-border);
+  background: var(--status-warn-bg);
+}
+.unassigned-row:hover {
+  background: color-mix(in srgb, var(--status-warn-bg) 80%, var(--color-paper));
+}
+.unassigned-row td {
+  border-top: 2px solid var(--status-warn-border);
+}
+.unassigned-label {
+  font-weight: 700;
+  color: var(--status-warn-text);
+}
+.unassigned-hint {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--color-ink-muted);
+  margin-top: 0.15em;
+}
+.unassigned-list {
+  margin-top: 0.8em;
+  padding: 0.8em 1em;
+  background: var(--status-warn-bg);
+  border: 1px solid var(--status-warn-border);
+  border-radius: 4px;
+}
+.unassigned-list-head {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--status-warn-text);
+  margin-bottom: 0.5em;
+}
+.unassigned-pubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em 1em;
+}
+.unassigned-pubs li {
+  font-size: 0.84rem;
+  font-family: var(--font-mono);
+}
+</style>
