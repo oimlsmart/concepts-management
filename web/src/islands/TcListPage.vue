@@ -113,6 +113,20 @@ function slug(name: string) {
     </div>
   </div>
 
+  <!-- Unassigned publications warning — at top so data quality issues are visible immediately -->
+  <div v-if="unassignedPubs.length" class="unassigned-banner" @click="showUnassigned = !showUnassigned">
+    <span class="unassigned-banner-label">Not assigned to any TC</span>
+    <span class="unassigned-banner-count">{{ unassignedPubs.length }} publications, {{ unassignedTermCount }} terms</span>
+    <span class="unassigned-banner-hint">{{ showUnassigned ? "▾ hide" : "▸ show list" }} — likely wrong pubid or missing from relaton-data-oiml</span>
+  </div>
+  <div v-if="showUnassigned && unassignedPubs.length" class="unassigned-list">
+    <ul class="unassigned-pubs">
+      <li v-for="pid in unassignedPubs" :key="pid">
+        <SLink :to="`/publications/${pid.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/`">{{ pid }}</SLink>
+      </li>
+    </ul>
+  </div>
+
   <section class="card">
     <div class="table-scroll">
       <table>
@@ -123,65 +137,51 @@ function slug(name: string) {
           <td class="num">{{ pubCount(t, editionForFilter) }}</td>
           <td class="num">{{ termCount(t, editionForFilter) }}</td>
         </tr>
-        <tr v-if="unassignedPubs.length" class="unassigned-row" @click="showUnassigned = !showUnassigned">
-          <td>
-            <span class="unassigned-label">Not assigned</span>
-            <span class="unassigned-hint">{{ showUnassigned ? "▾" : "▸" }} {{ unassignedPubs.length }} pubs — likely wrong pubid or missing from relaton</span>
-          </td>
-          <td class="num">{{ unassignedPubs.length }}</td>
-          <td class="num">{{ unassignedTermCount }}</td>
-        </tr>
       </tbody>
     </table>
-    </div>
-
-    <!-- Expandable list of unassigned publications -->
-    <div v-if="showUnassigned && unassignedPubs.length" class="unassigned-list">
-      <div class="unassigned-list-head">Publications not assigned to any TC — check pubid spelling against relaton-data-oiml</div>
-      <ul class="unassigned-pubs">
-        <li v-for="pid in unassignedPubs" :key="pid">
-          <SLink :to="`/publications/${pid.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/`">{{ pid }}</SLink>
-        </li>
-      </ul>
     </div>
   </section>
 </template>
 
 <style scoped>
-.unassigned-row {
-  cursor: pointer;
-  border-top: 2px solid var(--status-warn-border);
-  background: var(--status-warn-bg);
-}
-.unassigned-row:hover {
-  background: color-mix(in srgb, var(--status-warn-bg) 80%, var(--color-paper));
-}
-.unassigned-row td {
-  border-top: 2px solid var(--status-warn-border);
-}
-.unassigned-label {
-  font-weight: 700;
-  color: var(--status-warn-text);
-}
-.unassigned-hint {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--color-ink-muted);
-  margin-top: 0.15em;
-}
-.unassigned-list {
-  margin-top: 0.8em;
-  padding: 0.8em 1em;
+.unassigned-banner {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4em 0.8em;
+  padding: 0.7em 1em;
+  margin-bottom: 1em;
   background: var(--status-warn-bg);
   border: 1px solid var(--status-warn-border);
-  border-radius: 4px;
+  border-left: 4px solid var(--status-warn-border);
+  border-radius: var(--radius-card);
+  cursor: pointer;
+  transition: background 0.15s;
 }
-.unassigned-list-head {
-  font-size: 0.82rem;
+.unassigned-banner:hover {
+  background: color-mix(in srgb, var(--status-warn-bg) 85%, var(--color-paper));
+}
+.unassigned-banner-label {
+  font-weight: 700;
+  color: var(--status-warn-text);
+  font-size: 0.92rem;
+}
+.unassigned-banner-count {
   font-weight: 600;
   color: var(--status-warn-text);
-  margin-bottom: 0.5em;
+  font-size: 0.88rem;
+}
+.unassigned-banner-hint {
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+}
+.unassigned-list {
+  padding: 0.7em 1em;
+  margin-bottom: 1em;
+  background: var(--status-warn-bg);
+  border: 1px solid var(--status-warn-border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
 }
 .unassigned-pubs {
   list-style: none;
