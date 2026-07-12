@@ -2,7 +2,8 @@
 # frozen_string_literal: true
 
 # Export per-term YAML data and bibliography into JSON for the Vite + Vue
-# frontend. Reads from `data/` and `tc-sc/publications.yaml`, writes
+# frontend. Reads from `data/` (migrated from vocab repo) and vocab repo
+# bibliographies + relaton-data-oiml (for TC/SC enrichment), writes
 # one JSON file per entity into `web/src/data/`.
 #
 # Also builds a "latest edition check" for every term whose official_concept
@@ -346,6 +347,14 @@ end
 File.write(File.join(options[:out_dir], "publications.json"),
            JSON.generate(publications))
 
+# Build pub_id → tc_sc map for enriching term publication instances.
+# The vocab repo migration produces empty tc_sc; relaton enrichment fills
+# it at the publication level, and we propagate it into term instances here.
+pub_tc_sc_map = {}
+publications.each do |p|
+  pub_tc_sc_map[p["id"]] = p["tc_sc"] if p["tc_sc"] && !p["tc_sc"].to_s.strip.empty?
+end
+
 # ── Data fixups ──────────────────────────────────────────────────────────
 # Known source-data issues corrected before export so the UI shows accurate
 # provenance and definition-grouping. Each fixup is documented so it can be
@@ -367,6 +376,12 @@ Dir.glob(File.join(options[:data_dir], "*.yaml")).sort.each do |path|
   next unless docs.first.is_a?(Hash)
   hash = docs.find { |d| d.is_a?(Hash) && d["data"] && d["data"]["term"] } || docs.first
   data = hash["data"] || {}
+  # Propagate TC/SC from relaton-enriched publications into term instances
+  (data["publications"] || []).each do |p|
+    if (!p["tc_sc"] || p["tc_sc"].to_s.strip.empty?) && p["publication_id"]
+      p["tc_sc"] = pub_tc_sc_map[p["publication_id"]] if pub_tc_sc_map[p["publication_id"]]
+    end
+  end
   # Apply data fixups (corrects known source-data errors before export)
   (data["publications"] || []).each do |p|
     fixup = DATA_FIXUPS[p["publication_id"]]
@@ -499,7 +514,6 @@ tc_set = Set.new
 publications.each do |p|
   tc_set << p["tc_sc"] if p["tc_sc"] && !p["tc_sc"].to_s.strip.empty?
 end
-tc_set << "(Unattributed)"
 File.write(File.join(options[:out_dir], "tc.json"),
            JSON.generate(tc_set.sort))
 

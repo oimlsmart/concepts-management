@@ -24,7 +24,7 @@ default_vocab_root = File.expand_path("vocab/datasets", File.join(repo_root, "..
 vocab_root = ENV.fetch("VOCAB_ROOT", default_vocab_root)
 options = {
   vocab_root: vocab_root,
-  bib_path: ENV.fetch("TC_SC_PATH", File.join(repo_root, "tc-sc", "publications.yaml")),
+  bib_path: nil,
   aliases_path: ENV.fetch("ALIASES_PATH", File.join(repo_root, "tc-sc", "term-aliases.yaml")),
   output_dir: ENV.fetch("OUTPUT_DIR", File.join(repo_root, "data")),
   report_path: ENV.fetch("REPORT_PATH", File.join(repo_root, "migration-report.md")),
@@ -43,7 +43,7 @@ OptionParser.new do |opts|
       { name: "2010", path: File.join(v, "g18-2010"), primary: false },
     ]
   end
-  opts.on("--bib-path PATH", String, "Bibliography YAML (defaults to tc-sc/publications.yaml)") { |v| options[:bib_path] = v }
+  opts.on("--bib-path PATH", String, "Bibliography YAML (defaults to vocab repo bibliographies)") { |v| options[:bib_path] = v }
   opts.on("--aliases-path PATH", String, "Term aliases YAML (defaults to tc-sc/term-aliases.yaml)") { |v| options[:aliases_path] = v }
   opts.on("--output-dir DIR", String, "Output directory for per-term files") { |v| options[:output_dir] = v }
   opts.on("--report PATH", String, "Where to write the migration report") { |v| options[:report_path] = v }

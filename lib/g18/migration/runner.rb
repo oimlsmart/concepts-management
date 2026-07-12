@@ -11,8 +11,18 @@ module G18
       def run(editions:, output_dir:, bib_path: nil, aliases_path: nil, vocab_dir: nil)
         validate_inputs!(editions)
         primary    = editions.find { |e| e[:primary] } || editions.last
-        bib_path ||= editions.map { |e| File.join(e[:path], "bibliography.yaml") }.find { |p| File.exist?(p) }
-        bib       = bib_path ? Loaders.load_bibliography(bib_path) : {}
+        # Load and merge ALL available bibliographies from edition paths.
+        # Each vocab dataset has its own bibliography.yaml — merging gives
+        # maximum coverage across editions.
+        bib = {}
+        if bib_path
+          bib.merge!(Loaders.load_bibliography(bib_path))
+        else
+          editions.each do |e|
+            path = File.join(e[:path], "bibliography.yaml")
+          bib.merge!(Loaders.load_bibliography(path)) if File.exist?(path)
+          end
+        end
         aliases   = Normalize.load_term_aliases(aliases_path)
         vocab_dir ||= File.expand_path("..", editions.first[:path])
 
