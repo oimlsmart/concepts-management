@@ -21,17 +21,19 @@ const pagination = usePagination(filtered, {
   dep: () => `${scope.value}|${tcFilter.value}|${search.value}`,
 });
 
-// Read initial scope and auto-open proposal from URL params.
-// Must run client-side only (onMounted) — on a static site the
-// pre-rendered HTML has the default scope; we patch it after hydration.
-const VALID_SCOPES: GapScope[] = ["v3-match", "v1-match", "v2-match", "all"];
-onMounted(() => {
-  const params = new URLSearchParams(window.location.search);
-  const scopeParam = params.get("scope");
-  if (scopeParam && (VALID_SCOPES as string[]).includes(scopeParam)) {
+// Read scope from URL synchronously in script setup. With client:only="vue"
+// this always runs on the client before first render — no FUOC.
+const VALID_SCOPES: string[] = ["v3-match", "v1-match", "v2-match", "all"];
+if (typeof window !== "undefined") {
+  const scopeParam = new URLSearchParams(window.location.search).get("scope");
+  if (scopeParam && VALID_SCOPES.includes(scopeParam)) {
     scope.value = scopeParam as GapScope;
   }
-  const termSlug = params.get("term");
+}
+
+// ?term= auto-open needs onMounted (modal needs DOM ready)
+onMounted(() => {
+  const termSlug = new URLSearchParams(window.location.search).get("term");
   if (termSlug) {
     const gap = vocabGaps.find(g => g.slug === termSlug);
     if (gap) {
@@ -91,25 +93,25 @@ const scopeButtons: { val: typeof scope.value; concept: string; target: string; 
   {
     val: "v3-match",
     concept: "V 3 candidates",
-    target: "no VIM/VIML near-miss — likely specific terms",
+    target: "no near-miss",
     count: vocabGaps.filter(g => !g.near_misses.vim && !g.near_misses.viml).length,
   },
   {
     val: "v1-match",
     concept: "V 1 candidates",
-    target: "VIML near-miss — legal metrology concept",
+    target: "VIML near-miss",
     count: vocabGaps.filter(g => g.near_misses.viml).length,
   },
   {
     val: "v2-match",
     concept: "V 2 candidates",
-    target: "VIM near-miss — general metrology concept",
+    target: "VIM near-miss",
     count: vocabGaps.filter(g => g.near_misses.vim).length,
   },
   {
     val: "all",
     concept: "All",
-    target: "every OIML-original term",
+    target: "",
     count: vocabGaps.length,
   },
 ];
@@ -180,8 +182,7 @@ function nearMissText(nm: any): string {
               @click="scope = b.val">
         <span class="page-filter-btn-title">{{ b.concept }}</span>
         <span class="page-filter-btn-meta">
-          <span>{{ b.count }}</span>
-          <span class="btn-meta-desc"> · {{ b.target }}</span>
+          <span>{{ b.count }}<template v-if="b.target"> · {{ b.target }}</template></span>
         </span>
       </button>
     </div>
