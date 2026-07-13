@@ -4,7 +4,7 @@ import harmonizationSlim from "@/data/harmonization-slim.json";
 import SLink from "@/components/SLink.vue";
 import { slugify } from "@/utils/term-utils";
 
-type EditionFilter = "202X" | "2010" | "all";
+type EditionFilter = "current" | "202X" | "2010" | "all";
 const editionFilter = ref<EditionFilter>("202X");
 
 const designationCollisions = (harmonizationSlim as any).designation_collisions || {};
@@ -13,7 +13,8 @@ const collisionEditions = computed(() => {
   const all = Object.keys(designationCollisions)
     .sort((a: string, b: string) => (b === "202X" ? 1 : 0) - (a === "202X" ? 1 : 0));
   if (editionFilter.value === "all") return all;
-  return all.filter(e => e === editionFilter.value);
+  const ed = editionFilter.value === "current" ? "complete" : editionFilter.value;
+  return all.filter(e => e === ed);
 });
 
 function collisionSummary(ed: string) {
@@ -46,6 +47,12 @@ function collisionSummary(ed: string) {
   <div class="page-filter" role="region" aria-label="G 18 edition filter">
     <span class="page-filter-label">G 18 edition</span>
     <div class="page-filter-controls">
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' }]"
+              @click="editionFilter = 'current'">
+        <span class="page-filter-btn-title">G 18:Current</span>
+        <span class="page-filter-btn-meta">{{ collisionSummary('complete').designations }} designations · live set from all publications</span>
+      </button>
       <button type="button"
               :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' }]"
               @click="editionFilter = '202X'">

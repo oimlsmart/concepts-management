@@ -27,11 +27,12 @@ onMounted(async () => {
 
 // Edition filter (sticky 3-button pattern, default 202X). Filters by which
 // edition this TC/SC's pubs have instances in.
-type EditionFilter = "202X" | "2010" | "all";
+type EditionFilter = "current" | "202X" | "2010" | "all";
 const editionFilter = ref<EditionFilter>("202X");
-const editionForFilter = computed<string | null>(() =>
-  editionFilter.value === "all" ? null : editionFilter.value
-);
+const editionForFilter = computed<string | null>(() => {
+  if (editionFilter.value === "all") return null;
+  return editionFilter.value === "current" ? "complete" : editionFilter.value;
+});
 
 // This TC/SC's publications — filtered by whether they have any term
 // instance in the selected edition.
@@ -182,6 +183,12 @@ function pubRef(id: string): string {
     <div class="page-filter" role="region" aria-label="G 18 edition filter">
       <span class="page-filter-label">G 18 edition</span>
       <div class="page-filter-controls">
+        <button type="button"
+                :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' }]"
+                @click="editionFilter = 'current'">
+          <span class="page-filter-btn-title">G 18:Current</span>
+          <span class="page-filter-btn-meta">live set from all publications</span>
+        </button>
         <button type="button"
                 :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' }]"
                 @click="editionFilter = '202X'">

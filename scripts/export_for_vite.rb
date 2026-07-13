@@ -815,7 +815,8 @@ end
 tc_list_data = tc_data.map do |tc, d|
   { "tc" => tc, "terms_total" => d["terms"].size, "pubs_total" => d["pubs"].size,
     "terms_202X" => (d["ed_202X_terms"]||Set.new).size, "pubs_202X" => (d["ed_202X_pubs"]||Set.new).size,
-    "terms_2010" => (d["ed_2010_terms"]||Set.new).size, "pubs_2010" => (d["ed_2010_pubs"]||Set.new).size }
+    "terms_2010" => (d["ed_2010_terms"]||Set.new).size, "pubs_2010" => (d["ed_2010_pubs"]||Set.new).size,
+    "terms_complete" => (d["ed_complete_terms"]||Set.new).size, "pubs_complete" => (d["ed_complete_pubs"]||Set.new).size }
 end.sort_by { |x| x["tc"] }
 File.write(File.join(options[:out_dir], "tc-stats.json"), JSON.generate(tc_list_data))
 

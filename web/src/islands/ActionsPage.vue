@@ -6,7 +6,7 @@ import { usePagination } from "@/composables/usePagination";
 import SLink from "@/components/SLink.vue";
 import PaginationControls from "@/components/PaginationControls.vue";
 
-type EditionFilter = "202X" | "2010" | "all";
+type EditionFilter = "current" | "202X" | "2010" | "all";
 const editionFilter = ref<EditionFilter>("202X");
 
 const filterType = ref("");
@@ -63,7 +63,8 @@ const counts = computed(() => {
 // Apply edition filter to groups.
 function groupMatchesEdition(g: ActionGroup): boolean {
   if (editionFilter.value === "all") return true;
-  return (g.editionsPresent || []).includes(editionFilter.value);
+  const ed = editionFilter.value === "current" ? "complete" : editionFilter.value;
+  return (g.editionsPresent || []).includes(ed);
 }
 
 const filtered = computed(() => {
@@ -117,6 +118,12 @@ const legendTypes = computed(() => Object.keys(ACTION_META).filter(t => counts.v
   <div class="page-filter" role="region" aria-label="G 18 edition filter">
     <span class="page-filter-label">G 18 edition</span>
     <div class="page-filter-controls">
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' }]"
+              @click="editionFilter = 'current'">
+        <span class="page-filter-btn-title">G 18:Current</span>
+        <span class="page-filter-btn-meta">live set from all publications</span>
+      </button>
       <button type="button"
               :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' }]"
               @click="editionFilter = '202X'">

@@ -5,7 +5,7 @@ import conflictsData from "@/data/conflicts.json";
 import { slugifyPubId } from "@/composables/useSuggestedActions";
 import SLink from "@/components/SLink.vue";
 
-type EditionFilter = "202X" | "2010" | "all";
+type EditionFilter = "current" | "202X" | "2010" | "all";
 const editionFilter = ref<EditionFilter>("202X");
 
 const rawByEditionAll = (conflictsData as any).raw || {};
@@ -13,16 +13,18 @@ const allEditions = Object.keys(rawByEditionAll).sort((a, b) =>
   (b === "202X" ? 1 : 0) - (a === "202X" ? 1 : 0)
 );
 // Editions shown in the current view (respecting the filter).
-const editions = computed(() =>
-  editionFilter.value === "all" ? allEditions : allEditions.filter(e => e === editionFilter.value)
-);
+const editions = computed(() => {
+  if (editionFilter.value === "all") return allEditions;
+  const ed = editionFilter.value === "current" ? "complete" : editionFilter.value;
+  return allEditions.filter(e => e === ed);
+});
 const totalCount = computed(() =>
   editions.value.reduce((s, ed) => s + (rawByEditionAll[ed] || []).length, 0)
 );
 
 // Per-edition counts for the filter button meta text.
 const editionCounts = computed(() => {
-  const c: Record<string, number> = { "202X": 0, "2010": 0 };
+  const c: Record<string, number> = { "202X": 0, "2010": 0, "complete": 0 };
   for (const ed of allEditions) c[ed] = (rawByEditionAll[ed] || []).length;
   return c;
 });
@@ -49,6 +51,12 @@ const editionCounts = computed(() => {
   <div class="page-filter" role="region" aria-label="G 18 edition filter">
     <span class="page-filter-label">G 18 edition</span>
     <div class="page-filter-controls">
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' }]"
+              @click="editionFilter = 'current'">
+        <span class="page-filter-btn-title">G 18:Current</span>
+        <span class="page-filter-btn-meta">{{ editionCounts["complete"] }} conflicting IDs · live set from all publications</span>
+      </button>
       <button type="button"
               :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' }]"
               @click="editionFilter = '202X'">

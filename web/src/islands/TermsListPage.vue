@@ -14,7 +14,7 @@ const search = ref("");
 // dashboard links still work: "202X" / "2010" map directly; "202X-only" /
 // "2010-only" map to the closest scope + a banner explaining the cross-
 // edition filter that's active.
-type EditionFilter = "202X" | "2010" | "all";
+type EditionFilter = "current" | "202X" | "2010" | "all";
 const urlParams = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
 const initialOnly = urlParams.get("only") || "";
 const editionFilter = ref<EditionFilter>(
@@ -50,7 +50,8 @@ const allTCs = computed(() => {
 const filtered = computed(() => {
   let t = terms;
   if (editionFilter.value !== "all") {
-    t = t.filter(x => (x.editions_present || []).includes(editionFilter.value));
+    const ed = editionFilter.value === "current" ? "complete" : editionFilter.value;
+    t = t.filter(x => (x.editions_present || []).includes(ed));
   }
   if (crossEdition.value === "added") {
     t = t.filter(x => (x.editions_present || []).includes("202X") && !(x.editions_present || []).includes("2010"));
@@ -106,6 +107,7 @@ const pageTitle = computed(() => {
   if (crossEdition.value === "added") return "Concepts added in G 18:202X (not in 2010)";
   if (editionFilter.value === "2010") return "Concepts in G 18:2010";
   if (editionFilter.value === "202X") return "Concepts in G 18:202X";
+  if (editionFilter.value === "current") return "Concepts in G 18:Current";
   return "Concepts defined in OIML publications";
 });
 </script>
@@ -130,6 +132,12 @@ const pageTitle = computed(() => {
   <div class="page-filter" role="region" aria-label="G 18 edition filter">
     <span class="page-filter-label">G 18 edition</span>
     <div class="page-filter-controls">
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' && !crossEdition }]"
+              @click="editionFilter = 'current'; crossEdition = null">
+        <span class="page-filter-btn-title">G 18:Current</span>
+        <span class="page-filter-btn-meta">live set from all publications</span>
+      </button>
       <button type="button"
               :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' && !crossEdition }]"
               @click="editionFilter = '202X'; crossEdition = null">
