@@ -5,7 +5,7 @@ import tcStats from "@/data/tc-stats.json";
 import { slugifyPubId } from "@/composables/useSuggestedActions";
 import SLink from "@/components/SLink.vue";
 
-type EditionFilter = "202X" | "2010" | "all";
+type EditionFilter = "current" | "202X" | "2010" | "all";
 const editionFilter = ref<EditionFilter>("202X");
 
 // Build a lookup map from tc-stats.json for O(1) access.
@@ -21,6 +21,7 @@ function termCount(tcName: string): number {
   const s = statsMap.value[tcName];
   if (!s) return 0;
   switch (editionFilter.value) {
+    case "current": return s.terms_complete;
     case "202X": return s.terms_202X;
     case "2010": return s.terms_2010;
     default: return s.terms_total;
@@ -31,6 +32,7 @@ function pubCount(tcName: string): number {
   const s = statsMap.value[tcName];
   if (!s) return 0;
   switch (editionFilter.value) {
+    case "current": return s.pubs_complete;
     case "202X": return s.pubs_202X;
     case "2010": return s.pubs_2010;
     default: return s.pubs_total;
@@ -53,6 +55,12 @@ function slug(name: string) {
   <div class="page-filter" role="region" aria-label="G 18 edition filter">
     <span class="page-filter-label">G 18 edition</span>
     <div class="page-filter-controls">
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' }]"
+              @click="editionFilter = 'current'">
+        <span class="page-filter-btn-title">G 18:Current</span>
+        <span class="page-filter-btn-meta">live set from all publications</span>
+      </button>
       <button type="button"
               :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' }]"
               @click="editionFilter = '202X'">

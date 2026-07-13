@@ -32,7 +32,7 @@ onMounted(async () => {
 const pubTerms = computed(() => terms.value);
 
 // Edition toggle. Default: 202X — TC 1 can only act on the draft edition.
-type EditionFilter = "202X" | "2010" | "all";
+type EditionFilter = "current" | "202X" | "2010" | "all";
 const editionFilter = ref<EditionFilter>("202X");
 
 // Which editions does this pub appear in for the given term?
@@ -47,7 +47,8 @@ function editionsForTerm(term: any): Set<string> {
 // Filter terms by whether this pub has an instance in the selected edition.
 function termMatchesEdition(term: any): boolean {
   if (editionFilter.value === "all") return true;
-  return editionsForTerm(term).has(editionFilter.value);
+  const ed = editionFilter.value === "current" ? "complete" : editionFilter.value;
+  return editionsForTerm(term).has(ed);
 }
 const filteredPubTerms = computed(() => pubTerms.value.filter(termMatchesEdition));
 
@@ -68,12 +69,11 @@ const DEFECT_ACTION_TYPES = new Set([
 // harmonize actions would leak into the 202X view.
 function actionAppliesToEdition(a: any, edition: string): boolean {
   if (edition === "all") return true;
+  // Map "current" filter to "complete" edition in the data
+  const dataEd = edition === "current" ? "complete" : edition;
   const meta = actionMeta(a.type);
   if (meta.applies_to === "all") return true;
-  // Action is edition-specific (most are 202X-only).
-  // harmonize is scoped to a worst-edition during compile, so respect
-  // the selected edition filter as a proxy.
-  return meta.applies_to === edition || a.type === "harmonize";
+  return meta.applies_to === dataEd || a.type === "harmonize";
 }
 
 const pubActions = computed(() => {
@@ -91,7 +91,8 @@ const pubActions = computed(() => {
     if (editionFilter.value === "all") return true;
     const t = terms.find(t => t.slug === a.slug);
     if (!t) return false;
-    return editionsForTerm(t).has(editionFilter.value) &&
+    const ed = editionFilter.value === "current" ? "complete" : editionFilter.value;
+    return editionsForTerm(t).has(ed) &&
            actionAppliesToEdition(a, editionFilter.value);
   });
 });
@@ -115,9 +116,10 @@ const v3CandidateTerms = computed(() =>
 
 // Edition counts for the toggle UI (so users see "202X: 7 · 2010: 119 · All: 126")
 const editionCounts = computed(() => {
-  const c = { "202X": 0, "2010": 0 };
+  const c = { "current": 0, "202X": 0, "2010": 0 };
   for (const t of pubTerms.value) {
     const eds = editionsForTerm(t);
+    if (eds.has("complete")) c["current"]++;
     if (eds.has("202X")) c["202X"]++;
     if (eds.has("2010")) c["2010"]++;
   }
@@ -145,7 +147,8 @@ interface Row {
 function pubInstanceForEdition(term: any): any {
   const pubs = (term?.publications || []).filter((p: any) => p.publication_id === pubId.value);
   if (editionFilter.value === "all") return pubs[0];
-  return pubs.find((p: any) => p.edition === editionFilter.value) || pubs[0];
+  const ed = editionFilter.value === "current" ? "complete" : editionFilter.value;
+  return pubs.find((p: any) => p.edition === ed) || pubs[0];
 }
 
 const actionRows = computed<Row[]>(() => {
@@ -231,6 +234,12 @@ const actionTypesPresent = computed(() => {
     <div class="page-filter" role="region" aria-label="G 18 edition filter">
       <span class="page-filter-label">G 18 edition</span>
       <div class="page-filter-controls">
+        <button type="button"
+                :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' }]"
+                @click="editionFilter = 'current'">
+          <span class="page-filter-btn-title">G 18:Current</span>
+          <span class="page-filter-btn-meta">{{ editionCounts["current"] }} terms · live set from all publications</span>
+        </button>
         <button type="button"
                 :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' }]"
                 @click="editionFilter = '202X'">

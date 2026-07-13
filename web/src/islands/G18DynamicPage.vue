@@ -44,19 +44,19 @@ const withDefinition = terms.filter(t => t.definition && t.definition.trim()).le
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>Dynamic</span></div>
-    <h1>G 18:dynamic</h1>
+    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>Current</span></div>
+    <h1>G 18:current</h1>
     <p class="lede">
-      A live document, auto-generated from the concept registry. Unlike the
-      statically published editions, G 18:dynamic reflects the current state of
-      harmonized terminology at all times — no manual compilation cycle.
+      A live document containing the current set of all concepts defined in OIML
+      publications. Generated from G 18 Complete — every terminology entry
+      observed across the OIML publication corpus.
     </p>
   </div>
 
   <div class="admonition" style="background: var(--status-info-bg); border-color: var(--status-info-border); color: var(--status-info-text); margin-bottom: 1.2em;">
     <strong>Vision:</strong> When developing a future SMART Recommendation, specification
     of a term in Part 1 would retrieve the agreed definition from the agreed vocabulary.
-    G 18:dynamic makes this possible by maintaining a live concept registry.
+    G 18:current makes this possible by maintaining a live concept registry.
   </div>
 
   <section class="grid grid-4">

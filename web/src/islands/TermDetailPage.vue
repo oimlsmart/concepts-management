@@ -143,7 +143,7 @@ const hasDefDivergence = computed(() => {
 // Edition filter (single-select, mirrors the publication/TC pages).
 // Drives the `enabledEditions` Set used downstream by the definition-group
 // and Publication instances tables.
-type EditionFilter = "202X" | "2010" | "all";
+type EditionFilter = "current" | "202X" | "2010" | "all";
 const editionFilter = ref<EditionFilter>("all");
 
 // Default to 202X when the term is in the draft edition — TC 1 acts there.
@@ -158,7 +158,8 @@ watchEffect(() => {
 const enabledEditions = computed(() => {
   const eds = term.value?.editions_present || [];
   if (editionFilter.value === "all") return new Set(eds);
-  return new Set(eds.filter(e => e === editionFilter.value));
+  const targetEd = editionFilter.value === "current" ? "complete" : editionFilter.value;
+  return new Set(eds.filter(e => e === targetEd));
 });
 const groupMode = ref(true);
 
@@ -503,6 +504,12 @@ const filteredPublications = computed(() => {
     <div v-if="!isHistoricTermComputed && (term.editions_present || []).length > 1" class="page-filter" role="region" aria-label="G 18 edition filter">
       <span class="page-filter-label">G 18 edition</span>
       <div class="page-filter-controls">
+        <button v-if="(term.editions_present || []).includes('complete')" type="button"
+                :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' }]"
+                @click="setEditionFilter('current')">
+          <span class="page-filter-btn-title">G 18:Current</span>
+          <span class="page-filter-btn-meta">{{ editionCount('complete') }} instances · live set from all publications</span>
+        </button>
         <button v-if="(term.editions_present || []).includes('202X')" type="button"
                 :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' }]"
                 @click="setEditionFilter('202X')">

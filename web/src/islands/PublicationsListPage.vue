@@ -4,12 +4,13 @@ import publications from "@/data/pub-list.json";
 import { slugifyPubId } from "@/composables/useSuggestedActions";
 import SLink from "@/components/SLink.vue";
 
-type EditionFilter = "202X" | "2010" | "all";
+type EditionFilter = "current" | "202X" | "2010" | "all";
 const editionFilter = ref<EditionFilter>("202X");
 
-const editionForFilter = computed<string | null>(() =>
-  editionFilter.value === "all" ? null : editionFilter.value
-);
+const editionForFilter = computed<string | null>(() => {
+  if (editionFilter.value === "all") return null;
+  return editionFilter.value === "current" ? "complete" : editionFilter.value;
+});
 
 function termCount(pub: any): number {
   if (editionForFilter.value) {
@@ -37,6 +38,12 @@ const filtered = computed(() => {
   <div class="page-filter" role="region" aria-label="G 18 edition filter">
     <span class="page-filter-label">G 18 edition</span>
     <div class="page-filter-controls">
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' }]"
+              @click="editionFilter = 'current'">
+        <span class="page-filter-btn-title">G 18:Current</span>
+        <span class="page-filter-btn-meta">live set from all publications</span>
+      </button>
       <button type="button"
               :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' }]"
               @click="editionFilter = '202X'">
