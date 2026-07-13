@@ -9,7 +9,8 @@ module G18
       module_function
 
       def run(editions:, output_dir:, bib_path: nil, aliases_path: nil, vocab_dir: nil)
-        validate_inputs!(editions)
+        editions = validate_inputs!(editions)
+        raise ArgumentError, "no valid edition directories found" if editions.empty?
         primary    = editions.find { |e| e[:primary] } || editions.last
         # Load and merge ALL available bibliographies from edition paths.
         # Each vocab dataset has its own bibliography.yaml — merging gives
@@ -99,8 +100,12 @@ module G18
         raise ArgumentError, "editions must be a non-empty Array" unless editions.is_a?(Array) && editions.any?
         editions.each do |e|
           raise ArgumentError, "edition missing :name or :path" unless e.is_a?(Hash) && e[:name] && e[:path]
-          raise ArgumentError, "edition dir not found: #{e[:path]}" unless Dir.exist?(e[:path])
         end
+        # Skip editions whose directories don't exist (e.g. g18-current
+        # not yet pushed to the vocab repo). Warn so it's visible.
+        missing = editions.reject { |e| Dir.exist?(e[:path]) }
+        missing.each { |e| warn "  WARN: edition dir not found, skipping: #{e[:name]} (#{e[:path]})" }
+        editions - missing
       end
     end
   end
