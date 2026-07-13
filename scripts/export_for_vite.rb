@@ -515,8 +515,89 @@ File.write(File.join(options[:out_dir], "terms.json"),
 
 # ── Per-term page data (slug → full hash) ─────────────────────────────────
 by_slug = terms.each_with_object({}) { |t, h| h[t["slug"]] = t }
-File.write(File.join(options[:out_dir], "term-by-slug.json"),
-           JSON.generate(by_slug))
+
+# ── Slim terms for list/count pages ───────────────────────────────────────
+# Lightweight array with only fields needed for browsing/filtering.
+# The full terms.json is ~30MB+; this slim version is ~500KB.
+terms_slim = terms.map do |t|
+  pubs = t["publications"] || []
+  {
+    "slug" => t["slug"],
+    "name" => t["name"],
+    "kind" => t["kind"],
+    "identifier" => t["identifier"],
+    "editions_present" => t["editions_present"],
+    "pub_count" => pubs.length,
+    "pub_ids" => pubs.map { |p| p["publication_id"] }.compact.uniq,
+    "tc_scs" => pubs.map { |p| p["tc_sc"] }.compact.uniq,
+    "action_types" => (t["suggested_actions"] || []).map { |a| a["type"] },
+    "designations" => t["designations"] || [],
+    "official_concept_id" => t["official_concept"]&.dig("id"),
+  }
+end
+File.write(File.join(options[:out_dir], "terms-slim.json"),
+           JSON.generate(terms_slim))
+
+# ── Per-term detail JSON (fetched on demand by concept pages) ─────────────
+# Strip heavy provenance fields that the UI doesn't need, reducing each
+# file from ~100KB to ~10-30KB.
+STRIP_FROM_PUB = %w[
+  source_lineage definition_paragraphs note_paragraphs example_paragraphs
+  paragraph_sources note_sources example_sources annotations
+  concept_sources localized_sources consistency consistency_reason
+].freeze
+
+terms_detail_dir = File.join(repo_root, "web", "public", "data", "terms")
+FileUtils.mkdir_p(terms_detail_dir)
+terms.each do |t|
+  slim_t = t.dup
+  slim_t["publications"] = (t["publications"] || []).map do |p|
+    p.reject { |k, _| STRIP_FROM_PUB.include?(k) }
+  end
+  File.write(File.join(terms_detail_dir, "#{t['slug']}.json"), JSON.generate(slim_t))
+end
+
+# ── Dashboard summary (pre-computed stats for homepage) ───────────────────
+kind_counts = terms.group_by { |t| t["kind"] }.transform_values(&:count)
+edition_counts = terms.each_with_object(Hash.new(0)) do |t, h|
+  (t["editions_present"] || []).each { |e| h[e] += 1 }
+end
+
+# Vocabulary gap counts
+gaps_viml_near_miss = vocab_gaps.count { |g| g["near_misses"]&.dig("viml") }
+gaps_vim_near_miss = vocab_gaps.count { |g| g["near_misses"]&.dig("vim") }
+gaps_no_match = vocab_gaps.count { |g| !g["near_misses"]&.dig("vim") && !g["near_misses"]&.dig("viml") }
+
+# Priority worklist: top 8 non-historic terms with actions
+ACTION_PRIORITY = { "upgrade_vim" => 0, "upgrade_viml" => 0, "removed" => 0,
+                    "harmonize" => 1, "adopt_vim" => 1, "adopt_viml" => 1,
+                    "unique" => 2, "standardize" => 2 }.freeze
+priority_terms = terms
+  .reject { |t| (t["editions_present"] || []) == ["2010"] }
+  .select { |t| (t["suggested_actions"] || []).any? }
+  .map do |t|
+    actions = t["suggested_actions"] || []
+    min_rank = actions.map { |a| ACTION_PRIORITY[a["type"]] || 3 }.min
+    { "slug" => t["slug"], "name" => t["name"],
+      "actions" => actions.first(2).map { |a| a["type"] },
+      "priority_rank" => min_rank,
+      "pub_count" => (t["publications"] || []).length }
+  end
+  .sort_by { |t| [t["priority_rank"], -t["pub_count"]] }
+  .first(8)
+
+dashboard = {
+  "total_terms" => terms.length,
+  "total_publications" => publications.length,
+  "kind_counts" => kind_counts,
+  "edition_counts" => edition_counts,
+  "gaps_viml_near_miss" => gaps_viml_near_miss,
+  "gaps_vim_near_miss" => gaps_vim_near_miss,
+  "gaps_no_match" => gaps_no_match,
+  "priority_terms" => priority_terms,
+}
+File.write(File.join(options[:out_dir], "dashboard.json"),
+           JSON.generate(dashboard))
 
 # ── TC/SC list ────────────────────────────────────────────────────────────
 tc_set = Set.new
