@@ -1,41 +1,25 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import termsData from "@/data/terms.json";
-import editionStats from "@/data/edition-stats.json";
+import dashboardData from "@/data/dashboard.json";
 import conflictsData from "@/data/conflicts.json";
-import vocabGapsData from "@/data/vocab-gaps.json";
-import {
-  useSuggestedActions,
-  maxWithinEditionDistinctDefs,
-  isHistoric,
-} from "@/composables/useSuggestedActions";
 import SLink from "@/components/SLink.vue";
 
-const terms = termsData as any[];
-const vocabGaps = vocabGapsData as any[];
-const { byTerm } = useSuggestedActions(terms);
+const dashboard = dashboardData as any;
+const vocabGaps = dashboard;
+const rawConflictCount = Object.values((conflictsData as any).raw || {}).flat().length;
 
-// Vocabulary preparation stats
-const vimCount = terms.filter(t => t.kind === "defined_in_vim").length;
-const vimlCount = terms.filter(t => t.kind === "defined_in_viml").length;
-const oimlCount = terms.filter(t => t.kind === "oiml_original" || t.kind === "undefined").length;
-const gapsVimlNearMiss = vocabGaps.filter(g => g.near_misses?.viml).length;
-const gapsVimNearMiss = vocabGaps.filter(g => g.near_misses?.vim).length;
-const gapsNoMatch = vocabGaps.filter(g => !g.near_misses?.vim && !g.near_misses?.viml).length;
+const vimCount = dashboard.kind_counts["defined_in_vim"] || 0;
+const vimlCount = dashboard.kind_counts["defined_in_viml"] || 0;
+const oimlCount = (dashboard.kind_counts["oiml_original"] || 0) + (dashboard.kind_counts["undefined"] || 0);
+const gapsVimlNearMiss = dashboard.gaps_viml_near_miss;
+const gapsVimNearMiss = dashboard.gaps_vim_near_miss;
+const gapsNoMatch = dashboard.gaps_no_match;
+const terms = dashboard;
 
-// G 18:202X readiness
-const rawConflictCount = Object.values(conflictsData.raw || {}).flat().length;
-
-// Action stats
-const priorityActions = computed(() =>
-  byTerm.value.filter(g => !g.isHistoric).slice(0, 8)
-);
+const priorityActions = dashboard.priority_terms || [];
 const priorityLabel = (rank: number) =>
   rank === 0 ? "High" : rank === 1 ? "Medium" : rank === 2 ? "Info" : "Low";
 const priorityBadge = (rank: number) =>
   rank === 0 ? "badge-ko" : rank === 1 ? "badge-partial" : "badge-pending";
-
-const divergentCount = terms.filter(t => maxWithinEditionDistinctDefs(t.publications) > 1).length;
 </script>
 
 <template>
@@ -112,7 +96,7 @@ const divergentCount = terms.filter(t => maxWithinEditionDistinctDefs(t.publicat
 
   <!-- Quick stats -->
   <section class="grid grid-4 reveal reveal-2">
-    <SLink class="stat-card" to="/concepts/"><div class="stat-value">{{ terms.length }}</div><div class="stat-label">concepts</div></SLink>
+    <SLink class="stat-card" to="/concepts/"><div class="stat-value">{{ dashboard.total_terms }}</div><div class="stat-label">concepts</div></SLink>
     <SLink class="stat-card" to="/concepts/?only=defined_in_vim"><div class="stat-value">{{ vimCount }}</div><div class="stat-label">from VIM (V 2)</div></SLink>
     <SLink class="stat-card" to="/concepts/?only=defined_in_viml"><div class="stat-value">{{ vimlCount }}</div><div class="stat-label">from VIML (V 1)</div></SLink>
     <SLink class="stat-card" to="/concepts/?only=oiml_original"><div class="stat-value">{{ oimlCount }}</div><div class="stat-label">OIML-specific (V 3 candidates)</div></SLink>
@@ -133,10 +117,10 @@ const divergentCount = terms.filter(t => maxWithinEditionDistinctDefs(t.publicat
           <tr v-for="g in priorityActions" :key="g.slug">
             <td><SLink :to="`/concepts/${g.slug}/`">{{ g.name }}</SLink></td>
             <td>
-              <span v-for="a in g.actions.slice(0, 2)" :key="a.type" class="action-chip">{{ a.type.replace(/_/g, ' ') }}</span>
+              <span v-for="a in (g.actions || []).slice(0, 2)" :key="a" class="action-chip">{{ a.replace(/_/g, ' ') }}</span>
             </td>
-            <td><span :class="['badge', priorityBadge(g.priorityRank)]">{{ priorityLabel(g.priorityRank) }}</span></td>
-            <td class="num">{{ g.pubCount }}</td>
+            <td><span :class="['badge', priorityBadge(g.priority_rank)]">{{ priorityLabel(g.priority_rank) }}</span></td>
+            <td class="num">{{ g.pub_count }}</td>
           </tr>
         </tbody>
       </table>

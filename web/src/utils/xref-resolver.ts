@@ -1,4 +1,4 @@
-import termBySlug from "@/data/term-by-slug.json";
+import termsSlim from "@/data/terms-slim.json";
 import { slugify as slugifyText } from "@/utils/term-utils";
 
 let conceptIdLookup: Record<string, string> | null = null;
@@ -10,10 +10,11 @@ function ensureLookups() {
   conceptIdLookup = {};
   nameLookup = {};
   allSlugs = new Set();
-  for (const [slug, term] of Object.entries(termBySlug as any)) {
-    const id = (term as any).official_concept?.id;
+  for (const term of termsSlim as any[]) {
+    const slug = term.slug;
+    const id = term.official_concept_id;
     if (id && !conceptIdLookup![id]) conceptIdLookup![id] = slug;
-    if ((term as any).name) nameLookup![(term as any).name.toLowerCase()] = slug;
+    if (term.name) nameLookup![term.name.toLowerCase()] = slug;
     allSlugs.add(slug);
   }
 }

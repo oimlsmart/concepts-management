@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from "vue";
-import termBySlug from "@/data/term-by-slug.json";
-import vocabGaps from "@/data/vocab-gaps.json";
+import { computed, ref, onMounted, watchEffect } from "vue";
 import { useVocabularyEdition } from "@/composables/useVocabularyEdition";
 import { useConceptVersions } from "@/composables/useConceptVersions";
 import { slugifyPubId, isOimlOriginal } from "@/composables/useSuggestedActions";
@@ -16,7 +14,16 @@ const props = defineProps<{ slug: string }>();
 const base = import.meta.env.BASE_URL;
 const { label, confidenceClass, isCurrent, isSuperseded, latestLabel, role, vocabUrl } = useVocabularyEdition();
 
-const term = computed(() => (termBySlug as any)[props.slug]);
+const term = ref<any>(null);
+const loading = ref(true);
+
+onMounted(async () => {
+  try {
+    const res = await fetch(`${base}data/terms/${props.slug}.json`);
+    if (res.ok) term.value = await res.json();
+  } catch { /* fetch failed */ }
+  finally { loading.value = false; }
+});
 
 // Sourcing publications — which OIML documents define this term
 const sourcingPublications = computed(() => {
@@ -27,10 +34,7 @@ const sourcingPublicationsCount = computed(() =>
   new Set((term.value?.publications || []).map((p: any) => p.publication_id)).size
 );
 
-// Vocab gap data for near-miss analysis (OIML-original terms)
-const vocabGap = computed(() =>
-  (vocabGaps as any[]).find(g => g.slug === term.value?.slug)
-);
+// Near-miss data now comes from term.vocab_presence (fetched per-term)
 
 // Publication citation status: for each publication instance, what VIM/VIML
 // edition does it cite? This directly answers the user's Step 1 question:
@@ -89,7 +93,7 @@ const recommendation = computed(() => {
   if (!t) return { level: "none", icon: "", text: "", link: null, action: "" };
 
   if (canPropose.value) {
-    if (vocabGap.value?.near_misses?.vim || vocabGap.value?.near_misses?.viml) {
+    if (term.value?.vocab_presence?.vim || term.value?.vocab_presence?.viml) {
       return {
         level: "info", icon: "📋",
         text: `Not in V 1/V 2. Resembles a VIM/VIML term — consider adopting it or proposing for V 3.`,
@@ -432,7 +436,8 @@ const filteredPublications = computed(() => {
 </script>
 
 <template>
-  <div v-if="!term" class="card"><p>Term not found.</p></div>
+  <div v-if="loading" class="card"><p style="color: var(--color-ink-muted)">Loading…</p></div>
+  <div v-else-if="!term" class="card"><p>Term not found.</p></div>
   <template v-else>
     <div class="page-head">
       <div class="breadcrumb"><SLink to="/">Registry</SLink> / <SLink to="/concepts/">Terms</SLink> / <span><DefText :text="term.name" /></span></div>
@@ -528,28 +533,28 @@ const filteredPublications = computed(() => {
           :is-current="!!(term.official_concept?.source && isCurrent(term.official_concept.source))"
           :is-superseded="!!(term.official_concept?.source && isSuperseded(term.official_concept.source))"
           :latest-check-found="term.latest_check?.found ?? null"
-          :has-near-miss="!!(vocabGap?.near_misses?.vim || vocabGap?.near_misses?.viml)"
+          :has-near-miss="!!(term?.vocab_presence?.vim || term?.vocab_presence?.viml)"
         />
         <div class="decision-recommendation">
           <div v-if="canPropose" class="decision-path">
             <strong>Not in VIM/VIML.</strong>
-            <template v-if="vocabGap?.near_misses?.vim || vocabGap?.near_misses?.viml">
+            <template v-if="term?.vocab_presence?.vim || term?.vocab_presence?.viml">
               This term resembles:
               <div class="near-miss-list">
-                <a v-if="vocabGap.near_misses.viml" :href="vocabGap.near_misses.viml.url" class="near-miss-item" target="_blank" rel="noopener">
+                <a v-if="term.vocab_presence.viml" :href="term.vocab_presence.viml.url" class="near-miss-item" target="_blank" rel="noopener">
                   <span class="near-miss-vocab">VIML</span>
-                  {{ vocabGap.near_misses.viml.designation }}
-                  <span v-if="vocabGap.near_misses.viml.similarity" class="near-miss-sim">{{ vocabGap.near_misses.viml.similarity }}</span>
+                  {{ term.vocab_presence.viml.designation }}
+                  <span v-if="term.vocab_presence.viml.similarity" class="near-miss-sim">{{ term.vocab_presence.viml.similarity }}</span>
                 </a>
-                <a v-if="vocabGap.near_misses.vim" :href="vocabGap.near_misses.vim.url" class="near-miss-item" target="_blank" rel="noopener">
+                <a v-if="term.vocab_presence.vim" :href="term.vocab_presence.vim.url" class="near-miss-item" target="_blank" rel="noopener">
                   <span class="near-miss-vocab">VIM</span>
-                  {{ vocabGap.near_misses.vim.designation }}
-                  <span v-if="vocabGap.near_misses.vim.similarity" class="near-miss-sim">{{ vocabGap.near_misses.vim.similarity }}</span>
+                  {{ term.vocab_presence.vim.designation }}
+                  <span v-if="term.vocab_presence.vim.similarity" class="near-miss-sim">{{ term.vocab_presence.vim.similarity }}</span>
                 </a>
               </div>
               <div class="decision-options">
-                <a v-if="vocabGap.near_misses.viml" class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Adopt V 1 (VIML: {{ vocabGap.near_misses.viml.designation }}) →</a>
-                <a v-if="vocabGap.near_misses.vim" class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Adopt V 2 (VIM: {{ vocabGap.near_misses.vim.designation }}) →</a>
+                <a v-if="term.vocab_presence.viml" class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Adopt V 1 (VIML: {{ term.vocab_presence.viml.designation }}) →</a>
+                <a v-if="term.vocab_presence.vim" class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Adopt V 2 (VIM: {{ term.vocab_presence.vim.designation }}) →</a>
                 <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Propose V 3 →</a>
               </div>
             </template>

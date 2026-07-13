@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import terms from "@/data/terms.json";
-import termBySlug from "@/data/term-by-slug.json";
+import termsSlim from "@/data/terms-slim.json";
 import publications from "@/data/publications.json";
 import vocabGaps from "@/data/vocab-gaps.json";
 import conflicts from "@/data/conflicts.json";
@@ -69,27 +69,23 @@ describe("data contract: terms.json (full schema validation)", () => {
   });
 });
 
-describe("data contract: term-by-slug.json", () => {
-  it("is a non-empty object keyed by slug", () => {
-    expect(typeof termBySlug).toBe("object");
-    expect(termBySlug).not.toBeNull();
-    expect(Object.keys(termBySlug).length).toBeGreaterThan(0);
+describe("data contract: terms-slim.json", () => {
+  it("is a non-empty array", () => {
+    expect(Array.isArray(termsSlim)).toBe(true);
+    expect((termsSlim as any[]).length).toBeGreaterThan(0);
   });
 
-  it("each entry has the same shape as terms.json entries", () => {
-    const keys = Object.keys(termBySlug).slice(0, 20);
-    for (const slug of keys) {
-      const t = (termBySlug as any)[slug];
-      expect(t.slug).toBe(slug);
+  it("each entry has required fields", () => {
+    for (const t of (termsSlim as any[]).slice(0, 20)) {
+      expect(typeof t.slug).toBe("string");
       expect(typeof t.name).toBe("string");
-      expect(Array.isArray(t.designations)).toBe(true);
-      expect(Array.isArray(t.publications)).toBe(true);
+      expect(Array.isArray(t.editions_present)).toBe(true);
     }
   });
 
   it("entries are consistent with terms.json", () => {
     for (const term of terms.slice(0, 20)) {
-      const bySlug = (termBySlug as any)[term.slug];
+      const bySlug = (termsSlim as any[]).find(t => t.slug === term.slug);
       expect(bySlug).toBeDefined();
       expect(bySlug.name).toBe(term.name);
       expect(bySlug.identifier).toBe(term.identifier);
