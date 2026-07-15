@@ -13,5 +13,5 @@ export function getStaticPaths() {
 const { slug } = Astro.props;
 ---
 <Layout>
-  <TermDetailPage client:only="vue" slug={slug} />
+  <TermDetailPage client:load slug={slug} />
 </Layout>
