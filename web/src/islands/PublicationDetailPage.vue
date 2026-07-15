@@ -33,7 +33,7 @@ const pubTerms = computed(() => terms.value);
 
 // Edition toggle. Default: 202X — TC 1 can only act on the draft edition.
 type EditionFilter = "current" | "202X" | "2010" | "all";
-const editionFilter = ref<EditionFilter>("202X");
+const editionFilter = ref<EditionFilter>("current");
 
 // Which editions does this pub appear in for the given term?
 function editionsForTerm(term: any): Set<string> {

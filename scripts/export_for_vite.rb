@@ -349,6 +349,10 @@ if File.exist?(relaton_index_path)
     end
     parts = [tc_part, sc_part].compact
     p["tc_sc"] = parts.join("/") if parts.any?
+    # Extract withdrawn status
+    stage = doc.dig("status", "stage")
+    stage_str = stage.is_a?(Hash) ? stage["content"] : stage
+    p["withdrawn"] = true if stage_str.to_s.downcase == "withdrawn"
   end
 end
 
@@ -359,8 +363,10 @@ File.write(File.join(options[:out_dir], "publications.json"),
 # The vocab repo migration produces empty tc_sc; relaton enrichment fills
 # it at the publication level, and we propagate it into term instances here.
 pub_tc_sc_map = {}
+pub_withdrawn_set = Set.new
 publications.each do |p|
   pub_tc_sc_map[p["id"]] = p["tc_sc"] if p["tc_sc"] && !p["tc_sc"].to_s.strip.empty?
+  pub_withdrawn_set << p["id"] if p["withdrawn"]
 end
 
 # ── Data fixups ──────────────────────────────────────────────────────────
@@ -388,6 +394,10 @@ Dir.glob(File.join(options[:data_dir], "*.yaml")).sort.each do |path|
   (data["publications"] || []).each do |p|
     if (!p["tc_sc"] || p["tc_sc"].to_s.strip.empty?) && p["publication_id"]
       p["tc_sc"] = pub_tc_sc_map[p["publication_id"]] if pub_tc_sc_map[p["publication_id"]]
+    end
+    # Flag withdrawn publication instances
+    (data["publications"] || []).each do |p|
+      p["withdrawn"] = true if pub_withdrawn_set.include?(p["publication_id"])
     end
   end
   # Apply data fixups (corrects known source-data errors before export)
@@ -562,7 +572,7 @@ by_slug = terms.each_with_object({}) { |t, h| h[t["slug"]] = t }
 # ── Slim terms for list/count pages ───────────────────────────────────────
 # Lightweight array with only fields needed for browsing/filtering.
 # The full terms.json is ~30MB+; this slim version is ~500KB.
-terms_slim = terms.map do |t|
+  terms_slim = terms.map do |t|
   pubs = t["publications"] || []
   defs = pubs.map { |p| (p["definition"] || "").gsub(/\{\{[^}]+\}\}/, "").strip }.select { |d| !d.empty? }
   tc_counts = pubs.each_with_object(Hash.new(0)) { |p, h| h[p["tc_sc"]] += 1 if p["tc_sc"] && !p["tc_sc"].to_s.strip.empty? }
@@ -580,6 +590,7 @@ terms_slim = terms.map do |t|
     "action_types" => (t["suggested_actions"] || []).map { |a| a["type"] },
     "designations" => t["designations"] || [],
     "official_concept_id" => t["official_concept"]&.dig("id"),
+    "has_withdrawn" => pubs.any? { |p| p["withdrawn"] },
   }
 end
 File.write(File.join(options[:out_dir], "terms-slim.json"),
@@ -787,12 +798,22 @@ File.write(File.join(options[:out_dir], "vocab-gaps.json"),
 puts "Exported for Vite:"
 # ── Page-specific pre-computed data (lightweight JSON per page) ───────────
 
-# ActionsPage: terms with suggested actions
-actions_data = terms
-  .select { |t| (t["suggested_actions"] || []).any? }
-  .map { |t| { "slug" => t["slug"], "name" => t["name"], "kind" => t["kind"],
-               "actions" => t["suggested_actions"], "pub_count" => (t["publications"]||[]).length,
-               "editions_present" => t["editions_present"] } }
+# ActionsPage: terms with suggested actions + retire actions for withdrawn pubs
+retire_action = { "type" => "retire", "priority" => "high",
+  "description" => "Concept cited in a withdrawn OIML publication. Retire from G 18:current and G 18:202X.",
+  "publication_ids" => [] }
+actions_data = terms.map do |t|
+  actions = (t["suggested_actions"] || []).dup
+  withdrawn_pubs = (t["publications"] || []).select { |p| p["withdrawn"] }.map { |p| p["publication_id"] }.compact.uniq
+  if withdrawn_pubs.any?
+    actions << { **retire_action, "publication_ids" => withdrawn_pubs }
+  end
+  next nil if actions.empty?
+  { "slug" => t["slug"], "name" => t["name"], "kind" => t["kind"],
+    "actions" => actions, "pub_count" => (t["publications"]||[]).length,
+    "editions_present" => t["editions_present"],
+    "has_withdrawn" => withdrawn_pubs.any? }
+end.compact
 File.write(File.join(options[:out_dir], "actions-data.json"), JSON.generate(actions_data))
 
 # G18DynamicPage: all concepts with first definition

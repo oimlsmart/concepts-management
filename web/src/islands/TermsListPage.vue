@@ -20,7 +20,7 @@ const initialOnly = urlParams.get("only") || "";
 const editionFilter = ref<EditionFilter>(
   initialOnly === "2010" ? "2010" :
   initialOnly === "202X" || initialOnly === "202X-only" ? "202X" :
-  initialOnly === "2010-only" ? "all" : "202X"
+  initialOnly === "2010-only" ? "all" : "current"
 );
 // Cross-edition filter (set by `?only=` URL params from dashboard links).
 const crossEdition = ref<"added" | "removed" | null>(

@@ -5,7 +5,7 @@ import { slugifyPubId } from "@/composables/useSuggestedActions";
 import SLink from "@/components/SLink.vue";
 
 type EditionFilter = "current" | "202X" | "2010" | "all";
-const editionFilter = ref<EditionFilter>("202X");
+const editionFilter = ref<EditionFilter>("current");
 
 const editionForFilter = computed<string | null>(() => {
   if (editionFilter.value === "all") return null;
@@ -74,7 +74,7 @@ const filtered = computed(() => {
       <thead><tr><th>Reference</th><th>Year</th><th>TC/SC</th><th>Terms ({{ editionFilter === "all" ? "all" : editionFilter }})</th></tr></thead>
       <tbody>
         <tr v-for="p in filtered" :key="p.id">
-          <td><SLink :to="`/publications/${slugifyPubId(p.id)}/`">{{ p.reference || p.id }}</SLink></td>
+          <td><SLink :to="`/publications/${slugifyPubId(p.id)}/`">{{ p.reference || p.id }}</SLink><span v-if="p.withdrawn" class="withdrawn-badge">Withdrawn</span></td>
           <td class="num">{{ (p.id || '').match(/(\d{4})/)?.[1] || "—" }}</td>
           <td><SLink :to="`/tc/${(p.tc_sc || '').toLowerCase().replace('/', '-').toLowerCase()}/`">{{ p.tc_sc || "—" }}</SLink></td>
           <td class="num">{{ termCount(p) }}</td>
@@ -84,3 +84,19 @@ const filtered = computed(() => {
     </div>
   </section>
 </template>
+
+<style scoped>
+.withdrawn-badge {
+  display: inline-block;
+  margin-left: 0.5em;
+  padding: 0.1em 0.45em;
+  border-radius: 3px;
+  background: var(--status-error-bg);
+  color: var(--status-error-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--status-error-border);
+}
+</style>

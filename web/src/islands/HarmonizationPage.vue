@@ -5,7 +5,7 @@ import SLink from "@/components/SLink.vue";
 import { slugify } from "@/utils/term-utils";
 
 type EditionFilter = "current" | "202X" | "2010" | "all";
-const editionFilter = ref<EditionFilter>("202X");
+const editionFilter = ref<EditionFilter>("current");
 
 const designationCollisions = (harmonizationSlim as any).designation_collisions || {};
 
