@@ -7,7 +7,7 @@ import SLink from "@/components/SLink.vue";
 import PaginationControls from "@/components/PaginationControls.vue";
 
 type EditionFilter = "current" | "202X" | "2010" | "all";
-const editionFilter = ref<EditionFilter>("202X");
+const editionFilter = ref<EditionFilter>("current");
 
 const filterType = ref("");
 const search = ref("");

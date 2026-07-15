@@ -140,6 +140,25 @@ import SLink from "@/components/SLink.vue";
       </ol>
     </div>
 
+    <!-- Case 3: Withdrawn publication -->
+    <div class="case-card case-withdrawn">
+      <div class="case-header">
+        <span class="case-badge case-badge-withdrawn">Case 3</span>
+        <h3>Concept cited in a withdrawn publication</h3>
+      </div>
+      <p class="case-intro">
+        When an OIML publication is withdrawn, concepts that only appear in that
+        publication should be retired from G 18:current and G 18:202X. The
+        platform automatically detects withdrawn publications (from
+        relaton-data-oiml) and flags affected concepts with a "Retire from G 18"
+        action.
+      </p>
+      <div class="case-outcome case-outcome-action">
+        Action: <strong>Retire from G 18:current and G 18:202X.</strong> The
+        concept is no longer sourced from an active publication.
+      </div>
+    </div>
+
     <!-- Reference material -->
     <div class="case-card case-reference">
       <div class="case-header">
@@ -246,6 +265,7 @@ import SLink from "@/components/SLink.vue";
 }
 .case-sourced { border-left: 4px solid var(--status-ok-border); }
 .case-original { border-left: 4px solid var(--status-warn-border); }
+.case-withdrawn { border-left: 4px solid var(--status-error-border); }
 .case-reference { border-left: 4px solid var(--status-info-border); }
 
 .case-header {
@@ -268,6 +288,10 @@ import SLink from "@/components/SLink.vue";
 .case-badge-original {
   background: var(--status-warn-bg);
   color: var(--status-warn-text);
+}
+.case-badge-withdrawn {
+  background: var(--status-error-bg);
+  color: var(--status-error-text);
 }
 .case-badge-ref {
   background: var(--status-info-bg);

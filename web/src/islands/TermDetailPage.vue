@@ -25,6 +25,13 @@ onMounted(async () => {
   finally { loading.value = false; }
 });
 
+// Withdrawn publications: detect if any publication instance is withdrawn.
+// These concepts should be retired from G 18:current and G 18:202X.
+const withdrawnPubs = computed(() => {
+  const pubs = term.value?.publications || [];
+  return pubs.filter((p: any) => p.withdrawn);
+});
+
 // Sourcing publications — which OIML documents define this term
 const sourcingPublications = computed(() => {
   const pubs = [...new Set((term.value?.publications || []).map((p: any) => p.publication_id))];
@@ -499,7 +506,19 @@ const filteredPublications = computed(() => {
       <a v-if="recommendation.link" class="rec-action" :href="recommendation.link">{{ recommendation.action }} →</a>
     </div>
 
-    <!-- Publication citation status: per-publication VIM/VIML citation analysis -->
+    <!-- Withdrawn publication warning: concept cited in a withdrawn OIML pub -->
+    <div v-if="withdrawnPubs.length" class="withdrawn-warning">
+      <span class="withdrawn-warning-icon">⚠</span>
+      <div class="withdrawn-warning-body">
+        <div class="withdrawn-warning-text">
+          Cited in withdrawn OIML publication(s):
+          <span v-for="(p, i) in [...new Set(withdrawnPubs.map(p => p.publication_id))]" :key="p" class="withdrawn-pub-id">
+            <SLink :to="`/publications/${slugifyPubId(p)}/`">{{ p }}</SLink><span v-if="i < [...new Set(withdrawnPubs.map(pp => pp.publication_id))].length - 1">, </span>
+          </span>
+        </div>
+        <div class="withdrawn-warning-action">Action: Retire from G 18:current and G 18:202X</div>
+      </div>
+    </div>
     <section class="card citation-status-card" v-if="pubCitations.length">
       <div class="card-head">
         <h2>Publication citations</h2>
@@ -571,6 +590,7 @@ const filteredPublications = computed(() => {
           :is-superseded="!!(term.official_concept?.source && isSuperseded(term.official_concept.source))"
           :latest-check-found="term.latest_check?.found ?? null"
           :has-near-miss="!!(term?.vocab_presence?.vim || term?.vocab_presence?.viml)"
+          :has-withdrawn="withdrawnPubs.length > 0"
         />
         <div class="decision-recommendation">
           <div v-if="canPropose" class="decision-path">
@@ -1334,6 +1354,49 @@ const filteredPublications = computed(() => {
   white-space: nowrap;
 }
 .rec-action:hover { background: var(--color-accent-hover); text-decoration: none; }
+
+/* Withdrawn publication warning */
+.withdrawn-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7em;
+  padding: 0.7em 1em;
+  margin-bottom: 1.2em;
+  border-radius: 6px;
+  background: var(--status-error-bg);
+  border-left: 4px solid var(--status-error-border);
+}
+.withdrawn-warning-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  color: var(--status-error-text);
+}
+.withdrawn-warning-body {
+  flex: 1;
+}
+.withdrawn-warning-text {
+  font-size: 0.88rem;
+  color: var(--status-error-text);
+  line-height: 1.4;
+}
+.withdrawn-warning-text strong {
+  font-weight: 700;
+}
+.withdrawn-pub-id {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.withdrawn-pub-id a {
+  color: var(--status-error-text);
+}
+.withdrawn-warning-action {
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 0.3em;
+  color: var(--status-error-text);
+  opacity: 0.85;
+}
 
 /* Publication citation status */
 .citation-status-card { margin-bottom: 1.2em; }

@@ -5,14 +5,22 @@ const props = defineProps<{
   isSuperseded: boolean;
   latestCheckFound: boolean | null;
   hasNearMiss: boolean;
+  hasWithdrawn: boolean;
 }>();
 
 const isVim = props.kind !== "oiml_original" && props.kind !== "undefined";
 
-interface Step { label: string; type: "entry" | "decision" | "done" | "warn" | "action"; }
+interface Step { label: string; type: "entry" | "decision" | "done" | "warn" | "action" | "danger"; }
 
 const steps: Step[] = (() => {
   const s: Step[] = [{ label: "Term in OIML pubs", type: "entry" }];
+
+  if (props.hasWithdrawn) {
+    s.push({ label: "In withdrawn pub?", type: "danger" });
+    s.push({ label: "Retire from G 18", type: "action" });
+    return s;
+  }
+
   if (isVim) {
     s.push({ label: "Cites VIM/VIML", type: "decision" });
     if (props.isCurrent) {
@@ -88,6 +96,11 @@ const steps: Step[] = (() => {
   background: var(--status-warn-bg);
   border-color: var(--status-warn-border);
   color: var(--status-warn-text);
+}
+.flow-danger {
+  background: var(--status-error-bg);
+  border-color: var(--status-error-border);
+  color: var(--status-error-text);
 }
 .flow-action {
   background: var(--status-info-bg);

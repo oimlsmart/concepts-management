@@ -36,6 +36,7 @@ export interface ActionMeta {
 }
 
 export const ACTION_META: Record<string, ActionMeta> = {
+  retire:       { label: "Retire from G 18", icon: "🚫", hint: "Cited in withdrawn publication", applies_to: "all" },
   upgrade_vim:  { label: "Update VIM ref",  icon: "↑", hint: "Cited VIM is superseded; the term exists in VIM 2012. Re-cite to current, or keep older citation with justification.", applies_to: "202X" },
   upgrade_viml: { label: "Update VIML ref", icon: "↑", hint: "Cited VIML is superseded; the term exists in VIML 2022. Re-cite to current, or keep older citation with justification.", applies_to: "202X" },
   removed:      { label: "Removed from VIM/VIML", icon: "⊘", hint: "Term is in the cited older edition but no longer in VIM 2012 / VIML 2022. Verify rename, reallocate, or justify retention.", applies_to: "202X" },

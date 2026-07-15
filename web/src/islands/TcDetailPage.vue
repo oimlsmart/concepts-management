@@ -28,7 +28,7 @@ onMounted(async () => {
 // Edition filter (sticky 3-button pattern, default 202X). Filters by which
 // edition this TC/SC's pubs have instances in.
 type EditionFilter = "current" | "202X" | "2010" | "all";
-const editionFilter = ref<EditionFilter>("202X");
+const editionFilter = ref<EditionFilter>("current");
 const editionForFilter = computed<string | null>(() => {
   if (editionFilter.value === "all") return null;
   return editionFilter.value === "current" ? "complete" : editionFilter.value;

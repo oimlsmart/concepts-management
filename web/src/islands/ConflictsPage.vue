@@ -6,7 +6,7 @@ import { slugifyPubId } from "@/composables/useSuggestedActions";
 import SLink from "@/components/SLink.vue";
 
 type EditionFilter = "current" | "202X" | "2010" | "all";
-const editionFilter = ref<EditionFilter>("202X");
+const editionFilter = ref<EditionFilter>("current");
 
 const rawByEditionAll = (conflictsData as any).raw || {};
 const allEditions = Object.keys(rawByEditionAll).sort((a, b) =>
