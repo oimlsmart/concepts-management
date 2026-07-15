@@ -6,9 +6,6 @@ import { usePagination } from "@/composables/usePagination";
 import SLink from "@/components/SLink.vue";
 import PaginationControls from "@/components/PaginationControls.vue";
 
-type EditionFilter = "current" | "202X" | "2010" | "all";
-const editionFilter = ref<EditionFilter>("current");
-
 const filterType = ref("");
 const search = ref("");
 
@@ -60,15 +57,8 @@ const counts = computed(() => {
   return c;
 });
 
-// Apply edition filter to groups.
-function groupMatchesEdition(g: ActionGroup): boolean {
-  if (editionFilter.value === "all") return true;
-  const ed = editionFilter.value === "current" ? "complete" : editionFilter.value;
-  return (g.editionsPresent || []).includes(ed);
-}
-
 const filtered = computed(() => {
-  let groups = byTerm.value.filter(groupMatchesEdition);
+  let groups = byTerm.value;
   if (filterType.value) {
     groups = groups.filter(g => g.actions.some(a => a.type === filterType.value));
   }
@@ -81,7 +71,7 @@ const filtered = computed(() => {
 
 const pagination = usePagination(filtered, {
   pageSize: 50,
-  dep: () => `${filterType.value}|${search.value}|${editionFilter.value}`,
+  dep: () => `${filterType.value}|${search.value}`,
 });
 
 const totalActions = computed(() => {
@@ -112,37 +102,6 @@ const legendTypes = computed(() => Object.keys(ACTION_META).filter(t => counts.v
     <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Actions</span></div>
     <h1>Suggested actions for TC 1</h1>
     <p class="lede">{{ totalActions }} actions across {{ totalTerms }} terms, computed from citation currency, definition divergence, and vocabulary alignment.</p>
-  </div>
-
-  <!-- Sticky page-level edition filter -->
-  <div class="page-filter" role="region" aria-label="G 18 edition filter">
-    <span class="page-filter-label">G 18 edition</span>
-    <div class="page-filter-controls">
-      <button type="button"
-              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' }]"
-              @click="editionFilter = 'current'">
-        <span class="page-filter-btn-title">G 18:Current</span>
-        <span class="page-filter-btn-meta">live set from all publications</span>
-      </button>
-      <button type="button"
-              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' }]"
-              @click="editionFilter = '202X'">
-        <span class="page-filter-btn-title">G 18:202X</span>
-        <span class="page-filter-btn-meta">terms in the draft edition · TC 1 acts here</span>
-      </button>
-      <button type="button"
-              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '2010' }]"
-              @click="editionFilter = '2010'">
-        <span class="page-filter-btn-title">G 18:2010</span>
-        <span class="page-filter-btn-meta">terms in the historic edition · read-only</span>
-      </button>
-      <button type="button"
-              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'all' }]"
-              @click="editionFilter = 'all'">
-        <span class="page-filter-btn-title">All</span>
-        <span class="page-filter-btn-meta">terms in either edition</span>
-      </button>
-    </div>
   </div>
 
   <section class="card">

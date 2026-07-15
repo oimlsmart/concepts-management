@@ -10,15 +10,32 @@ import { kindLabel } from "@/utils/term-utils";
 const terms = termsData as any[];
 
 const search = ref("");
-
-// Simple scope toggle: "current" (default, complete edition only) vs "all".
-type ScopeFilter = "current" | "all";
-const scopeFilter = ref<ScopeFilter>("current");
+// Edition filter — 3-button sticky pattern. URL `?only=` params from old
+// dashboard links still work: "202X" / "2010" map directly; "202X-only" /
+// "2010-only" map to the closest scope + a banner explaining the cross-
+// edition filter that's active.
+type EditionFilter = "current" | "202X" | "2010" | "all";
+const urlParams = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
+const initialOnly = urlParams.get("only") || "";
+const editionFilter = ref<EditionFilter>(
+  initialOnly === "2010" ? "2010" :
+  initialOnly === "202X" || initialOnly === "202X-only" ? "202X" :
+  initialOnly === "2010-only" ? "all" : "current"
+);
+// Cross-edition filter (set by `?only=` URL params from dashboard links).
+const crossEdition = ref<"added" | "removed" | null>(
+  initialOnly === "202X-only" ? "added" :
+  initialOnly === "2010-only" ? "removed" : null
+);
 
 const onlyTC = ref("");
 const onlyKind = ref("");
 const sortKey = ref<"name" | "pubs" | "defs">("name");
 const sortDir = ref<1 | -1>(1);
+
+const termsInCurrent = computed(() => (terms as any[]).filter(t => (t.editions_present || []).includes("complete")).length);
+const termsIn202X = computed(() => (terms as any[]).filter(t => (t.editions_present || []).includes("202X")).length);
+const termsIn2010 = computed(() => (terms as any[]).filter(t => (t.editions_present || []).includes("2010")).length);
 
 const allTCs = computed(() => {
   const set = new Set<string>();
@@ -30,8 +47,14 @@ const allTCs = computed(() => {
 
 const filtered = computed(() => {
   let t = terms;
-  if (scopeFilter.value === "current") {
-    t = t.filter(x => (x.editions_present || []).includes("complete"));
+  if (editionFilter.value !== "all") {
+    const ed = editionFilter.value === "current" ? "complete" : editionFilter.value;
+    t = t.filter(x => (x.editions_present || []).includes(ed));
+  }
+  if (crossEdition.value === "added") {
+    t = t.filter(x => (x.editions_present || []).includes("202X") && !(x.editions_present || []).includes("2010"));
+  } else if (crossEdition.value === "removed") {
+    t = t.filter(x => (x.editions_present || []).includes("2010") && !(x.editions_present || []).includes("202X"));
   }
   if (onlyTC.value) {
     t = t.filter(x => (x.tc_scs || []).includes(onlyTC.value));
@@ -55,7 +78,7 @@ const filtered = computed(() => {
 
 const pagination = usePagination(filtered, {
   pageSize: 50,
-  dep: () => `${scopeFilter.value}|${onlyTC.value}|${onlyKind.value}|${search.value}|${sortKey.value}|${sortDir.value}`,
+  dep: () => `${editionFilter.value}|${crossEdition.value}|${onlyTC.value}|${onlyKind.value}|${search.value}|${sortKey.value}|${sortDir.value}`,
 });
 
 function toggleSort(key: "name" | "pubs" | "defs") {
@@ -86,34 +109,19 @@ function admittedOf(t: any): string[] {
   return t.designations.filter((d: any) => d.type === "expression" && d.status === "admitted").map((d: any) => d.text as string);
 }
 
-// V1/V2/V3 candidacy badge derived from kind.
-function vocabCandidate(t: any): { label: string; cls: string } | null {
-  if (t.kind === "defined_in_viml") return { label: "V1", cls: "cand-v1" };
-  if (t.kind === "defined_in_vim") return { label: "V2", cls: "cand-v2" };
-  if (t.kind === "oiml_original") return { label: "V3", cls: "cand-v3" };
-  return null;
-}
-
-// Action priority indicator: find the highest-priority action type.
-const PRIORITY_ORDER: Record<string, number> = {
-  harmonize: 0, upgrade_vim: 1, upgrade_viml: 2, removed: 3, adopt_vim: 4, adopt_viml: 5, standardize: 6, unique: 7,
-};
-function actionPriority(t: any): { label: string; cls: string } | null {
-  const types = t.action_types || [];
-  if (!types.length) return null;
-  const sorted = [...types].sort((a, b) => (PRIORITY_ORDER[a] ?? 9) - (PRIORITY_ORDER[b] ?? 9));
-  const top = sorted[0];
-  if (top === "harmonize") return { label: "High", cls: "badge-ko" };
-  if (["upgrade_vim", "upgrade_viml", "removed"].includes(top)) return { label: "Med", cls: "badge-partial" };
-  return { label: "Info", cls: "badge-pending" };
-}
-
-const pageTitle = computed(() => "Concepts defined in OIML publications");
+const pageTitle = computed(() => {
+  if (crossEdition.value === "removed") return "Concepts removed in G 18:202X (2010 only)";
+  if (crossEdition.value === "added") return "Concepts added in G 18:202X (not in 2010)";
+  if (editionFilter.value === "2010") return "Concepts in G 18:2010";
+  if (editionFilter.value === "202X") return "Concepts in G 18:202X";
+  if (editionFilter.value === "current") return "Concepts in G 18:Current";
+  return "Concepts defined in OIML publications";
+});
 </script>
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Concepts</span></div>
+    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>G 18 concepts</span></div>
     <h1>{{ pageTitle }}</h1>
     <p class="lede">{{ filtered.length }} concepts</p>
   </div>
@@ -121,25 +129,61 @@ const pageTitle = computed(() => "Concepts defined in OIML publications");
   <!-- Edition overview: simple counts per edition -->
   <div class="edition-overview">
     <span class="edition-overview-total">{{ terms.length }} concepts total</span>
+    <span class="edition-overview-detail">
+      <strong>{{ termsInCurrent }}</strong> in G 18:Current · <strong>{{ termsIn202X }}</strong> in G 18:202X · <strong>{{ termsIn2010 }}</strong> in G 18:2010
+    </span>
   </div>
 
-  <!-- Simple scope toggle -->
-  <div class="page-filter" role="region" aria-label="Scope filter">
-    <span class="page-filter-label">Scope</span>
+  <!-- Sticky page-level edition filter — clean controls, no numbers -->
+  <div class="page-filter" role="region" aria-label="G 18 edition filter">
+    <span class="page-filter-label">G 18 edition</span>
     <div class="page-filter-controls">
       <button type="button"
-              :class="['page-filter-btn', { 'page-filter-btn-active': scopeFilter === 'current' }]"
-              @click="scopeFilter = 'current'">
-        <span class="page-filter-btn-title">Current</span>
-        <span class="page-filter-btn-meta">G 18:Current edition only</span>
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'current' && !crossEdition }]"
+              @click="editionFilter = 'current'; crossEdition = null">
+        <span class="page-filter-btn-title">G 18:Current</span>
+        <span class="page-filter-btn-meta">live set from all publications</span>
       </button>
       <button type="button"
-              :class="['page-filter-btn', { 'page-filter-btn-active': scopeFilter === 'all' }]"
-              @click="scopeFilter = 'all'">
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '202X' && !crossEdition }]"
+              @click="editionFilter = '202X'; crossEdition = null">
+        <span class="page-filter-btn-title">G 18:202X</span>
+        <span class="page-filter-btn-meta">draft · TC 1 acts here</span>
+      </button>
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === '2010' && !crossEdition }]"
+              @click="editionFilter = '2010'; crossEdition = null">
+        <span class="page-filter-btn-title">G 18:2010</span>
+        <span class="page-filter-btn-meta">published · read-only</span>
+      </button>
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': editionFilter === 'all' && !crossEdition }]"
+              @click="editionFilter = 'all'; crossEdition = null">
         <span class="page-filter-btn-title">All</span>
         <span class="page-filter-btn-meta">all editions</span>
       </button>
     </div>
+  </div>
+
+  <!-- Cross-edition comparison: terms added/removed between editions.
+       Reachable from /g18/editions/ links (?only=202X-only / 2010-only)
+       OR directly from this page. On a static site the URL param is
+       read client-side by Vue Router on initial load and on navigation. -->
+  <div class="cross-edition-filter">
+    <span class="cross-edition-label">Cross-edition:</span>
+    <button type="button"
+            :class="['sort-btn', { 'sort-btn-active': crossEdition === 'added' }]"
+            @click="crossEdition = crossEdition === 'added' ? null : 'added'; editionFilter = '202X'">
+      Added in 202X
+    </button>
+    <button type="button"
+            :class="['sort-btn', { 'sort-btn-active': crossEdition === 'removed' }]"
+            @click="crossEdition = crossEdition === 'removed' ? null : 'removed'; editionFilter = 'all'">
+      Removed from 202X
+    </button>
+    <button v-if="crossEdition" type="button" class="sort-btn" @click="crossEdition = null">
+      Clear
+    </button>
   </div>
 
   <section class="card">
@@ -165,10 +209,7 @@ const pageTitle = computed(() => "Concepts defined in OIML publications");
           <th>Alt</th>
           <th>Sym</th>
           <th>VIM</th>
-          <th>G 18 #</th>
-          <th>D</th>
-          <th>V</th>
-          <th>P</th>
+          <th>Ed.</th>
           <th @click="toggleSort('pubs')" style="cursor:pointer" class="num">Inst. {{ sortKey === 'pubs' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
           <th v-if="onlyTC">TC pubs</th>
           <th @click="toggleSort('defs')" style="cursor:pointer" class="num">Defs {{ sortKey === 'defs' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
@@ -184,19 +225,7 @@ const pageTitle = computed(() => "Concepts defined in OIML publications");
             <DefText v-for="s in symbolsOf(t)" :key="s" :text="s" />
           </td>
           <td><span :class="['kind', `kind-${t.kind}`]">{{ kindLabel(t.kind) }}</span></td>
-          <td class="g18-id-cell">
-            <span class="g18-id">{{ t.identifier || "—" }}</span>
-            <span v-for="e in sortedEditions(t.editions_present)" :key="e" :class="['edition-pill', `edition-${e.toLowerCase()}`]">{{ editionLabel(e) }}</span>
-          </td>
-          <td>
-            <span v-if="(t.distinct_def_count || 0) > 1" class="indicator indicator-multi-defs" :title="`${t.distinct_def_count} distinct definitions`">⚠</span>
-          </td>
-          <td>
-            <span v-if="vocabCandidate(t)" :class="['cand-badge', vocabCandidate(t)!.cls]" :title="`Vocab candidacy: ${vocabCandidate(t)!.label}`">{{ vocabCandidate(t)!.label }}</span>
-          </td>
-          <td>
-            <span v-if="actionPriority(t)" :class="['badge', actionPriority(t)!.cls]" :title="`Top action: ${(t.action_types || []).join(', ')}`">{{ actionPriority(t)!.label }}</span>
-          </td>
+          <td><span v-for="e in sortedEditions(t.editions_present)" :key="e" :class="['edition-pill', `edition-${e.toLowerCase()}`]">{{ editionLabel(e) }}</span></td>
           <td class="num">{{ t.pub_count }}</td>
           <td v-if="onlyTC" class="num">{{ tcCount(t) }}</td>
           <td class="num">{{ t.distinct_def_count }}</td>
@@ -224,10 +253,7 @@ const pageTitle = computed(() => "Concepts defined in OIML publications");
           </span>
         </div>
         <div class="term-card-stats">
-          <span class="g18-id">{{ t.identifier || "—" }}</span>
           <span v-for="e in sortedEditions(t.editions_present)" :key="e" :class="['edition-pill', `edition-${e.toLowerCase()}`]">{{ editionLabel(e) }}</span>
-          <span v-if="vocabCandidate(t)" :class="['cand-badge', vocabCandidate(t)!.cls]">{{ vocabCandidate(t)!.label }}</span>
-          <span v-if="actionPriority(t)" :class="['badge', actionPriority(t)!.cls]">{{ actionPriority(t)!.label }}</span>
           <span class="term-card-stat"><strong>{{ t.pub_count }}</strong> inst.</span>
           <span v-if="onlyTC" class="term-card-stat"><strong>{{ tcCount(t) }}</strong> TC pubs</span>
           <span class="term-card-stat"><strong>{{ t.distinct_def_count }}</strong> defs</span>
@@ -237,46 +263,3 @@ const pageTitle = computed(() => "Concepts defined in OIML publications");
     <PaginationControls :pagination="pagination" noun="terms" />
   </section>
 </template>
-
-<style scoped>
-.g18-id-cell {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2em;
-  align-items: flex-start;
-}
-.g18-id {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-ink-muted);
-  white-space: nowrap;
-}
-.indicator {
-  display: inline-block;
-  font-size: 0.9rem;
-  line-height: 1;
-}
-.indicator-multi-defs {
-  color: var(--status-warn-text, #b58900);
-}
-.cand-badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 0.1em 0.4em;
-  border-radius: 3px;
-  letter-spacing: 0.02em;
-}
-.cand-v1 {
-  background: var(--status-ok-bg);
-  color: var(--status-ok-text);
-}
-.cand-v2 {
-  background: var(--status-info-bg);
-  color: var(--status-info-text);
-}
-.cand-v3 {
-  background: var(--color-accent-tint);
-  color: var(--color-accent);
-}
-</style>
