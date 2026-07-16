@@ -1,50 +1,61 @@
-# 06 — Architecture audit and improvements
+# 06 — Architecture audit findings
 
-## Context
-The codebase has evolved rapidly. Audit for OCP, DRY, MECE, encapsulation, performance, and single-source-of-truth violations.
+## CRITICAL issues
 
-## Known issues to address
+### 6.1 Export script is a god object (999 lines, 6+ responsibilities)
+**File**: `scripts/export_for_vite.rb`
+**Action**: Split into modules:
+- `G18::Export::Renderer` — Plurimath/MathML rendering (lines 42-68)
+- `G18::Export::GlossaristBridge` — Node.js bridge for concept loading (lines 93-153)
+- `G18::Export::PublicationEnricher` — relaton + lifecycle (lines 270-400)
+- `G18::Export::Matching` — check_latest_edition + check_vocab_presence (lines 180-268)
+- `G18::Export::TermProcessor` — main term loop (lines 415-553)
+- `G18::Export::JsonWriter` — all JSON output (lines 600-999)
 
-### 1. Migration: glossarist parse failures
-- `lib/g18/migration/loaders.rb` strips sources before parsing to avoid lutaml-model errors
-- This is a hack. The glossarist gem needs updating, or the migration should use glossarist-js (Node.js) for ALL concept parsing instead of the Ruby gem
-- **Action**: Evaluate migrating all concept parsing to glossarist-js via Node subprocess
+### 6.2 Global mutable state
+**File**: `scripts/export_for_vite.rb:121`
+**Issue**: `$cited_concept_cache = {}` — global variable
+**Action**: Move to instance variable on a class or module
 
-### 2. Export script is monolithic (999 lines)
-- `scripts/export_for_vite.rb` does: publication loading, relaton enrichment, lifecycle computation, sourced_from enrichment, matching, action compilation, dashboard stats, per-entity file generation
-- **Action**: Extract into modules: `G18::Export::Publications`, `G18::Export::Matching`, `G18::Export::Actions`, `G18::Export::Dashboard`
+### 6.3 Zero Ruby spec coverage for migration
+**Files**: `lib/g18/migration/*.rb` (0 specs)
+**Action**: Add spec/ directory with:
+- `spec/migration/loaders_spec.rb`
+- `spec/migration/builders_spec.rb`
+- `spec/migration/runner_spec.rb`
+- `spec/migration/conflicts_spec.rb`
+- `spec/fuzzy_match_spec.rb`
+- `spec/export/matching_spec.rb`
 
-### 3. Publication lifecycle duplicated
-- Lifecycle is computed in `export_for_vite.rb` but also referenced in multiple Vue components
-- **Action**: Single source of truth in publications.json; Vue reads from there
+## MEDIUM issues
 
-### 4. Per-term JSON key inconsistency
-- Per-publication JSON now uses `publications` (was `instances`) but some code may still reference old names
-- **Action**: Audit all `.json` field access for consistency
+### 6.4 Duplicated dedup + strip logic
+- Pub dedup by (pub_id, clause): lines 606-611 and 892-895
+- STRIP_FROM_PUB application: lines 644-648 and 656-660
+- sourced_from extraction: 3 copies (loaders.rb:55, loaders.rb:221, export:570)
+**Action**: Extract to shared methods
 
-### 5. Terms-slim lacks per-edition identifiers
-- G18 entry numbers vary across editions; only one identifier is stored
-- **Action**: Store per-edition identifiers as a map: `{"2010": "00242", "202X": "00147"}`
+### 6.5 Actions compiler not OCP-compliant
+- Adding action type requires modifying compiler.rb, action.rb, action-utils.ts
+**Action**: Strategy pattern or registry
 
-### 6. Ref access bugs in detail pages
-- Recurring pattern: converting from static import to ref() but missing `.value` on some accesses
-- **Action**: Comprehensive grep audit of all ref access patterns
+### 6.6 "current" → "complete" mapping repeated 9 times
+**Action**: Centralize in `edition-utils.ts`
 
-### 7. Missing specs
-- No Ruby specs for migration, matching, or action compilation
-- No Vue component specs for detail pages
-- **Action**: Add spec/ directory with migration specs, matching specs, compiler specs
+### 6.7 Per-edition distinct-def count in 3 places
+- action-utils.ts:66, TermDetailPage.vue:209, compiler.rb:236
+**Action**: Pre-compute at export time, consume everywhere
 
-### 8. G18 edition references scattered
-- Multiple files hardcode "202X", "2010", "complete" edition names
-- **Action**: Centralize edition names as constants
+### 6.8 Silent error swallowing
+- 7 Ruby rescue-and-continue blocks
+- 3 frontend fetch catch blocks
+**Action**: Add error state to UI, add exit code for critical failures in export
 
-## OCP compliance check
-- Adding a new action type should require: 1 entry in Action::TYPES, 1 entry in ACTION_META, 1 method in Compiler. Currently requires touching 3+ files.
-- Adding a new edition should require: 1 entry in migrate_from_vocab.rb. Currently requires updating edition name lists in multiple Vue components and test files.
+### 6.9 Identical fetch pattern in 3 detail pages
+**Action**: Extract `useJsonFetch<T>(url)` composable
 
-## Performance audit
-- terms-slim.json (2.3MB) is loaded on concepts list — could be paginated server-side
-- Per-term fetch works well; per-publication fetch works well
-- Dashboard.json (3KB) is optimal
-- Consider: pre-computing alignment results as per-term JSON fields (no runtime computation needed)
+## LOW issues
+- "oiml_original || undefined" check repeated 5+ times → centralize as `oiml_specific?`
+- `adopt_vim`/`adopt_viml` declared but never produced → remove or implement
+- O(N*M) pub detail generation → build index first
+- "term" vs "concept" naming inconsistency → document the domain distinction
