@@ -2,8 +2,7 @@
 import { computed, ref } from "vue";
 import { useJsonFetch } from "@/composables/useJsonFetch";
 import publications from "@/data/publications.json";
-import { ACTION_META, actionMeta } from "@/composables/action-utils";
-import { slugify } from "@/utils/term-utils";
+import { ACTION_META, actionMeta, actionTypeRank, slugifyPubId } from "@/composables/action-utils";
 import SLink from "@/components/SLink.vue";
 import { kindLabel } from "@/utils/term-utils";
 
@@ -12,7 +11,7 @@ const base = import.meta.env.BASE_URL;
 
 const pubId = computed(() => {
   const map: Record<string, string> = {};
-  for (const p of (publications as any[])) map[slugify(p.id)] = p.id;
+  for (const p of (publications as any[])) map[slugifyPubId(p.id)] = p.id;
   return map[props.slug] || props.slug;
 });
 const pub = computed(() => (publications as any[]).find(p => p.id === pubId.value));
@@ -49,7 +48,7 @@ const filteredPubTerms = computed(() => pubTerms.value.filter(termMatchesEdition
 // cited consistently across all pubs is clean, not action-required.
 const DEFECT_ACTION_TYPES = new Set([
   "upgrade_vim", "upgrade_viml", "removed",
-  "harmonize", "adopt_vim", "adopt_viml",
+  "harmonize",
 ]);
 
 // All actions where this pub is in publication_ids — filtered by whether
@@ -176,11 +175,10 @@ const sortedRows = computed<Row[]>(() => {
     });
   }
   // by-action: group by action type, then alphabetical within group
-  const typeOrder = ["upgrade_vim", "upgrade_viml", "removed", "harmonize", "adopt_vim", "adopt_viml", "standardize", "unique"];
   return [...r].sort((a, b) => {
-    const ta = typeOrder.indexOf(a.type);
-    const tb = typeOrder.indexOf(b.type);
-    if (ta !== tb) return (ta < 0 ? 99 : ta) - (tb < 0 ? 99 : tb);
+    const ta = actionTypeRank(a.type);
+    const tb = actionTypeRank(b.type);
+    if (ta !== tb) return ta - tb;
     return a.name.localeCompare(b.name);
   });
 });

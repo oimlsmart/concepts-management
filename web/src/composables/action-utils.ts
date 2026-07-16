@@ -52,6 +52,32 @@ export const ACTION_META: Record<string, ActionMeta> = {
 export const ACTION_TYPES = Object.keys(ACTION_META);
 export const ACTION_PRIORITIES = Object.keys(PRIORITY_RANK);
 
+// Display order for action types when grouped in tables/chips.
+// Lower index = earlier in the list. Unknown types sort last.
+// Single source of truth — every page that groups actions by type uses this.
+export const ACTION_TYPE_ORDER: readonly string[] = Object.freeze([
+  "upgrade_vim",
+  "upgrade_viml",
+  "removed",
+  "harmonize",
+  "standardize",
+  "unique",
+  "aligned",
+  "definition_diverges",
+  "fuzzy_adopt",
+  "propose_v3",
+  "retire",
+]);
+
+export function actionTypeRank(type: string): number {
+  const idx = ACTION_TYPE_ORDER.indexOf(type);
+  return idx === -1 ? Number.MAX_SAFE_INTEGER : idx;
+}
+
+export function sortByActionType(types: string[]): string[] {
+  return [...types].sort((a, b) => actionTypeRank(a) - actionTypeRank(b));
+}
+
 export function actionMeta(type: string): ActionMeta {
   return ACTION_META[type] || { label: type, icon: "•", hint: "", applies_to: "" };
 }

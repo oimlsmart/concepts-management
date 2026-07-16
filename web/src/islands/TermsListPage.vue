@@ -92,6 +92,7 @@ function vocabCandidate(t: any): { label: string; cls: string } | null {
 }
 
 // Action priority indicator: find the highest-priority action type.
+// Bucket scheme for display (High/Med/Info) — distinct from ACTION_TYPE_ORDER.
 const PRIORITY_ORDER: Record<string, number> = {
   harmonize: 0, upgrade_vim: 1, upgrade_viml: 2, removed: 3, retire: 3, standardize: 6, unique: 7,
 };
