@@ -29,10 +29,9 @@ options = {
   output_dir: ENV.fetch("OUTPUT_DIR", File.join(repo_root, "data")),
   report_path: ENV.fetch("REPORT_PATH", File.join(repo_root, "migration-report.md")),
   editions: [
-    { name: "202X", path: File.join(vocab_root, "g18-current"), primary: true },
-    { name: "202X-draft", path: File.join(vocab_root, "g18-202X"), primary: false },
+    { name: "complete", path: File.join(vocab_root, "oiml-complete"), primary: true },
+    { name: "202X", path: File.join(vocab_root, "g18-202X"), primary: false },
     { name: "2010", path: File.join(vocab_root, "g18-2010"), primary: false },
-    { name: "complete", path: File.join(vocab_root, "g18-complete"), primary: false },
   ],
 }
 
@@ -41,10 +40,9 @@ OptionParser.new do |opts|
   opts.on("--vocab-root DIR", String, "Path to vocab/datasets (parent of all G 18 edition dirs)") do |v|
     options[:vocab_root] = v
     options[:editions] = [
-      { name: "202X", path: File.join(v, "g18-current"), primary: true },
-      { name: "202X-draft", path: File.join(v, "g18-202X"), primary: false },
+      { name: "complete", path: File.join(v, "oiml-complete"), primary: true },
+      { name: "202X", path: File.join(v, "g18-202X"), primary: false },
       { name: "2010", path: File.join(v, "g18-2010"), primary: false },
-      { name: "complete", path: File.join(v, "g18-complete"), primary: false },
     ]
   end
   opts.on("--bib-path PATH", String, "Bibliography YAML (defaults to vocab repo bibliographies)") { |v| options[:bib_path] = v }

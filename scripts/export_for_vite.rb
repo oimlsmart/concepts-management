@@ -271,8 +271,7 @@ end
 # Read from the authoritative vocab repo bibliographies (no local copy).
 # Merge g18-202X + g18-2010, dedup by ID. Enrich TC/SC from relaton-data-oiml.
 vocab_bib_files = [
-  File.join(options[:vocab_root], "g18-current", "bibliography.yaml"),
-  File.join(options[:vocab_root], "g18-complete", "bibliography.yaml"),
+  File.join(options[:vocab_root], "oiml-complete", "bibliography.yaml"),
   File.join(options[:vocab_root], "g18-202X", "bibliography.yaml"),
   File.join(options[:vocab_root], "g18-2010", "bibliography.yaml"),
 ].select { |f| File.exist?(f) }
@@ -356,6 +355,35 @@ if File.exist?(relaton_index_path)
   end
 end
 
+# ── Publication lifecycle: current vs retired vs withdrawn ────────────────
+# Group publications by document family (e.g., R 49-1), find the latest
+# non-withdrawn edition as "current", mark older editions as "retired".
+pub_families = {}
+publications.each do |p|
+  id = p["id"].to_s
+  m = id.match(/OIML\s+([A-Z])\s*(\d+)(?:-(\d+))?:(\d{4})/)
+  next unless m
+  family = "#{m[1]} #{m[2]}"
+  family += "-#{m[3]}" if m[3]
+  pub_families[family] ||= []
+  pub_families[family] << { id: id, year: m[4].to_i, withdrawn: !!p["withdrawn"] }
+end
+pub_lifecycle = {}
+pub_families.each do |family, editions|
+  active = editions.reject { |e| e[:withdrawn] }
+  current_year = active.map { |e| e[:year] }.max
+  editions.each do |e|
+    if e[:withdrawn]
+      pub_lifecycle[e[:id]] = "withdrawn"
+    elsif e[:year] == current_year
+      pub_lifecycle[e[:id]] = "current"
+    else
+      pub_lifecycle[e[:id]] = "retired"
+    end
+  end
+end
+publications.each { |p| p["lifecycle"] = pub_lifecycle[p["id"]] || "current" }
+
 File.write(File.join(options[:out_dir], "publications.json"),
            JSON.generate(publications))
 
@@ -364,9 +392,11 @@ File.write(File.join(options[:out_dir], "publications.json"),
 # it at the publication level, and we propagate it into term instances here.
 pub_tc_sc_map = {}
 pub_withdrawn_set = Set.new
+pub_lifecycle_map = {}
 publications.each do |p|
   pub_tc_sc_map[p["id"]] = p["tc_sc"] if p["tc_sc"] && !p["tc_sc"].to_s.strip.empty?
   pub_withdrawn_set << p["id"] if p["withdrawn"]
+  pub_lifecycle_map[p["id"]] = p["lifecycle"] if p["lifecycle"]
 end
 
 # ── Data fixups ──────────────────────────────────────────────────────────
@@ -398,6 +428,7 @@ Dir.glob(File.join(options[:data_dir], "*.yaml")).sort.each do |path|
     # Flag withdrawn publication instances
     (data["publications"] || []).each do |p|
       p["withdrawn"] = true if pub_withdrawn_set.include?(p["publication_id"])
+      p["lifecycle"] = pub_lifecycle_map[p["publication_id"]] if pub_lifecycle_map[p["publication_id"]]
     end
   end
   # Apply data fixups (corrects known source-data errors before export)
@@ -524,10 +555,10 @@ end
 # ── Enrich publication instances with sourced_from from raw vocab YAML ────
 # glossarist can't parse concept files with lineage sources, so we read
 # the raw YAML directly to extract the sourced_from chain.
-%w[g18-current g18-complete].each do |dataset|
+%w[oiml-complete].each do |dataset|
   concepts_dir = File.join(options[:vocab_root], dataset, "concepts")
   next unless Dir.exist?(concepts_dir)
-  edition = dataset == "g18-current" ? "202X" : "complete"
+  edition = "complete"
   term_by_slug = terms.each_with_object({}) { |t, h| h[t["slug"]] = t }
   Dir.glob(File.join(concepts_dir, "*.yaml")).each do |vfile|
     begin
