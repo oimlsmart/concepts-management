@@ -64,7 +64,36 @@ module G18
         )
 
         print_summary(result, enrichment, collisions)
+        verify_minimum_output!(result, enrichment)
         { terms: result.terms.size, publications: enrichment.publications.size }
+      end
+
+      # Safety guard: catches silent data-loss regressions. If the pipeline
+      # produces suspiciously few items, the export almost certainly failed
+      # (e.g. vocab repo missing, glossarist-js broke, classify_alignment
+      # returned case 5 for every term). The build still completes, but
+      # CI should fail loudly so the broken deploy doesn't ship.
+      #
+      # Thresholds are conservative — well below the typical ~2900 terms /
+      # ~240 publications observed in production. Override via options
+      # [:min_terms] / [:min_publications] for unusual environments.
+      # Set to 0 to disable.
+      def verify_minimum_output!(result, enrichment)
+        min_terms = options.fetch(:min_terms, 100)
+        min_pubs = options.fetch(:min_publications, 50)
+        # Auto-disable when the input directory was empty (test fixtures).
+        input_count = Dir.glob(File.join(options[:data_dir], "*.yaml")).size
+        return if input_count == 0
+        if result.terms.size < min_terms
+          warn "  ERROR: only #{result.terms.size} terms produced (expected ≥#{min_terms})."
+          warn "  This usually means a pipeline stage failed silently."
+          warn "  Override with options[:min_terms] = 0 to disable this guard."
+          raise "pipeline produced too few terms"
+        end
+        if enrichment.publications.size < min_pubs
+          warn "  ERROR: only #{enrichment.publications.size} publications (expected ≥#{min_pubs})."
+          raise "pipeline produced too few publications"
+        end
       end
 
       private
