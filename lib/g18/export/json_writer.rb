@@ -147,9 +147,14 @@ module G18
           (t["editions_present"] || []).each { |e| h[e] += 1 }
         end
 
-        gaps_viml_near_miss = vocab_gaps.count { |g| g["near_misses"]&.dig("viml") }
-        gaps_vim_near_miss = vocab_gaps.count { |g| g["near_misses"]&.dig("vim") }
-        gaps_no_match = vocab_gaps.count { |g| !g["near_misses"]&.dig("vim") && !g["near_misses"]&.dig("viml") }
+        # Lifecycle split for vocab gaps: a gap is "current" if any of its
+        # citing publications is current. Historic-only gaps come from
+        # retired/withdrawn publications. The user-facing counts on the
+        # dashboard lead with current candidates (the actionable set);
+        # historic counts appear as secondary context.
+        current_pub_ids = Set.new(publications.select { |p| p["lifecycle"] == "current" }.map { |p| p["id"] })
+
+        gap_counts = count_gaps_by_lifecycle(vocab_gaps, current_pub_ids)
 
         priority_terms = compute_priority_terms(terms)
         pub_lc = compute_pub_lifecycle(publications)
@@ -160,9 +165,17 @@ module G18
           "total_publications" => publications.length,
           "kind_counts" => kind_counts,
           "edition_counts" => edition_counts,
-          "gaps_viml_near_miss" => gaps_viml_near_miss,
-          "gaps_vim_near_miss" => gaps_vim_near_miss,
-          "gaps_no_match" => gaps_no_match,
+          # Backward-compat totals (all gaps, including historic)
+          "gaps_viml_near_miss" => gap_counts[:viml_near_miss][:total],
+          "gaps_vim_near_miss" => gap_counts[:vim_near_miss][:total],
+          "gaps_no_match" => gap_counts[:no_match][:total],
+          # Lifecycle split — current = actionable, historic = context
+          "gaps_v1_current" => gap_counts[:viml_near_miss][:current],
+          "gaps_v1_historic" => gap_counts[:viml_near_miss][:historic],
+          "gaps_v2_current" => gap_counts[:vim_near_miss][:current],
+          "gaps_v2_historic" => gap_counts[:vim_near_miss][:historic],
+          "gaps_v3_current" => gap_counts[:no_match][:current],
+          "gaps_v3_historic" => gap_counts[:no_match][:historic],
           "priority_terms" => priority_terms,
           "pub_current" => pub_lc["current"] || 0,
           "pub_retired" => pub_lc["retired"] || 0,
@@ -175,6 +188,30 @@ module G18
           },
         }
         File.write(File.join(@out_dir, "dashboard.json"), JSON.generate(dashboard))
+      end
+
+      # Splits vocab-gap counts into current vs historic based on whether
+      # any of the gap's citing publications is a current (non-retired,
+      # non-withdrawn) publication.
+      def count_gaps_by_lifecycle(vocab_gaps, current_pub_ids)
+        buckets = {
+          viml_near_miss: { total: 0, current: 0, historic: 0 },
+          vim_near_miss:  { total: 0, current: 0, historic: 0 },
+          no_match:       { total: 0, current: 0, historic: 0 },
+        }
+        vocab_gaps.each do |g|
+          has_current = (g["publications"] || []).any? { |p| current_pub_ids.include?(p["publication_id"]) }
+          bucket = if g["near_misses"]&.dig("viml")
+                     :viml_near_miss
+                   elsif g["near_misses"]&.dig("vim")
+                     :vim_near_miss
+                   else
+                     :no_match
+                   end
+          buckets[bucket][:total] += 1
+          buckets[bucket][has_current ? :current : :historic] += 1
+        end
+        buckets
       end
 
       def compute_priority_terms(terms)
@@ -295,11 +332,34 @@ module G18
       end
 
       def write_vocab_gaps(vocab_gaps)
-        sorted = vocab_gaps.sort_by do |t|
+        # Augment each gap with is_current/is_historic flags so the frontend
+        # can filter without cross-referencing publications.json. These are
+        # computed once at export time and frozen into the JSON.
+        current_pub_ids = build_current_pub_ids
+        enriched = vocab_gaps.map do |g|
+          has_current = (g["publications"] || []).any? { |p| current_pub_ids.include?(p["publication_id"]) }
+          g.merge(
+            "is_current" => has_current,
+            "is_historic" => !has_current,
+          )
+        end
+        sorted = enriched.sort_by do |t|
           has_match = t["near_misses"]["vim"] || t["near_misses"]["viml"]
           [has_match ? 1 : 0, -(t["publications"].size)]
         end
         File.write(File.join(@out_dir, "vocab-gaps.json"), JSON.generate(sorted))
+      end
+
+      # Memoized Set of current publication IDs. Built by scanning
+      # publications.json which is written before vocab-gaps.json in
+      # Pipeline#call's writer order.
+      def build_current_pub_ids
+        return @current_pub_ids if @current_pub_ids
+        path = File.join(@out_dir, "publications.json")
+        pubs = File.exist?(path) ? JSON.parse(File.read(path)) : []
+        @current_pub_ids = Set.new(pubs.select { |p| p["lifecycle"] == "current" }.map { |p| p["id"] })
+      rescue StandardError
+        @current_pub_ids = Set.new
       end
 
       def write_actions_data(terms)

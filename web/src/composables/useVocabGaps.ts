@@ -1,6 +1,11 @@
 // Loads and filters the vocab-gaps export. The export is pre-computed at
 // build time (scripts/export_for_vite.rb) — this composable just wraps
 // the JSON in a typed view and provides edition / search filters.
+//
+// Lifecycle filter: each gap is flagged at export time with `is_current`
+// (any of its citing publications is current) or `is_historic` (all
+// citing publications are retired/withdrawn). The UI leads with Current
+// candidates (the actionable set); Historic is secondary context.
 
 import { computed, ref } from "vue";
 import gapsData from "@/data/vocab-gaps.json";
@@ -23,6 +28,8 @@ export interface VocabGap {
   definitions: string[];
   publications: { publication_id: string; tc_sc: string; edition: string }[];
   editions_present: string[];
+  is_current?: boolean;
+  is_historic?: boolean;
   near_misses: {
     vim: VocabNearMiss | null;
     viml: VocabNearMiss | null;
@@ -32,11 +39,15 @@ export interface VocabGap {
 export const vocabGaps = gapsData as unknown as VocabGap[];
 
 export type GapScope = "v3-match" | "v1-match" | "v2-match" | "all";
+export type GapLifecycle = "current" | "historic" | "all";
 
 export function useVocabGaps() {
   const search = ref("");
   const scope = ref<GapScope>("v3-match");
   const tcFilter = ref("");
+  // Default: current candidates only (the actionable set). Historic is
+  // opt-in via the lifecycle toggle.
+  const lifecycle = ref<GapLifecycle>("current");
 
   const allTCs = computed(() => {
     const s = new Set<string>();
@@ -55,6 +66,11 @@ export function useVocabGaps() {
     } else if (scope.value === "v2-match") {
       list = list.filter(g => g.near_misses.vim);
     }
+    if (lifecycle.value === "current") {
+      list = list.filter(g => g.is_current !== false);
+    } else if (lifecycle.value === "historic") {
+      list = list.filter(g => g.is_historic === true);
+    }
     if (tcFilter.value) {
       list = list.filter(g => g.publications.some(p => p.tc_sc === tcFilter.value));
     }
@@ -65,5 +81,5 @@ export function useVocabGaps() {
     return list;
   });
 
-  return { search, scope, tcFilter, allTCs, filtered };
+  return { search, scope, tcFilter, lifecycle, allTCs, filtered };
 }
