@@ -15,10 +15,10 @@ import {
 import SLink from "@/components/SLink.vue";
 import PaginationControls from "@/components/PaginationControls.vue";
 
-const { search, scope, tcFilter, allTCs, filtered } = useVocabGaps();
+const { search, scope, tcFilter, lifecycle, allTCs, filtered } = useVocabGaps();
 const pagination = usePagination(filtered, {
   pageSize: 50,
-  dep: () => `${scope.value}|${tcFilter.value}|${search.value}`,
+  dep: () => `${scope.value}|${lifecycle.value}|${tcFilter.value}|${search.value}`,
 });
 
 // Read scope from URL synchronously in script setup. With client:only="vue"
@@ -89,30 +89,35 @@ async function submitProposal() {
 
 // Scope filter now leads with conceptual categories (V 3 candidates /
 // V 1/V 2 candidates / All) instead of abstract near-miss labels.
-const scopeButtons: { val: typeof scope.value; concept: string; target: string; count: number }[] = [
+// Counts split by lifecycle so users see "X current · Y historic".
+const scopeButtons: { val: typeof scope.value; concept: string; target: string; current: number; historic: number }[] = [
   {
     val: "v3-match",
     concept: "V 3 candidates",
     target: "no near-miss",
-    count: vocabGaps.filter(g => !g.near_misses.vim && !g.near_misses.viml).length,
+    current: vocabGaps.filter(g => !g.near_misses.vim && !g.near_misses.viml && g.is_current !== false).length,
+    historic: vocabGaps.filter(g => !g.near_misses.vim && !g.near_misses.viml && g.is_historic === true).length,
   },
   {
     val: "v1-match",
     concept: "V 1 candidates",
     target: "VIML near-miss",
-    count: vocabGaps.filter(g => g.near_misses.viml).length,
+    current: vocabGaps.filter(g => g.near_misses.viml && g.is_current !== false).length,
+    historic: vocabGaps.filter(g => g.near_misses.viml && g.is_historic === true).length,
   },
   {
     val: "v2-match",
     concept: "V 2 candidates",
     target: "VIM near-miss",
-    count: vocabGaps.filter(g => g.near_misses.vim).length,
+    current: vocabGaps.filter(g => g.near_misses.vim && g.is_current !== false).length,
+    historic: vocabGaps.filter(g => g.near_misses.vim && g.is_historic === true).length,
   },
   {
     val: "all",
     concept: "All",
     target: "",
-    count: vocabGaps.length,
+    current: vocabGaps.filter(g => g.is_current !== false).length,
+    historic: vocabGaps.filter(g => g.is_historic === true).length,
   },
 ];
 
@@ -182,8 +187,34 @@ function nearMissText(nm: any): string {
               @click="scope = b.val">
         <span class="page-filter-btn-title">{{ b.concept }}</span>
         <span class="page-filter-btn-meta">
-          <span>{{ b.count }}<template v-if="b.target"> · {{ b.target }}</template></span>
+          <span>{{ b.current }} current<template v-if="b.historic > 0"> · {{ b.historic }} historic</template></span>
         </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Lifecycle toggle: Current candidates are the actionable set;
+       Historic (terms only cited by retired/withdrawn pubs) is opt-in. -->
+  <div class="page-filter" role="region" aria-label="Lifecycle filter">
+    <span class="page-filter-label">Lifecycle</span>
+    <div class="page-filter-controls">
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': lifecycle === 'current' }]"
+              @click="lifecycle = 'current'">
+        <span class="page-filter-btn-title">Current candidates</span>
+        <span class="page-filter-btn-meta">terms cited by active publications</span>
+      </button>
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': lifecycle === 'historic' }]"
+              @click="lifecycle = 'historic'">
+        <span class="page-filter-btn-title">Historic only</span>
+        <span class="page-filter-btn-meta">terms cited only by retired/withdrawn pubs</span>
+      </button>
+      <button type="button"
+              :class="['page-filter-btn', { 'page-filter-btn-active': lifecycle === 'all' }]"
+              @click="lifecycle = 'all'">
+        <span class="page-filter-btn-title">All</span>
+        <span class="page-filter-btn-meta">current + historic</span>
       </button>
     </div>
   </div>

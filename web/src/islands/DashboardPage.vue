@@ -9,9 +9,14 @@ const rawConflictCount = Object.values((conflictsData as any).raw || {}).flat().
 const vimCount = dashboard.kind_counts["defined_in_vim"] || 0;
 const vimlCount = dashboard.kind_counts["defined_in_viml"] || 0;
 const oimlCount = (dashboard.kind_counts["oiml_original"] || 0) + (dashboard.kind_counts["undefined"] || 0);
-const gapsVimlNearMiss = dashboard.gaps_viml_near_miss;
-const gapsVimNearMiss = dashboard.gaps_vim_near_miss;
-const gapsNoMatch = dashboard.gaps_no_match;
+// Lifecycle split — current candidates are the actionable set;
+// historic is shown as secondary context.
+const gapsV1Current = dashboard.gaps_v1_current ?? dashboard.gaps_viml_near_miss ?? 0;
+const gapsV1Historic = dashboard.gaps_v1_historic ?? 0;
+const gapsV2Current = dashboard.gaps_v2_current ?? dashboard.gaps_vim_near_miss ?? 0;
+const gapsV2Historic = dashboard.gaps_v2_historic ?? 0;
+const gapsV3Current = dashboard.gaps_v3_current ?? dashboard.gaps_no_match ?? 0;
+const gapsV3Historic = dashboard.gaps_v3_historic ?? 0;
 
 const priorityActions = dashboard.priority_terms || [];
 const priorityLabel = (rank: number) =>
@@ -42,52 +47,34 @@ const priorityBadge = (rank: number) =>
         <div class="target-label">V 1</div>
         <div class="target-title">Future VIML</div>
         <p>Concepts proposed for the next edition of the International Vocabulary of Legal Metrology.</p>
-        <SLink to="/analysis/gaps/?scope=v1-match" class="target-link">{{ gapsVimlNearMiss }} candidates with VIML near-miss →</SLink>
+        <SLink to="/analysis/gaps/?scope=v1-match" class="target-link">
+          {{ gapsV1Current }} V 1 candidates (current) →
+        </SLink>
+        <span v-if="gapsV1Historic > 0" class="target-link-secondary">
+          + {{ gapsV1Historic }} historic-only candidates
+        </span>
       </div>
       <div class="target-card target-v2">
         <div class="target-label">V 2</div>
         <div class="target-title">Future VIM</div>
         <p>Concepts proposed for the next edition of the International Vocabulary of Metrology. Suggestions go to JCGM.</p>
-        <SLink to="/analysis/gaps/?scope=v2-match" class="target-link">{{ gapsVimNearMiss }} candidates with VIM near-miss →</SLink>
+        <SLink to="/analysis/gaps/?scope=v2-match" class="target-link">
+          {{ gapsV2Current }} V 2 candidates (current) →
+        </SLink>
+        <span v-if="gapsV2Historic > 0" class="target-link-secondary">
+          + {{ gapsV2Historic }} historic-only candidates
+        </span>
       </div>
       <div class="target-card target-v3">
         <div class="target-label">V 3</div>
         <div class="target-title">OIML-specific terminology</div>
         <p>A new concept dataset for terms unique to OIML publications — not in VIM or VIML. Terms like "load cell", "dosimeter", "pressure gauge".</p>
-        <SLink to="/analysis/gaps/?scope=v3-match" class="target-link">{{ gapsNoMatch }} candidates →</SLink>
-      </div>
-    </div>
-  </section>
-
-  <!-- G 18 editions status -->
-  <section class="card reveal reveal-2 g18-status">
-    <h2>G 18 editions</h2>
-    <div class="g18-editions-grid">
-      <div class="g18-edition-card">
-        <div class="g18-edition-label">G 18:2010</div>
-        <div class="g18-edition-status g18-status-published">Published</div>
-        <p class="g18-edition-desc">The current published edition. Frozen — no changes possible.</p>
-      </div>
-      <div class="g18-edition-card">
-        <div class="g18-edition-label">G 18:202X (2nd ed.)</div>
-        <div class="g18-edition-status" :class="rawConflictCount > 0 ? 'g18-status-warn' : 'g18-status-ready'">
-          {{ rawConflictCount > 0 ? `${rawConflictCount} ID conflicts` : 'Ready' }}
-        </div>
-        <p class="g18-edition-desc">
-          Draft edition nearing publication.
-          <span v-if="rawConflictCount > 0">
-            <SLink :to="`/g18/conflicts/`">Resolve {{ rawConflictCount }} ID conflicts</SLink> to finalize.
-          </span>
-          <span v-else>No blocking issues.</span>
-        </p>
-      </div>
-      <div class="g18-edition-card">
-        <div class="g18-edition-label">G 18 Current (future)</div>
-        <div class="g18-edition-status g18-status-future">Generated artifact</div>
-        <p class="g18-edition-desc">
-          Will be generated from the V 1/V 2/V 3 concept sets. Not yet available —
-          concept alignment must reach sufficient coverage first.
-        </p>
+        <SLink to="/analysis/gaps/?scope=v3-match" class="target-link">
+          {{ gapsV3Current }} V 3 candidates (current) →
+        </SLink>
+        <span v-if="gapsV3Historic > 0" class="target-link-secondary">
+          + {{ gapsV3Historic }} historic-only candidates
+        </span>
       </div>
     </div>
   </section>
@@ -142,17 +129,50 @@ const priorityBadge = (rank: number) =>
         <div class="corpus-breakdown">
           <SLink to="/analysis/gaps/?scope=v1-match" class="corpus-row">
             <span class="corpus-dot corpus-dot-v1"></span>
-            <strong>{{ vimlCount }}</strong> VIML (V 1)
+            <strong>{{ vimlCount }}</strong> V 1 (VIML)
           </SLink>
           <SLink to="/analysis/gaps/?scope=v2-match" class="corpus-row">
             <span class="corpus-dot corpus-dot-v2"></span>
-            <strong>{{ vimCount }}</strong> VIM (V 2)
+            <strong>{{ vimCount }}</strong> V 2 (VIM)
           </SLink>
           <SLink to="/analysis/gaps/?scope=v3-match" class="corpus-row">
             <span class="corpus-dot corpus-dot-v3"></span>
-            <strong>{{ oimlCount }}</strong> OIML-specific (V 3)
+            <strong>{{ oimlCount }}</strong> V 3 (OIML-specific)
           </SLink>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- G 18 editions status (moved below corpus overview) -->
+  <section class="card reveal reveal-2 g18-status">
+    <h2>G 18 editions</h2>
+    <div class="g18-editions-grid">
+      <div class="g18-edition-card">
+        <div class="g18-edition-label">G 18:2010</div>
+        <div class="g18-edition-status g18-status-published">Published</div>
+        <p class="g18-edition-desc">The current published edition. Frozen — no changes possible.</p>
+      </div>
+      <div class="g18-edition-card">
+        <div class="g18-edition-label">G 18:202X (2nd ed.)</div>
+        <div class="g18-edition-status" :class="rawConflictCount > 0 ? 'g18-status-warn' : 'g18-status-ready'">
+          {{ rawConflictCount > 0 ? `${rawConflictCount} ID conflicts` : 'Ready' }}
+        </div>
+        <p class="g18-edition-desc">
+          Draft edition nearing publication.
+          <span v-if="rawConflictCount > 0">
+            <SLink :to="`/g18/conflicts/`">Resolve {{ rawConflictCount }} ID conflicts</SLink> to finalize.
+          </span>
+          <span v-else>No blocking issues.</span>
+        </p>
+      </div>
+      <div class="g18-edition-card">
+        <div class="g18-edition-label">G 18 Current (future)</div>
+        <div class="g18-edition-status g18-status-future">Generated artifact</div>
+        <p class="g18-edition-desc">
+          Will be generated from the V 1/V 2/V 3 concept sets. Not yet available —
+          concept alignment must reach sufficient coverage first.
+        </p>
       </div>
     </div>
   </section>
@@ -272,6 +292,7 @@ const priorityBadge = (rank: number) =>
 }
 .target-card p { font-size: 0.84rem; margin: 0 0 0.4em; color: var(--color-ink-soft); }
 .target-link { font-size: 0.82rem; font-weight: 600; }
+.target-link-secondary { display: block; font-size: 0.74rem; color: var(--color-ink-muted); margin-top: 0.15em; }
 
 .g18-status { margin-bottom: 1.2em; }
 .g18-editions-grid {
