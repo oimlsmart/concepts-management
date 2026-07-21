@@ -6,9 +6,23 @@ import SLink from "@/components/SLink.vue";
 
 const search = ref("");
 const lifecycleFilter = ref("");
+const hideEmpty = ref(true);
+
+function termCount(pub: any): number { return pub.term_count || 0; }
+
+const sortedPubs = computed(() => {
+  return [...(publications as any[])].sort((a, b) => {
+    const tc = termCount(b) - termCount(a);
+    if (tc !== 0) return tc;
+    return (a.id || "").localeCompare(b.id || "");
+  });
+});
 
 const filtered = computed(() => {
-  let pubs = publications as any[];
+  let pubs = sortedPubs.value;
+  if (hideEmpty.value) {
+    pubs = pubs.filter(p => termCount(p) > 0);
+  }
   if (lifecycleFilter.value) {
     pubs = pubs.filter(p => (p.lifecycle || "current") === lifecycleFilter.value);
   }
@@ -19,8 +33,6 @@ const filtered = computed(() => {
   return pubs;
 });
 
-function termCount(pub: any): number { return pub.term_count || 0; }
-
 const lifecycleCounts = computed(() => {
   const c = { current: 0, retired: 0, withdrawn: 0 };
   for (const p of (publications as any[])) {
@@ -29,6 +41,10 @@ const lifecycleCounts = computed(() => {
   }
   return c;
 });
+
+const totalWithTerms = computed(() =>
+  (publications as any[]).filter(p => termCount(p) > 0).length
+);
 
 function lifecycleBadge(lc: string): { label: string; cls: string } {
   if (lc === "withdrawn") return { label: "Withdrawn", cls: "lc-withdrawn" };
@@ -41,7 +57,7 @@ function lifecycleBadge(lc: string): { label: string; cls: string } {
   <div class="page-head">
     <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Publications</span></div>
     <h1>Publications</h1>
-    <p class="lede">{{ (publications as any[]).length }} publications · {{ lifecycleCounts.current }} current · {{ lifecycleCounts.retired }} retired · {{ lifecycleCounts.withdrawn }} withdrawn</p>
+    <p class="lede">{{ totalWithTerms }} publications with terms · {{ lifecycleCounts.current }} current · {{ lifecycleCounts.retired }} retired · {{ lifecycleCounts.withdrawn }} withdrawn</p>
   </div>
 
   <section class="card">
@@ -53,11 +69,12 @@ function lifecycleBadge(lc: string): { label: string; cls: string } {
         <option value="retired">Retired only</option>
         <option value="withdrawn">Withdrawn only</option>
       </select>
+      <label><input type="checkbox" v-model="hideEmpty" /> Only show pubs with terms</label>
       <span class="muted">{{ filtered.length }} shown</span>
     </form>
     <div class="table-scroll">
       <table>
-      <thead><tr><th>Reference</th><th>Status</th><th>Year</th><th>TC/SC</th><th>Terms</th></tr></thead>
+      <thead><tr><th>Reference</th><th>Status</th><th>Year</th><th>TC/SC</th><th class="num">Terms</th></tr></thead>
       <tbody>
         <tr v-for="p in filtered" :key="p.id">
           <td><SLink :to="`/publications/${slugify(p.id)}/`">{{ p.reference || p.id }}</SLink></td>
