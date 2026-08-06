@@ -1,27 +1,20 @@
 @import "tailwindcss";
+@source "../../node_modules/@oimlsmart/site-shell/src/**/*.{astro,vue}";
 
-/* OIML design tokens — mirrors oimlsmart.github.io palette. Mapped into
-   Tailwind's theme so utilities like `bg-paper`, `text-ink`, `border-rule`,
-   `text-accent` resolve to the OIML brand. */
+/* Enable class-based dark mode: dark:bg-*, dark:text-* */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* The design tokens + the blueprint layer come from @oimlsmart/site-shell
+   (the one home for the house style, TODO.fix/11). Only the
+   concepts-management-specific additions stay local. */
+@import "@oimlsmart/site-shell/tokens.css";
+@import "@oimlsmart/site-shell/blueprint.css";
+
 @theme {
   /* surfaces */
-  --color-paper: #faf6ee;
-  --color-paper-soft: #ffffff;
   --color-paper-tint: #f5ede0;
 
-  /* ink */
-  --color-ink: #0a1628;
-  --color-ink-soft: #3a4a63;
-  --color-ink-muted: #6b7a92;
-
-  /* rules */
-  --color-rule: #ddd2bd;
-  --color-rule-soft: #ebe3d2;
-
-  /* accent (OIML brand blue) */
-  --color-accent: #004996;
-  --color-accent-hover: #003a78;
-  --color-accent-soft: #dde9fc;
+  /* accent tint */
   --color-accent-tint: #f0f6ff;
 
   /* oiml brand ramp */
@@ -182,17 +175,7 @@
    keep both naming conventions working — utilities (`bg-accent`) and
    legacy `var(--accent)` both resolve to the OIML brand colour. */
 :root {
-  --paper:        var(--color-paper);
-  --paper-soft:   var(--color-paper-soft);
   --paper-tint:   var(--color-paper-tint);
-  --ink:          var(--color-ink);
-  --ink-soft:     var(--color-ink-soft);
-  --ink-muted:    var(--color-ink-muted);
-  --rule:         var(--color-rule);
-  --rule-soft:    var(--color-rule-soft);
-  --accent:       var(--color-accent);
-  --accent-hover: var(--color-accent-hover);
-  --accent-soft:  var(--color-accent-soft);
   --accent-tint:  var(--color-accent-tint);
 
   --oiml-cream:      var(--color-oiml-cream);
@@ -218,32 +201,18 @@
 }
 
 /* ── Dark theme overrides ───────────────────────────────────────────────
-   Applied via `data-theme="dark"` on <html>. Default is light (no
-   attribute needed). The token names don't change — only their values
-   — so all components and Tailwind utilities pick up dark variants
-   automatically without code changes. */
-:root[data-theme="dark"] {
-  --color-paper:       #0e1620;
-  --color-paper-soft:  #131c28;
-  --color-paper-tint:  #1a2634;
+   Applied via `.dark` on <html> (the site-shell theme contract). The
+   core ramp (paper, ink, rule, accent) comes from the shell's own dark
+   block; only the concepts-specific names override here. */
+:root.dark {
+  --color-paper-tint:  #18294a;
+  --color-accent-tint: #15233a;
 
-  --color-ink:         #e8eef5;
-  --color-ink-soft:    #b8c4d4;
-  --color-ink-muted:   #7d8b9e;
+  /* Brand ramp NOT overridden — dark brand surfaces stay dark blue in
+     both themes. Inverting it would make them white. */
 
-  --color-rule:        #2a3848;
-  --color-rule-soft:   #1f2a38;
-
-  --color-accent:      #5fa4f5;
-  --color-accent-hover: #89bcf8;
-  --color-accent-soft:  #1e3a5c;
-  --color-accent-tint:  #15233a;
-
-  /* Brand ramp NOT overridden — footer uses bg-oiml-brand-900 as a dark
-     blue surface in both themes. Inverting it would make the footer white. */
-
-  --color-oiml-cream:       #0e1620;
-  --color-oiml-cream-soft:  #1a2634;
+  --color-oiml-cream:       #0a1628;
+  --color-oiml-cream-soft:  #18294a;
   --color-oiml-cream-deep:  #284a72;
 
   --color-oiml-amber:       #f59e0b;
