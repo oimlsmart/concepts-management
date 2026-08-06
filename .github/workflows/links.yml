@@ -78,6 +78,12 @@ jobs:
 
       - name: Check links with lychee
         uses: lycheeverse/lychee-action@v2
+        # NOTE on the two exclude-path entries: the G18 designation and
+        # conflict pages generate bare concept slugs that 404 with fresh
+        # vocab data — a data-pipeline slug bug tracked at
+        # oimlsmart/concepts-management#176, NOT a link-check pass. The
+        # exclusions come out when the bug is fixed. (No comment lines
+        # inside the args value: they fold into the command line.)
         with:
           workingDirectory: web
           args: >-
@@ -86,10 +92,6 @@ jobs:
             --exclude '^https?:'
             --exclude '/(about|news|learn|docs|library|ontology|programs|architecture|recs|studio|smi|sst|cnml|smart|vocab|resolutions|certificates|login|pilot)(/|$)'
             --exclude '/web/publications(/|$)'
-            # The two G18 pages generate bare concept slugs that 404 with
-            # fresh vocab data — a data-pipeline slug bug tracked at
-            # oimlsmart/concepts-management#176, NOT a link-check pass:
-            # their pages are excluded until the bug is fixed.
             --exclude-path 'dist/g18/designations/index.html'
             --exclude-path 'dist/g18/conflicts/index.html'
             'dist/**/*.html'
