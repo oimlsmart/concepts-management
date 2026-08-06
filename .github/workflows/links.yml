@@ -84,7 +84,7 @@ jobs:
             --no-progress
             --root-dir .
             --exclude '^https?:'
-            --exclude '/(about|news|learn|docs|library|ontology|programs|architecture|recs|studio|smi|sst|cnml|smart|vocab|resolutions|certificates|login)(/|$)'
+            --exclude '/(about|news|learn|docs|library|ontology|programs|architecture|recs|studio|smi|sst|cnml|smart|vocab|resolutions|certificates|login|pilot)(/|$)'
             --exclude '/web/publications(/|$)'
             'dist/**/*.html'
           fail: true
