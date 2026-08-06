@@ -3,6 +3,7 @@ name: Deploy registry site
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -48,6 +49,14 @@ jobs:
           path: relaton-data-oiml
           ref: main
 
+      # The federation chrome (TODO.fix/11): the shell package provides
+      # the header, footer, and design tokens the web build consumes.
+      - name: Checkout the shell package (the chrome SSOT)
+        uses: actions/checkout@v7
+        with:
+          repository: oimlsmart/site-shell
+          path: vendor/site-shell
+
       - uses: pnpm/action-setup@v6
         with:
           version: 11.7.0
@@ -90,6 +99,7 @@ jobs:
           path: web/dist
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

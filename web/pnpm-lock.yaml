@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@oimlsmart/site-shell':
+        specifier: file:../vendor/site-shell
+        version: file:../vendor/site-shell(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.3))
       glossarist:
         specifier: ^0.4.17
         version: 0.4.17
@@ -728,6 +731,12 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
+
+  '@oimlsmart/site-shell@file:../vendor/site-shell':
+    resolution: {directory: ../vendor/site-shell, type: directory}
+    peerDependencies:
+      astro: '>=5'
+      vue: '>=3.5'
 
   '@one-ini/wasm@0.1.1':
     resolution: {integrity: sha512-XuySG1E38YScSJoMlqovLru4KTUNSjgVTIjyh7qMX6aNN5HY5Ct5LhRJdxO79JtTzKfzV/bnWpz+zquYrISsvw==}
@@ -3490,6 +3499,11 @@ snapshots:
       '@emnapi/runtime': 1.11.1
       '@tybys/wasm-util': 0.10.3
     optional: true
+
+  '@oimlsmart/site-shell@file:../vendor/site-shell(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.3))':
+    dependencies:
+      astro: 7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0)
+      vue: 3.5.39(typescript@6.0.3)
 
   '@one-ini/wasm@0.1.1': {}
 
