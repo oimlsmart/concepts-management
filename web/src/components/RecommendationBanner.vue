@@ -11,8 +11,8 @@ defineProps<{ recommendation: Recommendation }>();
 </script>
 
 <template>
-  <div :class="['recommendations-banner', `rec-${recommendation.level}`]">
-    <span class="rec-icon">{{ recommendation.icon }}</span>
+  <div :class="['recommendations-banner', `rec-${recommendation.level}`]" :role="recommendation.level === 'none' ? undefined : 'status'">
+    <span class="rec-icon" aria-hidden="true">{{ recommendation.icon }}</span>
     <div class="rec-body">
       <div class="rec-label">Recommendation</div>
       <div class="rec-text">{{ recommendation.text }}</div>

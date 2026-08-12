@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, nextTick, onMounted } from "vue";
+import { ref, computed, nextTick, onMounted, onUnmounted } from "vue";
 import { useVocabGaps, vocabGaps, type VocabGap, type GapScope } from "@/composables/useVocabGaps";
 import { usePagination } from "@/composables/usePagination";
 import {
@@ -14,12 +14,18 @@ import {
 } from "@/composables/useGapProposal";
 import SLink from "@/components/SLink.vue";
 import PaginationControls from "@/components/PaginationControls.vue";
+import { syncToUrl } from "@/composables/useUrlState";
 
 const { search, scope, tcFilter, lifecycle, allTCs, filtered } = useVocabGaps();
 const pagination = usePagination(filtered, {
   pageSize: 50,
   dep: () => `${scope.value}|${lifecycle.value}|${tcFilter.value}|${search.value}`,
 });
+
+syncToUrl(search, "q");
+syncToUrl(tcFilter, "tc");
+syncToUrl(lifecycle, "lifecycle");
+syncToUrl(pagination.page, "page", { parse: v => Math.max(1, Number(v) || 1), defaultValue: 1 });
 
 // Read scope from URL synchronously in script setup. With client:only="vue"
 // this always runs on the client before first render — no FUOC.
@@ -50,7 +56,42 @@ const proposalAuthor = ref("");
 const generating = ref(false);
 const issueUrl = ref<string | null>(null);
 
+// Modal focus management — trap Tab inside the dialog, restore focus on close.
+const modalEl = ref<HTMLElement | null>(null);
+let lastFocused: HTMLElement | null = null;
+
+function focusableIn(el: HTMLElement | null): HTMLElement[] {
+  if (!el) return [];
+  return Array.from(el.querySelectorAll<HTMLElement>(
+    'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+  )).filter(e => e.offsetParent !== null);
+}
+
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === "Escape") {
+    e.preventDefault();
+    closeProposal();
+    return;
+  }
+  if (e.key === "Tab" && modalEl.value) {
+    const items = focusableIn(modalEl.value);
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+}
+
 function openProposal(g: VocabGap) {
+  if (typeof document !== "undefined" && document.activeElement instanceof HTMLElement) {
+    lastFocused = document.activeElement;
+  }
   openGap.value = g;
   // Default target: if any near-miss exists, lean toward reconcile (V1/V2).
   // Otherwise default to V 3 (specific term).
@@ -60,12 +101,24 @@ function openProposal(g: VocabGap) {
     ? `The G 18 term "${g.name}" appears related to ${nm.latest_label} "${nm.designation}" (concept ${nm.concept_id}). Decide: re-link to ${nm.latest_label}, document as a deliberate OIML-specific variant (candidate for V 3), or confirm OIML as authoritative.`
     : `The G 18 term "${g.name}" has no VIM/VIML equivalent. It appears to be a specific term used across ${g.publications.length} OIML publication(s). Propose for inclusion in V 3 (specific terms).`;
   issueUrl.value = null;
+  document.addEventListener("keydown", onKeydown);
+  nextTick(() => {
+    const first = focusableIn(modalEl.value)[0];
+    if (first) first.focus();
+    else modalEl.value?.focus();
+  });
 }
 
 function closeProposal() {
   openGap.value = null;
   issueUrl.value = null;
+  document.removeEventListener("keydown", onKeydown);
+  if (lastFocused) lastFocused.focus();
 }
+
+onUnmounted(() => {
+  document.removeEventListener("keydown", onKeydown);
+});
 
 async function submitProposal() {
   if (!openGap.value) return;
@@ -137,7 +190,7 @@ function nearMissText(nm: any): string {
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Vocabulary gaps</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <span>Analysis</span> / <span>Vocabulary gaps</span></div>
     <h1>Vocabulary gap analysis</h1>
     <p class="lede">
       G 18 terms with no authoritative VIM/VIML source. For each, decide:
@@ -286,9 +339,9 @@ function nearMissText(nm: any): string {
 
   <!-- Proposal modal -->
   <div v-if="openGap" class="modal-backdrop" @click.self="closeProposal">
-    <div class="modal">
+    <div ref="modalEl" class="modal" role="dialog" aria-modal="true" aria-labelledby="proposal-modal-title" tabindex="-1">
       <div class="modal-head">
-        <h2>Propose vocabulary placement</h2>
+        <h2 id="proposal-modal-title">Propose vocabulary placement</h2>
         <button type="button" class="modal-close" @click="closeProposal" aria-label="Close">×</button>
       </div>
       <div class="modal-body">

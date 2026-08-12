@@ -16,7 +16,7 @@ const pubId = computed(() => {
 });
 const pub = computed(() => (publications as any[]).find(p => p.id === pubId.value));
 
-const { data: pubData, loading } = useJsonFetch(() => `${base}data/publications/${props.slug}.json`);
+const { data: pubData, loading, error } = useJsonFetch(() => `${base}data/publications/${props.slug}.json`);
 const terms = computed(() => pubData.value?.terms || []);
 
 const pubTerms = computed(() => terms.value);
@@ -203,10 +203,11 @@ const actionTypesPresent = computed(() => {
 
 <template>
   <div v-if="loading" class="card"><p style="color: var(--color-ink-muted)">Loading…</p></div>
+  <div v-else-if="error" class="card"><p style="color: var(--color-red)">Failed to load: {{ error }}</p></div>
   <div v-else-if="!pub" class="card"><p>Not found.</p></div>
   <template v-else>
     <div class="page-head">
-      <div class="breadcrumb"><SLink to="/">Registry</SLink> / <SLink to="/publications/">Publications</SLink> / <span>{{ pub.reference || pub.id }}</span></div>
+      <div class="breadcrumb"><SLink to="/">Home</SLink> / <SLink to="/publications/">Publications</SLink> / <span>{{ pub.reference || pub.id }}</span></div>
       <h1>{{ pub.reference || pub.id }}</h1>
       <p class="lede">
         {{ pubTerms.length }} terms

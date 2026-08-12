@@ -2,11 +2,20 @@
 import { computed, ref } from "vue";
 import publications from "@/data/pub-list.json";
 import { slugify } from "@/utils/term-utils";
+import { syncToUrl } from "@/composables/useUrlState";
 import SLink from "@/components/SLink.vue";
 
 const search = ref("");
 const lifecycleFilter = ref("");
 const hideEmpty = ref(true);
+
+syncToUrl(search, "q");
+syncToUrl(lifecycleFilter, "lifecycle");
+syncToUrl(hideEmpty, "hide_empty", {
+  parse: v => v === "1" || v === "true",
+  serialize: v => (v ? "1" : "0"),
+  defaultValue: true,
+});
 
 function termCount(pub: any): number { return pub.term_count || 0; }
 
@@ -55,15 +64,15 @@ function lifecycleBadge(lc: string): { label: string; cls: string } {
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Publications</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <span>Publications</span></div>
     <h1>Publications</h1>
     <p class="lede">{{ totalWithTerms }} publications with terms · {{ lifecycleCounts.current }} current · {{ lifecycleCounts.retired }} retired · {{ lifecycleCounts.withdrawn }} withdrawn</p>
   </div>
 
   <section class="card">
-    <form class="filter-form" @submit.prevent>
-      <input v-model="search" type="search" placeholder="Search publication…" />
-      <select v-model="lifecycleFilter">
+    <form class="filter-form" @submit.prevent role="search" aria-label="Filter publications">
+      <input v-model="search" type="search" placeholder="Search publication…" aria-label="Search publications by ID" />
+      <select v-model="lifecycleFilter" aria-label="Filter by lifecycle status">
         <option value="">All statuses</option>
         <option value="current">Current only</option>
         <option value="retired">Retired only</option>

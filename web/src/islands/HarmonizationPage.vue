@@ -54,7 +54,7 @@ const summary = computed(() => ({
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Definition Conflicts</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>Designation collisions</span></div>
     <h1>Designation collisions</h1>
     <p class="lede">
       The same term appears under multiple distinct G 18 IDs because each
@@ -77,7 +77,7 @@ const summary = computed(() => ({
 
     <div class="card-head" style="margin-top:1.5em">
       <h2>All collisions (merged across editions)</h2>
-      <input v-model="search" type="search" placeholder="Search designation…" />
+      <input v-model="search" type="search" placeholder="Search designation…" aria-label="Search designations" />
     </div>
 
     <div class="table-wrap">

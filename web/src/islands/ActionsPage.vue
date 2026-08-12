@@ -3,11 +3,15 @@ import { computed, ref } from "vue";
 import actionsData from "@/data/actions-data.json";
 import { ACTION_META, actionMeta, PRIORITY_RANK } from "@/composables/action-utils";
 import { usePagination } from "@/composables/usePagination";
+import { syncToUrl } from "@/composables/useUrlState";
 import SLink from "@/components/SLink.vue";
 import PaginationControls from "@/components/PaginationControls.vue";
 
 const filterType = ref("");
 const search = ref("");
+
+syncToUrl(filterType, "type");
+syncToUrl(search, "q");
 
 // Build action groups directly from pre-computed data.
 interface ActionGroup {
@@ -73,6 +77,7 @@ const pagination = usePagination(filtered, {
   pageSize: 50,
   dep: () => `${filterType.value}|${search.value}`,
 });
+syncToUrl(pagination.page, "page", { parse: v => Math.max(1, Number(v) || 1), defaultValue: 1 });
 
 const totalActions = computed(() => {
   let n = 0;
@@ -99,7 +104,7 @@ const legendTypes = computed(() => Object.keys(ACTION_META).filter(t => counts.v
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Actions</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <span>Analysis</span> / <span>Actions</span></div>
     <h1>Suggested actions for TC 1</h1>
     <p class="lede">{{ totalActions }} actions across {{ totalTerms }} terms, computed from citation currency, definition divergence, and vocabulary alignment.</p>
   </div>

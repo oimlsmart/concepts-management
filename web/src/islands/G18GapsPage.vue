@@ -3,6 +3,7 @@ import { computed, ref } from "vue";
 import termsData from "@/data/terms-slim.json";
 import publicationsData from "@/data/publications.json";
 import { usePagination } from "@/composables/usePagination";
+import { syncToUrl } from "@/composables/useUrlState";
 import SLink from "@/components/SLink.vue";
 import PaginationControls from "@/components/PaginationControls.vue";
 import { kindLabel } from "@/utils/term-utils";
@@ -36,6 +37,9 @@ const stale = computed(() =>
 const activeTab = ref<"missing" | "stale">("missing");
 const search = ref("");
 
+syncToUrl(activeTab, "tab", { defaultValue: "missing" });
+syncToUrl(search, "q");
+
 const currentList = computed(() => {
   const list = activeTab.value === "missing" ? missing.value : stale.value;
   if (!search.value) return list;
@@ -47,11 +51,12 @@ const pagination = usePagination(currentList, {
   pageSize: 50,
   dep: () => `${activeTab.value}|${search.value}`,
 });
+syncToUrl(pagination.page, "page", { parse: v => Math.max(1, Number(v) || 1), defaultValue: 1 });
 </script>
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>Coverage gaps</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>Coverage gaps</span></div>
     <h1>G 18:202X coverage gaps</h1>
     <p class="lede">
       Concepts that need G 18 editorial attention: {{ missing.length }} active in OIML but missing

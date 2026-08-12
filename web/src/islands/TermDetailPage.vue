@@ -17,7 +17,15 @@ const props = defineProps<{ slug: string }>();
 const base = import.meta.env.BASE_URL;
 const { label, confidenceClass, isCurrent, isSuperseded, latestLabel, role, vocabUrl } = useVocabularyEdition();
 
-const { data: term, loading } = useJsonFetch(() => `${base}data/terms/${props.slug}.json`);
+// Provenance "show more" — expand beyond the first 5 pubs per group.
+const expandedProv = ref<Set<number>>(new Set());
+function toggleProv(i: number) {
+  const next = new Set(expandedProv.value);
+  next.has(i) ? next.delete(i) : next.add(i);
+  expandedProv.value = next;
+}
+
+const { data: term, loading, error } = useJsonFetch(() => `${base}data/terms/${props.slug}.json`);
 
 // Withdrawn publications: detect if any publication instance is withdrawn.
 // These concepts should be retired from G 18:current and G 18:202X.
@@ -120,13 +128,13 @@ const recommendation = computed(() => {
       return {
         level: "info", icon: "📋",
         text: `Not in V 1/V 2. Resembles a VIM/VIML term — consider adopting it or proposing for V 3.`,
-        link: `${base}proposals/?term=${t.slug}`, action: "Propose",
+        link: `${base}analysis/gaps/?term=${t.slug}`, action: "Propose",
       };
     }
     return {
       level: "info", icon: "📝",
       text: `Not in V 1/V 2. No near-miss found — consider proposing for V 3.`,
-      link: `${base}proposals/?term=${t.slug}`, action: "Propose",
+      link: `${base}analysis/gaps/?term=${t.slug}`, action: "Propose",
     };
   }
 
@@ -147,7 +155,7 @@ const recommendation = computed(() => {
     return {
       level: "warn", icon: "📝",
       text: `Removed from ${t.latest_check.latest_label}. Propose for V 1, V 2, or V 3.`,
-      link: `${base}proposals/?term=${t.slug}`, action: "Propose",
+      link: `${base}analysis/gaps/?term=${t.slug}`, action: "Propose",
     };
   }
 
@@ -484,10 +492,11 @@ const filteredPublications = computed(() => {
 
 <template>
   <div v-if="loading" class="card"><p style="color: var(--color-ink-muted)">Loading…</p></div>
+  <div v-else-if="error" class="card"><p style="color: var(--color-red)">Failed to load: {{ error }}</p></div>
   <div v-else-if="!term" class="card"><p>Term not found.</p></div>
   <template v-else>
     <div class="page-head">
-      <div class="breadcrumb"><SLink to="/">Registry</SLink> / <SLink to="/concepts/">Terms</SLink> / <span><DefText :text="term.name" /></span></div>
+      <div class="breadcrumb"><SLink to="/">Home</SLink> / <SLink to="/concepts/">Terms</SLink> / <span><DefText :text="term.name" /></span></div>
       <h1><DefText :text="term.name" /></h1>
       <div class="term-meta-row">
         <span :class="['kind', `kind-${term.kind}`]">{{ kindLabel(term.kind) }}</span>
@@ -713,9 +722,14 @@ const filteredPublications = computed(() => {
         <div v-if="seeAlso.length" class="concept-see-also">
           <span class="concept-see-also-label">Cross-referenced in {{ seeAlso[0].ref.edition_label || label(seeAlso[0].ref.source) }}</span>
           <div class="concept-see-also-items">
-            <a v-for="(item, i) in seeAlso" :key="i" class="concept-see-also-link" :href="item.url || '#'">
-              #{{ item.ref.id }} ↗
-            </a>
+            <template v-for="(item, i) in seeAlso" :key="i">
+              <a v-if="item.url" class="concept-see-also-link" :href="item.url">
+                #{{ item.ref.id }} ↗
+              </a>
+              <span v-else class="concept-see-also-link concept-see-also-link--nolink" :title="`No resolvable URL for #${item.ref.id}`">
+                #{{ item.ref.id }}
+              </span>
+            </template>
           </div>
           <p class="concept-see-also-hint">These are different concepts that the source vocabulary points to as related.</p>
         </div>
@@ -863,11 +877,16 @@ const filteredPublications = computed(() => {
             <td><span :class="['rel-pill', `rel-${g.relationship}`]">{{ g.relationship }}</span></td>
             <td class="num">{{ g.pubs.length }}</td>
             <td>
-              <span v-for="(p, pi) in g.pubs.slice(0, 5)" :key="pi" class="prov-pub">
+              <span v-for="(p, pi) in (expandedProv.has(i) ? g.pubs : g.pubs.slice(0, 5))" :key="pi" class="prov-pub">
                 <SLink :to="`/publications/${slugify(p.publication_id)}/`">{{ p.publication }}</SLink>
                 <span class="muted"> ({{ p.edition }})</span>
               </span>
-              <span v-if="g.pubs.length > 5" class="muted"> +{{ g.pubs.length - 5 }} more</span>
+              <button v-if="g.pubs.length > 5" type="button"
+                      class="prov-expand"
+                      @click="toggleProv(i)"
+                      :aria-expanded="expandedProv.has(i)">
+                {{ expandedProv.has(i) ? 'Show fewer' : `+${g.pubs.length - 5} more` }}
+              </button>
             </td>
           </tr>
         </tbody>
@@ -1139,6 +1158,16 @@ const filteredPublications = computed(() => {
 .rel-derived   { background: var(--status-warn-bg); color: var(--status-warn-text); }
 .rel-similar   { background: var(--status-neutral-bg); color: var(--status-neutral-text); }
 .prov-pub { display: inline-block; margin-right: 0.6em; }
+.prov-expand {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--color-accent);
+  cursor: pointer;
+  margin-left: 0.4em;
+}
+.prov-expand:hover { text-decoration: underline; }
 .row-modified { background: var(--status-warn-bg) !important; }
 .row-differs { background: var(--status-error-bg) !important; }
 

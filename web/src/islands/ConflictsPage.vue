@@ -10,7 +10,7 @@ const totalCount = allEditions.reduce((s, ed) => s + (rawByEditionAll[ed] || [])
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>ID Conflicts</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>ID Conflicts</span></div>
     <h1>ID conflicts in G 18</h1>
     <div class="admonition warn" style="margin:0.8em 0">
       <strong>TC 1 internal use.</strong> ID conflicts are numbering errors that TC 1
