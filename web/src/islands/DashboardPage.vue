@@ -26,14 +26,6 @@ const priorityBadge = (rank: number) =>
 </script>
 
 <template>
-  <div class="page-head reveal">
-    <h1>OIML Concepts Management</h1>
-    <p class="lede">
-      Manage OIML terminology concepts, align them with authoritative vocabularies,
-      and prepare future editions of V 1, V 2, V 3, and the generated G 18 Current.
-    </p>
-  </div>
-
   <!-- What is this platform -->
   <section class="card reveal reveal-1 platform-intro">
     <h2>What this platform does</h2>

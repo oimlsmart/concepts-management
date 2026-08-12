@@ -10,7 +10,7 @@
 import { Base as ShellBase, MinisiteNav } from '@oimlsmart/site-shell'
 import '../styles/global.css'
 
-const base = import.meta.env.BASE_URL
+const base = '/concepts-management/'
 
 interface Props {
   title?: string
@@ -22,6 +22,7 @@ const {
 } = Astro.props
 
 const SECTIONS = [
+  { label: 'Home', href: '' },
   { label: 'Concepts', href: 'concepts/' },
   { label: 'Publications', href: 'publications/' },
   { label: 'TC / SC', href: 'tc/' },
@@ -37,37 +38,48 @@ const g18Nav = [
   { href: 'g18/gaps/', label: 'Coverage gaps' },
   { href: 'g18/designations/', label: 'Designation collisions' },
   { href: 'g18/202x/', label: 'G 18:202X readiness' },
+  { href: 'g18/current/', label: 'G 18:current' },
+  { href: 'g18/concepts/', label: 'G 18 concepts' },
   { href: 'g18/conflicts/', label: 'ID conflicts' },
   { href: 'g18/editions/', label: 'Editions' },
 ]
 ---
 
 <ShellBase title={title} description={description}>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..700;1,300..600&family=JetBrains+Mono:wght@400;500;600&display=swap" slot="head" />
+  <link rel="icon" href="/favicon.ico" slot="head" />
   <MinisiteNav sections={SECTIONS} base={base}>
     <details class="nav-dd relative">
-      <summary class="text-sm font-medium text-ink-soft hover:text-accent transition-colors cursor-pointer list-none whitespace-nowrap">Analysis ▾</summary>
-      <div class="nav-dd-menu absolute right-0 top-full mt-1 min-w-44 rounded border border-rule bg-paper-soft shadow-lg py-1 z-50">
-        {analysisNav.map(n => <a class="block px-3 py-1.5 text-sm text-ink-soft hover:text-accent hover:bg-accent-soft no-underline" href={`${base}${n.href}`}>{n.label}</a>)}
+      <summary class="text-sm font-medium text-ink-soft hover:text-accent transition-colors cursor-pointer list-none whitespace-nowrap" aria-label="Analysis menu">Analysis ▾</summary>
+      <div class="nav-dd-menu absolute right-0 top-full mt-1 min-w-44 rounded border border-rule bg-paper-soft shadow-lg py-1 z-50" role="menu" aria-label="Analysis">
+        {analysisNav.map(n => <a class="block px-3 py-1.5 text-sm text-ink-soft hover:text-accent hover:bg-accent-soft no-underline" role="menuitem" href={`${base}${n.href}`}>{n.label}</a>)}
       </div>
     </details>
     <details class="nav-dd relative">
-      <summary class="text-sm font-medium text-ink-soft hover:text-accent transition-colors cursor-pointer list-none whitespace-nowrap">G 18 ▾</summary>
-      <div class="nav-dd-menu absolute right-0 top-full mt-1 min-w-48 rounded border border-rule bg-paper-soft shadow-lg py-1 z-50">
-        {g18Nav.map(n => <a class="block px-3 py-1.5 text-sm text-ink-soft hover:text-accent hover:bg-accent-soft no-underline" href={`${base}${n.href}`}>{n.label}</a>)}
+      <summary class="text-sm font-medium text-ink-soft hover:text-accent transition-colors cursor-pointer list-none whitespace-nowrap" aria-label="G 18 menu">G 18 ▾</summary>
+      <div class="nav-dd-menu absolute right-0 top-full mt-1 min-w-48 rounded border border-rule bg-paper-soft shadow-lg py-1 z-50" role="menu" aria-label="G 18">
+        {g18Nav.map(n => <a class="block px-3 py-1.5 text-sm text-ink-soft hover:text-accent hover:bg-accent-soft no-underline" role="menuitem" href={`${base}${n.href}`}>{n.label}</a>)}
       </div>
     </details>
     <a href={`${base}how-to-use/`} class="text-sm font-medium text-ink-soft hover:text-accent transition-colors whitespace-nowrap" title="How to use">?</a>
   </MinisiteNav>
 
-  <main class="mx-auto max-w-[1080px] px-6 max-sm:px-4 py-10 max-sm:py-6 min-h-[70vh]">
+  <div class="mx-auto max-w-[1080px] px-6 max-sm:px-4 py-10 max-sm:py-6 min-h-[70vh]">
     <slot />
-  </main>
+  </div>
 
   <p class="mx-auto max-w-[1080px] px-6 max-sm:px-4 pb-8 text-xs text-ink-muted">
     Source: <a class="text-accent hover:underline" href="https://github.com/oimlsmart/vocab/tree/main/datasets/g18-2010">oimlsmart/vocab</a>
-    · VIM/VIML: <a class="text-accent hover:underline" href="https://www.oimlsmart.org/vocab/">www.oimlsmart.org/vocab</a>
+    · VIM/VIML: <a class="text-accent hover:underline" href="/vocab/">www.oimlsmart.org/vocab</a>
   </p>
+
+  <script is:inline>
+    // Click-outside dismiss for the nav <details> dropdowns.
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('details.nav-dd[open]').forEach((d) => {
+        if (!d.contains(e.target)) d.removeAttribute('open');
+      });
+    });
+  </script>
 </ShellBase>
 
 <style is:global>

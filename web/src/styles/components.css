@@ -552,9 +552,14 @@ tbody tr:hover { background: var(--color-accent-tint); }
 .filter-form input::placeholder { color: var(--color-ink-muted); }
 .filter-form input:focus,
 .filter-form select:focus {
-  outline: none;
   border-color: var(--color-ink);
   box-shadow: 0 0 0 3px rgba(10, 22, 40, 0.06);
+}
+.filter-form input:focus-visible,
+.filter-form select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: none;
 }
 .sort-toggle {
   display: inline-flex;
@@ -771,7 +776,7 @@ tbody tr:hover { background: var(--color-accent-tint); }
    on the right; stacks gracefully on mobile. */
 .page-filter {
   position: sticky;
-  top: 64px; /* header height */
+  top: 100px; /* site-shell SiteHeader (56px) + MinisiteNav (44px) */
   z-index: 20;
   display: flex;
   align-items: center;
@@ -876,7 +881,7 @@ tbody tr:hover { background: var(--color-accent-tint); }
   }
 }
 @media (max-width: 720px) {
-  .page-filter { top: 56px; }
+  .page-filter { top: 100px; }
   .page-filter-controls {
     display: grid;
     grid-template-columns: 1fr;

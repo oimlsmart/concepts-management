@@ -13,7 +13,7 @@ const top = (leaderboardData as any[])
 </script>
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Divergence</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <span>Analysis</span> / <span>Divergence</span></div>
     <h1>Divergence leaderboard</h1>
   </div>
   <section class="card">

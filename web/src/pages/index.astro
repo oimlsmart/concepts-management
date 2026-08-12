@@ -1,7 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import DashboardPage from "@/islands/DashboardPage.vue";
+import { PageHero } from '@oimlsmart/site-shell'
 ---
 <Layout>
+  <PageHero
+    title="OIML Concepts Management"
+    lede="Manage OIML terminology concepts, align them with authoritative vocabularies, and prepare future editions of V 1, V 2, V 3, and the generated G 18 Current."
+  />
   <DashboardPage client:load />
 </Layout>

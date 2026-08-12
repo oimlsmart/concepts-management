@@ -10,7 +10,7 @@ const props = defineProps<{ slug: string }>();
 const base = import.meta.env.BASE_URL;
 
 const tcName = computed(() => (tcData as string[]).find(t => slugify(t) === props.slug));
-const { data: tcData_response, loading } = useJsonFetch(() => `${base}data/tcs/${props.slug}.json`);
+const { data: tcData_response, loading, error } = useJsonFetch(() => `${base}data/tcs/${props.slug}.json`);
 const terms = computed(() => tcData_response.value?.terms || []);
 const publications = computed(() => tcData_response.value?.publications || []);
 
@@ -140,10 +140,11 @@ function pubRef(id: string): string {
 
 <template>
   <div v-if="loading" class="card"><p style="color: var(--color-ink-muted)">Loading…</p></div>
+  <div v-else-if="error" class="card"><p style="color: var(--color-red)">Failed to load: {{ error }}</p></div>
   <div v-else-if="!tcName" class="card"><p>Not found.</p></div>
   <template v-else>
     <div class="page-head">
-      <div class="breadcrumb"><SLink to="/">Registry</SLink> / <SLink to="/tc/">TC / SC</SLink> / <span>{{ tcName }}</span></div>
+      <div class="breadcrumb"><SLink to="/">Home</SLink> / <SLink to="/tc/">TC / SC</SLink> / <span>{{ tcName }}</span></div>
       <h1>{{ tcName }}</h1>
       <p class="lede">Aggregated view for the TC/SC secretary.</p>
     </div>

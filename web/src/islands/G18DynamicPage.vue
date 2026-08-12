@@ -45,7 +45,7 @@ const withDefinition = terms.filter(t => t.definition && t.definition.trim()).le
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>Current</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>Current</span></div>
     <h1>G 18:current</h1>
     <p class="lede">
       A live document containing the current set of all concepts defined in OIML
@@ -71,9 +71,9 @@ const withDefinition = terms.filter(t => t.definition && t.definition.trim()).le
     <div class="card-head">
       <h2>Concept registry</h2>
     </div>
-    <form class="filter-form" @submit.prevent>
-      <input v-model="search" type="search" placeholder="Search concept…" />
-      <select v-model="vocabFilter">
+    <form class="filter-form" @submit.prevent role="search" aria-label="Filter G 18:current registry">
+      <input v-model="search" type="search" placeholder="Search concept…" aria-label="Search concepts by name" />
+      <select v-model="vocabFilter" aria-label="Filter by vocabulary">
         <option value="">All vocabularies</option>
         <option value="defined_in_vim">V 2 (VIM)</option>
         <option value="defined_in_viml">V 1 (VIML)</option>
@@ -100,7 +100,7 @@ const withDefinition = terms.filter(t => t.definition && t.definition.trim()).le
                 {{ kindLabel(t.kind) }}
               </span>
             </td>
-            <td class="concept-def">
+            <td class="concept-def" :title="t.definition || ''">
               <span class="muted" style="font-size:0.85em">{{ t.definition || "—" }}</span>
             </td>
             <td class="num">{{ t.pub_count }}</td>

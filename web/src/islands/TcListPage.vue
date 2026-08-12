@@ -26,7 +26,7 @@ function slug(name: string) {
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>TC / SC</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <span>TC / SC</span></div>
     <h1>Technical Committees</h1>
     <p class="lede">{{ (tcData as string[]).length }} subcommittees referencing OIML concepts.</p>
   </div>

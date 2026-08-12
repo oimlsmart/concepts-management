@@ -17,7 +17,7 @@ const sortedStats = computed(() =>
 </script>
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>Editions</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>Editions</span></div>
     <h1>Edition comparison</h1>
     <p class="lede">OIML G 18:202X (draft, TC 1 is validating this) vs G 18:2010 (published, historic reference).</p>
   </div>

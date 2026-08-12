@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import termsData from "@/data/terms-slim.json";
 import { usePagination } from "@/composables/usePagination";
+import { syncToUrl } from "@/composables/useUrlState";
 import SLink from "@/components/SLink.vue";
 import DefText from "@/components/DefText.vue";
 import PaginationControls from "@/components/PaginationControls.vue";
@@ -14,6 +15,12 @@ const onlyTC = ref("");
 const onlyKind = ref("");
 const sortKey = ref<"name" | "pubs" | "defs">("name");
 const sortDir = ref<1 | -1>(1);
+
+syncToUrl(search, "q");
+syncToUrl(onlyTC, "tc");
+syncToUrl(onlyKind, "kind");
+syncToUrl(sortKey, "sort");
+syncToUrl(sortDir, "dir", { parse: v => (Number(v) === -1 ? -1 : 1) });
 
 const allTCs = computed(() => {
   const set = new Set<string>();
@@ -49,6 +56,7 @@ const pagination = usePagination(filtered, {
   pageSize: 50,
   dep: () => `${onlyTC.value}|${onlyKind.value}|${search.value}|${sortKey.value}|${sortDir.value}`,
 });
+syncToUrl(pagination.page, "page", { parse: v => Math.max(1, Number(v) || 1), defaultValue: 1 });
 
 function toggleSort(key: "name" | "pubs" | "defs") {
   if (sortKey.value === key) {
@@ -76,21 +84,21 @@ function admittedOf(t: any): string[] {
 
 <template>
   <div class="page-head">
-    <div class="breadcrumb"><SLink to="/">Registry</SLink> / <span>G 18 concepts</span></div>
+    <div class="breadcrumb"><SLink to="/">Home</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>Concepts</span></div>
     <h1>G 18 concepts</h1>
     <p class="lede">{{ terms.length }} concepts · {{ filtered.length }} shown</p>
   </div>
 
   <section class="card">
-    <form class="filter-form" @submit.prevent>
-      <input v-model="search" type="search" placeholder="Search…" />
-      <select v-model="onlyKind">
+    <form class="filter-form" @submit.prevent role="search" aria-label="Filter G 18 concepts">
+      <input v-model="search" type="search" placeholder="Search…" aria-label="Search G 18 concepts by name" />
+      <select v-model="onlyKind" aria-label="Filter by source vocabulary">
         <option value="">All sources</option>
         <option value="defined_in_vim">From VIM (V 2)</option>
         <option value="defined_in_viml">From VIML (V 1)</option>
         <option value="oiml_original">OIML-specific</option>
       </select>
-      <select v-model="onlyTC">
+      <select v-model="onlyTC" aria-label="Filter by technical committee">
         <option value="">All TC/SCs</option>
         <option v-for="tc in allTCs" :key="tc" :value="tc">{{ tc }}</option>
       </select>
@@ -99,14 +107,14 @@ function admittedOf(t: any): string[] {
       <table>
       <thead>
         <tr>
-          <th @click="toggleSort('name')" style="cursor:pointer">Term {{ sortKey === 'name' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
+          <th @click="toggleSort('name')" @keydown.enter="toggleSort('name')" @keydown.space.prevent="toggleSort('name')" role="button" tabindex="0" :aria-sort="sortKey === 'name' ? (sortDir === 1 ? 'ascending' : 'descending') : 'none'" style="cursor:pointer">Term {{ sortKey === 'name' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
           <th>Alt</th>
           <th>Sym</th>
           <th>Source</th>
           <th>Ed.</th>
-          <th @click="toggleSort('pubs')" style="cursor:pointer" class="num">Inst. {{ sortKey === 'pubs' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
+          <th @click="toggleSort('pubs')" @keydown.enter="toggleSort('pubs')" @keydown.space.prevent="toggleSort('pubs')" role="button" tabindex="0" :aria-sort="sortKey === 'pubs' ? (sortDir === 1 ? 'ascending' : 'descending') : 'none'" style="cursor:pointer" class="num">Inst. {{ sortKey === 'pubs' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
           <th v-if="onlyTC">TC pubs</th>
-          <th @click="toggleSort('defs')" style="cursor:pointer" class="num">Defs {{ sortKey === 'defs' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
+          <th @click="toggleSort('defs')" @keydown.enter="toggleSort('defs')" @keydown.space.prevent="toggleSort('defs')" role="button" tabindex="0" :aria-sort="sortKey === 'defs' ? (sortDir === 1 ? 'ascending' : 'descending') : 'none'" style="cursor:pointer" class="num">Defs {{ sortKey === 'defs' ? (sortDir === 1 ? '↑' : '↓') : '' }}</th>
         </tr>
       </thead>
       <tbody>

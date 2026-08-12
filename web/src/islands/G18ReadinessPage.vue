@@ -54,14 +54,14 @@ const allDone = computed(() => readinessItems.value.every(i => i.status === "don
 <template>
   <div class="page-head">
     <div class="breadcrumb">
-      <SLink to="/">Registry</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>202X readiness</span>
+      <SLink to="/">Home</SLink> / <SLink to="/g18/editions/">G 18</SLink> / <span>202X readiness</span>
     </div>
     <h1>G 18:202X — publication readiness</h1>
     <p class="lede">The draft 2nd edition nearing publication.</p>
   </div>
 
   <div :class="['readiness-banner', allDone ? 'readiness-ready' : 'readiness-warn']">
-    <span class="readiness-icon">{{ allDone ? "✅" : "⚠️" }}</span>
+    <span class="readiness-icon" aria-hidden="true">{{ allDone ? "✅" : "⚠️" }}</span>
     <div>
       <div class="readiness-title">{{ allDone ? "Ready to publish" : "Blocking issues remain" }}</div>
       <div class="readiness-text">
