@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@oimlsmart/site-shell':
-        specifier: file:../vendor/site-shell
-        version: file:../vendor/site-shell(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.3))
+        specifier: 0.2.0
+        version: 0.2.0(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.3))
       glossarist:
         specifier: ^0.4.17
         version: 0.4.17
@@ -732,8 +732,8 @@ packages:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
 
-  '@oimlsmart/site-shell@file:../vendor/site-shell':
-    resolution: {directory: ../vendor/site-shell, type: directory}
+  '@oimlsmart/site-shell@0.2.0':
+    resolution: {integrity: sha512-FYoPruoEzPDeJhsGtmTCH4pJ0I3FCx5mgRSM04CxRtHpEMuqDUXiw0FHNw1N9pXarx+SRPGo8gfQlNcuoy3fXg==}
     peerDependencies:
       astro: '>=5'
       vue: '>=3.5'
@@ -3500,7 +3500,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@oimlsmart/site-shell@file:../vendor/site-shell(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.3))':
+  '@oimlsmart/site-shell@0.2.0(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.3))':
     dependencies:
       astro: 7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0)
       vue: 3.5.39(typescript@6.0.3)
