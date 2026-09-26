@@ -11,10 +11,8 @@ export default defineConfig({
   integrations: [vue()],
   redirects: {
     "/vocab-gaps": `${base}/analysis/gaps/`,
-    "/g18/concepts": `${base}/g18/concepts/`,
     "/g18/digital": `${base}/g18/current/`,
     "/g18/dynamic": `${base}/g18/current/`,
-    "/g18/current": `${base}/g18/current/`,
     "/leaderboard": `${base}/analysis/divergence/`,
     "/proposals": `${base}/analysis/gaps/`,
     "/actions": `${base}/analysis/actions/`,
