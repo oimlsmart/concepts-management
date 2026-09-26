@@ -1,13 +1,21 @@
 ---
 /**
- * The concepts-management site's layout — wraps @oimlsmart/site-shell's
- * Base (the federation chrome, TODO.fix/11). The minisite's own
+ * The concepts-management site's layout — the ONE injection point
+ * (TODO.ia/03): the house shell from the package (@oimlsmart/site-shell
+ * 0.2.0, machinery-only) fed the site's OWN injected config. The brand,
+ * nav model, and footer content come from src/data/ and thread through
+ * the shell's typed contract; the package invents nothing, so without
+ * them no header and no footer would render. The minisite's own
  * sections ride the MinisiteNav; the Analysis and G 18 groups stay as
  * native <details> dropdowns in the nav's right slot (no JS). The
  * source attribution the old footer carried stays as a content note
  * below the page body.
  */
 import { Base as ShellBase, MinisiteNav } from '@oimlsmart/site-shell'
+import { BRAND } from '../data/brand'
+import { NAV_MODEL, MINISITE_SECTIONS } from '../data/nav-config'
+import { FOOTER } from '../data/footer'
+import { SITE } from '../data/site-meta'
 import '../styles/global.css'
 
 const base = '/concepts-management/'
@@ -17,16 +25,9 @@ interface Props {
   description?: string
 }
 const {
-  title = 'OIML Concepts Management',
-  description = 'OIML Concepts Management — harmonise, validate, and align terminology across OIML publications.',
+  title = SITE.title,
+  description = SITE.description,
 } = Astro.props
-
-const SECTIONS = [
-  { label: 'Home', href: '' },
-  { label: 'Concepts', href: 'concepts/' },
-  { label: 'Publications', href: 'publications/' },
-  { label: 'TC / SC', href: 'tc/' },
-]
 
 const analysisNav = [
   { href: 'analysis/actions/', label: 'Suggested actions' },
@@ -45,9 +46,13 @@ const g18Nav = [
 ]
 ---
 
-<ShellBase title={title} description={description}>
-  <link rel="icon" href="/favicon.ico" slot="head" />
-  <MinisiteNav sections={SECTIONS} base={base}>
+<ShellBase title={title} description={description} brand={BRAND} nav={NAV_MODEL} footer={FOOTER}>
+  <!-- The favicon lives at the front door's root (this project site
+       serves no /favicon.ico of its own); addressed front-door
+       absolute so the link checker, which resolves root-relative hrefs
+       against the local tree, does not chase it. -->
+  <link rel="icon" href={`${SITE.url}/favicon.ico`} slot="head" />
+  <MinisiteNav sections={MINISITE_SECTIONS} base={base}>
     <details class="nav-dd relative">
       <summary class="text-sm font-medium text-ink-soft hover:text-accent transition-colors cursor-pointer list-none whitespace-nowrap" aria-label="Analysis menu">Analysis ▾</summary>
       <div class="nav-dd-menu absolute right-0 top-full mt-1 min-w-44 rounded border border-rule bg-paper-soft shadow-lg py-1 z-50" role="menu" aria-label="Analysis">

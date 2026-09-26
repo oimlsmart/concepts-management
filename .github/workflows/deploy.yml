@@ -49,14 +49,6 @@ jobs:
           path: relaton-data-oiml
           ref: main
 
-      # The federation chrome (TODO.fix/11): the shell package provides
-      # the header, footer, and design tokens the web build consumes.
-      - name: Checkout the shell package (the chrome SSOT)
-        uses: actions/checkout@v7
-        with:
-          repository: oimlsmart/site-shell
-          path: vendor/site-shell
-
       - uses: pnpm/action-setup@v6
         with:
           version: 11.7.0
@@ -92,6 +84,19 @@ jobs:
       - name: Build static site (Astro)
         working-directory: web
         run: pnpm run build
+
+      # The shell-pin leg (TODO.ia/03): the dependency is an exact npm
+      # version and equals npm's latest published release, so a shell
+      # release lands here deliberately, never silently.
+      - name: The shell pin satisfies the published channel
+        working-directory: web
+        run: pnpm run check:shell-pin
+
+      # The nav completeness gate: every href in the injected nav model
+      # resolves to a real page in the built tree.
+      - name: Nav completeness gate
+        working-directory: web
+        run: pnpm run check:nav
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
