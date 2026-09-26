@@ -91,8 +91,13 @@ module G18
       def convert_pubid(id)
         if id.is_a?(String)
           id
+        elsif id.nil?
+          nil
         elsif id["_type"] == "pubid:oiml:amendment"
-          base = convert_pubid(id["base_identifier"])
+          # The upstream index renamed the amendment's base key from
+          # "base_identifier" to "base" (2026-09); accept both.
+          base = convert_pubid(id["base_identifier"] || id["base"])
+          return nil unless base
           "#{base}+Amendment:#{id['year']}"
         else
           letter = PUBID_TYPE_PREFIX[id["_type"]]
