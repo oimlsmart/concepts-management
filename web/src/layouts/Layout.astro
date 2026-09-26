@@ -47,7 +47,11 @@ const g18Nav = [
 ---
 
 <ShellBase title={title} description={description} brand={BRAND} nav={NAV_MODEL} footer={FOOTER}>
-  <link rel="icon" href="/favicon.ico" slot="head" />
+  <!-- The favicon lives at the front door's root (this project site
+       serves no /favicon.ico of its own); addressed front-door
+       absolute so the link checker, which resolves root-relative hrefs
+       against the local tree, does not chase it. -->
+  <link rel="icon" href={`${SITE.url}/favicon.ico`} slot="head" />
   <MinisiteNav sections={MINISITE_SECTIONS} base={base}>
     <details class="nav-dd relative">
       <summary class="text-sm font-medium text-ink-soft hover:text-accent transition-colors cursor-pointer list-none whitespace-nowrap" aria-label="Analysis menu">Analysis ▾</summary>
