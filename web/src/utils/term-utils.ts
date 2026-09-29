@@ -11,6 +11,13 @@ export function slugify(s: string): string {
   return (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
+// VIM/VIML vocabulary editions ("OIML V 1:2022", "OIML V 2-200:2012") are
+// reference vocabularies, not OIML publications — they must not appear in
+// publication lists (they are browsed as vocabularies instead).
+export function isVocabularyPublication(ref: string | null | undefined): boolean {
+  return /^OIML\s+V\b/.test(ref || "");
+}
+
 export function normalizeDef(text: string): string {
   return (text || "").replace(/\{\{[^,}]+,([^}]+)\}\}/g, "$1").trim();
 }

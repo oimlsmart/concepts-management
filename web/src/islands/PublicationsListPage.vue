@@ -1,26 +1,34 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import publications from "@/data/pub-list.json";
-import { slugify } from "@/utils/term-utils";
+import { isVocabularyPublication, slugify } from "@/utils/term-utils";
 import { syncToUrl } from "@/composables/useUrlState";
 import SLink from "@/components/SLink.vue";
 
 const search = ref("");
-const lifecycleFilter = ref("");
+// Only current publications can gain a new edition — the actionable set.
+const lifecycleFilter = ref("current");
 const hideEmpty = ref(true);
 
 syncToUrl(search, "q");
-syncToUrl(lifecycleFilter, "lifecycle");
+syncToUrl(lifecycleFilter, "lifecycle", { defaultValue: "current" });
 syncToUrl(hideEmpty, "hide_empty", {
   parse: v => v === "1" || v === "true",
   serialize: v => (v ? "1" : "0"),
   defaultValue: true,
 });
 
+// VIM/VIML editions (OIML V 1 …, OIML V 2-200 …) are vocabularies, not OIML
+// publications — excluded from the list and from every count on the page.
+// Checked on both id (the row's link target) and reference (its label).
+const listedPubs = (publications as any[]).filter(
+  p => !isVocabularyPublication(p.id) && !isVocabularyPublication(p.reference),
+);
+
 function termCount(pub: any): number { return pub.term_count || 0; }
 
 const sortedPubs = computed(() => {
-  return [...(publications as any[])].sort((a, b) => {
+  return [...listedPubs].sort((a, b) => {
     const tc = termCount(b) - termCount(a);
     if (tc !== 0) return tc;
     return (a.id || "").localeCompare(b.id || "");
@@ -44,7 +52,7 @@ const filtered = computed(() => {
 
 const lifecycleCounts = computed(() => {
   const c = { current: 0, retired: 0, withdrawn: 0 };
-  for (const p of (publications as any[])) {
+  for (const p of listedPubs) {
     const lc = p.lifecycle || "current";
     if (c[lc] !== undefined) c[lc]++;
   }
@@ -52,7 +60,7 @@ const lifecycleCounts = computed(() => {
 });
 
 const totalWithTerms = computed(() =>
-  (publications as any[]).filter(p => termCount(p) > 0).length
+  listedPubs.filter(p => termCount(p) > 0).length
 );
 
 function lifecycleBadge(lc: string): { label: string; cls: string } {

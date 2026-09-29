@@ -34,3 +34,5 @@ web/.vite-ssg-temp/
 scripts/*.bak
 *.bak
 vendor/
+
+Gemfile.lock
