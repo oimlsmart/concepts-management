@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { kindLabel, isHistoricTerm, slugify, normalizeDef } from "@/utils/term-utils";
+import { kindLabel, isHistoricTerm, slugify, normalizeDef, isVocabularyPublication } from "@/utils/term-utils";
 
 describe("term-utils", () => {
   describe("kindLabel", () => {
@@ -58,6 +58,25 @@ describe("term-utils", () => {
     });
     it("leaves plain text unchanged (after trim)", () => {
       expect(normalizeDef("definition without refs")).toBe("definition without refs");
+    });
+  });
+
+  describe("isVocabularyPublication", () => {
+    it("flags VIML and VIM vocabulary editions", () => {
+      expect(isVocabularyPublication("OIML V 1:2022")).toBe(true);
+      expect(isVocabularyPublication("OIML V 1:2000")).toBe(true);
+      expect(isVocabularyPublication("OIML V 2-200:2012")).toBe(true);
+      expect(isVocabularyPublication("OIML V 2-200:1993")).toBe(true);
+    });
+    it("does not flag OIML R / D publications", () => {
+      expect(isVocabularyPublication("OIML R 142-1:2025")).toBe(false);
+      expect(isVocabularyPublication("OIML R 1:2010")).toBe(false);
+      expect(isVocabularyPublication("OIML D 31:1996")).toBe(false);
+    });
+    it("handles missing values", () => {
+      expect(isVocabularyPublication(null)).toBe(false);
+      expect(isVocabularyPublication(undefined)).toBe(false);
+      expect(isVocabularyPublication("")).toBe(false);
     });
   });
 });

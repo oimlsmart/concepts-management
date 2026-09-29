@@ -1,0 +1,6 @@
+[
+  { "id": "OIML R 142-1:2025", "reference": "OIML R 142-1:2025", "lifecycle": "current", "term_count": 50 },
+  { "id": "OIML R 1:2010", "reference": "OIML R 1:2010", "lifecycle": "retired", "term_count": 10 },
+  { "id": "OIML V 1:2022", "reference": "OIML V 1:2022", "lifecycle": "current", "term_count": 86 },
+  { "id": "OIML V 2-200:2012", "reference": "OIML V 2-200:2012", "lifecycle": "current", "term_count": 169 }
+]
