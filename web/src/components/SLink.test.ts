@@ -39,4 +39,22 @@ describe("SLink", () => {
     expect(a.exists()).toBe(true);
     expect(a.attributes("href")).toBeTruthy();
   });
+
+  // Regression test: in a list that re-renders rows (e.g. the gaps
+  // analysis page when scope changes after SSR/hydration), the `to`
+  // prop updates but the link's href must follow. Previously href was
+  // a plain const computed once at setup, so it stayed stale even
+  // though the slot text updated — producing mismatched links like
+  // "automatic checking facility" pointing at /concepts/electronic-device/.
+  it("updates href reactively when `to` prop changes", async () => {
+    const wrapper = mount(SLink, {
+      props: { to: "concepts/automatic-checking-facility/" },
+      slots: { default: "automatic checking facility" },
+    });
+    expect(wrapper.find("a").attributes("href")).toContain("concepts/automatic-checking-facility/");
+
+    await wrapper.setProps({ to: "concepts/electronic-device/" });
+    expect(wrapper.find("a").attributes("href")).toContain("concepts/electronic-device/");
+    expect(wrapper.find("a").attributes("href")).not.toContain("automatic-checking-facility");
+  });
 });
