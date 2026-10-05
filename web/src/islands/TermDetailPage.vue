@@ -121,6 +121,20 @@ const citationSummary = computed(() => {
   return { current, outdated, noCite, total: cs.length };
 });
 
+// The matcher's concept_id fallback (lib/g18/export/matcher.rb) can grab
+// an unrelated concept that just happens to share the same id across
+// editions. Verify by comparing the cited and latest concept's
+// designations — if none match, `latest_check.url` is unreliable and we
+// must not link to it (it would land on a different term).
+function latestConceptCorresponds(): boolean {
+  const cited = term.value?.official_concept?.cited_concept?.eng;
+  const latest = term.value?.official_concept?.latest_concept?.eng;
+  if (!cited || !latest) return false;
+  const norm = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, "").trim().replace(/\s+/g, " ");
+  const citedTexts = new Set((cited.designations || []).map((d: any) => norm(d.text || "")));
+  return (latest.designations || []).some((d: any) => citedTexts.has(norm(d.text || "")));
+}
+
 // Top-level recommendation banner — summarizes what TC 1 should do
 const recommendation = computed(() => {
   const t = term.value;
@@ -147,10 +161,21 @@ const recommendation = computed(() => {
   }
 
   if (t.latest_check?.found) {
+    if (latestConceptCorresponds()) {
+      return {
+        level: "warn", icon: "⚠️",
+        text: `Citation is outdated. Update to ${t.latest_check.latest_label}.`,
+        link: t.latest_check.url || null, action: "View concept",
+      };
+    }
+    // The matcher found an entry at the same concept_id, but its
+    // designation doesn't match the cited concept — the link would
+    // land on an unrelated term. Treat as effectively removed and let
+    // the user propose the term for a future vocabulary.
     return {
-      level: "warn", icon: "⚠️",
-      text: `Citation is outdated. Update to ${t.latest_check.latest_label}.`,
-      link: t.latest_check.url || null, action: "View concept",
+      level: "warn", icon: "📝",
+      text: `Citation may be outdated. The concept at this ID in ${t.latest_check.latest_label} has different content — verify the citation manually.`,
+      link: null, action: "Propose",
     };
   }
 
@@ -608,11 +633,19 @@ function onRecommendationAction(rec: { action: string; link: string | null }) {
             <strong>Citation is up to date.</strong> Nothing to do — this term cites the latest VIM/VIML edition.
           </div>
           <div v-else-if="term.latest_check?.found" class="decision-path">
-            <strong>Citation is outdated.</strong> The term exists in {{ term.latest_check?.latest_label }} but publications cite an older edition.
-            <div class="decision-options">
-              <a v-if="term.latest_check?.url" class="decision-option" :href="term.latest_check.url">View {{ term.latest_check?.latest_label }} concept ↗</a>
-              <button type="button" class="decision-option" @click="openProposal()">Propose →</button>
-            </div>
+            <template v-if="latestConceptCorresponds()">
+              <strong>Citation is outdated.</strong> The term exists in {{ term.latest_check?.latest_label }} but publications cite an older edition.
+              <div class="decision-options">
+                <a v-if="term.latest_check?.url" class="decision-option" :href="term.latest_check.url">View {{ term.latest_check?.latest_label }} concept ↗</a>
+                <button type="button" class="decision-option" @click="openProposal()">Propose →</button>
+              </div>
+            </template>
+            <template v-else>
+              <strong>Citation may be outdated.</strong> The concept at this ID in {{ term.latest_check?.latest_label }} has different content — verify the citation manually.
+              <div class="decision-options">
+                <button type="button" class="decision-option" @click="openProposal()">Propose →</button>
+              </div>
+            </template>
           </div>
           <div v-else-if="term.latest_check && !term.latest_check.found" class="decision-path">
             <strong>Removed from {{ term.latest_check?.latest_label }}.</strong> This term is no longer in the latest VIM/VIML edition.
