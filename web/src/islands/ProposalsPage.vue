@@ -22,20 +22,15 @@ const pagination = usePagination(filtered, {
   dep: () => `${scope.value}|${lifecycle.value}|${tcFilter.value}|${search.value}`,
 });
 
+const VALID_SCOPES: GapScope[] = ["v3-match", "v1-match", "v2-match", "all"];
+
 syncToUrl(search, "q");
 syncToUrl(tcFilter, "tc");
 syncToUrl(lifecycle, "lifecycle");
+syncToUrl(scope, "scope", {
+  parse: (raw) => (VALID_SCOPES as string[]).includes(raw) ? (raw as GapScope) : scope.value,
+});
 syncToUrl(pagination.page, "page", { parse: v => Math.max(1, Number(v) || 1), defaultValue: 1 });
-
-// Read scope from URL synchronously in script setup. With client:only="vue"
-// this always runs on the client before first render — no FUOC.
-const VALID_SCOPES: string[] = ["v3-match", "v1-match", "v2-match", "all"];
-if (typeof window !== "undefined") {
-  const scopeParam = new URLSearchParams(window.location.search).get("scope");
-  if (scopeParam && VALID_SCOPES.includes(scopeParam)) {
-    scope.value = scopeParam as GapScope;
-  }
-}
 
 // ?term= auto-open needs onMounted (modal needs DOM ready)
 onMounted(() => {
