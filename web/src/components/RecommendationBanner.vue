@@ -7,6 +7,7 @@ interface Recommendation {
   action: string;
 }
 
+const emit = defineEmits<{ action: [recommendation: Recommendation] }>();
 defineProps<{ recommendation: Recommendation }>();
 </script>
 
@@ -17,9 +18,9 @@ defineProps<{ recommendation: Recommendation }>();
       <div class="rec-label">Recommendation</div>
       <div class="rec-text">{{ recommendation.text }}</div>
     </div>
-    <a v-if="recommendation.link" class="rec-action" :href="recommendation.link">
+    <button v-if="recommendation.action" type="button" class="rec-action" @click="emit('action', recommendation)">
       {{ recommendation.action }} →
-    </a>
+    </button>
   </div>
 </template>
 
@@ -53,11 +54,14 @@ defineProps<{ recommendation: Recommendation }>();
   padding: 0.35em 0.8em;
   border-radius: 4px;
   background: var(--color-accent);
-  color: #fff !important;
+  color: #fff;
   font-size: 0.82rem;
   font-weight: 600;
-  text-decoration: none;
   white-space: nowrap;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
-.rec-action:hover { background: var(--color-accent-hover); text-decoration: none; }
+.rec-action:hover { background: var(--color-accent-hover); }
 </style>

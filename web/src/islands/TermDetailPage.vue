@@ -497,11 +497,29 @@ const filteredPublications = computed(() => {
 // vocabGaps index by slug. `canPropose` only renders the buttons for terms
 // that ARE in vocabGaps, so this lookup always succeeds when the user can
 // click.
+//
+// Note: the Propose buttons in the decision flow are deliberately
+// `<button>` elements (no `href`) that trigger `openProposal()` rather
+// than `<a>` links to the gap analysis page. This keeps the user on the
+// term they're reading about and lets them classify + submit the
+// proposal in context. The recommendation banner routes to the same
+// `openProposal()` for the "Propose" action.
 const modalRef = ref<InstanceType<typeof ProposalModal> | null>(null);
 const currentGap = computed<VocabGap | null>(() => vocabGaps.find(g => g.slug === props.slug) || null);
 function openProposal(target: ProposalTarget | null = null) {
   if (!currentGap.value || !modalRef.value) return;
   modalRef.value.open(currentGap.value, target);
+}
+
+// Recommendation banner action — "Propose" opens the modal, "View concept"
+// navigates to the external vocab site. Routing in one place keeps the
+// banner agnostic.
+function onRecommendationAction(rec: { action: string; link: string | null }) {
+  if (rec.action === "Propose") {
+    openProposal();
+  } else if (rec.link) {
+    window.open(rec.link, "_blank", "noopener");
+  }
 }
 </script>
 
@@ -752,7 +770,11 @@ function openProposal(target: ProposalTarget | null = null) {
     </section>
 
     <!-- Recommendations banner: appears at the top, summarizes what TC 1 should do -->
-    <RecommendationBanner v-if="recommendation.level !== 'none'" :recommendation="recommendation" />
+    <RecommendationBanner
+      v-if="recommendation.level !== 'none'"
+      :recommendation="recommendation"
+      @action="onRecommendationAction"
+    />
 
     <!-- Withdrawn publication warning: concept cited in a withdrawn OIML pub -->
     <div v-if="withdrawnPubs.length" class="withdrawn-warning">
