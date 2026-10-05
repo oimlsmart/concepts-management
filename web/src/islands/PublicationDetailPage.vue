@@ -3,11 +3,21 @@ import { computed, ref } from "vue";
 import { useJsonFetch } from "@/composables/useJsonFetch";
 import publications from "@/data/publications.json";
 import { ACTION_META, actionMeta, actionTypeRank } from "@/composables/action-utils";
+import { vocabGaps } from "@/composables/useVocabGaps";
 import SLink from "@/components/SLink.vue";
+import ProposalModal from "@/components/ProposalModal.vue";
 import { kindLabel, slugify } from "@/utils/term-utils";
 
 const props = defineProps<{ slug: string }>();
 const base = import.meta.env.BASE_URL;
+
+// Inline proposal modal — V 3 candidates table's "Propose →" opens it.
+const modalRef = ref<InstanceType<typeof ProposalModal> | null>(null);
+function openPropose(slug: string) {
+  const gap = vocabGaps.find(g => g.slug === slug);
+  if (!gap || !modalRef.value) return;
+  modalRef.value.open(gap, "V3");
+}
 
 const pubId = computed(() => {
   const map: Record<string, string> = {};
@@ -330,12 +340,14 @@ const actionTypesPresent = computed(() => {
               <td class="term-cell"><SLink :to="`/concepts/${t.slug}/`">{{ t.name }}</SLink></td>
               <td><code>{{ pubInstanceForEdition(t)?.clause || '—' }}</code></td>
               <td style="max-width:400px">{{ pubInstanceForEdition(t)?.definition }}</td>
-              <td><SLink :to="`/analysis/gaps/?scope=v3-match&term=${t.slug}`" class="pub-propose-link">Propose →</SLink></td>
+              <td><button type="button" class="pub-propose-link" @click="openPropose(t.slug)">Propose →</button></td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
+
+    <ProposalModal ref="modalRef" />
   </template>
 </template>
 
@@ -368,5 +380,14 @@ const actionTypesPresent = computed(() => {
   font-size: 0.82rem;
   font-weight: 600;
   white-space: nowrap;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: var(--color-accent);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
 }
+.pub-propose-link:hover { text-decoration: underline; }
 </style>

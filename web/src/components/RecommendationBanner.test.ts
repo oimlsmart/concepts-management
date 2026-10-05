@@ -29,31 +29,34 @@ describe("RecommendationBanner", () => {
     expect(wrapper.find(".recommendations-banner").classes()).toContain("rec-warn");
   });
 
-  it("renders the action link when provided", () => {
+  it("renders the action button when an action is provided and emits on click", async () => {
     const wrapper = mount(RecommendationBanner, {
       props: {
         recommendation: {
           level: "info",
           icon: "📋",
           text: "propose",
-          link: "/proposals/?term=x",
+          link: "/somewhere",
           action: "Propose",
         },
       },
     });
-    const link = wrapper.find("a.rec-action");
-    expect(link.exists()).toBe(true);
-    expect(link.attributes("href")).toBe("/proposals/?term=x");
-    expect(link.text()).toContain("Propose →");
+    const button = wrapper.find("button.rec-action");
+    expect(button.exists()).toBe(true);
+    expect(button.text()).toContain("Propose →");
+    await button.trigger("click");
+    const events = wrapper.emitted("action");
+    expect(events).toBeTruthy();
+    expect(events![0][0]).toMatchObject({ action: "Propose", link: "/somewhere" });
   });
 
-  it("hides the action link when null", () => {
+  it("hides the action button when action is empty", () => {
     const wrapper = mount(RecommendationBanner, {
       props: {
         recommendation: { level: "ok", icon: "✅", text: "fine", link: null, action: "" },
       },
     });
-    expect(wrapper.find("a.rec-action").exists()).toBe(false);
+    expect(wrapper.find("button.rec-action").exists()).toBe(false);
   });
 
   it("supports all four levels (ok, warn, info, none)", () => {
