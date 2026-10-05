@@ -5,12 +5,15 @@ import { useJsonFetch } from "@/composables/useJsonFetch";
 import { useVocabularyEdition } from "@/composables/useVocabularyEdition";
 import { useConceptVersions } from "@/composables/useConceptVersions";
 import { isOimlSpecific } from "@/utils/edition-utils";
+import { vocabGaps, type VocabGap } from "@/composables/useVocabGaps";
+import type { ProposalTarget } from "@/composables/useGapProposal";
 import SLink from "@/components/SLink.vue";
 import DefText from "@/components/DefText.vue";
 import ConceptBody from "@/components/ConceptBody.vue";
 import ConceptDiffView from "@/components/ConceptDiffView.vue";
 import DecisionFlowSVG from "@/components/DecisionFlowSVG.vue";
 import RecommendationBanner from "@/components/RecommendationBanner.vue";
+import ProposalModal from "@/components/ProposalModal.vue";
 import { kindLabel, normalizeDef, isHistoricTerm, groupProvenance, provenanceLabel as provLabel, slugify } from "@/utils/term-utils";
 
 const props = defineProps<{ slug: string }>();
@@ -488,6 +491,18 @@ const filteredPublications = computed(() => {
   if (!onlyTC.value) return term.value?.publications || [];
   return (term.value?.publications || []).filter(p => p.tc_sc === onlyTC.value);
 });
+
+// Proposal modal — decision buttons open it inline. The modal needs the
+// VocabGap shape (with `near_misses`), so we look it up from the global
+// vocabGaps index by slug. `canPropose` only renders the buttons for terms
+// that ARE in vocabGaps, so this lookup always succeeds when the user can
+// click.
+const modalRef = ref<InstanceType<typeof ProposalModal> | null>(null);
+const currentGap = computed<VocabGap | null>(() => vocabGaps.find(g => g.slug === props.slug) || null);
+function openProposal(target: ProposalTarget | null = null) {
+  if (!currentGap.value || !modalRef.value) return;
+  modalRef.value.open(currentGap.value, target);
+}
 </script>
 
 <template>
@@ -559,15 +574,15 @@ const filteredPublications = computed(() => {
                 </a>
               </div>
               <div class="decision-options">
-                <a v-if="term.vocab_presence.viml" class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Adopt V 1 (VIML: {{ term.vocab_presence.viml.designation }}) →</a>
-                <a v-if="term.vocab_presence.vim" class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Adopt V 2 (VIM: {{ term.vocab_presence.vim.designation }}) →</a>
-                <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Propose V 3 →</a>
+                <button v-if="term.vocab_presence.viml" type="button" class="decision-option" @click="openProposal('V1')">Adopt V 1 (VIML: {{ term.vocab_presence.viml.designation }}) →</button>
+                <button v-if="term.vocab_presence.vim" type="button" class="decision-option" @click="openProposal('V2')">Adopt V 2 (VIM: {{ term.vocab_presence.vim.designation }}) →</button>
+                <button type="button" class="decision-option" @click="openProposal('V3')">Propose V 3 →</button>
               </div>
             </template>
             <template v-else>
               No VIM/VIML near-miss found — this appears to be a unique OIML term.
               <div class="decision-options">
-                <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Propose for V 3 →</a>
+                <button type="button" class="decision-option" @click="openProposal('V3')">Propose for V 3 →</button>
               </div>
             </template>
           </div>
@@ -578,15 +593,15 @@ const filteredPublications = computed(() => {
             <strong>Citation is outdated.</strong> The term exists in {{ term.latest_check?.latest_label }} but publications cite an older edition.
             <div class="decision-options">
               <a v-if="term.latest_check?.url" class="decision-option" :href="term.latest_check.url">View {{ term.latest_check?.latest_label }} concept ↗</a>
-              <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Propose →</a>
+              <button type="button" class="decision-option" @click="openProposal()">Propose →</button>
             </div>
           </div>
           <div v-else-if="term.latest_check && !term.latest_check.found" class="decision-path">
             <strong>Removed from {{ term.latest_check?.latest_label }}.</strong> This term is no longer in the latest VIM/VIML edition.
             <div class="decision-options">
-              <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Propose for V 1 (VIML) →</a>
-              <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Propose for V 2 (VIM) →</a>
-              <a class="decision-option" :href="`${base}proposals/?term=${term.slug}`">Propose for V 3 →</a>
+              <button type="button" class="decision-option" @click="openProposal('V1')">Propose for V 1 (VIML) →</button>
+              <button type="button" class="decision-option" @click="openProposal('V2')">Propose for V 2 (VIM) →</button>
+              <button type="button" class="decision-option" @click="openProposal('V3')">Propose for V 3 →</button>
             </div>
           </div>
         </div>
@@ -1047,6 +1062,8 @@ const filteredPublications = computed(() => {
     </div>
       </template>
     </section>
+
+    <ProposalModal ref="modalRef" />
   </template>
 </template>
 
