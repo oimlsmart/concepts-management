@@ -519,9 +519,17 @@ const filteredPublications = computed(() => {
 
 // Proposal modal — decision buttons open it inline. The modal needs the
 // VocabGap shape (with `near_misses`), so we look it up from the global
-// vocabGaps index by slug. `canPropose` only renders the buttons for terms
-// that ARE in vocabGaps, so this lookup always succeeds when the user can
-// click.
+// vocabGaps index by slug.
+//
+// Fallback: the build script only includes terms with kind
+// "oiml_original" or "undefined" in vocabGaps. Some terms (e.g.
+// `agreement-group` with no `official_concept`, or `accuracy-class`
+// with an outdated VIM citation) still render Propose buttons in the
+// decision flow and recommendation banner, but a plain index lookup
+// returns null and the click is a silent no-op. For those, build a
+// minimal VocabGap from the term data so the modal can still open.
+// The trigger is `canPropose || term.latest_check` — the same
+// conditions under which a "Propose" button is rendered.
 //
 // Note: the Propose buttons in the decision flow are deliberately
 // `<button>` elements (no `href`) that trigger `openProposal()` rather
@@ -530,7 +538,38 @@ const filteredPublications = computed(() => {
 // proposal in context. The recommendation banner routes to the same
 // `openProposal()` for the "Propose" action.
 const modalRef = ref<InstanceType<typeof ProposalModal> | null>(null);
-const currentGap = computed<VocabGap | null>(() => vocabGaps.find(g => g.slug === props.slug) || null);
+
+function buildGapFromTerm(t: any): VocabGap {
+  const pubs = t.publications || [];
+  return {
+    slug: t.slug,
+    name: t.name,
+    identifier: t.identifier || "",
+    definitions: Array.from(new Set(pubs.map((p: any) => p.definition).filter(Boolean))),
+    publications: pubs.map((p: any) => ({
+      publication_id: p.publication_id,
+      tc_sc: p.tc_sc,
+      edition: p.edition,
+    })),
+    editions_present: [],
+    is_current: pubs.some((p: any) => p.lifecycle === "current"),
+    is_historic: pubs.some((p: any) => p.lifecycle === "historic"),
+    near_misses: {
+      vim: t.vocab_presence?.vim || null,
+      viml: t.vocab_presence?.viml || null,
+    },
+  };
+}
+
+const currentGap = computed<VocabGap | null>(() => {
+  const indexed = vocabGaps.find(g => g.slug === props.slug);
+  if (indexed) return indexed;
+  const t = term.value;
+  if (!t) return null;
+  if (canPropose.value || t.latest_check) return buildGapFromTerm(t);
+  return null;
+});
+
 function openProposal(target: ProposalTarget | null = null) {
   if (!currentGap.value || !modalRef.value) return;
   modalRef.value.open(currentGap.value, target);
