@@ -32,7 +32,7 @@
     "zod": "^4.4.3"
   },
   "dependencies": {
-    "@oimlsmart/site-shell": "0.2.0",
+    "@oimlsmart/site-shell": "0.2.3",
     "glossarist": "^0.4.17",
     "mermaid": "^11.16.0",
     "yaml": "^2.9.0"
