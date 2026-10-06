@@ -98,15 +98,15 @@ const priorityBadge = (rank: number) =>
           <span class="corpus-unit">total publications</span>
         </div>
         <div class="corpus-breakdown">
-          <SLink to="/publications/" class="corpus-row">
+          <SLink to="/publications/?lifecycle=current" class="corpus-row">
             <span class="corpus-dot corpus-dot-current"></span>
             <strong>{{ dashboard.pub_current || 0 }}</strong> current
           </SLink>
-          <SLink to="/publications/" class="corpus-row">
+          <SLink to="/publications/?lifecycle=retired" class="corpus-row">
             <span class="corpus-dot corpus-dot-historic"></span>
             <strong>{{ dashboard.pub_retired || 0 }}</strong> retired
           </SLink>
-          <SLink to="/publications/" class="corpus-row">
+          <SLink to="/publications/?lifecycle=withdrawn" class="corpus-row">
             <span class="corpus-dot corpus-dot-withdrawn"></span>
             <strong>{{ dashboard.pub_withdrawn || 0 }}</strong> withdrawn
           </SLink>
@@ -173,22 +173,22 @@ const priorityBadge = (rank: number) =>
   <section class="card reveal reveal-3 alignment-overview" v-if="dashboard.alignment_counts">
     <h2>Concept alignment status</h2>
     <div class="alignment-grid">
-      <SLink to="/concepts/" class="alignment-stat alignment-aligned">
+      <SLink to="/concepts/?align=aligned" class="alignment-stat alignment-aligned">
         <div class="alignment-num">{{ dashboard.alignment_counts.aligned || 0 }}</div>
         <div class="alignment-label">Aligned</div>
         <div class="alignment-desc">Designation + definition match V1/V2</div>
       </SLink>
-      <SLink to="/concepts/" class="alignment-stat alignment-diverges">
+      <SLink to="/concepts/?align=diverges" class="alignment-stat alignment-diverges">
         <div class="alignment-num">{{ dashboard.alignment_counts.diverges || 0 }}</div>
         <div class="alignment-label">Definition diverges</div>
         <div class="alignment-desc">Same designation, different definition</div>
       </SLink>
-      <SLink to="/concepts/" class="alignment-stat alignment-fuzzy">
+      <SLink to="/concepts/?align=fuzzy" class="alignment-stat alignment-fuzzy">
         <div class="alignment-num">{{ dashboard.alignment_counts.fuzzy || 0 }}</div>
         <div class="alignment-label">Fuzzy match</div>
         <div class="alignment-desc">Similar designation exists in V1/V2</div>
       </SLink>
-      <SLink to="/concepts/" class="alignment-stat alignment-none">
+      <SLink to="/concepts/?align=none" class="alignment-stat alignment-none">
         <div class="alignment-num">{{ dashboard.alignment_counts.none || 0 }}</div>
         <div class="alignment-label">No match</div>
         <div class="alignment-desc">OIML-specific — propose for V3</div>
