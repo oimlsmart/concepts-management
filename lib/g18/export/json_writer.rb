@@ -430,10 +430,17 @@ module G18
 
       # Builds the tc_data index once and memoizes it. Shared between
       # write_tc_stats (summary counts) and write_per_tc_detail (full
-      # detail per TC). Only pubs referenced by at least one term with
-      # matching tc_sc are included — same scoping as the original script.
-      def tc_data_for(terms)
-        @tc_data ||= terms.each_with_object({}) do |t, acc|
+      # detail per TC). TCs with at least one term are populated from
+      # `terms`; TCs that only have publications (e.g. BIML — 1 pub, 0
+      # terms) are also included so write_per_tc_detail writes a JSON
+      # file for them and the page doesn't 404 on its data fetch.
+      #
+      # Not memoised: this is called from two writers and they want
+      # different shapes (one needs publications for inclusion, the
+      # other doesn't).
+      def tc_data_for(terms, publications = nil)
+        acc = {}
+        terms.each do |t|
           (t["publications"] || []).each do |p|
             tc = p["tc_sc"]
             next unless tc && !tc.to_s.strip.empty?
@@ -447,6 +454,15 @@ module G18
             d["ed_#{ed}_pubs"] << p["publication_id"] if p["publication_id"]
           end
         end
+        if publications
+          publications.each do |p|
+            tc = p["tc_sc"]
+            next unless tc && !tc.to_s.strip.empty?
+            d = acc[tc] ||= { "terms" => Set.new, "pubs" => Set.new }
+            d["pubs"] << p["id"] if p["id"]
+          end
+        end
+        acc
       end
 
       def write_tc_stats(terms)
@@ -490,7 +506,7 @@ module G18
       def write_per_tc_detail(terms, publications)
         dir = File.join(@repo_root, "web", "public", "data", "tcs")
         FileUtils.mkdir_p(dir)
-        tc_data_for(terms).each do |tc, d|
+        tc_data_for(terms, publications).each do |tc, d|
           tc_terms = terms.select { |t| (t["publications"] || []).any? { |p| p["tc_sc"] == tc } }
           slim_terms = tc_terms.map { |t|
             slim_pubs = strip_pubs(t["publications"])
