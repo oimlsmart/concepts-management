@@ -140,6 +140,36 @@ RSpec.describe G18::Export::JsonWriter do
     end
   end
 
+  describe "#write_per_tc_detail" do
+    it "writes one JSON file per TC referenced by a term" do
+      terms = [{
+        "slug" => "a", "name" => "A", "kind" => "oiml_original",
+        "identifier" => "001", "editions_present" => ["complete"],
+        "designations" => [], "suggested_actions" => [],
+        "publications" => [{ "publication_id" => "OIML R 1", "tc_sc" => "TC9", "edition" => "complete" }],
+      }]
+      pubs = [{ "id" => "OIML R 1", "tc_sc" => "TC9" }]
+      writer.write_per_tc_detail(terms, pubs)
+      dir = File.join(repo_root, "web", "public", "data", "tcs")
+      expect(File.exist?(File.join(dir, "tc9.json"))).to be(true)
+    end
+
+    it "writes a JSON file for TCs that have publications but no terms" do
+      # Regression: BIML has 1 publication but 0 terms, so previously
+      # write_per_tc_detail skipped it and the page 404'd on the JSON fetch.
+      terms = []
+      pubs = [{ "id" => "OIML B 18:2022", "tc_sc" => "BIML", "lifecycle" => "retired" }]
+      writer.write_per_tc_detail(terms, pubs)
+      dir = File.join(repo_root, "web", "public", "data", "tcs")
+      path = File.join(dir, "biml.json")
+      expect(File.exist?(path)).to be(true)
+      parsed = JSON.parse(File.read(path))
+      expect(parsed["tc"]).to eq("BIML")
+      expect(parsed["terms"]).to eq([])
+      expect(parsed["publications"].first["id"]).to eq("OIML B 18:2022")
+    end
+  end
+
   describe "#strip_pub" do
     it "removes heavy provenance fields" do
       writer.send(:strip_pub, { "source_lineage" => "x", "definition" => "y" })
