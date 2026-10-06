@@ -74,7 +74,7 @@ function lifecycleBadge(lc: string): { label: string; cls: string } {
   <div class="page-head">
     <div class="breadcrumb"><SLink to="/">Home</SLink> / <span>Publications</span></div>
     <h1>Publications</h1>
-    <p class="lede">{{ totalWithTerms }} publications with terms · {{ lifecycleCounts.current }} current · {{ lifecycleCounts.retired }} retired · {{ lifecycleCounts.withdrawn }} withdrawn</p>
+    <p class="lede">{{ listedPubs.length }} publications</p>
   </div>
 
   <section class="card">

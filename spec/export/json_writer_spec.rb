@@ -85,6 +85,32 @@ RSpec.describe G18::Export::JsonWriter do
     end
   end
 
+  describe "publication counts in dashboard" do
+    it "excludes VIM/VIML vocabulary editions from pub_* counts and total" do
+      # Regression: the dashboard's total and lifecycle counts used to
+      # include vocab editions ("OIML V 1:2022" etc.), so the home page
+      # showed 366 while /publications/ (which filters vocab) showed 357.
+      terms = [{
+        "slug" => "a", "name" => "a", "kind" => "oiml_original",
+        "editions_present" => ["complete"],
+        "suggested_actions" => [{ "type" => "unique" }],
+        "alignment" => { "alignment" => "aligned" },
+        "publications" => [{ "publication_id" => "OIML R 1", "definition" => "def" }],
+      }]
+      pubs = [
+        { "id" => "OIML R 1", "lifecycle" => "current" },
+        { "id" => "OIML V 1:2022", "reference" => "OIML V 1:2022", "lifecycle" => "current" },
+        { "id" => "OIML V 2-200:2012", "reference" => "OIML V 2-200:2012", "lifecycle" => "current" },
+      ]
+      writer.write_dashboard(terms, pubs, [])
+      dash = read_json("dashboard.json")
+      expect(dash["total_publications"]).to eq(1)
+      expect(dash["pub_current"]).to eq(1)
+      expect(dash["pub_retired"]).to eq(0)
+      expect(dash["pub_withdrawn"]).to eq(0)
+    end
+  end
+
   describe "#compute_collisions" do
     it "detects raw ID conflicts across terms in the same edition" do
       terms = [{

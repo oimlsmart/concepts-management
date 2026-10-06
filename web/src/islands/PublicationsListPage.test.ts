@@ -37,9 +37,10 @@ describe("PublicationsListPage", () => {
     await wrapper.vm.$nextTick();
     const refs = rowRefs(wrapper);
     expect(refs.some(r => r.startsWith("OIML V "))).toBe(false);
-    expect(wrapper.find(".lede").text()).toBe(
-      "2 publications with terms · 1 current · 1 retired · 0 withdrawn"
-    );
+    // Lede shows the total count (matching the home page's dashboard).
+    // The lifecycle breakdown used to live here but mixed "with terms"
+    // and total counts, which was confusing — now lives in the filter UI.
+    expect(wrapper.find(".lede").text()).toMatch(/^\d+ publications$/);
   });
 
   it("honours a lifecycle value carried in the URL", async () => {
