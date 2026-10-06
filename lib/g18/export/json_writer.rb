@@ -162,7 +162,7 @@ module G18
 
         dashboard = {
           "total_terms" => terms.length,
-          "total_publications" => publications.length,
+          "total_publications" => pub_lc.values.sum,
           "kind_counts" => kind_counts,
           "edition_counts" => edition_counts,
           # Backward-compat totals (all gaps, including historic)
@@ -231,9 +231,20 @@ module G18
       end
 
       def compute_pub_lifecycle(publications)
-        publications.each_with_object(Hash.new(0)) do |p, h|
-          h[p["lifecycle"] || "current"] += 1
-        end
+        # VIM/VIML editions ("OIML V 1:2022" etc.) are vocabularies, not
+        # OIML publications — excluded so the dashboard counts match
+        # what /publications/ shows after the page's own vocab filter.
+        publications
+          .reject { |p| vocabulary_publication?(p) }
+          .each_with_object(Hash.new(0)) do |p, h|
+            h[p["lifecycle"] || "current"] += 1
+          end
+      end
+
+      def vocabulary_publication?(pub)
+        id = pub["id"].to_s
+        ref = pub["reference"].to_s
+        id.match?(/\AOIML\s+V\b/) || ref.match?(/\AOIML\s+V\b/)
       end
 
       def compute_concepts_from(terms, publications)
